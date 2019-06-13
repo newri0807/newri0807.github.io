@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+/*reset*/
+* { margin: 0;
+    padding: 0;    
+}
+body,html{width: 100%;height: 100%;}
+/*태그선택자*/
+body {font: 10px 'Nanum Gothic', "맑은 고딕", arial, sans-serif;  color: #333;}
+
+/*기본셋팅하기-복사해 붙여넣기해!(컬러는 변경가능)*/
+ul,li{list-style: none;}
+img{border: none;}
+a{color: #fff; text-decoration: none;}
+input{border: none; outline: none;}
+
+#logo{width: 247px;height: 54px; margin-left: 25px; margin-top:50px; /*background:url(./_images/logo.png) no-repeat;*/ position: relative; top:20px;left:30px; cursor: pointer;}
+
+
+#menu{width: 100%;height: 151px;background-color: rgba(255,255,255,0.6); box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+    position: fixed; top:0; left: 0 ;/*메뉴바 고정 _ 스크롤내려도*/ z-index:100;}
+#gnb{width: 900px; margin: 0 auto; position: relative;}
+#gnb li {float: left; width: 120px; height: 50px;  position: relative; }/*600/5*/
+#gnb li a {font-size: 14px;font-weight: bold;color: #333;
+    text-align: center;display: block; /*가운데정렬*/}
+#gnb li a:hover{color:#1180a8;}
+
+/*클릭시 나오는 서브메뉴 */
+.sub{display:none; position: absolute; top:50px; left: 0; z-index: 1000; text-align: center;}/*left: -30px*/
+#gnb .sub li{clear:both; background-color:rgba(236, 236, 236, 0.7);}
+#con6_color{display:block; width:100px; border-bottom: 5px solid skyblue;}
+#gnb .sub li a{line-height: 42px; color: #181818;  display:block;}
+#gnb .sub li:hover{width: 100%;background-color: #8ec2ef;}
+#gnb .sub li:hover a{color: #fff}
+#gnb li:hover .sub{display: block;}/*서브메뉴안보이게 했다가==.sub{display:none;
+대메뉴 hover 하면 sub 메뉴 보이게 하기 == #gnb li:hover .sub{display: block;} */
+
+#con0,#con1,#con0-1,#con2,#con3{width: 100%;overflow: hidden; clear: both;}
+
+#con0{width: 100%;height: 373px; position: relative;overflow: hidden;margin-top: 150px;}
+#con0 img{position: relative;}
+
+#con0-1{width: 100%; height: 130px;cursor: pointer;}
+#con0-1 .box1{width: 33.3%;height: 130px; float:left;background-color:#275ca0;}
+#con0-1 .box2{width: 33.3%;height: 130px; float:left;background-color: #f69071;}
+#con0-1 .box3{width: 33.3%;height: 130px; float:left;}
+
+
+#con1 {width: 100%;height: 550px; margin: 270px auto 0;    }
+#con1 h2{ margin-bottom: 25px; font-size: 25px; color: powderblue; text-align: center;}
+#con1 h2 strong {color:dodgerblue;}
+
+#con1 div{height: 278px; width: 20%; float:left; display: block;opacity: 0.8;transition: all 0.8;float: left;cursor: pointer;} 
+#con1 div:hover{opacity: 1;transform:scale(0.9);}
+#con1 .system1 { padding-left: 13%;}
+
+/*
+background-color: #eee; 
+background-image:url(./images/image1.jpg);
+background-repeat: no-repeat;
+background-size:100% 100%; 
+background-position: center center;*/
+
+#con2{width: 100%;height: 400px; background: #b7dde6; padding-top: 10px;} 
+
+.slide{position: relative; top: 0;left:0;overflow: hidden; width: 1800px; height: 300px;margin-top: 80px;}
+.slide img {display:block; width: 1300px; height: 200px; position: absolute; top: 0;left:310px;}
+.btn{position: relative;top: -80px;left: 48%;}
+.btn p{width: 20px;height: 20px; border-radius: 15px;float: left;margin-left: 10px;cursor: pointer;text-align: center;line-height: 20px;text-indent: -9999px; background-color: lightslategray;}
+
+input{display: none;}
+#ck1:checked ~ .slide img:nth-child(1){margin-left: 0%;z-index: 33;}
+#ck2:checked ~ .slide img:nth-child(2){margin-left: -100%;}
+#ck3:checked ~ .slide img:nth-child(3){margin-left: -200%;}
+#ck1:checked ~ .btn li:nth-child(1) p{background-color: #fff;}
+#ck2:checked ~ .btn li:nth-child(2) p{background-color: #fff;}
+#ck3:checked ~ .btn li:nth-child(3) p{background-color: #fff;}
+
+#con3{width: 100%; height: 500px;background: #fff;}
+#con3  div{float:left;padding-top: 90px;}
+#con3 img{width: 95%;height:80% }
+#con3 .itd1{width: 659px;height: 422px;padding-left: 313px;padding-right: 10px;}
+#con3 .itd2{width: 304px;height: 422px; margin: 0 20px;}
+#con3 .itd3{width: 304px;height: 422px;}
+
+
+#footer{clear:both; position:relative; display: block; width: 100%; height: 150px; background: #25467b; font-size: 13px; color: #fff; text-align:right; }
+#footer .h_logo {display: block;float: left; width: 247px;height: 54px; background-image: url(./images/logo.png); position: absolute; top: 50px; left: 50px;}
+#footer .logos {clear:both; position: relative;cursor: pointer;}
+#footer .sns1{ position: absolute; top: 45px; left: 700px;
+    width: 47px;height: 47px;float:left; background: url(./images/sns_icon1.png) no-repeat; }
+#footer .sns2{position: absolute; top: 45px; left: 747px;
+    width: 47px;height: 47px;float:left; background: url(./images/sns_icon2.png) no-repeat; margin: 0 10px;}
+#footer .sns3{position: absolute; top: 45px; left: 815px;
+    width: 47px;height: 47px;float:left; background: url(./images/sns_icon3.png) no-repeat;}
+#m_line{ clear:both; position: absolute; top: 25px;left: 73px; border-right: 3px solid #fff; width: 900px; text-indent: -99999px; overflow:hidden; }
+#footer .vl {
+  border-left: 3px solid green;
+  height: 105px;
+  position: absolute; left: 100%;  top: 0;}/*수평선만드는방법2*/
+#footer .copyright{clear:both; float:right; margin-top: 50px;margin-right: 50px; }/*수평선만드는방법1*/
+
+#top{width: 50px;height: 50px; position: fixed;z-index:20; right:45px; bottom: 50px;}
+
+
+
+
+/*사이드 아이콘 정렬*/
+.s_icon{clear:both; display:block;  /*vertical-align: middle;*/  z-index:20;}
+.s_icon{display: block; margin-left: 93%; position: fixed; bottom: 100px; overflow: hidden;}
+.s_icon li img{margin-bottom: 10px; width: 80%; overflow: hidden;  z-index:20; display: block;}
+.vl{position: fixed; width: 1px; height: 100%; border-right: 3px solid #3e89c9; z-index: 10; display: block; right:68px; top: 150px;}
+

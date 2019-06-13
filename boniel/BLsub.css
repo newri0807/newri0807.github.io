@@ -1,0 +1,17 @@
+* { margin: 0;
+    padding: 0;}
+body,html{width: 100%;}
+
+
+.d_2_menu{width: 1920px; height:80px; background-color: #b7dde6;  }
+.d_2_menu ul{overflow: hidden; display: block; margin-left: 230px; }
+.d_2_menu li {float: left; display: block; margin: 55px 50px;  } 
+.d_2_menu li a{color:#fff; font-size: 17px; font-weight: bold;  }
+.d_2_menu li a:hover {border-bottom: 5px solid #3e89c9;} 
+
+
+#promotion {height: 100%;width: 100%;}
+#promotion .img{width: 100%;height: 2896; margin: 50px auto 150px; text-align: center;cursor: pointer;}
+
+
+.ft{clear: both;position: relative;bottom: -2080px;left: 0;}
