@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 자동저장되는 캐쉬들 삭제설정 ↓ -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="title" content="충북문화재단 웹앱">
+    <meta name="keyword" content="충북문화재단, 충북, 문화재단">
+    <meta name="auther" content="newli">
+    <meta name="description" content="함께하는 문화예술 행복한 충북 충북문화재단입니다">
+
+    <title>충북문화재단</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://github.com/necolas/normalize.css">
+    <link rel="stylesheet" href="./normalize.css">
+    
+    <link rel="stylesheet" href="./common.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+ 
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+       $(".gnb a.dp1").click(function(){
+           $(".sub").removeClass("on");
+           $(this).next(".sub").addClass("on");
+           $(".gnb a.dp1").removeClass("on");
+           $(this).addClass("on");
+       });
+
+       var wd = parseInt($(".slider").width());
+        $(".btn_box li").click(function(){
+            var idx= $(this).index();
+            $(".img_box").not(":animated").animate({"margin-left":wd*idx*-1+"px"},600);
+            $(".btn_box li").removeClass("on");
+            $(this).addClass("on");
+        }); 
+
+
+    });
+    
+    
+    
+    
+    </script>
+
+
+
+    <style>
+.wrap{width: 100%; height: 100%; background-image: url(./img/Bback.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;}
+.hd{width: 100%; height: 50%;/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#35449b+0,e5e5e5+100 */
+background: rgb(53,68,155); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(53,68,155,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(53,68,155,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(53,68,155,1) 0%,rgba(229,229,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35449b', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+ .logo{display: block;width: 200px;height: 80px;float: left;margin: 10px;}
+
+.top_btn {float: right;margin-top: 15px;}
+.top_btn li{float: left;margin-top: 15px;margin-right: 10px;}
+.top_btn li label{display: block;height: 25px;}
+.top_btn i{color:#fff; font-size: 1.2em;}
+.close{display: block;font-size: 1.2em;}
+.ck_item{display: none;}
+.find_nav{position: fixed; left: -110%;top: 0;width: 100%;height: 100vh;background-color: #fff;z-index: 99;transition: 0.5s;}
+#ck1:checked ~ .find_nav{left: 0;}
+.gnb{position: fixed;right: -110%; top: 0;z-index: 99;width: 100%;height: 100vh;background-color: #fff;transition: 0.5s;}
+#ck2:checked ~ .gnb{right: 0;}
+
+.frm1{clear: both;padding-top: 1.6em;width: 280px; margin: 0 auto;}
+.frm1 input{display: block;float: left;}
+#keyword{width: 200px;line-height: 32px;border-radius: 20px; border: 1px solid #000; text-indent: 10px; margin-left: 10px; margin-top: 10px; }
+#submit{width: 35px;height: 35px; background-color: #000;border-radius: 20px; margin-left: 10px; margin-top: 10px; color: #fff;}
+#submit i {text-align: center;width: 35px; margin: 0 auto;}
+.hash_title{clear: both;text-align: center; line-height: 4;}
+.hash {clear: both; padding: 20px; text-align: center;}
+.hash li{line-height: 2.4;}
+.hash li a{color:#35449b;font-size: 1.2em;}
+.fas.fa-times{float:right; font-size: 1.3em; margin-right: 10px;display: block;color:#000;}
+
+
+.gnb li{clear: both;line-height: 3;padding-left: 25px;}
+.gnb li a{color:#333;position: relative;display: block;}
+.sub{width: 100%;height: 0;overflow: hidden;transition:0.5s;}
+.sub li a{color:#35449b;}
+.sub.on{height: 100px;}
+.gnb li a.dp1:after{content:"▼"; position: absolute; right: 50px;top: 5px;}
+.gnb li a.dp1.on:after{content:"▲"}
+.gnb:before{content:"MENU"; display: block; clear: both;width: 100%;line-height: 80px; font-size: 2em;text-align: center; color:#35449b;}
+.gnb i{float: left; font-size: 1.3em;position: absolute; right: 20px;top: 20px;font-size: 2em;color:#35449b;}
+
+.ft{clear: both;height: 100px;position: absolute;bottom: 0;left: 0;width: 100%;text-align: center;}
+.ft_wrap{width: 280px; margin: -50px auto;}
+.ft_wrap p{font-size: 0.8em;padding-top: 10px;}
+
+    </style>
+
+    <style>
+     body,html{width: 100%;height: 100%; overflow: hidden;}
+    
+    .slider{position: absolute;width: 90%;top: 90px;left: 5%;max-height: 60%;overflow: hidden;z-index: 1;}
+    .img_box{width: 500%;height: auto;}
+    .img_box li{width: 20%;height: auto;float: left;}
+    .img_box li a{display: block;width: 100%;}
+    .img_box li img{display: block; width: 300px;height: 260px;margin: 0 auto;}
+    
+    .btn_box{position: absolute;bottom: 0px; width: 100px; left:calc(50% - 50px);}
+    .btn_box li{width: 20px; height: 20px; float: left;}
+    .btn_box li button{display: block;width: 10px;height: 10px;border-radius: 6px; background: #333;}
+    .btn_box li.on button{background-color: gray;}
+
+    .shortcut{width: 366px; margin: 35px auto;}
+    .shortcut li{float:left; width: 120px; height: 40px; border: 1px solid #35449b; line-height: 40px; text-align: center;}
+    .shortcut li a{color:  #35449b; text-shadow: 2px 2px 2px gray;}
+    /* .shortcut li span[class*=ico]{} */
+
+
+    </style>
+</head>
+<body>
+  <!-- div.wrap>header.hd+figure.vs+nav.shortcut+footer.ft -->
+  <div class="wrap">
+
+        <header class="hd">
+        <a href="index.html" class="logo"><img src="./img/logo.png" alt="logo"width="200px" height="60px"></a>
+        <input type="checkbox" name="checkbox"  id="ck1" class="ck_item">
+        <input type="checkbox" name="checkbox"  id="ck2" class="ck_item">
+        <nav class="top_btn">
+            <li><label for="ck1"><i class="fas fa-search"></i></label></li>
+            <li><label for="ck2"><i class="fas fa-bars"></i></label></li>
+        </nav>
+        
+        <!--search 클릭 시 열리는 창 -->
+        <nav class="find_nav">
+           <form action="" class="frm1">
+                <input type="text" id="keyword" placeholder="검색어를 입력해주세요.">
+                 <button id="submit"><i class="fas fa-search"></i></button>
+                <ul class="hash">
+                    <li><a href="">#찾아오는길</a></li>
+                    <li><a href="">#공지</a></li>
+                    <li><a href="">#행사</a></li>
+                    <li><a href="">#자료</a></li>
+                    <li><a href="">#충북</a></li>
+                </ul>
+            </form>
+            <label for="ck1" class="close"><i class="fas fa-times"></i></label> 
+        </nav>
+        
+        <!--menu 클릭 시 열리는 창 -->
+        <nav class="gnb">
+            <ul class="nav">
+                <li class="item1"><a class="dp1">재단소개</a>
+                    <ul class="sub">
+                        <li class="item1"><a href="sub1.html#page1">인사말</a></li>
+                        <li class="item2"><a href="">연혁</a></li>
+                        <li class="item3"><a href="">비전&전략</a></li>
+                        <li class="item4"><a href="">CI</a></li>
+                        <li class="item5"><a href="">조직도</a></li>
+                        <li class="item5"><a href="">협약기관</a></li>
+                        <li class="item5"><a href="">찾아오시는 길</a></li>
+                    </ul>  
+                </li>
+                <li class="item2"><a class="dp1">재단소식 </a>
+                    <ul class="sub">
+                        <li class="item1"><a href="">공지/공고</a></li>
+                        <li class="item2"><a href="">시험/채용</a></li>
+                        <li class="item3"><a href="">보도자료</a></li>
+                        <li class="item4"><a href="">타기관소식</a></li>                       
+                    </ul>  
+               </li>
+                <li class="item3"><a class="dp1">주요사업</a>
+                    <ul class="sub">
+                        <li class="item1"><a href="">문화예술강화사업</a></li>
+                        <li class="item2"><a href="">생활문화예술지원</a></li>
+                        <li class="item3"><a href="">문화예술교육활성</a></li>                       
+                    </ul>  
+                </li>
+                <li class="item4"><a class="dp1">문화예술행사</a>
+                    <ul class="sub">
+                        <li class="item1"><a href="">전시</a></li>
+                        <li class="item2"><a href="">공연</a></li>
+                        <li class="item3"><a href="">행사</a></li>
+                        <li class="item4"><a href="">문화달력</a></li>
+                        <li class="item5"><a href="">문화이음창</a></li>
+                    </ul>  
+                </li>
+                <li class="item5"><a class="dp1">커뮤니티 </a>
+                    <ul class="sub">
+                        <li class="item1"><a href="">자주하는 질문</a></li>
+                        <li class="item2"><a href="">참여후기</a></li>
+                        <li class="item3"><a href="">칭찬합시다</a></li>
+                        <li class="item4"><a href="">문화재단에게</a></li>  
+                       
+                    </ul>  
+               </li>
+                <li class="item5"><a class="dp1">충북문화DB </a>
+                    <ul class="sub">
+                        <li class="item5"><a href="">서식자료</a></li>
+                        <li class="item5"><a href="">서식자료</a></li>
+                        <li class="item5"><a href="">영상자료</a></li>
+                        <li class="item5"><a href="">발간물</a></li>                        
+                    </ul>  
+               </li>
+            </ul>
+
+            <label for="ck2" class="close"><i class="fas fa-times"></i></label>  
+        </nav>
+           
+          
+        
+        </header> 
+        
+        
+        <!-- 슬라이드 -->
+        <figure class="slider">
+            <ul class="img_box">
+                <li><a href=""><img src="./img/slide1_s.jpg"></a></li>
+                <li><a href=""><img src="./img/slide2_S.jpg"></a></li> 
+                <li><a href=""><img src="./img/slide3_S.jpg"></a></li>
+                <li><a href=""><img src="./img/slide1_s.jpg"></a></li>
+                <li><a href=""><img src="./img/slide2_s.jpg"></a></li>             
+            </ul>
+
+            <ul class="btn_box">
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>           
+                </ul>  
+                
+
+        </figure>
+        
+        <!-- 숏컷 -->
+        <nav class="shortcut">
+            <li>
+                <a href=""><span class="ico1"><i class="fas fa-palette"></i></span>
+                <span class="txt">전시</span></a>
+            </li>
+            <li>
+                <a href=""><span class="ico2"><i class="fas fa-ticket-alt"></i></span>
+                <span class="txt">공연</span></a
+                ></li>
+            <li>
+                <a href=""><span class="ico3"><i class="far fa-newspaper"></i></span>
+                    <span class="txt">행사</span></a>
+                </li>
+            <li><a href=""><span class="ico4"><i class="far fa-calendar-check"></i></span>
+                <span class="txt">문화달력</span></a>
+            </li>
+            <li><a href=""><span class="ico5"><i class="fas fa-link"></i></span>
+                <span class="txt">문화이음창</span></a>
+            </li>
+            <li><a href=""><span class="ico6"><i class="fas fa-exclamation-circle"></i></span>
+                <span class="txt">공지사항</span></a>
+            </li>
+        </nav>
+        
+        <footer class="ft">
+        <div class="ft_wrap">
+            <li><img src="./img/ft_logo1_b.png" alt=""height="40"></li>
+            <p class="address">
+                 (우)28480 충청북도 청주시 청원구 향군로 94번길 7(충북문화예술인회관 4층,우암동) <br>
+                TEL : 043-222-5316 FAX : 043-222-5310 </p>
+        <p class="copyright">Copyright ⓒ 2016 BY CHUNGCHEONGBUK-DO CULTURAL FOUNDATION. All Right Reserved.</p>
+    
+
+
+        
+        </div>
+        
+        
+        </footer>
+        
+        
+        
+            </div>
+</body>
+</html>

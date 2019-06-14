@@ -1,0 +1,7 @@
+@charset "utf-8";
+*{padding: 0;margin: 0;}
+body,html{width: 100%; -ms-overflow-style:none; height: 100%; font-family: 'Noto Sans KR', sans-serif;}
+::-webkit-scrollbar{display: none;}
+ul,li{list-style: none;}
+a{text-decoration: none;}
+label,button,input{background-image: none;background-color: transparent; border:0; outline: none;}

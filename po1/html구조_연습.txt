@@ -1,0 +1,103 @@
+  <div class="wrap">
+
+<header class="hd">
+<a href="" class="logo"><img src="" alt=""></a>
+<input type="checkbox"name="checkbox" id="ck1">
+<input type="checkbox"name="checkbox" id="ck2">
+<nav class="top_btn">
+    <li><label for="ck1"><i class="fas fa-search"></i></label></li>
+    <li><label for="ck2"><i class="fas fa-bars"></i></label></li>
+</nav>
+
+<!--search 클릭 시 열리는 창 -->
+<nav class="find_nav">
+    <div class="form">
+        <input type="text" type="search">
+        <input type="text" type="submit">
+        <ul class="hash">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+    <label for="ck1" class="close">닫기</label> 
+</nav>
+
+<!--menu 클릭 시 열리는 창 -->
+<nav class="gnb">
+    <ul class="nav">
+        <li class="item1"><a href="" class="dp1">
+            <ul class="sub">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+                <li class="item3"><a href=""></a></li>
+                <li class="item4"><a href=""></a></li>
+                <li class="item5"><a href=""></a></li>
+            </ul>  
+        </a></li>
+        <li class="item2"><a href="" class="dp2">
+            <ul class="sub">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+                <li class="item3"><a href=""></a></li>
+                <li class="item4"><a href=""></a></li>
+                <li class="item5"><a href=""></a></li>
+            </ul>  
+        </a></li>
+        <li class="item3"><a href="" class="dp3">
+            <ul class="sub">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+                <li class="item3"><a href=""></a></li>
+                <li class="item4"><a href=""></a></li>
+                <li class="item5"><a href=""></a></li>
+            </ul>  
+        </a></li>
+        <li class="item4"><a href="" class="dp4">
+            <ul class="sub">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+                <li class="item3"><a href=""></a></li>
+                <li class="item4"><a href=""></a></li>
+                <li class="item5"><a href=""></a></li>
+            </ul>  
+        </a></li>
+        <li class="item5"><a href="" class="dp5">
+            <ul class="sub">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+                <li class="item3"><a href=""></a></li>
+                <li class="item4"><a href=""></a></li>
+                <li class="item5"><a href=""></a></li>
+            </ul>  
+        </a></li>
+    </ul>
+</nav>
+   
+<label for="ck1" class="close">닫기</label>    
+
+</header> 
+
+
+<!-- 슬라이드 -->
+figure.slider>ul.img_box>li*5>a>img
+ul.btn_box>li*5>button
+
+<!-- 숏컷 -->
+nav.shortcut>li*6>a>span.ico$+span.txt
+
+<footer class="ft">
+<div class="ft_wrap">
+p.copyright
+
+
+</div>
+
+
+</footer>
+
+
+
+    </div>
