@@ -5,3 +5,75 @@ body,html{width: 100%; -ms-overflow-style:none; height: 100%; font-family: 'Noto
 ul,li{list-style: none;}
 a{text-decoration: none;}
 label,button,input{background-image: none;background-color: transparent; border:0; outline: none;}
+
+
+.wrap{width: 100%; height: 100%; background-image: url(./img/Bback.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;}
+.hd{width: 100%; height: 50%;/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#35449b+0,e5e5e5+100 */
+background: rgb(53,68,155); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(53,68,155,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(53,68,155,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(53,68,155,1) 0%,rgba(229,229,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35449b', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.logo{display: block;width: 200px;height: 80px;float: left;margin: 10px;}
+
+.top_btn {float: right;margin-top: 15px;}
+.top_btn li{float: left;margin-top: 15px;margin-right: 10px;}
+.top_btn li label{display: block;height: 25px;}
+.top_btn i{color:#fff; font-size: 1.2em;}
+.close{display: block;font-size: 1.2em;}
+.ck_item{display: none;}
+.find_nav{position: fixed; left: -110%;top: 0;width: 100%;height: 100vh;background-color: #fff;z-index: 99;transition: 0.5s;}
+#ck1:checked ~ .find_nav{left: 0;}
+.gnb{position: fixed;right: -110%; top: 0;z-index: 99;width: 100%;height: 100vh;background-color: #fff;transition: 0.5s;}
+#ck2:checked ~ .gnb{right: 0;}
+
+.frm1{clear: both;padding-top: 1.6em;width: 280px; margin: 0 auto;}
+.frm1 input{display: block;float: left;}
+#keyword{width: 200px;line-height: 32px;border-radius: 20px; border: 1px solid #000; text-indent: 10px; margin-left: 10px; margin-top: 10px; }
+#submit{width: 35px;height: 35px; background-color: #000;border-radius: 20px; margin-left: 10px; margin-top: 10px; color: #fff;}
+#submit i {text-align: center;width: 35px; margin: 0 auto;}
+.hash_title{clear: both;text-align: center; line-height: 4;}
+.hash {clear: both; padding: 20px; text-align: center;}
+.hash li{line-height: 2.4;}
+.hash li a{color:#35449b;font-size: 1.2em;}
+.fas.fa-times{float:right; font-size: 1.3em; margin-right: 10px;display: block;color:#000;}
+
+
+.gnb li{clear: both;line-height: 3;padding-left: 25px;}
+.gnb li a{color:#333;position: relative;display: block;}
+.sub{width: 100%;height: 0;overflow: hidden;transition:0.5s;}
+.sub li a{color:#35449b;}
+.sub.on{height: 290px;}
+.gnb li a.dp1:after{content:"▼"; position: absolute; right: 50px;top: 5px;}
+.gnb li a.dp1.on:after{content:"▲"}
+.gnb:before{content:"MENU"; display: block; clear: both;width: 100%;line-height: 80px; font-size: 2em;text-align: center; color:#35449b;}
+.gnb i{float: left; font-size: 1.3em;position: absolute; right: 20px;top: 20px;font-size: 2em;color:#35449b;}
+
+.ft{clear: both;height: 100px;position: absolute;bottom: 0;left: 0;width: 100%;text-align: center;}
+.ft_wrap{width: 280px; margin: -50px auto;}
+.ft_wrap p{font-size: 0.8em;padding-top: 10px;}
+
+
+
+
+body,html{width: 100%;height: 100%; overflow: hidden;}
+
+.slider{position: absolute;width: 90%;top: 90px;left: 5%;max-height: 60%;overflow: hidden;z-index: 1;}
+.img_box{width: 500%;height: auto;}
+.img_box li{width: 20%;height: auto;float: left;}
+.img_box li a{display: block;width: 100%;}
+.img_box li img{display: block; width: 300px;height: 260px;margin: 0 auto;}
+
+.btn_box{position: absolute;bottom: 0px; width: 100px; left:calc(50% - 50px);}
+.btn_box li{width: 20px; height: 20px; float: left;}
+.btn_box li button{display: block;width: 10px;height: 10px;border-radius: 6px; background: #333;}
+.btn_box li.on button{background-color: gray;}
+
+.shortcut{width: 366px; margin: 35px auto;}
+.shortcut li{float:left; width: 120px; height: 40px; border: 1px solid #35449b; line-height: 40px; text-align: center;}
+.shortcut li a{color:  #35449b; text-shadow: 2px 2px 2px gray;}
+/* .shortcut li span[class*=ico]{} */
+
+
