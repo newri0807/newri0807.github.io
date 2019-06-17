@@ -1,6 +1,6 @@
 @charset "utf-8";
 *{padding: 0;margin: 0;}
-body,html{width: 100%; -ms-overflow-style:none; height: 100%; font-family: 'Noto Sans KR', sans-serif;}
+body,html{width: 100%; -ms-overflow-style:none; height: 100%; font-family: 'Noto Sans KR', sans-serif;background-image: url(./img/backgrond_no_logo.jpg);background-position: center center;background-size: cover;}
 ::-webkit-scrollbar{display: none;}
 ul,li{list-style: none;}
 a{text-decoration: none;}
@@ -17,6 +17,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35449b', end
 }
 
 .logo{display: block;width: 200px;height: 80px;float: left;margin: 10px;}
+.logo > img{cursor: pointer;}
 
 .top_btn {float: right;margin-top: 15px;}
 .top_btn li{float: left;margin-top: 15px;margin-right: 10px;}

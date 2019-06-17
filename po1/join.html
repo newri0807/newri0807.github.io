@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 자동저장되는 캐쉬들 삭제설정 ↓ -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="title" content="충북문화재단 웹앱">
+    <meta name="keyword" content="충북문화재단, 충북, 문화재단">
+    <meta name="auther" content="newli">
+    <meta name="description" content="함께하는 문화예술 행복한 충북 충북문화재단입니다">
+
+    <title>충북문화재단</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://github.com/necolas/normalize.css">
+    <link rel="stylesheet" href="./normalize.css">
+    
+    <link rel="stylesheet" href="./common.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+ 
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="./main.js"></script>
+  <style>
+   body,html{width: 100%;height: 100%; overflow:auto;}
+  .wrap{width: 100%;height: auto;}
+  .hd{height: 80px;position: fixed;z-index: 80;}
+  .ft_wrap{position: fixed;bottom: 0;left: 0;z-index: 1;width: 100%;height: 200px;background-color: #35449b;}
+  .page_title{clear: both; text-align: center; line-height: 3; padding-top: 100px;}
+  
+
+.frm1{clear: both;padding-bottom: 180px;overflow: scroll;}
+.in_frm{display: block;width: 280px;clear: both;margin: 15px auto;line-height: 2;font-size: 1em; border: 1px solid #eee;text-indent: 1em;border-radius: 30px; }
+.btn_frm{float: left;width: 100px;line-height: 32px; margin-left: 30px;background-color: #222222;color:#fff;}
+.frm_btn_frames{width: 200px;  }
+
+
+  </style>
+   
+</head>
+<body>
+  <!-- div.wrap>header.hd+figure.vs+nav.shortcut+footer.ft -->
+  <div class="wrap">
+
+        <header class="hd">
+        <a href="index.html" class="logo"><img src="./img/logo.png" alt="logo"width="200px" height="60px"></a>
+        <input type="checkbox" name="checkbox"  id="ck1" class="ck_item">
+        <input type="checkbox" name="checkbox"  id="ck2" class="ck_item">
+        <nav class="top_btn">
+            <li><label for="ck1"><i class="fas fa-search"></i></label></li>
+            <li><label for="ck2"><i class="fas fa-bars"></i></label></li>
+        </nav>
+        
+        <!--search 클릭 시 열리는 창 -->
+        <nav class="find_nav">
+           <form action="" class="frm1">
+                <input type="text" id="keyword" placeholder="검색어를 입력해주세요.">
+                 <button id="submit"><i class="fas fa-search"></i></button>
+                <ul class="hash">
+                    <li><a href="">#찾아오는길</a></li>
+                    <li><a href="">#공지</a></li>
+                    <li><a href="">#행사</a></li>
+                    <li><a href="">#자료</a></li>
+                    <li><a href="join.html">#로그인</a></li>
+                </ul>
+            </form>
+            <label for="ck1" class="close"><i class="fas fa-times"></i></label> 
+        </nav>
+        
+        <!--menu 클릭 시 열리는 창 -->
+        <nav class="gnb">
+                <ul class="nav">
+                        <li class="item1"><a class="dp1">재단소개</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">인사말</a></li>
+                                <li class="item2"><a href="sub1.html#page1">연혁</a></li>
+                                <li class="item3"><a href="sub1.html#page1">비전&전략</a></li>
+                                <li class="item4"><a href="sub1.html#page1">CI</a></li>
+                                <li class="item5"><a href="sub1.html#page1">조직도</a></li>
+                                <li class="item5"><a href="sub1.html#page1">협약기관</a></li>
+                                <li class="item5"><a href="sub1.html#page1">찾아오시는 길</a></li>
+                            </ul>  
+                        </li>
+                        <li class="item2"><a class="dp1">재단소식 </a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">공지/공고</a></li>
+                                <li class="item2"><a href="sub1.html#page1">시험/채용</a></li>
+                                <li class="item3"><a href="sub1.html#page1">보도자료</a></li>
+                                <li class="item4"><a href="sub1.html#page1">타기관소식</a></li>                       
+                            </ul>  
+                       </li>
+                        <li class="item3"><a class="dp1">주요사업</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">문화예술강화사업</a></li>
+                                <li class="item2"><a href="sub1.html#page1">생활문화예술지원</a></li>
+                                <li class="item3"><a href="sub1.html#page1">문화예술교육활성</a></li>                       
+                            </ul>  
+                        </li>
+                        <li class="item4"><a class="dp1">문화예술행사</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">전시</a></li>
+                                <li class="item2"><a href="sub1.html#page1">공연</a></li>
+                                <li class="item3"><a href="sub1.html#page1">행사</a></li>
+                                <li class="item4"><a href="sub1.html#page1">문화달력</a></li>
+                                <li class="item5"><a href="sub1.html#page1">문화이음창</a></li>
+                            </ul>  
+                        </li>
+                        <li class="item5"><a class="dp1">커뮤니티 </a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">자주하는 질문</a></li>
+                                <li class="item2"><a href="sub1.html#page1">참여후기</a></li>
+                                <li class="item3"><a href="sub1.html#page1">칭찬합시다</a></li>
+                                <li class="item4"><a href="sub1.html#page1">문화재단에게</a></li>  
+                               
+                            </ul>  
+                       </li>
+                        <li class="item5"><a class="dp1">충북문화DB </a>
+                            <ul class="sub">
+                                <li class="item5"><a href="sub1.html#page1">서식자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">서식자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">영상자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">발간물</a></li>                        
+                            </ul>  
+                       </li>
+                    </ul>
+
+            <label for="ck2" class="close"><i class="fas fa-times"></i></label>  
+        </nav>
+           
+          
+        
+        </header> 
+        
+
+<h2 class="page_title">회원가입</h2>
+  <form action="" class="frm1">
+      <fildeset>
+      <input type="txt" id="m_id" placeholder="아이디 입력" class="in_frm" name="m_id">
+      <input type="password" id="m_pw" placeholder="암호 입력" class="in_frm" name="m_pw">
+      <input type="password" id="m_pw2" placeholder="암호 확인" class="in_frm" name=m_pw2>
+      <input type="text" id="m_name" placeholder="이름 입력" class="in_frm" name="m_name">
+      <input type="email" id="m_email" placeholder="이메일 입력" class="in_frm" name="m_mail">
+      <input type="file" id="m_pic" placeholder="사진 첨부" class="in_frm" name="m_pic">
+      <input type="date" id="m_birth" placeholder="생년월일" class="in_frm box" name="m_birth">
+
+    </fildeset>
+
+    <fildeset class="frm_btn_frames">
+<input type="submit" class="btn_frm" value="회원가입">
+<input type="reset" class="btn_frm" value="취소">
+
+
+    </fildeset> 
+
+  </form>    
+        
+        
+        <footer class="ft">
+        <div class="ft_wrap">
+            <li><img src="./img/ft_logo1_b.png" alt=""height="40"></li>
+            <p class="address">
+                 (우)28480 충청북도 청주시 청원구 향군로 94번길 7(충북문화예술인회관 4층,우암동) <br>
+                TEL : 043-222-5316 FAX : 043-222-5310 </p>
+        <p class="copyright">Copyright ⓒ 2016 BY CHUNGCHEONGBUK-DO CULTURAL FOUNDATION. All Right Reserved.</p>
+    
+
+
+        
+        </div>
+        
+        
+        </footer>
+        
+        
+        
+            </div>
+</body>
+</html>

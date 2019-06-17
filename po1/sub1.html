@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 자동저장되는 캐쉬들 삭제설정 ↓ -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="title" content="충북문화재단 웹앱">
+    <meta name="keyword" content="충북문화재단, 충북, 문화재단">
+    <meta name="auther" content="newli">
+    <meta name="description" content="함께하는 문화예술 행복한 충북 충북문화재단입니다">
+
+    <title>충북문화재단</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://github.com/necolas/normalize.css">
+    <link rel="stylesheet" href="./normalize.css">
+    
+    <link rel="stylesheet" href="./common.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+ 
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="main.js"></script>
+  <style>
+ body,html{width: 100%;height: 100%; overflow:auto;background-image: url(./img/backgrond_no_logo.jpg);background-position: center center;background-size: cover;}
+  .hd{height: 80px;position: fixed;z-index: 80;}
+  .ft_wrap{padding-top: 22px;position: fixed;bottom: 0;left: 0;z-index: 1;width: 100%;height: 200px;background-color: #35449b;}
+  .page_title{clear: both; text-align: center; line-height: 3; padding-top: 100px; border-bottom:3px solid #03073d;}
+   .wrap{width: 100%;height:100%;background-image: none;}
+/* .vs img{display: block;width: 300px;margin: 10 auto;} */
+.page{width: 100vw;height: 100vh;clear: both; display: none;margin-top: 10px;}
+.page:target{display: block;}
+.page:target .wrap{height: auto;}
+
+.page h3{margin-top: 40px;}
+.cate_com{padding: 2em;}
+.cate_img {display: block;width: 300px;margin-top: 5px; }
+.descrip1 {margin-top: 30px;}
+.descrip1 h4{color:#35449b; margin-top: 10px; }
+.bgG{width: 100%;height: 50px;background-color: #e9e9e9;font-size: 0.9em;padding: 5px;} 
+.detailp1 { width: 340px; height: 400px; margin: 0 auto;margin-top: 10px;padding: 5px;}
+.p1 {text-indent: 10px; }
+
+
+.bgG2{width: 100%;height: 65px;background-color: #e9e9e9;font-size: 0.9em;padding: 5px;}
+
+
+.top{display: block;width: 40px;height: 40px;float: right;text-align: center;line-height: 40px;}
+  </style>
+   
+</head>
+<body>
+  <!-- div.wrap>header.hd+figure.vs+nav.shortcut+footer.ft -->
+  <div class="wrap">
+
+        <header class="hd">
+        <a href="index.html" class="logo"><img src="./img/logo.png" alt="logo"width="200px" height="60px"></a>
+        <input type="checkbox" name="checkbox"  id="ck1" class="ck_item">
+        <input type="checkbox" name="checkbox"  id="ck2" class="ck_item">
+        <nav class="top_btn">
+            <li><label for="ck1"><i class="fas fa-search"></i></label></li>
+            <li><label for="ck2"><i class="fas fa-bars"></i></label></li>
+        </nav>
+        
+        <!--search 클릭 시 열리는 창 -->
+        <nav class="find_nav">
+           <form action="" class="frm1">
+                <input type="text" id="keyword" placeholder="검색어를 입력해주세요.">
+                 <button id="submit"><i class="fas fa-search"></i></button>
+                <ul class="hash">
+                    <li><a href="">#찾아오는길</a></li>
+                    <li><a href="">#공지</a></li>
+                    <li><a href="">#행사</a></li>
+                    <li><a href="">#자료</a></li>
+                    <li><a href="join.html">#로그인</a></li>
+                </ul>
+            </form>
+            <label for="ck1" class="close"><i class="fas fa-times"></i></label> 
+        </nav>
+        
+        <!--menu 클릭 시 열리는 창 -->
+        <nav class="gnb">
+                <ul class="nav">
+                        <li class="item1"><a class="dp1">재단소개</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">인사말</a></li>
+                                <li class="item2"><a href="sub1.html#page1">연혁</a></li>
+                                <li class="item3"><a href="sub1.html#page1">비전&전략</a></li>
+                                <li class="item4"><a href="sub1.html#page1">CI</a></li>
+                                <li class="item5"><a href="sub1.html#page1">조직도</a></li>
+                                <li class="item5"><a href="sub1.html#page1">협약기관</a></li>
+                                <li class="item5"><a href="sub1.html#page1">찾아오시는 길</a></li>
+                            </ul>  
+                        </li>
+                        <li class="item2"><a class="dp1">재단소식 </a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">공지/공고</a></li>
+                                <li class="item2"><a href="sub1.html#page1">시험/채용</a></li>
+                                <li class="item3"><a href="sub1.html#page1">보도자료</a></li>
+                                <li class="item4"><a href="sub1.html#page1">타기관소식</a></li>                       
+                            </ul>  
+                       </li>
+                        <li class="item3"><a class="dp1">주요사업</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">문화예술강화사업</a></li>
+                                <li class="item2"><a href="sub1.html#page1">생활문화예술지원</a></li>
+                                <li class="item3"><a href="sub1.html#page1">문화예술교육활성</a></li>                       
+                            </ul>  
+                        </li>
+                        <li class="item4"><a class="dp1">문화예술행사</a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">전시</a></li>
+                                <li class="item2"><a href="sub1.html#page1">공연</a></li>
+                                <li class="item3"><a href="sub1.html#page1">행사</a></li>
+                                <li class="item4"><a href="sub1.html#page1">문화달력</a></li>
+                                <li class="item5"><a href="sub1.html#page1">문화이음창</a></li>
+                            </ul>  
+                        </li>
+                        <li class="item5"><a class="dp1">커뮤니티 </a>
+                            <ul class="sub">
+                                <li class="item1"><a href="sub1.html#page1">자주하는 질문</a></li>
+                                <li class="item2"><a href="sub1.html#page1">참여후기</a></li>
+                                <li class="item3"><a href="sub1.html#page1">칭찬합시다</a></li>
+                                <li class="item4"><a href="sub1.html#page1">문화재단에게</a></li>  
+                               
+                            </ul>  
+                       </li>
+                        <li class="item5"><a class="dp1">충북문화DB </a>
+                            <ul class="sub">
+                                <li class="item5"><a href="sub1.html#page1">서식자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">서식자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">영상자료</a></li>
+                                <li class="item5"><a href="sub1.html#page1">발간물</a></li>                        
+                            </ul>  
+                       </li>
+                    </ul>
+
+            <label for="ck2" class="close"><i class="fas fa-times"></i></label>  
+        </nav>
+           
+          
+        
+        </header> 
+        
+
+<h2 class="page_title">ABOUT. 지원사업</h2>
+<!-- <figure class="vs">
+    
+</figure> -->
+<div class="page" id="page1">
+    <h3 calss="cate_title">Main Support Programes</h3>
+    <p class="cate com">모두가 누리는 문화예술기반 강화</p>
+    <div class="cate_img"><img src="./img/sub/banner.png" alt="" width="320" ></div>
+     <div class="descrip1">
+         <li class="vr"></li>
+      <h2>MISSION 1 <img src="./img/sub/icon1_mission.png" alt="" width="40"></h4>
+       <h4>통합문화이용권(문화누리카드) 사업 <br></h4>
+        - <br>
+        <li class="bgG">
+        <span>통합문화이용권 사업은 경제적 · 사회적 여건 등으로 인한 소외계층에게 
+            문화 · 여행 · 스포츠 관람의 향유 기회를 제공하는 사업입니다.</span></li>
+            <li class="detailp1">
+            <p> - 사 업 비 : 3,707백만원(국비 2,622, 도비 1,085)<br>
+                - 지원대상 : 기초생활수급자, 법정차상위계층 등 문화소외계층<br>
+                - 내 용 : 문화,여행,스포츠 관람의 향유기회 제공<br>
+                - 사업기간 : 2016. 3. ~ 2018<br>
+                - 사업주최 : 문화체육관광부, 한국문화예술위원회, 충청북도<br>
+                - 사업주관 : 충북문화재단<br>
+                - 문 의 : 043-222-5320<br></p>
+                <p class="p1">
+                  문화누리카드 콜센터 :1544-3412<br> </p>
+                  <p class="p1">  NH농협카드 콜센터 : 1644-4000<br></p>
+                  <p class="p1">문화누리카드 홈페이지: www.문화누리카드.kr<br></p>
+               
+                </li>
+               
+
+                <h2>MISSION 2 <img src="./img/sub/icon2_mission.png" alt="" width="40"></h4>
+                    <h4>찾아가는 문화활동 지원사업 <br></h4>
+                     - <br>
+                     <li class="bgG2">
+                     <span>찾아가는 문화활동 지원사업은 문화적으로 소외된 지역과 계층을 대상으로
+                            직접 찾아가는 문화프로그램을 운영함으로써 도민의 문화향수 기회 확대 및 
+                            문화예술활동 의욕을 고취시키는 사업입니다.</span></li>
+                         <li class="detailp1">
+                         <p> - 사 업 비 : 328백만원(도비) <br>
+                                - 지원대상 : 5개 공연분야(연극, 무용, 음악, 전통예술, 다원예술) 문화예술단체 <br>
+                                - 내 용 : 문화적으로 소외된 지역과 계층을 대상으로 직접 찾아가는 문화프로그램 운영 <br>
+                                - 문 의 : 043-224-5606 <br>
+                                <a class="top" href="#page1"> <img src="./img/sub/arrow.png" alt="" width="20"></a>
+                             </li>
+                            
+             
+                             <h2>MISSION 3 <img src="./img/sub/icon3_mission.png" alt="" width="40"></h4>
+                                <h4>충북 좋은공연 종합관람권(사랑티켓) 지원사업 <br></h4>
+                                 - <br>
+                                 <li class="bgG2">
+                                 <span>찾아가는 문화활동 지원사업은 문화적으로 소외된 지역과 계층을 대상으로
+                                        직접 찾아가는 문화프로그램을 운영함으로써 도민의 문화향수 기회 확대 및 
+                                        문화예술활동 의욕을 고취시키는 사업입니다.</span></li>
+                                     <li class="detailp1">
+                                     <p> - 사 업 비 : 328백만원(도비) <br>
+                                            - 지원대상 : 5개 공연분야(연극, 무용, 음악, 전통예술, 다원예술) 문화예술단체 <br>
+                                            - 내 용 : 문화적으로 소외된 지역과 계층을 대상으로 직접 찾아가는 문화프로그램 운영 <br>
+                                            - 문 의 : 043-224-5606 <br>
+                                            <a class="top" href="#page1"> <img src="./img/sub/arrow.png" alt="" width="20"></a>
+                                         </li>
+
+                                       
+                                        
+
+
+
+    </div>
+
+ 
+
+</div>
+<div class="page" id="page2">
+        <h3 calss="cate_title">서브12</h3>
+        <p class="cate com">서브12 설명</p>
+        <div class="cate_img"><img src="./img/mainprogram2.jpg" alt="" width="100" >
+            <div class="descrip1">
+         
+                  </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+</div>
+<div class="page" id="page3">
+        <h3 calss="cate_title">서브13</h3>
+        <p class="cate com">서브13 설명</p>
+        <div class="cate_img"><img src="./img/mainprogram2.jpg" alt="" width="100" ></div>
+</div>
+<div class="page" id="page4">
+        <h3 calss="cate_title">서브14</h3>
+        <p class="cate com">서브14 설명</p>
+        <div class="cate_img"><img src="./img/mainprogram2.jpg" alt="" width="100" ></div>
+</div>
+<div class="page" id="page5">
+        <h3 calss="cate_title">서브15</h3>
+        <p class="cate com">서브15 설명</p>
+        <div class="cate_img"><img src="./img/mainprogram2.jpg" alt="" width="100" ></div>
+</div>
+     
+        
+        
+        <footer class="ft">
+        <div class="ft_wrap">
+            <li><img src="./img/ft_logo1_b.png" alt=""height="40"></li>
+            <p class="address">
+                 (우)28480 충청북도 청주시 청원구 향군로 94번길 7(충북문화예술인회관 4층,우암동) <br>
+                TEL : 043-222-5316 FAX : 043-222-5310 </p>
+        <p class="copyright">Copyright ⓒ 2016 BY CHUNGCHEONGBUK-DO CULTURAL FOUNDATION. All Right Reserved.</p>
+    
+
+
+        
+        </div>
+        
+        
+        </footer>
+        
+        
+        
+            </div>
+</body>
+</html>
