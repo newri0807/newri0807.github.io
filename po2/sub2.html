@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 메타정보 -->
+     <meta name="title" content="3CARE">
+     <meta name="description" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+     <meta name="keywords" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+
+     <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+     <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+     <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
+     <link rel="stylesheet" href="./normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Open+Sans&display=swap" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <title>3CARE</title>
+<style>
+*{padding: 0;margin: 0;}
+html,body{width: 100%;height: 100%;font-family: 'Open Sans', sans-serif,'Noto Sans KR', sans-serif;overflow-x: hidden;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: #000;}
+input,label,button{outline: none;background-color:transparent; border: none;}
+input{display: none;}
+
+
+.hd{width: 100%; height: 60px;background-color:#000;}
+.hd li{width: 33.3333%;float: left;text-align: center;}
+.toggle{font-size: 1.5em; float: left; padding: 15px; }
+.toggle i{color: #fff;}
+.logo{height: 100%;margin: 0 auto;}
+.logo img {width: 70px;height: 50px;padding-top: 10px;}
+.toplist{float: right; width: 60px;}
+.toplist label{font-size: 1.5em; width: 20px; height:100%; line-height: 60px; cursor: pointer; margin-left: 5px;}
+.xi-user-o{font-size: 1.5em;}
+.toplist i{color: #fff;}
+
+/* 토글창 */
+.toggleWrap{position: absolute;top: 0;left: 0;width: 100%;height: 100vh;background-color: rgba(150, 150, 150, 0.9);z-index: 12;margin-left: -110%;transition: 0.8s;}
+.toggle_page{ width: 60%;height: 100vh;background-color: #fff; position: absolute;top: 0;left:0; }
+#tog:checked ~ .toggleWrap{margin-left: 0;}
+.img_box{width: 91%;height: 280px;background-color: #3f3f3f;color:#fff;padding: 10px;}
+.img_box li{float: left;width: 100%;}
+.log{width: 100px;height: 100px;padding: 5px 0px;border: 1px solid #fff;border-radius: 10px;margin: 0 auto;}
+.log i {font-size: 2em;padding-top: 20px;}
+.log button{color: #fff;margin-top: 15px;border: 1px solid #fff; border-radius: 5px; width: 80px;height: 30px; cursor: pointer;}
+.log button:hover{width: 80px;height: 30px; border-radius: 5px; color: #000;background-color: #fff;color:#000;}
+.lst_button {width: 100%; height: 40px; padding-top: 40px;}
+.lst_button li {float: left; width: 33.3333%;height: 40px; border-top: 1px solid #fff; }
+.lst_button span{float: left;width: 100%;margin-top: 10px;}
+.main li{margin-top: 20px;width: 100%;height: 20px;float: left;text-align: left;padding: 5px;}
+.close1{width: 100%;height: 40px; text-align: right; color: #fff; margin-top: -10px;}
+.main i{margin-left: 10px;}
+.icon_lst{width: 100%;height: 653px;}
+.icon_lst li{float: left;}
+
+
+
+
+/* sns창 */
+.snsWrap{ position: relative; top: 0;left:0; width: 100%;height: 100vh;background-color: rgba(95, 95, 95,0.9); display: none;   }
+.sns{width: 200px;height: 100px;background-color: #fff;position: absolute;top: 17%;left: 50%;transform: translate(-50%,-50%);}
+.sns i{font-size: 2em;}
+.close2{display: block; width: 100%;height: 30px;font-size: 1.2em;background-color: #000;color:#fff;line-height: 30px;text-align: right;}
+.close2 > i{font-size: 1.2em;padding: 5px;}
+.sns_lst{float: left;width: 100%; height: 30px; margin-top: 20px;}
+#sns:checked  ~ .snsWrap{display: block;}
+
+
+
+/* event창 */
+.eventWrap{clear: both; position: absolute; top: 0%;left: 0; width: 100%; height: 100vh;background-color: rgba(95, 95, 95,0.9); display: none;}
+.event{width: 350px;height: 350px;background-color: #fff;position: absolute;top: 35%;left: 50%;transform: translate(-50%,-50%); text-align: center;}
+.event img{width: 300px;height: 300px;margin: 10px auto;}
+.close3{display: block; width: 100%;height: 30px;font-size: 1.2em;background-color: #000;color:#fff;line-height: 30px;text-align: right;}
+.close3 i{padding-right: 5px;}
+#event:checked ~.eventWrap{display: block;} 
+
+/* 서브메뉴*/
+main{width: 100%;height: 900px; clear: both; }
+.submenu{width: 100%;height: 47px;background-color: #000;line-height: 40px;text-align: center;}
+.submenu li{float: left;width: 33.33333%; height: 40px;}
+.submenu li a{color: #fff;font-size: 0.9em;}
+.submenu li:nth-child(2) {width: 33.3333%;border-bottom: 7px solid gray;}
+
+/* 메인 */
+main{width: 100%;height: 480px;}
+.shoplist{width: 100%;height: 400px;position: relative;overflow: hidden;text-align: center; }
+.shoplist ul{position: absolute;width: 100%; margin: 5px 10%; padding:10px 0px;}
+.shoplist h2{margin: 10px;}
+.shoplist img{height: 50%;width: 60%;}
+
+main .shop1{width: 80%;height: 72%;background-color: #fff; border: 1px solid #000;}
+.shop1 h4{width: 100%; color: #000;height: 30px;font-size: 0.9em;}
+.shop1 h4 span{color: red}
+.shop1 p{margin-top: 10px;font-size: 0.9em;}
+.price1 {width: 40%; float:left; height: 10px; margin-left: 10px; }
+.price1 > span{text-decoration-line: line-through; font-size: 0.8em;}
+h6{width: 40%;float: right;height: 10px; line-height: 10px;}
+.shop1 h3{width: 100px;height: 40px; line-height: 40px;display: block;float: right;text-align: center; margin-top: 29px;background-color: #000; color: #fff;}
+
+
+main .shop2{width: 80%;height: 72%;background-color: #fff; border: 1px solid #000;}
+.shop2 h4{width: 100%;display: block;}
+.shop2 h4 span:nth-child(1){color: red}
+.shop2 h4 strong{font-size: 0.7em;}
+.shop2 p{margin-top: 10px;font-size: 0.9em;}
+.price1{width: 40%; float:left; height: 10px; margin-left: 10px;}
+.price1 > span{text-decoration-line: line-through;font-size: 0.8em;}
+h6{width: 40%;float: right;height: 10px; line-height: 40px;}
+.shop2 h3{width: 100px;height: 40px; line-height: 40px;display: block;float: right;text-align: center; margin-top: 23px;background-color: #000; color: #fff;}
+
+main .shop3{width: 80%;height: 72%;background-color: #fff; border: 1px solid #000;}
+.shop3 h4{width: 100%;display: block;}
+.shop3 h4 span:nth-child(1){color: red}
+.shop3 h4 > strong{font-size: 0.7em;}
+.shop3 p{margin-top: 10px;font-size: 0.9em;}
+.price1{width: 40%; float:left; height: 10px; margin-left: 10px;}
+.price1 > span{text-decoration-line: line-through;font-size: 0.8em;}
+h6{width: 40%;float: right;height: 10px; line-height: 40px;}
+.shop3 h3{width: 100px;height: 40px; line-height: 40px;display: block;float: right;text-align: center; margin-top: 23px;background-color: #000; color: #fff;}
+
+.prev{width: 10px;height: 10px;float: left;margin-top: 150px;margin-left: 10px;}
+.next{width: 10px;height: 10px;float: right;margin-top: 150px;margin-right: 15px;}
+
+
+
+
+
+
+
+
+
+.ft{width: 100%;height: 80px;background-color: rgb(161, 161, 161);padding: 20px 5px;font-size: 0.8em;text-align: center; margin-top: 10px;}
+.fnb{width: 220px;height: 30px; margin: 0 auto; margin-left: 80px ; }
+.fnb ul:nth-child(1){width: 110px;float: left;}
+.fnb ul:nth-child(2){width: 110px;float:left;}
+.menu_li2:before{content:"|";margin-left: -50px;}
+.copyright{width: 100%;float: left;padding: 5px;}
+.pc{clear: both; width: 100px; height: 20px;border: 1px solid #3f3f3f;background-color: #3f3f3f; border-radius:10px; text-align: center;line-height: 20px; margin-left: 27%;display: block; }
+</style>
+
+<script>
+$(document).ready(function(){
+     
+$(".close2").on("click", function() {
+ $(".snsWrap").fadeOut(1000); 
+ });
+ $(".xi-link").on("click", function() {
+ $(".snsWrap").fadeIn(1000); 
+ });
+
+$(".close3").on("click", function() {
+ $(".eventWrap").fadeOut(1000); 
+ });
+ $(".xi-star-o").on("click", function() {
+ $(".eventWrap").fadeIn(1000); 
+ });
+
+
+
+
+});
+
+
+$(document).ready(function() {
+
+//좌우버튼, 동그라미 버튼 연동 //
+
+var wid = $(".shoplist ul").width();
+var i = $(".shoplist ul").index();
+
+$(".prev").click(function() {
+
+
+  if (i == 0) {
+    i = len - 1;
+
+  } else {
+
+    i = i - 1;
+
+  }
+
+  showSlide();
+});
+
+$(".next").click(function() {
+
+  if (i == 2) {
+
+    i = 0;
+
+
+  } else {
+
+    i = i + 1;
+
+  }
+  showSlide();
+});
+
+function showSlide() {   
+    $(".shoplist ul").stop(true, true).fadeOut();
+    $(".shoplist ul").eq(i).stop(true, true).fadeIn();
+  }
+
+});
+
+
+</script>
+
+</head>
+<body>
+
+    <header class="hd">
+         
+    <input type="checkbox" id="tog">
+    <li><button class="toggle"><label for="tog"><i class="xi-bars"></i></label></button></li> 
+
+     <li><a href="index.html" class="logo"><img src="./img/logoWver.png" alt="" height="50"></a></li> 
+
+     <input type="checkbox" id="sns">
+     <input type="checkbox" id="event">
+     <input type="checkbox" id="login">
+     
+     <li class="toplist">
+         <label for="sns"><i class="xi-link"></i></label>
+         <label for="event"><i class="xi-star-o"></i></label>
+         <a href="login.html"><i class="xi-user-o"></i></a> 
+    </li>
+
+
+<!-- 토글버튼누르면 나오는  -->
+<div class="toggleWrap">
+<div class="toggle_page">
+
+
+        <div class="img_box">
+       <button class="close1"><label for="tog"><i class="xi-close"></i></label></button>
+        <div class="log">
+              
+          <li><i class="xi-profile"></i></li>
+          <li><a href="login.html"><button>로그인</button></a>
+        </div>
+          <ul class="lst_button">
+                <li>
+                   <span>0</span>
+                   <span>order</span>
+                </li>
+                <li>
+                    <span>0</span>
+                    <span>coupon</span>
+                     </li>
+                <li>
+                    <span>0</span>
+                    <span>bucket</span>
+                </li>
+            </ul>
+      
+         </div>
+    
+       
+        <ul class="main">
+            <li class="item"><a href="">마이페이지<i class="xi-angle-right-min"></i> </a></li>
+            <li class="item"><a href="">장바구니<i class="xi-angle-right-min"></i></a></li>
+            <li class="item"><a href="">검색<i class="xi-angle-right-min"></i></a></li>
+        </ul>
+    
+     
+  
+    </div>
+
+</div>
+
+
+<!-- sns 새창 -->
+<div class="snsWrap">
+        <div class="sns">
+                <label for="sns"class="close2"> <i class="xi-close"></i></label>
+                <ul class="sns_lst">
+                    <li><a href=""><i class="xi-heart"></i> </a></li>
+                    <li><a href=""><i class="xi-instagram"></i>   </a></li>
+                    <li><a href=""><i class="xi-facebook-official"></i>   </a></li>
+                </ul> 
+              
+            </div>
+        </div>
+
+     
+<!-- even 새창 -->
+<div class="eventWrap">
+        <div class="event">
+                <label for="event" class="close3"><i class="xi-close"></i></label>
+                <img src="./img/event.jpg" alt="">
+                
+                </div>
+            </div>
+
+
+
+
+
+    </header>
+
+
+
+<main>
+<div class="submenu">
+        <li><a href="sub1.html">3CARE STORY </a></li>
+        <li><a href="sub2.html">포켓도시락</a></li>
+        <li><a href="sub3.html">케어별 프로그램</a></li>
+</div>
+
+
+
+<div class="shoplist">
+<h2>- Best Product -</h2>
+
+<ul class="shop1">
+<img src="./img/slide2.jpg" alt="">
+<h4> <span>[도시락1위 210만판매]</span>
+    낮은 칼로리 포켓도시락 1일 2식 세트
+    [일주일식단] (12종 14팩)</h4>
+        <p>토핑밥7종(7팩)+반찬4종(4팩)+고구마(3팩)
+                맛있게 가벼워지고 싶은 분들을 위한 일주일식단</p>
+                <p class="price1">  39,900원 <span>48,500원</span> </p>    
+                <h6>리뷰 7,536</h6>
+                <h3>BUY NOW</h3>
+</ul>
+     
+
+
+<ul class="shop2">
+        <img src="./img/slide5.jpg" alt="" width="375">
+        <h4>칼로리를 완전 낮춘 <br>
+                포켓죽&포켓리조또 1+1 SET</h4>
+                <p>특허원료로 칼로리는 낮추고 든든하게! 
+                        포켓죽&포켓리조또 세트!</p>
+                        <p class="price1">  14,900원 <span>19,500원</span> </p>    
+                        <h6>리뷰 7,536</h6>
+                        <h3>BUY NOW</h3>
+        </ul>
+
+
+
+
+        <ul class="shop3">
+                <img src="./img/slide4.jpg" alt="">
+                <h4>칼로리를 완전 낮춘 <br>
+                        포켓죽&포켓리조또 1+1 SET</h4>
+                        <p>특허원료로 칼로리는 낮추고 든든하게! 
+                                포켓죽&포켓리조또 세트!</p>
+                                <p class="price1">  14,900원 <span>19,500원</span> </p>    
+                                <h6>리뷰 7,536</h6>
+                                <h3>BUY NOW</h3>
+                </ul>
+        
+        
+                <button class="prev"><i class="xi-angle-left"></i></button>
+                <button class="next"><i class="xi-angle-right"></i></button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+    <footer class="ft">
+   <nav class="fnb">
+       <ul class="menu_li1"><a href="">이용약관</a></ul>
+       <ul class="menu_li2"><a href="">개인정보처리방침</a></ul>
+       <p class="copyright">(주)쓰리케어코리아</p>
+       <ul class="pc"><a href="">PC ver</a></ul>
+   </nav>
+
+
+    </footer>
+
+
+
+        
+   
+        
+
+
+ 
+
+</body>
+</html>

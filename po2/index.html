@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 메타정보 -->
+     <meta name="title" content="3CARE">
+     <meta name="description" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+     <meta name="keywords" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+
+     <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+     <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+     <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
+     <link rel="stylesheet" href="./normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Open+Sans&display=swap" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <title>3CARE</title>
+<style>
+*{padding: 0;margin: 0;}
+html,body{width: 100%;height: 100%;font-family: 'Open Sans', sans-serif,'Noto Sans KR', sans-serif; overflow-x: hidden;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: #000;}
+input,label,button{outline: none;background-color:transparent; border: none;}
+input{display: none;}
+
+
+.hd{width: 100%; height: 60px;background-color:#000;}
+.hd li{width: 33.3333%;float: left;text-align: center;}
+.toggle{font-size: 1.5em; float: left; padding: 15px; }
+.toggle i{color: #fff;}
+.logo{height: 100%;margin: 0 auto;}
+.logo img {width: 70px;height: 50px;padding-top: 10px;}
+.toplist{float: right; width: 60px;}
+.toplist label{font-size: 1.5em; width: 20px; height:100%; line-height: 60px; cursor: pointer; margin-left: 5px;}
+.xi-user-o{font-size: 1.5em;}
+.toplist i{color: #fff;}
+
+/* 토글창 */
+.toggleWrap{position: absolute;top: 0;left: 0;width: 100%;height: 100vh;background-color: rgba(150, 150, 150, 0.9);z-index: 12;margin-left: -110%;transition: 0.8s;}
+.toggle_page{ width: 60%;height: 100vh;background-color: #fff; position: absolute;top: 0;left:0; }
+#tog:checked ~ .toggleWrap{margin-left: 0;}
+.img_box{width: 91%;height: 280px;background-color: #3f3f3f;color:#fff;padding: 10px;}
+.img_box li{float: left;width: 100%;}
+.log{width: 100px;height: 100px;padding: 5px 0px;border: 1px solid #fff;border-radius: 10px;margin: 0 auto;}
+.log i {font-size: 2em;padding-top: 20px;}
+.log button:hover{width: 80px;height: 30px; border-radius: 5px; color: #000;background-color: #fff;color:#000;}
+.log button{color: #fff;margin-top: 15px;border: 1px solid #fff; border-radius: 5px; width: 80px;height: 30px; cursor: pointer;}
+.lst_button {width: 100%; height: 40px; padding-top: 40px;}
+.lst_button li {float: left; width: 33.3333%;height: 40px; border-top: 1px solid #fff; }
+.lst_button span{float: left;width: 100%;margin-top: 10px;}
+.main li{margin-top: 20px;width: 100%;height: 20px;float: left;text-align: left;padding: 5px;}
+.close1{width: 100%;height: 40px; text-align: right; color: #fff; margin-top: -10px;}
+.main i{margin-left: 10px;}
+.icon_lst{width: 100%;height: 653px;}
+.icon_lst li{float: left;}
+
+
+
+/* 메인 */
+.banner1{width: 375px;height: auto;}
+.banner2{width: 187.5px;float:left;}
+.banner3{width: 187.5px;float: right;}
+
+/* sns창 */
+.snsWrap{ position: relative; top: 0;left:0; width: 100%;height: 100vh;background-color: rgba(95, 95, 95,0.9); display: none;   }
+.sns{width: 200px;height: 100px;background-color: #fff;position: absolute;top: 17%;left: 50%;transform: translate(-50%,-50%);}
+.sns i{font-size: 2em;}
+.close2{display: block; width: 100%;height: 30px;font-size: 1.2em;background-color: #000;color:#fff;line-height: 30px;text-align: right;}
+.close2 > i{font-size: 1.2em;padding: 5px;}
+.sns_lst{float: left;width: 100%; height: 30px; margin-top: 20px;}
+#sns:checked  ~ .snsWrap{display: block;}
+
+
+
+/* event창 */
+.eventWrap{clear: both; position: absolute; top: 0%;left: 0; width: 100%; height: 100vh;background-color: rgba(95, 95, 95,0.9); display: none;}
+.event{width: 350px;height: 350px;background-color: #fff;position: absolute;top: 35%;left: 50%;transform: translate(-50%,-50%); text-align: center;}
+.event img{width: 300px;height: 300px;margin: 10px auto;}
+.close3{display: block; width: 100%;height: 30px;font-size: 1.2em;background-color: #000;color:#fff;line-height: 30px;text-align: right;}
+.close3 i{padding-right: 5px;}
+#event:checked ~.eventWrap{display: block;} 
+
+
+/* 비디오부분 */
+.mv_page{width: 100%;height: 300px;margin-top: 15px;}
+.mv_page h3{border-bottom: 1px solid #000;width: 100%;text-indent: 10px;}
+.mv_frame{margin-top:-10px;width: 100%;height: 300px;padding: 5px;clear: both;position: relative;}
+.mv_frame img{margin-top: 20px;width: 98%;height: 250px;z-index: 1;  position: absolute; bottom: 35px;left: 0px;}
+.mv_frame iframe{margin-top: 20px;width: 97%;height: 250px;}
+.mv_frame i{font-size: 4em;color:#fff; position: absolute; bottom: 125px;left: 160px; text-shadow: 3px 2px 2px gray;z-index: 3; }
+
+
+.ft{width: 100%;height: 80px;background-color: rgb(161, 161, 161);padding: 20px 5px;font-size: 0.8em;text-align: center; margin-top: 10px;}
+.fnb{width: 220px;height: 30px; margin: 0 auto; margin-left: 80px ; }
+.fnb ul:nth-child(1){width: 110px;float: left;}
+.fnb ul:nth-child(2){width: 110px;float:left;}
+.menu_li2:before{content:"|";margin-left: -50px;}
+.copyright{width: 100%;float: left;padding: 5px;}
+.pc{clear: both; width: 100px; height: 20px;border: 1px solid #3f3f3f;background-color: #3f3f3f; border-radius:10px; text-align: center;line-height: 20px; margin-left: 27%;display: block; }
+</style>
+
+<script>
+$(document).ready(function(){
+     
+$(".close2").on("click", function() {
+ $(".snsWrap").fadeOut(1000); 
+ });
+ $(".xi-link").on("click", function() {
+ $(".snsWrap").fadeIn(1000); 
+ });
+
+$(".close3").on("click", function() {
+ $(".eventWrap").fadeOut(1000); 
+ });
+ $(".xi-star-o").on("click", function() {
+ $(".eventWrap").fadeIn(1000); 
+ });
+
+});
+
+
+//  동영상 재생
+
+ $(document).ready(function() {
+   $('#play-video').on('click', function(ev) {
+    $(".mv_frame img").fadeOut(1000); 
+    $(".mv_frame i").fadeOut(1000); 
+
+
+    //  $("#video")[0].src += "&autoplay=1";
+    $('iframe[src="https://www.youtube.com/embed/WO7ONP1TZTY?autoplay=1"]')[0].src += "&autoplay=1";
+     ev.preventDefault();
+  
+   });
+
+
+ });
+
+
+// 2. 비디오 다운받았을때 적용하기
+var vdo= document.getElementById("#video");
+var btn= document.getElementById("#play-video");
+btn.addEventListener("click",function(){
+    if(vdo.paused){
+        vdo.play();
+        btn.style.opacity = 0.1;
+    } else {
+        vdo.pause();
+        btn.style.opacity = 0.7;
+    }
+});
+
+</script>
+
+</head>
+<body>
+
+    <header class="hd">
+         
+    <input type="checkbox" id="tog">
+    <li><button class="toggle"><label for="tog"><i class="xi-bars"></i></label></button></li> 
+
+     <li><a href="index.html" class="logo"><img src="./img/logoWver.png" alt="" height="50"></a></li> 
+
+     <input type="checkbox" id="sns">
+     <input type="checkbox" id="event">
+     <input type="checkbox" id="login">
+     
+     <li class="toplist">
+         <label for="sns"><i class="xi-link"></i></label>
+         <label for="event"><i class="xi-star-o"></i></label>
+         <a href="login.html"><i class="xi-user-o"></i></a> 
+    </li>
+
+
+<!-- 토글버튼누르면 나오는  -->
+<div class="toggleWrap">
+<div class="toggle_page">
+
+
+        <div class="img_box">
+       <button class="close1"><label for="tog"><i class="xi-close"></i></label></button>
+        <div class="log">
+              
+          <li><i class="xi-profile"></i></li>
+          <li><a href="login.html"><button>로그인</button></a></li>
+        </div>
+          <ul class="lst_button">
+                <li>
+                   <span>0</span>
+                   <span>order</span>
+                </li>
+                <li>
+                    <span>0</span>
+                    <span>coupon</span>
+                     </li>
+                <li>
+                    <span>0</span>
+                    <span>bucket</span>
+                </li>
+            </ul>
+      
+         </div>
+    
+       
+        <ul class="main">
+            <li class="item"><a href="">마이페이지<i class="xi-angle-right-min"></i> </a></li>
+            <li class="item"><a href="">장바구니<i class="xi-angle-right-min"></i></a></li>
+            <li class="item"><a href="">검색<i class="xi-angle-right-min"></i></a></li>
+        </ul>
+    
+     
+  
+    </div>
+
+</div>
+
+
+<!-- sns 새창 -->
+<div class="snsWrap">
+        <div class="sns">
+                <label for="sns"class="close2"> <i class="xi-close"></i></label>
+                <ul class="sns_lst">
+                    <li><a href=""><i class="xi-heart"></i> </a></li>
+                    <li><a href=""><i class="xi-instagram"></i>   </a></li>
+                    <li><a href=""><i class="xi-facebook-official"></i>   </a></li>
+                </ul> 
+              
+            </div>
+        </div>
+
+     
+<!-- even 새창 -->
+<div class="eventWrap">
+        <div class="event">
+                <label for="event" class="close3"><i class="xi-close"></i></label>
+                <img src="./img/event.jpg" alt="">
+                
+                </div>
+            </div>
+
+
+
+    </header>
+
+    <div class="icon_lst">
+     <li class="banner1">
+            <a href="sub1.html"><img src="./img/mainbanner0.jpg" alt="" class="ban1" width="374"> </a>
+        
+
+
+     </li>
+
+     <li class="banner2">
+            <a href="sub2.html"><img src="./img/banner2_Y.jpg" alt="" width="187"  class="ban2"> </a>
+        
+
+
+     </li>
+
+     <li class="banner3">
+           <a href="sub3.html"><img src="./img/banner3-1.jpg" alt="" width="187"   class="ban2"></a> 
+     
+
+
+
+     </li>
+
+
+
+    </div>
+
+    <!-- 영상부분 -->
+    <section class="mv_page">
+        <h3 class="sec_tit">3CARE AD</h3>
+        <div class="mv_frame">
+            <img src="./img/video_thumanil.JPG" alt="">
+            <iframe id="video" width="375" height="350" src="https://www.youtube.com/embed/WO7ONP1TZTY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a id="play-video" href="#"><i class="xi-play-circle-o"></i></a>
+
+
+        </div>
+    </section>
+ 
+
+
+
+    <footer class="ft">
+   <nav class="fnb">
+       <ul class="menu_li1"><a href="">이용약관</a></ul>
+       <ul class="menu_li2"><a href="">개인정보처리방침</a></ul>
+       <p class="copyright">(주)쓰리케어코리아</p>
+       <ul class="pc"><a href="">PC ver</a></ul>
+   </nav>
+
+
+    </footer>
+
+
+
+        
+   
+        
+
+
+ 
+
+</body>
+</html>

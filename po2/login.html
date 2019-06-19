@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 메타정보 -->
+     <meta name="title" content="3CARE">
+     <meta name="description" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+     <meta name="keywords" content="쓰리케어, 다이어트, 식품, 식단, 포켓도시락">
+
+     <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+     <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+     <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
+     <link rel="stylesheet" href="./normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Open+Sans&display=swap" rel="stylesheet">
+</head>
+    <title>3CARE</title>
+<style>
+*{padding: 0;margin: 0;}
+html,body{width: 100%;height: ;font-family: 'Open Sans', sans-serif,'Noto Sans KR', sans-serif;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: #000;}
+input,label,button{outline: none;background-color:transparent; border: none;}
+input{display: none;}
+
+
+.hd{width: 100%; height: 60px;background-color:#000;}
+.hd li{width: 33.3333%;float: left;text-align: center;}
+.toggle{font-size: 1.5em; float: left; padding: 15px; }
+.toggle i{color: #fff;}
+.title{height: 100%;}
+.title h3 {height: 20px; line-height: 20px; padding: 15%;color: #fff;}
+.hd .toplist{float: right; width: 24px; height:24px; line-height: 62px; padding-right: 10px;}
+.toplist i{color: #fff;font-size: 1.5em;cursor: pointer; }
+
+
+
+
+/* 메인 */
+.log_box{clear: both; width: 100%;height: 510px;}
+.lgin{width: 100%;height: 100%;padding: 10px 0px;}
+.lgin input{margin: 5px auto;}
+#m_id{width: 80%;height: 40px;border: 1px solid #000; display: block;text-indent: 10px;}
+#m_pw{width: 80%;height: 40px;border: 1px solid #000; display: block;text-indent: 10px;}
+#m_start{width: 80%;height: 40px;border: 1px solid #000; display: block;background-color:lightgray;}
+#maintain{display: inline-block;}
+.lgin li{float: left;width: 100%;text-align: left;padding-left: 40px;}
+
+.homeP{width: 80%;height: 200px;border-top: 1px solid gray; border-bottom: 1px solid gray; margin: 40px auto;text-align: center;color: #fff;}
+.homeP li{margin:5px;width: 40%;height: 40px;float: left;background-color: gray;padding: 10px;font-size: 0.8em;line-height: 40px;}
+.homeP li a{color: #fff; }
+.homeP i { border-right: 1px solid #fff;font-size: 1.2em;padding-left: 5px;}
+.homeP h3{padding: 10px;width: 100%;color: #000;}
+.homeP li:nth-of-type(1){background-color: rgb(27, 228, 37);}
+.homeP li:nth-of-type(2){background-color: rgb(250, 206, 85);}
+.homeP li:nth-of-type(3){background-color: rgb(255, 70, 37);}
+.homeP li:nth-of-type(4){background-color: rgb(62, 84, 209);}
+
+.reqeu{width: 100%;height: 60px;background-color:lightgray;margin: 0 auto;margin-top: -10px;}
+.reqeu li{ padding-top: 20px;}
+.reqeu li:nth-of-type(1){float: left;width: 80%; height: 20px;}
+.reqeu li:nth-of-type(2){float: right;width: 20%;margin-top: -40px; margin-right: 50px;}
+.reqeu li a{text-decoration-line: underline;font-size: 0.9em;}
+
+.ft{width: 100%;height: 80px;background-color: rgb(161, 161, 161);padding: 20px 5px;font-size: 0.8em;text-align: center; margin-top: 10px;}
+.fnb{width: 220px;height: 30px; margin: 0 auto; margin-left: 80px ; }
+.fnb ul:nth-child(1){width: 110px;float: left;}
+.fnb ul:nth-child(2){width: 110px;float:left;}
+.menu_li2:before{content:"|";margin-left: -50px;}
+.copyright{width: 100%;float: left;padding: 5px;}
+.pc{clear: both; width: 100px; height: 20px;border: 1px solid #3f3f3f;background-color: #3f3f3f;  border-radius:10px; text-align: center;line-height: 20px; margin-left: 27%;display: block; }
+</style>
+
+
+</head>
+<body>
+
+    <header class="hd">
+         
+    <input type="checkbox" id="tog">
+    <li><button class="toggle"><a href="index.html"><i class="xi-long-arrow-left"></i></a></button></li> 
+
+     <li class="title"><h3>로그인</h3></li> 
+    
+     <li class="toplist">
+        <a href="index.html" class="home"><i class="xi-home-o"></i></a>
+      
+    </li>
+
+
+
+
+
+<!-- 로그인새창 /메인 -->
+<div class="log_box">
+        <div class="lgin">
+        <button class="close"><i class="fas fa-times"></i></button>
+       
+            <input type="text" id="m_id" class="in_frm" placeholder="아이디"> 
+            <input type="password" id="m_pw" class="in_frm" placeholder="비밀번호">
+            <input type="submit" id="m_start" value="로그인">
+            <li class="login_M"><input type="checkbox" id="maintain">로그인 상태 유지</li>
+
+              <ul class="homeP">
+                <h3>간편 로그인</h3>
+                 <li><a href=""><i class="xi-naver"></i> 네이버 로그인  </a></li>
+                 <li><a href=""><i class="xi-kakaotalk"></i> 카카오 로그인</a></li>
+                 <li><a href=""><i class="xi-kakaotalk"></i> 구글 로그인</a></li>
+                 <li><a href=""><i class="xi-facebook"></i> 페이스북 로그인</a></li>
+
+
+              </ul>        
+
+
+              <ul class="reqeu">
+            <li><a href=""><i class="xi-lock-o"></i>혹시 계정을 잊어버리셨나요? /</a></li>
+          
+            <li><a href="">회원가입</a></li>  
+
+
+              </ul>
+           
+        </div>
+            
+    </div> 
+
+
+
+ 
+
+
+
+    <footer class="ft">
+   <nav class="fnb">
+       <ul class="menu_li1"><a href="">이용약관</a></ul>
+       <ul class="menu_li2"><a href="">개인정보처리방침</a></ul>
+       <p class="copyright">(주)쓰리케어코리아</p>
+       <ul class="pc"><a href="">PC ver</a></ul>
+   </nav>
+
+
+    </footer>
+
+
+
+        
+   
+        
+
+
+ 
+
+</body>
+</html>
+
