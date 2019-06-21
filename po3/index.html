@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 메타정보 -->
+     <meta name="title" content="Chungwoon University">
+     <meta name="description" content="청운대, 대학교">
+     <meta name="keywords" content="청운대, 대학교">
+
+     <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+     <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+     <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
+     <link rel="stylesheet" href="./normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <title>청운대학교</title>
+     
+     <style>
+     *{padding: 0;margin: 0;}
+        html,body{width: 100%;height: 100%;font-family: 'Open Sans', sans-serif,'Noto Sans KR', sans-serif;}
+        ul,li{list-style: none;}
+        a{text-decoration: none; color: #000;}
+        input,label,button{outline: none;background-color:transparent; border: none;}
+        input{display: none;}
+     
+     .hd{z-index: 999;transition: 0.6s;position: fixed;width: 100%;height: 100%;background-color:#fff; right: -80%;top: 0;}
+     .hd.off{right:-120%;}     
+     
+     .showP{width: 20%;height: 100%;background-color: rgb(105, 138, 100);border-right: 1px solid #000;position: absolute;float: left;box-sizing: border-box;}
+     .togbtn{width: 100%;height: 60px;background-color: #fff;text-align: center;}
+     .togbtn i{font-size: 1.5em;line-height: 60px;}
+     .hd .showP label {float: left;width: 100%;height: 60px;border-bottom: 1px solid #000;text-align: center;font-size: 0.9em; line-height: 30px; cursor: pointer;}
+     .hd .showP li {float: left;width: 100%;height: 60px;border-bottom: 1px solid #000;text-align: center;font-size: 0.9em; line-height: 30px; cursor: pointer;}
+     .showP label:nth-child(9){line-height: 60px;}
+     #join span{width: 50px;height: 20px;line-height: 20px;background-color: #fff;border-radius: 5px;display: block;margin: 0 auto; font-weight:bold; border:1px solid rgb(105, 138, 100); }
+     #join{background-color: #E0F0C3;}
+    .togbtn1{width: 40px;height: 40px;background-color:  rgb(105, 138, 100);text-align: center;position: fixed;right: 15px;top: 15px; z-index:90; }
+    .togbtn1 i{font-size: 1.5em;line-height: 40px;}
+    .togbtn2 {width: 40px;height: 40px;background-color:#fff;text-align: center;position: fixed;right: 15px;bottom: 15px;line-height: 40px;border:1px solid  rgb(105, 138, 100);}
+    
+
+/* 숨겨진 부분 */
+   .hideR{float: right; width: 80%;height: 100%; position: absolute; left: 20%;top: 0%;}
+   .hideT{width: 100%;height: 40px; border-bottom: 1px solid gray; padding-top: 20px; }
+   .hideT li{width: 60px;font-size:  0.8em;text-align: center;float: left;;margin-left: 10px;}
+   .hideT li:nth-of-type(3):after{content:"|";}
+   .hideT li:nth-of-type(3):after{padding-left: 5px;}
+   .hideT li:nth-of-type(2){margin-right: 20px;}
+   .hideT li:nth-of-type(4){margin-left: 2px;}
+    #btn1:checked ~ .hideR .con1{display: block;}
+    #btn2:checked ~ .hideR .con2{display: block;}
+    #btn3:checked ~ .hideR .con3{display: block;}
+    #btn4:checked ~ .hideR .con4{display: block;}
+    #btn5:checked ~ .hideR .con5{display: block;}
+    #btn6:checked ~ .hideR .con6{display: block;}
+    #btn7:checked ~ .hideR .con7{display: block;}
+    #btn8:checked ~ .hideR .con8{display: block;}
+    #btn9:checked ~ .hideR .con9{display: block;}
+    
+
+    .con1{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con1 h2{width: 100%;height: 50px;margin-top: 50px;border-bottom: 1px solid lightgray;}
+    .con1 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}
+    
+    .con2{position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark2.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con2 h2{width: 100%;height: 50px;margin-top: 50px;border-bottom: 1px solid lightgray;}
+    .con2 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}    
+        
+    .con3{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark3.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con3 h2{width: 100%;height: 50px;margin-top: 30px;border-bottom: 1px solid lightgray;}
+    .con3 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}
+
+    .con4{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark4.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con4 h2{width: 100%;height: 50px;margin-top: 15px;border-bottom: 1px solid lightgray;line-height: 40px;}
+    .con4 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}
+    .con4 h3{width: 100%;height: 50px;margin-top: 10px;border-bottom: 1px solid lightgray;line-height: 40px;}
+
+    .con5{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark5.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con5 h2{width: 100%;height: 50px;margin-top: 40px;border-bottom: 1px solid lightgray;line-height: 40px;}
+    .con5 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}
+      
+    .con6{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark6.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con6 h2{width: 100%;height: 50px;margin-top: 20px;border-bottom: 1px solid lightgray;line-height: 40px;}
+    .con6  li{width: 200px;height: 20px;padding: 5px;border: 1px solid #fff; margin:30px auto;background-color: rgb(177, 176, 176,0.7);}
+
+           
+    .con7{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark7.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con7 li{width: 200px;height: 20px;padding: 10px;border: 1px solid #fff; margin:30px auto;background-color: rgb(177, 176, 176,0.7);}
+    
+          
+    .con8{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark8.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con8 h2{width: 100%;height: 50px;margin-top: 40px;border-bottom: 1px solid lightgray;line-height: 40px;}
+    .con8 li{width: 100%;height: 20px;padding: 2px;margin-top: 10px;}
+
+    .con9{ position: absolute;overflow: hidden;display: none;width: 100%;height: 100%;background-image: url(./img/toggle_back_dark8.jpg);
+    background-position: center center;background-size: cover;background-repeat: no-repeat;color: #fff;  text-align: center;}
+    .con9 h4{width: 33.3333%;height: 40px;margin-top: 40px;border-bottom: 1px solid lightgray;line-height: 40px;float: left;display: block;
+    margin-bottom: 20px;}
+    .con9 li{width: 200px;margin : 0 auto;}
+    .con9 li a{float: left;width: 200px;height: 20px;padding: 2px;border: 1px solid #fff; margin:10px auto;background-color: rgb(177, 176, 176,0.7);}
+    
+
+        .page1{width: 100%;height:100vh;position: relative;background-color: #f2f2f2; overflow:hidden; }
+        .logo{position: absolute;top: 15px;left: 15px; width: 200px;height: 30px;display: block; z-index: 2;}
+        .slide{width: 100%;height: 547px;position: relative;overflow: hidden;}
+        .slide img{width: 100%;height: 547px; position: absolute;}
+        .slidbtn{width: 500px;height: 20px; position: absolute; bottom:120px;left: 140px;}
+        .slidbtn li{float: left;margin-left: 10px; width: 15px;height: 15px;border-radius: 10px;background-color:#7AA374; transition: 0.2s;}
+        .slidbtn li.on{ float: left;margin-left: 10px; width: 15px;height: 15px;border-radius: 10px;background-color:#fff;border:1px solid #7AA374; padding-left: 20px;}
+        .btn_bot{width: 100%;height: 50px;margin-top:40px;padding: 18px; border-bottom: 1px solid gray;}
+        .btn_bot img{width: 50px; height: 50px;}
+     
+        .page2{width: 100%; height: 690px;overflow:hidden; }
+        .p2btn{width: 100%;height: 80px;background-color: lightgray;padding: 12px 12px;}
+        .p2btn li{float: left; width: 50%;padding-top: 5px;}
+        .p2btn li img{width: 160px;height: 70px;}
+        
+        .quickbtn{width: 100%;height: 610px;text-align: center;background-color:#2F3138;padding-top: 20px;}
+        .title{width: 80%;height: 30px;background-color: #fff;margin-left: 10%;margin-right: 10%;margin-top: 20px; }
+        .vr{width: 85%;border: 1px dotted #AFC9C9;margin-top: 15px;margin-left: 28px;}
+        .btn_con {width: 80%;padding-left: 45px;margin-top: 30px;}
+        .btn_con li{float: left;width: 40%;height: 100px;border: 1px solid #000;margin: 10px; border-radius: 90px;line-height: 20px;padding-top: 20px;font-size: 1.1em; background-color:#FAFAF5;box-shadow: 5px 5px 2px 1px #AFC9C9;}
+        .btn_con li i {width: 100%;height: 10px;display: block;margin-bottom: 20%;font-size: 1.5em;padding-top: 10px;}
+     
+        .page3{width: 100%;height: 100vh;overflow: hidden;}
+        .p3tit{width: 100%; height: 50px;margin-top: 50px;text-align: center;}
+        .persons{width: 100%;text-align: center;height: 520px;;border-bottom: 1px solid lightgray;}
+        .persons li{width: 50%;height: 150px;float: left;padding-top: 10px;padding-bottom: 100px;}
+        .persons li img{width: 190px; border-bottom: 1px solid #000;}
+        .persons li a{float: left;width: 100%;padding: 5px 0px; }
+        
+       
+    
+       .snspart{width: 100%;height: 80px;padding: 5px 0px;background-color: rgb(153, 153, 153);}
+       .snspart li{float: left;width: 33.3333%;}
+       .snspart li i {font-size: 0.8em; width: 40px;height: 40px;border: 2px solid rgb(150, 148, 148); border-radius: 20px;text-align: center; line-height: 40px; background-color: #ffffff; color: rgb(160, 160, 160); box-shadow:2px 2px 2px gray;}
+       .snspart li a{float: left;display: block;width: 100%;}
+       .snspart h5{margin-top: 2px;color: rgb(236, 236, 236); text-shadow: 2px 2px 2px gray;}
+
+
+
+       footer{width: 100%;height: 100px;background-color: #222; color:rgb(153, 153, 153);font-size: 0.8em;padding: 10px 0px;text-align: center;}
+       footer select {width: 120px;}
+       .address{ margin-top: 12px; width: 150px; height: 20px;border-bottom: 1px solid lightgray; margin: 10px auto;}
+       .address a{color: lightgray;}
+       .copy{padding-bottom: 2px;}
+     </style>
+
+
+<script>
+
+$(document).ready(function() {
+
+  //좌우버튼, 동그라미 버튼 연동 //
+
+//   var wid = $(".slide").width();
+
+//   var len = $(".slide img").length;
+
+
+  $(".slidbtn li").click(function() {
+
+    i = $(this).index();
+
+    showSlide();
+
+    $(".slidbtn li").addClass("clicked");
+
+
+  });
+
+  function showSlide() {
+    $(".slidbtn li").removeClass("on");
+    $(".slidbtn li").eq(i).addClass("on");
+    $(".slide img").stop(true, true).fadeOut();
+    $(".slide img").eq(i).stop(true, true).fadeIn();
+  }
+
+    // 페이지 스크롤 하면 서브메뉴 숨기고 아이콘 등장!
+    var ht = parseInt($(window).height());
+
+    $(window).scroll(function(){
+        var sc=parseInt($(window).scrollTop());
+      
+        if(sc >= ht){
+            $(".hd").css({"right":"-120%"});
+        } else {
+            $(".hd").css({"right":"-80%"});
+        }    
+    
+
+        window.onload = function() {
+         setTimeout(function() {
+        window.scrollTo(0, 1);}, 100);
+       };
+
+    });
+
+// 버튼 누르면 페이지 전체 나오게 하기 
+    var swt = true;
+    $(".togbtn, .togbtn1").click(function(){
+        if(swt){
+            $(".hd").stop(true, false).animate({"right":"0px"}, 100);
+        } else {
+            $(".hd").stop(true, false).animate({"right":"-80%"}, 100);
+        } 
+        swt = !swt; 
+    });
+
+});
+
+
+
+
+</script>
+    
+</head>
+<body>
+    <header class="hd" id="top">
+   
+     <input type="radio" name="tapmenu" id="btn1" checked>
+     <input type="radio" name="tapmenu" id="btn2">
+     <input type="radio" name="tapmenu" id="btn3">
+     <input type="radio" name="tapmenu" id="btn4">
+     <input type="radio" name="tapmenu" id="btn5">
+     <input type="radio" name="tapmenu" id="btn6">
+     <input type="radio" name="tapmenu" id="btn7">
+     <input type="radio" name="tapmenu" id="btn8">
+     <input type="radio" name="tapmenu" id="btn9">
+  
+
+       <div class="showP">
+           <ul>
+        <li class="togbtn"><i class="xi-bars"></i></li>   
+        <li id="join"><a href="">입학신청 <br>
+            <span>GO!</span> </a></li>
+       <label for="btn1">학교<br>소개</label>
+       <label for="btn2">입학<br>정보</a></label></li>
+       <label for="btn3">대학·<br>대학원</label>
+        <label for="btn4">캠퍼스<br>가이드</label> 
+        <label for="btn5">청운<br>알림</label>
+        <label for="btn6">청운<br>소통</label>
+        <label for="btn7">도서관</label>
+        <label for="btn8">학사<br>정보</label>
+        <label for="btn9">사이버<br>캠퍼스</label>
+        </ul>
+        </div>
+   
+   
+        <div class="hideR">
+                <ul class="hideT">
+                    <li><a href="">로그인</a></li>
+                    <li><a href="">사이트맵</a></li>
+                    <li><a href="">ENGLISH</a></li>
+                    <li><a href="">CHINESE</a></li>
+                </ul>
+
+                <ul class="con1">
+                 <h2>About 청운</h2>
+                 <li>인사말</li>
+                 <li>교육이념/비전</li>       
+                 <li>연혁</li>
+                 <li>학교상징</li>     
+                 <li>조직/기구</li> 
+                 <li>오시는길</li>       
+                </ul>
+             
+                <ul class="con2">
+                        <h2>입학정보</h2>
+                        <li>입학처 바로가기</li>
+                           
+
+                    </ul>
+                    
+                    <ul class="con3">
+                        <h2>홍성캠퍼스</h2>
+                            <li>굥양대학</li>
+                            <li>공연영상예술대학</li>       
+                            <li>호텔관광대학</li>
+                            <li>창의융합대학</li>     
+                            <li>보건복지간호대학</li> 
+                            <li>사회서비스대학</li>  
+                        <h2>인천캠퍼스</h2>
+                            <li>광과대학</li>
+                            <li>경영대학</li>     
+                            <li>산업대학 안내</li> 
+                        <h2>대학원</h2>
+                            <li>대학원 안내</li> 
+
+
+                    </ul>
+
+                    <ul class="con4">
+                            <h2>학사안내</h2>
+                                <li>장학제도</li>
+                                <li>재학생장학금</li>       
+                                <li>신입생장학금</li>
+                            <h2>비교과</h2>    
+                                <li>증명발급/재증명발급</li>     
+                                <li>인터넷신청</li> 
+                                <li>학생지원서비스</li>  
+                            <h2>청운학사</h2>
+                                <li>교내식당</li>
+                                <li>무선인터넷</li>     
+                                <li>동아리 정보</li>
+                                <li>국제학생증</li>  
+                            <h3>한국장학재단 현장지원센터</h3>
+                             
+    
+    
+                        </ul>
+
+                    
+                        <ul class="con5">
+                                <h2>공지사항</h2>
+                                    <li>전체공지</li>
+                                    <li>학사공지</li>       
+                                    <li>장학공지</li>
+                                <h2>언론보도</h2>    
+                                    <li>교육수요자만족도</li>     
+                                    <li>입찰공고</li> 
+                                  
+                                <h2>서식자료실</h2>
+                                    <li>학사서식</li>
+                                    <li>행정서식</li>     
+                                    <li>FAQ</li>
+                                  
+                                 
+        
+        
+                            </ul>    
+
+
+                            <ul class="con6">
+                                    <h2>온라인</h2>                                     
+                                        <li>교무상담실</li>       
+                                        <li>기숙사상담실</li>
+                                        <li>학생상담실</li>
+                                        <li>병무사상담실</li>
+                                        <li>등록금상담실</li>
+                                    <h2>자유게시판</h2>    
+                                        <li>자취/하숙</li>     
+                                        <li>채용정보</li> 
+                                  
+                                      
+                                     
+            
+            
+                                </ul>    
+              
+
+                                 
+                                <ul class="con7">
+                                        <li>온라인</li>
+                                        <li>이용자교육</li>       
+                                        <li>대출/예약</li>
+                                        <li>희망자료</li>
+                                        <li>신청/조회</li>
+                                        <li>교양도서</li>                               
+                                        <li>열람실</li>     
+                                        <li>좌석배정</li> 
+                                      
+                                          
+                                         
+                
+                
+                                    </ul>    
+
+                            
+                                <ul class="con8">
+                                        <h2>청운포토</h2>
+                                            <li>상담실</li>
+                                            <li>교무상담실</li>       
+                                            <li>기숙사상담실</li>
+                                            <li>학생상담실</li>
+                                            <li>병무사상담실</li>
+                                            <li>등록금상담실</li>
+                                        <h2>자유게시판</h2>    
+                                            <li>자취/하숙</li>     
+                                            <li>채용정보</li> 
+                                      
+                                          
+                                         
+                
+                
+                                    </ul>    
+
+
+                                    <ul class="con9">
+                                            <h4>교육현황</h4>
+                                            <h4>커뮤니티</h4>
+                                            <h4>소개</h4>
+
+                                               
+                                            <li>
+                                                <h5>Quick Menu</h5>   
+                                                <a>청강신청</a>     
+                                                <a>비정규과목</a> 
+                                                <a>전체설문</a> 
+                                                <a>FAQ</a> 
+                                              
+                                            </li>  
+                    
+                    
+                                        </ul>    
+
+                   </div>
+        
+                        
+                
+                        
+                
+
+               
+    </header>
+
+    <div class="togbtn1">
+            <i class="xi-bars"></i>
+
+    </div>
+
+    <div class="togbtn2">
+           <ul><a href="index.html">top</a></ul>
+
+    </div>
+
+    <div class="page1">
+        <div class="logo"><a href="index.html"><img src="./img/logo.png" alt=""></a></div>
+        <div class="slide">
+           <ul>
+            <li><a href=""><img src="./img/slide1.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/slide2.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/slide3_03.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/slide4.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/slide5.jpg" alt=""></a></li>
+        </ul>     
+    </div>
+    <div class="slidbtn">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>        
+    </div>
+<div class="btn_bot">
+<a href="#page3"><img src="./img/btn_bottom.png" alt=""></a>
+
+</div>
+
+    </div>
+
+
+    <div class="page2" >
+        <ul class="p2btn">
+        <li><a href=""><img src="./img/mainbtn_01.png" alt=""></a></li>
+        <li><a href=""><img src="./img/mainbtn_02.png" alt=""></a></li>
+
+        </ul>
+
+   <ul class="quickbtn">
+      <li class="title"> <h2>Quick Click Menu</h2></li>
+      <li class="vr"></li>
+      <div class="btn_con">
+<li><a href=""><i class="xi-webcam"></i>웹진</a></li>
+<li><a href=""><i class="xi-map-o"></i>오시는길</a></li>
+<li><a href=""><i class="xi-sitemap-o"></i>기구표</a></li>
+<li><a href=""><i class="xi-forum-o"></i>대학학칙</a></li>
+<li><a href=""><i class="xi-image-o"></i>IPHOTO</a></li>
+<li><a href=""><i class="xi-school"></i>장학제도</a></li>
+</div>
+
+
+   </ul>
+    </div>
+
+<div class="page3" id="page3">
+        <ul class="p3tit"><h2>Welcom to CWU</h2></li>
+<ul class="persons">
+  
+<li><a href=""><img src="./img/personbtn1_02.png" alt=""></a>
+<a href="">통합로그인 <i class="xi-location-arrow"></i></a>
+<a href="">웹메일 </i></a>
+<a href="">e-증명발급 </i></a>
+
+</li>
+<li><a href=""><img src="./img/personbtn2_02_03.png" alt="" width="190" height="139">
+    <a href="">통합로그인 <i class="xi-location-arrow"></i></a>
+    <a href="">교직원게시판 </a>
+    <a href="">서식자료실</a>
+    
+
+</a></li>
+<li><a href=""><img src="./img/personbtn3_02.png" alt="">
+    <a href="">입학처 <i class="xi-location-arrow"></i></a>
+    <a href="">청운비전</a>
+    <a href="">청운학사</a>
+
+</a></li>
+<li >
+        <a href=""><img src="./img/library1.png" alt="" width="190" height="139">
+            <a href="">소장자료검색 <i class="xi-location-arrow"></i></a>
+            <a href="">전자자료검색</a>
+            <a href="">이용자가이드</a>
+</li>
+
+
+</ul>
+
+<ul class="snspart">
+<li><a href=""><i class="xi-facebook"></i> <h5>페이스북</h5></a></li>
+<li><a href=""><i class="xi-blogger"></i> <h5>블로그</h5></a></li>
+<li><a href=""><i class="xi-instagram"></i> <h5>인스타그램</h5></a></li>
+
+</ul>
+
+
+
+</div>
+
+
+
+
+
+    <footer>
+
+<!-- <select name="selectmenu" id="op1" class="select_box1" title="사이트링크 선택"  onchange="javascript:fn_egov_selectmenu(this.value);"> -->
+        <select id="siteLinkSelectA" name="siteLinkSelectA" class="select_box1" title="사이트링크 선택" onchange="javascript:fn_egov_siteLinkSelect(this.value);">
+           
+                <option value="">--교내기관--</option>
+                <option value="http://planning.chungwoon.ac.kr">기획처</option>
+                <option value="http://teacher.chungwoon.ac.kr/">교직학부</option>
+                <option value="http://affairs.chungwoon.ac.kr">사무처</option>
+                <option value="http://inacademic.chungwoon.ac.kr/">교학처</option>
+            <option value="/iec/index.do">국제교육원</option>
+        </select>
+        
+        
+        <select id="siteLinkSelectB" name="siteLinkSelectB" class="select_box2" title="사이트링크 선택" onchange="javascript:fn_egov_siteLinkSelect(this.value);">
+                <option value="">--교내사이트--</option>
+                <option value="http://culture.chungwoon.ac.kr/culture/index.do">-교양대학</option>    
+                <option value="http://enter.chungwoon.ac.kr/home/contents.do?key=948">-공연영상예술대학</option>
+                <option value="http://enter.chungwoon.ac.kr/home/contents.do?key=785">-호텔관광대학</option>    
+                <option value="http://enter.chungwoon.ac.kr/home/contents.do?key=786">-창의융합대학</option>    
+                <option value="http://enter.chungwoon.ac.kr/home/contents.do?key=786">-창의융합대학</option>    
+                <option value="http://enter.chungwoon.ac.kr/home/contents.do?key=786">-창의융합대학</option>
+        </select>
+            
+                    
+
+
+<div class="address"> 
+       <a href=""><i class="xi-call"> 캠퍼스별 전화번호 </i>   </a>  </div>
+<div class="copy">COPYRIGHT(C) 2013 BY  CHUNGWOON UNIVERSITY. <br> ALL RIGHTS RESERVED.</div>
+
+
+       
+    </footer>
+</body>
+</html>
