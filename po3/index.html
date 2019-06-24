@@ -11,12 +11,20 @@
      <meta name="description" content="청운대, 대학교">
      <meta name="keywords" content="청운대, 대학교">
 
+    <!-- 모바일 화면 조정 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
      <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
      <link rel="stylesheet" href="./xeicon/xeicon.min.css">
      <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
      <link rel="stylesheet" href="./normalize.css">
      <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
      <script src="https://code.jquery.com/jquery-latest.js"></script>
+     
 
     <title>청운대학교</title>
      
@@ -28,10 +36,10 @@
         input,label,button{outline: none;background-color:transparent; border: none;}
         input{display: none;}
      
-     .hd{z-index: 999;transition: 0.6s;position: fixed;width: 100%;height: 100%;background-color:#fff; right: -80%;top: 0;}
+     .hd{z-index: 999;transition: 0.6s;position: fixed;width: 100%;height: 100vh;background-color:#fff; right: -80%;top: 0;}
      .hd.off{right:-120%;}     
      
-     .showP{width: 20%;height: 100%;background-color: rgb(105, 138, 100);border-right: 1px solid #000;position: absolute;float: left;box-sizing: border-box;}
+     .showP{width: 20%;height: 100vh;background-color: rgb(105, 138, 100);border-right: 1px solid #000;position: absolute;float: left;box-sizing: border-box;}
      .togbtn{width: 100%;height: 60px;background-color: #fff;text-align: center;}
      .togbtn i{font-size: 1.5em;line-height: 60px;}
      .hd .showP label {float: left;width: 100%;height: 60px;border-bottom: 1px solid #000;text-align: center;font-size: 0.9em; line-height: 30px; cursor: pointer;}
@@ -113,7 +121,7 @@
     .con9 li a{float: left;width: 200px;height: 20px;padding: 2px;border: 1px solid #fff; margin:10px auto;background-color: rgb(177, 176, 176,0.7);}
     
 
-        .page1{width: 100%;height:100vh;position: relative;background-color: #f2f2f2; overflow:hidden; }
+        .page1{width: 100%;height:100vh;position: relative;background-color: #f2f2f2;  }
         .logo{position: absolute;top: 15px;left: 15px; width: 200px;height: 30px;display: block; z-index: 2;}
         .slide{width: 100%;height: 547px;position: relative;overflow: hidden;}
         .slide img{width: 100%;height: 547px; position: absolute;}
@@ -123,7 +131,7 @@
         .btn_bot{width: 100%;height: 50px;margin-top:40px;padding: 18px; border-bottom: 1px solid gray;}
         .btn_bot img{width: 50px; height: 50px;}
      
-        .page2{width: 100%; height: 690px;overflow:hidden; }
+        .page2{width: 100%; height: 690px; }
         .p2btn{width: 100%;height: 80px;background-color: lightgray;padding: 12px 12px;}
         .p2btn li{float: left; width: 50%;padding-top: 5px;}
         .p2btn li img{width: 160px;height: 70px;}
@@ -135,8 +143,8 @@
         .btn_con li{float: left;width: 40%;height: 100px;border: 1px solid #000;margin: 10px; border-radius: 90px;line-height: 20px;padding-top: 20px;font-size: 1.1em; background-color:#FAFAF5;box-shadow: 5px 5px 2px 1px #AFC9C9;}
         .btn_con li i {width: 100%;height: 10px;display: block;margin-bottom: 20%;font-size: 1.5em;padding-top: 10px;}
      
-        .page3{width: 100%;height: 100vh;overflow: hidden;}
-        .p3tit{width: 100%; height: 50px;margin-top: 50px;text-align: center;}
+        .page3{width: 100%;height: 95vh;}
+        .p3tit{width: 100%; height: 50px;margin-top: 50px;text-align: center;l}
         .persons{width: 100%;text-align: center;height: 520px;;border-bottom: 1px solid lightgray;}
         .persons li{width: 50%;height: 150px;float: left;padding-top: 10px;padding-bottom: 100px;}
         .persons li img{width: 190px; border-bottom: 1px solid #000;}
@@ -189,6 +197,9 @@ $(document).ready(function() {
     $(".slide img").eq(i).stop(true, true).fadeIn();
   }
 
+
+
+
     // 페이지 스크롤 하면 서브메뉴 숨기고 아이콘 등장!
     var ht = parseInt($(window).height());
 
@@ -220,7 +231,23 @@ $(document).ready(function() {
         swt = !swt; 
     });
 
+    window.onload = function() {
+    setTimeout(function() {
+        window.scrollTo(0, 1);}, 100);
+    };
+    
+
+    // 나머지 버튼 누르면 전체가 나오게   --> test 다시 하기
+    
+    $(".showP label").click(function(){
+        $(".hd").stop().animate({"right":"0px"},300)
+
+
+    });
+
+  
 });
+
 
 
 
