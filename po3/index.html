@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <meta name="viewport" content="initial-scale=1.0,
+      minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
@@ -121,7 +122,7 @@
     .con9 li a{float: left;width: 200px;height: 20px;padding: 2px;border: 1px solid #fff; margin:10px auto;background-color: rgb(177, 176, 176,0.7);}
     
 
-        .page1{width: 100%;height:100vh;position: relative;background-color: #f2f2f2;  }
+        .page1{width: 100%;height:100vh;position: relative;background-color: #f2f2f2; overflow:hidden; }
         .logo{position: absolute;top: 15px;left: 15px; width: 200px;height: 30px;display: block; z-index: 2;}
         .slide{width: 100%;height: 547px;position: relative;overflow: hidden;}
         .slide img{width: 100%;height: 547px; position: absolute;}
@@ -131,7 +132,7 @@
         .btn_bot{width: 100%;height: 50px;margin-top:40px;padding: 18px; border-bottom: 1px solid gray;}
         .btn_bot img{width: 50px; height: 50px;}
      
-        .page2{width: 100%; height: 690px; }
+        .page2{width: 100%; height: 690px;overflow:hidden; }
         .p2btn{width: 100%;height: 80px;background-color: lightgray;padding: 12px 12px;}
         .p2btn li{float: left; width: 50%;padding-top: 5px;}
         .p2btn li img{width: 160px;height: 70px;}
@@ -152,15 +153,15 @@
         
        
     
-       .snspart{width: 100%;height: 80px;padding: 5px 0px;background-color: rgb(153, 153, 153);}
-       .snspart li{float: left;width: 33.3333%;}
+       .snspart{width: 100%;height: 80px;padding: 10px 0px;background-color: rgb(153, 153, 153);}
+       .snspart li{float: left;width: 33.3333%;height: 100%; text-align: center;}
        .snspart li i {font-size: 0.8em; width: 40px;height: 40px;border: 2px solid rgb(150, 148, 148); border-radius: 20px;text-align: center; line-height: 40px; background-color: #ffffff; color: rgb(160, 160, 160); box-shadow:2px 2px 2px gray;}
        .snspart li a{float: left;display: block;width: 100%;}
        .snspart h5{margin-top: 2px;color: rgb(236, 236, 236); text-shadow: 2px 2px 2px gray;}
 
 
 
-       footer{width: 100%;height: 100px;background-color: #222; color:rgb(153, 153, 153);font-size: 0.8em;padding: 10px 0px;text-align: center;}
+       footer{margin-top: 15px;width: 100%;height: 100px;background-color: #222; color:rgb(153, 153, 153);font-size: 0.8em;padding: 10px 0px;text-align: center;}
        footer select {width: 120px;}
        .address{ margin-top: 12px; width: 150px; height: 20px;border-bottom: 1px solid lightgray; margin: 10px auto;}
        .address a{color: lightgray;}
@@ -197,9 +198,6 @@ $(document).ready(function() {
     $(".slide img").eq(i).stop(true, true).fadeIn();
   }
 
-
-
-
     // 페이지 스크롤 하면 서브메뉴 숨기고 아이콘 등장!
     var ht = parseInt($(window).height());
 
@@ -235,17 +233,6 @@ $(document).ready(function() {
     setTimeout(function() {
         window.scrollTo(0, 1);}, 100);
     };
-    
-
-    // 나머지 버튼 누르면 전체가 나오게   --> test 다시 하기
-    
-    $(".showP label").click(function(){
-        $(".hd").stop().animate({"right":"0px"},300)
-
-
-    });
-
-  
 });
 
 
@@ -516,30 +503,33 @@ $(document).ready(function() {
     </div>
 
 <div class="page3" id="page3">
-        <ul class="p3tit"><h2>Welcom to CWU</h2></li>
+        <ul class="p3tit"><h2>Welcom to CWU</h2></ul>
 <ul class="persons">
   
-<li><a href=""><img src="./img/personbtn1_02.png" alt=""></a>
+<li>
+<a href=""><img src="./img/personbtn1_02.png" alt=""></a>
 <a href="">통합로그인 <i class="xi-location-arrow"></i></a>
-<a href="">웹메일 </i></a>
-<a href="">e-증명발급 </i></a>
+<a href="">웹메일 </a>
+<a href="">e-증명발급 </a>
 
 </li>
-<li><a href=""><img src="./img/personbtn2_02_03.png" alt="" width="190" height="139">
+
+<li><a href=""><img src="./img/personbtn2_02_03.png" alt="" width="190" height="139"></a>
     <a href="">통합로그인 <i class="xi-location-arrow"></i></a>
     <a href="">교직원게시판 </a>
     <a href="">서식자료실</a>
     
 
-</a></li>
-<li><a href=""><img src="./img/personbtn3_02.png" alt="">
+</li>
+
+<li><a href=""><img src="./img/personbtn3_02.png" alt=""></a>
     <a href="">입학처 <i class="xi-location-arrow"></i></a>
     <a href="">청운비전</a>
     <a href="">청운학사</a>
 
-</a></li>
+</li>
 <li >
-        <a href=""><img src="./img/library1.png" alt="" width="190" height="139">
+    <a href=""><img src="./img/library1.png" alt="" width="190" height="139"></a>
             <a href="">소장자료검색 <i class="xi-location-arrow"></i></a>
             <a href="">전자자료검색</a>
             <a href="">이용자가이드</a>
