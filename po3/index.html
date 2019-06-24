@@ -26,6 +26,11 @@
      <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
      <script src="https://code.jquery.com/jquery-latest.js"></script>
      
+<!--     아이폰용 툴바 감추기 + 전체화면 set-->
+ <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+     
 
     <title>청운대학교</title>
      
@@ -129,7 +134,7 @@
         .slidbtn{width: 500px;height: 20px; position: absolute; bottom:120px;left: 140px;}
         .slidbtn li{float: left;margin-left: 10px; width: 15px;height: 15px;border-radius: 10px;background-color:#7AA374; transition: 0.2s;}
         .slidbtn li.on{ float: left;margin-left: 10px; width: 15px;height: 15px;border-radius: 10px;background-color:#fff;border:1px solid #7AA374; padding-left: 20px;}
-        .btn_bot{width: 100%;height: 50px;margin-top:40px;padding: 18px; border-bottom: 1px solid gray;}
+        .btn_bot{width: 100%;height: 50px;margin-top:40px;padding: 18px; border-bottom: 1px solid gray;position: absolute;}
         .btn_bot img{width: 50px; height: 50px;}
      
         .page2{width: 100%; height: 690px;overflow:hidden; }
@@ -144,8 +149,8 @@
         .btn_con li{float: left;width: 40%;height: 100px;border: 1px solid #000;margin: 10px; border-radius: 90px;line-height: 20px;padding-top: 20px;font-size: 1.1em; background-color:#FAFAF5;box-shadow: 5px 5px 2px 1px #AFC9C9;}
         .btn_con li i {width: 100%;height: 10px;display: block;margin-bottom: 20%;font-size: 1.5em;padding-top: 10px;}
      
-        .page3{width: 100%;height: 95vh;}
-        .p3tit{width: 100%; height: 50px;margin-top: 50px;text-align: center;l}
+        .page3{width: 100%;height: 630px;}
+        .p3tit{width: 100%; height: 50px;margin-top: 50px;text-align: center;}
         .persons{width: 100%;text-align: center;height: 520px;;border-bottom: 1px solid lightgray;}
         .persons li{width: 50%;height: 150px;float: left;padding-top: 10px;padding-bottom: 100px;}
         .persons li img{width: 190px; border-bottom: 1px solid #000;}
@@ -153,7 +158,7 @@
         
        
     
-       .snspart{width: 100%;height: 80px;padding: 10px 0px;background-color: rgb(153, 153, 153);}
+       .snspart{width: 100%;height: 80px;padding: 10px 0px;background-color: rgb(153, 153, 153);padding-bottom:-80px;}
        .snspart li{float: left;width: 33.3333%;height: 100%; text-align: center;}
        .snspart li i {font-size: 0.8em; width: 40px;height: 40px;border: 2px solid rgb(150, 148, 148); border-radius: 20px;text-align: center; line-height: 40px; background-color: #ffffff; color: rgb(160, 160, 160); box-shadow:2px 2px 2px gray;}
        .snspart li a{float: left;display: block;width: 100%;}
@@ -161,7 +166,7 @@
 
 
 
-       footer{margin-top: 15px;width: 100%;height: 100px;background-color: #222; color:rgb(153, 153, 153);font-size: 0.8em;padding: 10px 0px;text-align: center;}
+       footer{margin-top: 25px;width: 100%;height: 100px;background-color: #222; color:rgb(153, 153, 153);font-size: 0.8em;padding: 10px 0px;text-align: center;}
        footer select {width: 120px;}
        .address{ margin-top: 12px; width: 150px; height: 20px;border-bottom: 1px solid lightgray; margin: 10px auto;}
        .address a{color: lightgray;}
@@ -240,6 +245,13 @@ $(document).ready(function() {
 
 
 </script>
+   
+   
+<!--   툴바 감추기-->
+   <script type="text/javascript">
+window.addEventListener('load', function(){setTimeout(scrollTo, 0, 0, 1);
+}, false);
+</script>
     
 </head>
 <body>
@@ -262,7 +274,7 @@ $(document).ready(function() {
         <li id="join"><a href="">입학신청 <br>
             <span>GO!</span> </a></li>
        <label for="btn1">학교<br>소개</label>
-       <label for="btn2">입학<br>정보</a></label></li>
+       <label for="btn2">입학<br>정보</label>
        <label for="btn3">대학·<br>대학원</label>
         <label for="btn4">캠퍼스<br>가이드</label> 
         <label for="btn5">청운<br>알림</label>
