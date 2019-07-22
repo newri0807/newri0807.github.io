@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아이콘애니메이션연습</title>
+ <link rel="stylesheet" href="../animaitionEffect/effect.css">
+ <link rel="stylesheet" href="../xeicon/xeicon.min.css">
+ <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<style>
+    
+    html, body {height: 100%;
+      width: 100%;
+      margin: 0;
+     padding: 0;
+        background-color: #000;
+    }
+
+    main {
+      position: relative;
+      
+    }
+ 
+
+    .bar {
+      display: block;
+      height: 5px;
+      width: 50px;
+      background: #FCBE71;
+      margin: 10px auto;
+    }
+
+    .con {
+         cursor: pointer;
+      display: inline-block;
+      width: auto;
+      margin: 0 auto;
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+
+    .col {
+      display: inline-block;
+      width: 10%;
+      text-align: center;
+      height: auto;
+      position: absolute;
+     top:0px;right: 0px;
+        
+    }
+
+    .middle {
+      margin: 0 auto;
+    }
+
+    .bar {
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+
+    .con:hover .top{
+      -webkit-transform: translateY(15px) rotateZ(45deg);
+      -moz-transform: translateY(15px) rotateZ(45deg);
+      -ms-transform: translateY(15px) rotateZ(45deg);
+      -o-transform: translateY(15px) rotateZ(45deg);
+      transform: translateY(15px) rotateZ(45deg);
+      
+    }
+
+    .con:hover .bottom {
+      -webkit-transform: translateY(-15px) rotateZ(-45deg);
+      -moz-transform: translateY(-15px) rotateZ(-45deg);
+      -ms-transform: translateY(-15px) rotateZ(-45deg);
+      -o-transform: translateY(-15px) rotateZ(-45deg);
+      transform: translateY(-15px) rotateZ(-45deg);
+    }
+
+    .con:hover .middle {
+      width: 0;
+    }  
+    
+    
+    .infinite{-webkit-animation-iteration-count:infinite;}
+    
+    </style>
+    <script>
+$(document).ready(function(){
+		
+$('.bt').on('click',function(){
+			
+   $('.ani').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+		   $(this).removeClass('animated shake');		
+		   });			
+   });
+
+});
+</script>
+    
+    
+<body>
+    <main>
+<div class="col">
+    <div class="con">
+      <div class="bar top"></div>
+      <div class="bar middle"></div>
+      <div class="bar bottom"></div>
+    </div>
+       
+            <div class="animated shake infinite">
+        <img src="../po4/img/nextarrow.png" alt="">  <br>
+        
+           
+       </div>
+       
+       
+       <div class="ani">
+        <img src="../po4/img/nextarrow.png" alt="">  <br>
+        
+           
+       </div>
+           <input type="button" value="클릭" name="btName" class="bt">
+        </div>	
+        
+    </main>
+</body>
+</html>

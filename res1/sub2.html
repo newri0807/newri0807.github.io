@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="AugustHarmony">
+    <meta name="keyword" content="AugustHarmony, 어거스트하모니, 악세사리, accessory">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to AugustHarmony">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Gaegu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./common.css">
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+
+    <style>
+    header{width: 100%;height: 100px;padding: 20px;position: fixed;top: 0;left: 0;z-index: 222;}
+    header.on{background-color: rgba(196, 196, 196, 0.3);height: 3rem;}
+    .gnb{width: 80%;float: left;}
+    .logo{display:block;width: 100px;height: 40px;float: left;z-index: 1000;position: absolute;}  
+    .logo img{width: 100px;height: 50px;}  
+    .menu{width: 1000px;height: 100%;line-height: 40px;position: relative;top: 0;left: 10rem;}   
+    .menu li{float: left; width: 110px; padding-left: 40px;text-align: center; }
+    .menu li a{ color:#e35c25;font-size: 1.8em; width: 110px;}
+    .sub{ width: 150px;height: 8.5rem;position: absolute;display: none;transition: 0.8s;}
+    .sub li{float: left; width: 100px;height: 40px; background-color: rgb(240, 248, 255,0.7); }
+    .sub li a{margin-left:-40px;}
+    .sub li:hover a{color:lightslategrey;}
+   
+   
+        
+        
+    .right{width: 20%;float: right;line-height: 50px; position: relative;}
+    .language i{color:#e35c25;font-size: 1.2em;position: absolute;top: 15px;margin-left: 10px;}
+    .right ul{float: left;}
+    .right ul:nth-child(1){padding-left: 20px; }
+    #lang{background-color: transparent; border: 1px solid #e35c25; 
+        width: 100px;height: 30px; text-indent: 30px;color:#e35c25;}
+    option{background-color: transparent; }
+  
+
+    .con {
+      cursor: pointer;
+      display: inline-block;
+      width: auto;
+      margin: 0 auto;
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+    .toggle {
+      display: inline-block;
+      width: 10%;
+      text-align: center;
+      height: auto;
+      position: absolute;
+     top:0px;right:150px;
+     z-index: 10000;
+   
+    }
+
+    .middle {
+      margin: 0 auto;
+    }
+
+    .bar {
+     display: block;
+      height: 2px;
+      width: 50px;
+      background: #fcbd6e;
+      margin: 10px auto;
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+
+    .con:hover .top.on{
+      -webkit-transform: translateY(13px) rotateZ(45deg);
+      -moz-transform: translateY(13px) rotateZ(45deg);
+      -ms-transform: translateY(13px) rotateZ(45deg);
+      -o-transform: translateY(13px) rotateZ(45deg);
+      transform: translateY(13px) rotateZ(45deg);
+      
+    }
+
+    .con:hover .bottom.on{
+      -webkit-transform: translateY(-13px) rotateZ(-45deg);
+      -moz-transform: translateY(-13px) rotateZ(-45deg);
+      -ms-transform: translateY(-13px) rotateZ(-45deg);
+      -o-transform: translateY(-13px) rotateZ(-45deg);
+      transform: translateY(-13px) rotateZ(-45deg);
+    }
+
+    .con:hover .middle.on {
+      width: 0;
+    }  
+    
+    
+    .infinite{-webkit-animation-iteration-count:infinite;}
+  
+  /* 토글메뉴 */
+  .togwrap{width: 510%; height: 100vh;background-color: #e35c25;position: absolute; clear: both; top: -20px;right: -510%;z-index: 999; transition: 0.7s; }
+  .hidemenu{width: 80%; height: 100%;transform: translate(-35%,-15%);top: 10%;left: 40%;text-align: center;position: relative;clear: both;margin-top: 20%;  }
+  .hidemenu .logo{display: block; }
+  .hidemenu li{float: left;width: 200px; border-right: 1px solid #fff;height: 300px;cursor: pointer;}
+  .hidemenu li a{color:#fff; font-size: 2em;  }
+  .hidemenu >li:nth-child(1){border-left: 1px solid #fff;}
+  .hidemenu li a.dp1:after{content:"▼"; position: relative; margin-left: 0.5rem; left: 60;top: 0px; }
+  .hidemenu li a.dp1.on:after{content:"▲";}
+  .h_sub {width: 200px; padding-top: 10px;display: none;}
+  .h_sub li{float: left;width: 200px; transition: 0.7s;height:5rem;}
+  .h_sub li a{color:#fff; font-size: 2em;display: block;}
+  .hidemenu i{color: #fff; font-size: 3em; position: absolute;top: -32%;left: 86%; cursor: pointer;}
+  .hidemenu i:hover {color: #fcbd6e;}
+  .hidemenu li a:hover {color: #fcbd6e;display: block; }
+  #sidemenu:checked ~ .togwrap{right:0;top:-20px;}
+  input{display: none;}
+
+
+   .page1{width: 100%;height: 100vh;clear: both;}
+   
+
+
+
+
+   footer{width: 100%;height: 10rem;background-color: rgb(61, 61, 61);font-size: 1.2rem;color: darkgray; text-align: center; clear: both;}
+   footer p{letter-spacing: 0.1rem;}
+   footer p span{color:#eee;}
+
+    /* 모바일 */
+    @media screen and (max-width:767px){ 
+        header{width: 100%;height: 100vh;}
+        .gnb{display: none;}
+        .toggle{clear: both;top: 0;left: -400%;}
+        #lang{display: none;}
+        .language{display: none;}
+        .togwrap{top: 0px;right: -100vh;}
+        .hidemenu {top:20px; right: 40px;transform: none; clear: both; border-left:none;}
+        .hidemenu > li:nth-child(1){border:none; }
+        .hidemenu .logo{display:none;}
+        .hidemenu i{top: 0;left: -170px;}
+        .hidemenu li{height: auto; display: inline-block;border: none;}
+        .hidemenu li a{font-size: 1.5em;} 
+        .h_sub li{width: 100%; height:30px;display: inline-block;margin-top: -10px;}
+        .h_sub li a{font-size: 1.5em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+     
+  
+        
+        .page1{max-width: 100%; height: auto;clear: both;}
+        
+        
+   
+     
+        
+        footer{height: 10rem;}
+        footer p {font-size: 0.7em; letter-spacing: 0;}
+        
+            }
+ 
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){         
+        header{width: 100%;height: 100vh;}
+        .gnb{display: block;}
+        .menu{display: none;}
+        .toggle{clear: both;top: 0;left: 10%;}
+        .language{display: block;top: 0;right:90%;position: absolute;}
+        
+        /* 토글페이지 */
+        .togwrap{top: 0px;right: -100vh;clear: both;}
+        .hidemenu {top:0%; left: 40%;transform: none; clear: both;width: 20rem;height: 30rem;}
+        .hidemenu .logo{display:block;top: 0;left:-250%;position: absolute;}
+        .hidemenu i{top: 0;left: -300%;}
+        .hidemenu > li{height: auto; display: block;border: none;margin: 2rem auto;border-bottom: 1px solid #fff;}
+        .hidemenu li a{font-size: 2em;}        
+        .hidemenu > li:nth-child(1){border-bottom: 1px solid #fff; border-left: none;}
+        .h_sub li{width: 100%;height: auto;display: block; transition: 0.7s; }        
+        .h_sub li a{font-size: 1.7em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+        /* .menu li a:active ~ .sub li{opacity: 1; height: 10px; margin-top: -100px;} */
+
+        .page1{max-width: 100%; height: auto;clear: both;}
+      
+        footer{height: 10rem;}
+        footer p {font-size: 0.8em;width: 80%;margin: 0 auto;}
+    } 
+
+    /* 데스크탑 */
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+        header{width: 100%;height: 100vh;}
+        .gnb{display: block;}
+        .menu{display: none;}
+        .toggle{clear: both;top: 0;left: 10%;}
+        .language{display: block;top: 0;right:90%;position: absolute;}
+        
+        /* 토글페이지 */
+        .togwrap{top: -10;right: -160vh;clear: both;}
+        .hidemenu {top:10%; left: 40%;transform: none; clear: both;width: 20rem;height: 30rem;}
+        .hidemenu .logo{display:block;top: 0;left:-250%;position: absolute;}
+        .hidemenu i{top: 0;left: -300%;}
+        .hidemenu > li{height: auto; display: block;border: none;margin: 2rem auto;border-bottom: 1px solid #fff;}
+        .hidemenu li a{font-size: 2em;} 
+        .hidemenu > li:nth-child(1){border-bottom: 1px solid #fff; border-left: none;}
+        .h_sub li{width: 100%;height: auto;display: block; transition: 0.7s; }        
+        .h_sub li a{font-size: 1.7em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+      
+        .page1{max-width: 100%; height: auto;clear: both;}
+       
+        
+        footer{height: 10rem;}
+        footer p {font-size: 0.8em;letter-spacing: 0;width: 80%;margin: 0 auto;}
+
+
+
+
+    }
+
+    
+
+    </style>
+
+<!--
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142835327-1');
+    
+
+   
+
+    </script>
+-->
+
+<script>
+     // 슬라이드1
+        $(document).ready(function(){
+        var intv=setInterval(function(){ nextAni();},2900);
+    
+            function nextAni(){
+                $(".slid1 img").eq(0).appendTo($(".slid1"));
+                $(".slid1 img").eq(0).addClass("on");
+                $(".slid1 img").not(":first-child").removeClass("on");
+            }
+            function prevAni(){
+                $(".slid1 img").eq(3).prependTo($(".slid1"));
+                $(".slid1 img").eq(0).addClass("on");
+                $(".slid1 img").not(":first-child").removeClass("on");
+            }
+    
+        
+            $(".btn2 li").click(function() {
+
+            i = $(this).index();
+
+            showSlide();
+
+            $(".btn2 li").addClass("clicked");
+         
+
+            });
+
+            function showSlide() {
+            $(".btn2 li ").removeClass("on");
+            $(".btn2 li").eq(i).addClass("on");
+            $(".slid2 img").stop(true, true).fadeOut();
+            $(".slid2 img").eq(i).stop(true, true).fadeIn();
+            }
+            
+
+
+            //스크롤 내리면 메뉴배경 나오기
+            $(window).scroll(function(){
+                var sc_top = $(window).scrollTop();
+                if(sc_top>=500 && sc_top<1200) {
+                    $("header").addClass("on");
+                    $("header").removeClass("off");
+                } else  if (sc_top>=1200) { 
+                    $("header").removeClass("on");
+                    $("header").addClass("off");
+
+                } else {
+                    $("header").removeClass("on");
+                    $("header").removeClass("off");
+                }
+            });
+       
+
+                //메인-서브메뉴 나오기
+                $(".menu li ").mouseover(function(){
+                $(this).children(".sub ").stop().slideDown();
+                });
+                $(".menu li ").mouseleave(function(){
+                $(this).children(".sub ").stop().slideUp();
+                });
+
+                 //토글페이지 서브메뉴 나오기  - !!! 모바일에서는 click 만 되니까 click으로해야됨!!!!   
+                var ck1 = [true, true, true, true, true];
+                $(".hidemenu li").click(function(){
+                    var i = $(this).index();
+                    if(ck1[i]){
+                        $(".hidemenu li .h_sub").css("display", "none");
+                        $(this).children(".h_sub").stop().slideDown();
+                        $(".hidemenu li a").removeClass("on");
+                        $(this).find(".dp1").addClass("on");
+                    } else{
+                        $(".hidemenu li .h_sub").css("display", "none");
+                        $(this).children(".h_sub").stop().slideUp();
+                        $(".hidemenu li a").removeClass("on");
+                    }
+                    ck1[i] = !ck1[i];
+                });
+                
+                // !!!!!!!!!! 웹에만 해당 -- mouseover !!!!!!!!!!
+                // $(".hidemenu li").mouseover(function(){
+                // $(this).children(".h_sub").stop().slideDown();
+                // });
+                // $(".hidemenu li").mouseleave(function(){
+                // $(this).children(".h_sub").stop().slideUp();
+                // });
+
+
+            // 스크롤넘길시 다음장 바로 나오는 효과
+                var wh = $(window).height();
+            $(".page").each(function(index){
+                $(this).attr("data-val", index*wh); 
+                    });
+
+            $(".page").on("mousewheel DOMMouseScroll", function(e){
+                
+            var secPos = parseInt($(this).attr("data-val"));
+            if(e.originalEvent.wheelDelta >= 0){            
+                $("html,body").stop().animate({scrollTop:secPos - wh});
+                return false;
+            }else if (e.originalEvent.wheelDelta < 0) {    
+                $("html,body").stop().animate({scrollTop:secPos + wh});
+                return false;
+            }
+        });
+
+
+
+
+
+            });
+
+
+
+        </script>
+
+    <title>wellcome to AugustHarmony</title>
+</head>
+
+<body>
+
+    <header>       
+
+            <nav class="gnb">
+                <a href="" class="logo">
+                    <img src="./img/logo_lighter.png" alt=""> 
+                </a>
+                    <ul class="menu">
+                        <li><a href="">NEW IN</a></li>
+                        <li><a href="">Bracelet</a>
+                         <ul class="sub">
+                            <li><a href="">Slave Bracelet</a></li>
+                            <li><a href="">92.5 Silver</a></li>
+                            <li><a href="">Limited</a></li>                       
+                         </ul>                        
+                        </li>
+                        <li><a href="">Earring&Ring</a>
+                         <ul class="sub">
+                            <li><a href="">rings</a></li>
+                            <li><a href="">earrings</a></li>                                             
+                         </ul>   
+                        
+                        </li>
+                        <li><a href="">Necklace</a></li>
+                        <li><a href="">ETC</a>
+                        <ul class="sub">
+                            <li><a href="">Anklets</a></li>
+                            <li><a href="">Eyewear Chain</a></li>
+                            <li><a href="">개인결제창</a></li>                                                    
+                         </ul>                         
+                        </li>
+                    </ul>
+               
+            </nav>
+
+     <div class="right">
+        <ul class="language">
+          <i class="xi-globus"></i>
+        <select name="selectmenu" id="lang">
+           
+              <option value="option1">한국어</option>
+              <option value="option2">English</option>
+
+        </select>
+        </ul>
+        <input type="checkbox" id="sidemenu">
+        <label for="sidemenu">
+        <ul class="toggle">
+            <li class="con">
+            <div class="bar top on"></div>
+            <div class="bar middle on"></div>
+            <div class="bar bottom on"></div>
+        </li>
+        </ul>
+        </label>
+     
+
+    
+        <div class="togwrap">
+           
+                   
+                <ul class="hidemenu">
+                    
+                    <li><a>NEW IN</a></li>
+                    <li><a class="dp1">Bracelet</a>
+                     <ul class="h_sub">
+                        <li><a href="">Slave Bracelet</a></li>
+                        <li><a href="">92.5 Silver</a></li>
+                        <li><a href="">Limited</a></li>                       
+                     </ul>                        
+                    </li>
+                    <li><a class="dp1">Earring&Ring</a>
+                     <ul class="h_sub">
+                        <li><a href="">rings</a></li>
+                        <li><a href="">earrings</a></li>                                             
+                     </ul>   
+                    
+                    </li>
+                    <li><a>Necklace</a></li>
+                    <li><a class="dp1">ETC</a>
+                    <ul class="h_sub">
+                        <li><a href="">Anklets</a></li>
+                        <li><a href="">Eyewear Chain</a></li>
+                        <li><a href="">개인결제창</a></li>                                                    
+                     </ul>                         
+                    </li>
+
+                    <!-- <label for="sidemenu"><i class="xi-close-thin"></i></label> -->
+                </ul>
+                
+    
+
+
+
+    </header>
+
+
+    <div class="page1">
+     <div class="top_tit">
+         <ul class="part2">
+             <li><p>Brand Story</p></li>
+         </ul>
+         <ul class="part3">
+             <li><a href="">Home</a></li>
+             <li><a href="">Introduce</a></li>
+             <li><a href="">Our Story</a></li>
+         </ul>
+     </div>
+
+       
+    <div class="main_txt">
+
+        <ul class="main_top">
+         <li> <h2 >Our Story</h2> </li> 
+                   <li>
+                        <img src="./img/subp1.JPG" alt="">
+                        <img src="./img/subp2.JPG" alt="" height="423">
+                   </li>                  
+        </ul>
+            
+
+        <ul class="main_left">
+                <li><h4>August Harmony</h4></li>  
+                <li><h2>Summer Festival</h2></li> 
+               
+            </ul>
+        
+        <ul class="main_right">
+                <li>
+                    <p>우리가 살면서 가장 많이 하는것이 걷는 것이라고 생각합니다. 때로는 길이 가파르고 험난해서 힘들때도 이지만 걷다보면 다양한 오브제들을 마주하게 됩니다.
+                    그게 일상 출퇴근길이기도, 여행길이기도 하지요. 그게 일상 출퇴근길이기도, 여행길이기도 하지요.</p>
+                    <p>
+                    아름다운 풍경과 나무, 그리고 예쁜 꽃,
+                    해안에서 흔히 볼 수 있는 조개 
+                    아스팔트가 깔린 도심 속 공사장의 잔해들</p>
+    
+                    <p>이 모든 오브제들이 우리 삶의 일부라고 생각하며 August Harmony 블랜드에 담아보았습니다. </p>
+    
+                    <p>조개와 나뭇잎, 꽃들은 팬던트와 비즈로 울퉁불퉁 길의 형태는 체인의 곡선으로 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.  </p>
+                </li>
+        </ul>
+    
+        </div>
+       
+    </div>
+    
+    
+
+            
+
+
+
+
+
+
+
+   
+
+    
+
+
+    <footer>
+
+    <div class="address">
+        <p>
+        COMPANY : AH컴퍼니  OWNER : 조미혜 TEL : 070-8731-8260 ADDRESS : 03980 서울특별시 마포구 동교로51안길 22 (연남동) SJP빌딩 2층 AH컴퍼니  <br>
+        BUSINESS LICENSE : 130-44-31467 MAIL-ORDER LICENSE : 2011-경기부천-1645 <span>[사업자정보확인]</span>  </p>
+    </div>
+    <div class="copyright">
+<p>COPYRIGHT © 2011 어거스트하모니 ALL RIGHTS RESERVED.</p>
+
+    </div>
+
+    </footer>
+
+
+
+
+</body>
+</html>

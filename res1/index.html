@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="AugustHarmony">
+    <meta name="keyword" content="AugustHarmony, 어거스트하모니, 악세사리, accessory">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to AugustHarmony">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Gaegu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./common.css">
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+
+    <style>
+    /* .page{clear: both;width: 100%;height: 100vh;position: relative;overflow: hidden;} */
+    header{width: 100%;height: 100px;padding: 20px;position: fixed;top: 0;left: 0;z-index: 222;}
+    header.on{background-color: rgba(196, 196, 196, 0.3);height: 3rem;}
+    .gnb{width: 80%;float: left;}
+    .logo{display:block;width: 100px;height: 40px;float: left;z-index: 1000;position: absolute;}  
+    .logo img{width: 100px;height: 50px;}  
+    .menu{width: 1000px;height: 100%;line-height: 40px;position: relative;top: 0;left: 10rem;}   
+    .menu li{float: left; width: 110px; padding-left: 40px;text-align: center; }
+    .menu li a{ color:#e35c25;font-size: 1.8em; width: 110px;}
+    .sub{ width: 150px;height: 8.5rem;position: absolute;display: none;transition: 0.8s;}
+    .sub li{float: left; width: 100px;height: 40px; background-color: rgb(240, 248, 255,0.7); }
+    .sub li a{margin-left:-40px;}
+    .sub li:hover a{color:lightslategrey;}
+   
+        
+    .right{width: 20%;float: right;line-height: 50px; position: relative;}
+    .language i{color:#e35c25;font-size: 1.2em;position: absolute;top: 15px;margin-left: 10px;}
+    .right ul{float: left;}
+    .right ul:nth-child(1){padding-left: 20px; }
+    #lang{background-color: transparent; border: 1px solid #e35c25; 
+        width: 100px;height: 30px; text-indent: 30px;color:#e35c25;}
+    option{background-color: transparent; }
+    /* .toggle {width: 40px;height: 40px;margin-left: 20px;}
+    .toggle i{color: #e35c25;font-size: 2em;margin-top: 10px;} */
+    .con {
+      cursor: pointer;
+      display: inline-block;
+      width: auto;
+      margin: 0 auto;
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+    .toggle {
+      display: inline-block;
+      width: 10%;
+      text-align: center;
+      height: auto;
+      position: absolute;
+     top:0px;right:150px;
+     z-index: 10000;
+   
+    }
+
+    .middle {
+      margin: 0 auto;
+    }
+
+    .bar {
+     display: block;
+      height: 2px;
+      width: 50px;
+      background: #fcbd6e;
+      margin: 10px auto;
+      -webkit-transition: all .7s ease;
+      -moz-transition: all .7s ease;
+      -ms-transition: all .7s ease;
+      -o-transition: all .7s ease;
+      transition: all .7s ease;
+    }
+
+    .con:hover .top.on{
+      -webkit-transform: translateY(13px) rotateZ(45deg);
+      -moz-transform: translateY(13px) rotateZ(45deg);
+      -ms-transform: translateY(13px) rotateZ(45deg);
+      -o-transform: translateY(13px) rotateZ(45deg);
+      transform: translateY(13px) rotateZ(45deg);
+      
+    }
+
+    .con:hover .bottom.on{
+      -webkit-transform: translateY(-13px) rotateZ(-45deg);
+      -moz-transform: translateY(-13px) rotateZ(-45deg);
+      -ms-transform: translateY(-13px) rotateZ(-45deg);
+      -o-transform: translateY(-13px) rotateZ(-45deg);
+      transform: translateY(-13px) rotateZ(-45deg);
+    }
+
+    .con:hover .middle.on {
+      width: 0;
+    }  
+    
+    
+    .infinite{-webkit-animation-iteration-count:infinite;}
+  
+  /* 토글메뉴 */
+  .togwrap{width: 510%; height: 100vh;background-color: #e35c25;position: absolute; clear: both; top: -20px;right: -510%;z-index: 999; transition: 0.7s; }
+  .hidemenu{width: 80%; height: 100%;transform: translate(-35%,-15%);top: 10%;left: 40%;text-align: center;position: relative;clear: both;margin-top: 20%;  }
+  .hidemenu .logo{display: block; }
+  .hidemenu li{float: left;width: 200px; border-right: 1px solid #fff;height: 300px;cursor: pointer;}
+  .hidemenu li a{color:#fff; font-size: 2em;  }
+  .hidemenu >li:nth-child(1){border-left: 1px solid #fff;}
+  .hidemenu li a.dp1:after{content:"▼"; position: relative; margin-left: 0.5rem; left: 60;top: 0px; }
+  .hidemenu li a.dp1.on:after{content:"▲";}
+  .h_sub {width: 200px; padding-top: 10px;display: none;}
+  .h_sub li{float: left;width: 200px; transition: 0.7s;height:5rem;}
+  .h_sub li a{color:#fff; font-size: 2em;display: block;}
+  .hidemenu i{color: #fff; font-size: 3em; position: absolute;top: -32%;left: 86%; cursor: pointer;}
+  .hidemenu i:hover {color: #fcbd6e;}
+  .hidemenu li a:hover {color: #fcbd6e;display: block; }
+  #sidemenu:checked ~ .togwrap{right:0;top:-20px;}
+  /* .h_sub li.on{display:block;} */
+ /* .hidemenu li a:hover ~ .h_sub li{opacity: 1;height: 50px;} */
+  input{display: none;}
+  /* .togwrap.on{right:0;} */
+
+    .page1{width: 100%;height: 100vh;}
+    .slid1{position: relative;overflow: hidden;width:400%;height: 100%;top: 0;left: 0;}
+    .slid1 img{width: 25%; height: auto;display: block; float: left; }
+    .btn1{position: absolute; width: 200px;height: 20px; z-index: 44;top: 35%;left: 8%;}
+    .btn1 li{width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #e35c25;float: left;}
+    .btn1 li.on {width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #fcbd6e;float: left;}
+    .btn1 li:nth-child(4){background-color:transparent;}
+    .btn1 i{line-height: 10%;font-size: 1.2em;color: #e35c25;}
+    
+    .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;  }
+    .slid_tit1 li { position: absolute; left: 0; top:0; width:100vw; height:100vh; overflow:hidden; transition:0.7s; }
+    .slid_tit1 .sl_tit{width: 100%;margin-left:60px; margin-top:1000px; opacity:0; transition:0.7s; }
+    .slid_tit1 .sl_com {width: 100%;margin-left:60px;font-weight: 500; margin-top:1000px;  transition:0.7s; opacity: 0;word-break: break-all;}
+    .more{display: block;width: 400px;height: 40px;text-align: center;line-height: 40px;font-size: 2em; border: 2px solid #fcbd6e;color: #e35c25;   transition:0.7s; margin-left:60px;
+     border-radius: 40px;background-color: rgba(255, 255, 255, 0.5); opacity: 0;}  
+    .slid_tit1 li.on .sl_tit { margin-top: 390px; margin-left: 100px; opacity:1; }
+    .slid_tit1 li.on .sl_com { margin-top: 10px;  margin-left: 120px; opacity:1; }
+    .slid_tit1 li.on .more { opacity: 1;margin-left: 140px; }
+    
+    .xi-long-arrow-right{  
+        animation-duration: 0.8s;
+        animation-name: next;
+        animation-iteration-count: infinite; }
+
+        @keyframes next {
+        from{margin-right: 30px;}
+        to {margin-right: 0;}     
+         } 
+    
+      
+    
+    .page2{width: 100%;height: 100vh;clear: both;}
+    .slid2{position: relative;overflow: hidden;width: 100%;height: 100%;top: 0;left: 0; }
+    .slid2 img{position: absolute;width: auto;height: 100%;}
+    .btn2{position: absolute; width: 200px;height: 20px; z-index: 44;top: 140%;left: 10%;}
+    .btn2 li{width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #e35c25;float: left;transition: 0.2s;}
+    .btn2 li.on{width: 20px; height: 20px;border-radius: 20px;margin-left: 10px; background-color:transparent; border:1px solid #fcbd6e; float: left;line-height: 20px;}
+/*    .btn2.on li{width: 30px; height: 30px;font-size: 1.2em;line-height: -30px;width: 10px; height: 10px;}*/
+    .btn2 li:nth-child(7){background-color:transparent;}
+    .btn2 i{line-height: 10%;font-size: 1.2em;color: #e35c25;}
+    .slid_tit2{position: absolute;width: 80%;height: 23%;z-index: 33;top: 144%;left: 10%;overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;}
+    .slid_tit2 h2{width: 100%;text-indent: -2px;margin-bottom: -20px;}
+    .slid_tit2 h4{width: 100%;text-indent: -2px;font-weight: 500;word-break: break-all;}
+    .slid_tit2 .more{width: 400px;height: 40px;line-height: 40px;font-size: 2em; border: 2px solid #fcbd6e;color: #e35c25; margin-left:0px;
+     background-color: rgba(255, 255, 255, 0.5); opacity: 1;}
+
+
+
+    .bottomslide{width: auto;height: 7rem;position: relative; bottom: 7rem; left: 0;z-index: 66;background-color: #fff;border-top: 1px solid #fcbd6e;
+    overflow: hidden;}
+    .bottomslide ul{float: left;}
+    .arrow{height: 100%;width: 20%;background-color: #e35c25; }
+    .arrow li{float: left;font-size: 2em;line-height: 100px;}
+    .arrow li i{color:#fff;margin-left: 10px;}
+    .arrow li.left i{margin-left:220px;}    
+    .arrow li.right:before{content: "|";color: #fff;}
+ 
+    .list {width: 80%;height: 100%;float: right;background: transparent;position: relative;}
+    .list li{margin-left: 15%;float: left;line-height: 100px;}
+    .list li a{font-size: 2em;color:#fcbd6e; }
+    .list li.on{ position: absolute;
+    bottom: 70%;left: 1%; text-align: center;width: 10px;height: 200px;background: #e35c25;z-index: 111;}
+
+
+
+    .page3{width: 100%;height: 100vh;clear: both;}
+    .page3 ul{float: left;width: 33.33333%;height: 100%;}
+    .part1{width: 33.33333%;height: 100%;background-image: url(./img/slide2-1.jpg);background-size: cover;background-repeat: no-repeat;
+        background-position: center center; opacity: 0.8;}
+    .part1 li{text-align: center;width: 300px;height: 300px;margin: 0 auto;margin-top: 25%;color: #fff;}
+    .part1 li a { display: block;width: 300px;height: 300px;border-radius: 150px;background-color: rgb(217, 217, 217,0.6);margin: 0 auto;}
+    .part1 li h4{font-weight: 100;line-height: 25px;}
+    .part1 li h2{text-indent: -10px;}
+    .part1 li a i{font-size: 8em;font-weight: lighter; color:#fff;line-height: 2.7em;}
+    
+    .part2{width: 33.33333%;height: 100%;background-image: url(./img/slide2-4.jpg);background-size: cover;background-repeat: no-repeat;
+       background-position: center center; opacity: 0.8;}
+    .part2 li{text-align: center;width: 300px;height: 300px;margin: 0 auto;margin-top: 25%;color: #fff;}
+    .part2 li a { display: block;width: 300px;height: 300px;border-radius: 150px;background-color:rgb(217, 217, 217,0.6);margin: 0 auto;}
+    .part2 li h2{text-indent: -10px;}
+    .part2 li h4{font-weight: 100;line-height: 25px;}
+    .part2 li a i{font-size: 8em;font-weight: lighter; color:#fff;line-height: 2.8em;}
+    
+    .part3{width: 33.33333%;height: 100%;background-image: url(./img/thirdp3.jpg);background-size: cover;background-repeat: no-repeat;
+       background-position: center center; opacity: 0.8;}
+    .part3 li{text-align: center;width: 300px;height: 300px;margin: 0 auto;margin-top: 25%;color: #fff;}
+    .part3 li a { display: block;width: 300px;height: 300px;border-radius: 150px;background-color: rgb(217, 217, 217,0.6);margin: 0 auto;}
+    .part3 li h4{font-weight: 100;line-height: 25px;}
+    .part3 li h2{text-indent: -10px;}
+    .part3 li a i{font-size: 8em;font-weight: lighter; color:#fff;line-height: 2.8em;}
+        
+    .part1:hover{opacity: 1;}
+    .part2:hover{opacity: 1;}
+    .part3:hover{opacity: 1;}
+
+
+   footer{width: 100%;height: 10rem;background-color: rgb(61, 61, 61);font-size: 1.2rem;color: darkgray; text-align: center;}
+   footer p{letter-spacing: 0.1rem;}
+   footer p span{color:#eee;}
+
+    /* 모바일 */
+    @media screen and (max-width:767px){ 
+       
+        .gnb{display: none;}
+        .toggle{clear: both;top: 0;left: -400%;}
+        #lang{display: none;}
+        .language{display: none;}
+        .togwrap{top: 0px;right: -100vh;}
+        .hidemenu {top:20px; right: 40px;transform: none; clear: both; border-left:none;}
+        .hidemenu > li:nth-child(1){border:none; }
+        .hidemenu .logo{display:none;}
+        .hidemenu i{top: 0;left: -170px;}
+        .hidemenu li{height: auto; display: inline-block;border: none;}
+        .hidemenu li a{font-size: 1.5em;} 
+        .h_sub li{width: 100%; height:30px;display: inline-block;margin-top: -10px;}
+        .h_sub li a{font-size: 1.5em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+     
+       
+        .page1{width: 100%; height: 100vh;clear: both;}
+        .slid1 {width: 300%; height: 100%;}
+        .slid1 img{width:auto; height: 100vh;}
+        .slid_tit1 {letter-spacing: 2px;}
+        .slid_tit1 li { position: absolute; left: 0; top:0; font-size: 0.7rem;}
+       
+        .slid_tit1 li.on .sl_tit { margin-top: 20rem; margin-left: -1.2rem;}
+        .slid_tit1 li.on .sl_com { margin-top: 0;  margin-left: 0;padding-left: 0.4rem;text-indent: 0.1rem;}
+        .slid_tit1 li.on .more {margin-right: 1rem;width: 10rem; }
+    
+        
+        .page2{width: 100%;height: 100vh;clear: both;}
+        .slid2{width: 100%; height: 100%;}
+        .slid2 img{width: 600%; height: auto; transform: translate(-50%, -15%);}
+        .slid_tit2{width: 20rem;height: 15rem;z-index: 33;top: 130%;left: 10%;overflow: hidden;
+        font-size: 0.7rem;letter-spacing: normal;}
+        .slid_tit2 .more{width: 10rem;}
+ 
+        .btn2{top: 130%;left: 10%;}      
+        .bottomslide{height: 6.9rem;}
+        .arrow{width: 40%;float: left;}        
+        .list{float:left;width: 60%;}
+        .list li.on{ left: 8%; }        
+        .arrow li{font-size:3em;margin-left: 10px;}
+        .arrow li.left i{margin-left:20px;}
+        .arrow li.right i{margin-right:-10px;}
+        .arrow li i{margin-left: 0px;}
+        .arrow li.right:before{content:none;}
+        
+        .page3{width: 100%;height: 100vh;clear: both;overflow: hidden;}
+        .page3 ul {width: 100%;height: 33.3333%;font-size: 1em;clear: both;overflow: hidden; }      
+        .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
+        .page3 ul a{width: 150px;height: 150px;margin-top: 2.5rem;}
+        .page3 ul a i{line-height: 150px;font-size: 4rem;}
+      
+        footer{height: 12rem;}
+        footer p {font-size: 0.7em; letter-spacing: 0;}
+        
+         }
+ 
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){           .gnb{display: block;}
+        .menu{display: none;}
+        .toggle{clear: both;top: 0;left: 10%;}
+        .language{display: block;top: 0;right:90%;position: absolute;}
+        
+        /* 토글페이지 */
+        .togwrap{top: 0px;right: -100vh;clear: both;}
+        .hidemenu {top:0%; left: 40%;transform: none; clear: both;width: 20rem;height: 30rem;}
+        .hidemenu .logo{display:block;top: 0;left:-250%;position: absolute;}
+        .hidemenu i{top: 0;left: -300%;}
+        .hidemenu > li{height: auto; display: block;border: none;margin: 2rem auto;border-bottom: 1px solid #fff;}
+        .hidemenu li a{font-size: 2em;}        
+        .hidemenu > li:nth-child(1){border-bottom: 1px solid #fff; border-left: none;}
+        .h_sub li{width: 100%;height: auto;display: block; transition: 0.7s; }        
+        .h_sub li a{font-size: 1.7em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}       
+        
+        
+        .page1{width: 100%; height: 100vh;clear: both;}
+        .slid1 {width: auto; height: 100%;}
+        .slid1 img{width: auto; height: 100%;}
+         .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;  }
+        .slid_tit1 li {position: absolute; left: 0; top:0; font-size: 1rem; width: 50rem;height: 60rem;}
+       
+        .slid_tit1 li.on .sl_tit { margin-top: 30rem; margin-left: 1rem; opacity:1; }
+        .slid_tit1 li.on .sl_com { margin-top: 10px;  margin-left: 1rem; opacity:1;padding-left:2rem; text-indent: 0.4rem;}
+        .slid_tit1 li.on .more { opacity: 1;margin-left: 100px; }
+        
+              
+        .page2{width: 100%;height: 100vh;clear: both;}
+        .slid2 {width: auto; height: 100%;}
+        .slid2 img{width: auto; height: auto;transform: translate(-50%, 10%);}
+        .slid_tit2{position: absolute;z-index: 33;top: 140%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
+        .more{width: 30%;}
+        .btn2{top: 140%;left: 10%;}
+        .bottomslide{height: 6.9rem;}
+        .arrow{width: 40%;float: left;}
+        .list{float: right;width: 60%;}
+        
+        .page3{width: 100%;height: 90vh;clear: both;overflow: hidden;}
+        .page3 ul {width: 33.3333%;height: 100%;font-size: 1em;  }
+        .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
+        .page3 ul a{width: 200px;height: 200px;margin-top: 250px;}
+        .page3 ul i{font-size: 1em;margin-top: -50px;}
+        
+        footer{height: 10rem;}
+        footer p {font-size: 0.8em;width: 80%;margin: 0 auto;}
+    } 
+
+    /* 데스크탑 */
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+        header{width: 100%;height: 10vh;}
+        .gnb{display: block;}
+        .menu{display: none;}
+        .toggle{clear: both;top: 0;left: 10%;}
+        .language{display: block;top: 0;right:90%;position: absolute;}
+        
+        /* 토글페이지 */
+        .togwrap{top: -10;right: -180vh;clear: both;}
+        .hidemenu {top:10%; left: 40%;transform: none; clear: both;width: 20rem;height: 30rem;}
+        .hidemenu .logo{display:block;top: 0;left:-250%;position: absolute;}
+        .hidemenu i{top: 0;left: -300%;}
+        .hidemenu > li{height: auto; display: block;border: none;margin: 2rem auto;border-bottom: 1px solid #fff;}
+        .hidemenu li a{font-size: 2em;} 
+        .hidemenu > li:nth-child(1){border-bottom: 1px solid #fff; border-left: none;}
+        .h_sub li{width: 100%;height: auto;display: block; transition: 0.7s; }        
+        .h_sub li a{font-size: 1.7em;}
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+      
+        .page1{width: auto; height: 100vh;clear: both;}
+        .slid1 {width: 300%; height:100vh;}
+        .slid1 img{width: auto; height: 100vh;float: left;}
+        .slid_tit1{top: 0;left: 10%;overflow: hidden;
+        font-size: 0.7em;width: 40rem;height: 22rem;}
+        .more{width: 30%;}
+        .btn1{top: 40%;left: 10%;}
+
+
+        
+        .page2{width: 100%;height: 100vh;clear: both;}
+        .slid2 {width: 100%; height: 100%;}
+        .slid2 img{max-width: 100%; height: auto;}
+        .slid_tit2{position: absolute;z-index: 33;top: 140%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
+        .slid_tit2 .more{width: 60%;font-size: 1.5em;letter-spacing: 0.2rem;}
+        .btn2{top: 140%;left: 10%;}
+        .bottomslide{max-width: 100%; }
+        .arrow{width: 40%;float: left;}
+        .list{float: right;width: 60%;}
+
+        .page3{width: 100%;height: 100vh;clear: both;overflow: hidden;}
+        .page3 ul {width: 33.3333%;height: 100%;font-size: 1em;  }
+        .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
+        .page3 ul a{width: 200px;height: 200px;margin-top: 20rem;}
+        .page3 ul i{font-size: 1em;margin-top: -50px;}
+        .page3 ul h4{display: none;}
+        footer{height: 10rem;}
+        footer p {font-size: 0.8em;letter-spacing: 0;width: 80%;margin: 0 auto;}
+
+
+
+
+    }
+
+    
+
+    </style>
+
+<!--
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142835327-1');
+    
+
+   
+
+    </script>
+-->
+
+<script>
+    // 토글버튼 누르면 나오는 
+//    $(document).ready(function(){
+//     var ck1 = true;
+//    $(".toggle").click(function(){
+//    if(ck){
+//        $(".togwrap").addClass("on");
+//        $(".toggle").addClass("on"); //토글 버튼 변화도 on효과로 함.
+//    } else{
+//        $(".togwrap").removeClass("on");
+//        $(".toggle").removeClass("on");
+//    }
+   
+//    ck1 = !ck1;
+   //두번클릭 했을때 원래대로
+//
+//     //서브메뉴 옆 아이콘 변경 == po1.html 과 같은 형식
+//    $(".hidemenu li a").click(function(){
+//        $("h_sub li").removeClass("on");
+//        $(this).addclass("on");
+//    });
+//
+//    });
+//
+//
+//
+//
+//   });
+    
+     // 슬라이드1
+        $(document).ready(function(){
+        // var intv=setInterval(function(){ nextAni();},2900);
+    
+        //     function nextAni(){
+        //         $(".slid1 img").eq(0).appendTo($(".slid1"));
+        //         $(".slid1 img").eq(0).addClass("on");
+        //         $(".slid1 img").not(":first-child").removeClass("on");
+        //     }
+        //     function prevAni(){
+        //         $(".slid1 img").eq(3).prependTo($(".slid1"));
+        //         $(".slid1 img").eq(0).addClass("on");
+        //         $(".slid1 img").not(":first-child").removeClass("on");
+        //     }
+            var wd = $(window).width();
+            $(".btn1 li").click(function(i){
+                $(this).addClass("on");
+                $(this).siblings().removeClass("on");
+                var idx = $(this).index();
+                $(".slid_tit1 li").eq(idx).addClass("on");
+                $(".slid_tit1 li").eq(idx).siblings().removeClass("on");
+                //$(".slid_tit1").css("left" , idx*-1*wd+"px");
+                $(".slid1").not(":animated").animate({"margin-left" : idx*-1*wd});
+            });
+          
+        
+
+
+    // 슬라이드2    
+            $(".btn2 li").click(function() {
+
+            i = $(this).index();
+
+            showSlide();
+
+            $(".btn2 li").addClass("clicked");
+         
+
+            });
+
+            function showSlide() {
+            $(".btn2 li ").removeClass("on");
+            $(".btn2 li").eq(i).addClass("on");
+            $(".slid2 img").stop(true, true).fadeOut();
+            $(".slid2 img").eq(i).stop(true, true).fadeIn();
+            }
+            
+            var intv=setInterval(function(){ nextAni(); }, 2900);
+
+
+//             $(document).ready(function () {
+//     $('.slide2').bxSlider({
+//         auto: true, // 자동으로 애니메이션 시작
+//         speed: 500,  // 애니메이션 속도
+//         pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
+//         mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
+//         autoControls: true, // 시작 및 중지버튼 보여짐
+//         pager: true, // 페이지 표시 보여짐
+//         captions: true, // 이미지 위에 텍스트를 넣을 수 있음
+//     });
+// });
+        
+
+
+    //스크롤 내리면 메뉴배경 나오기
+            $(window).scroll(function(){
+                var sc_top = $(window).scrollTop();
+                if(sc_top>=500 && sc_top<1200) {
+                    $("header").addClass("on");
+                    $("header").removeClass("off");
+                } else  if (sc_top>=1200) { 
+                    $("header").removeClass("on");
+                    $("header").addClass("off");
+
+                } else {
+                    $("header").removeClass("on");
+                    $("header").removeClass("off");
+                }
+            });
+       
+
+    //메인-서브메뉴 나오기
+                $(".menu li ").mouseover(function(){
+                $(this).children(".sub ").stop().slideDown();
+                });
+                $(".menu li ").mouseleave(function(){
+                $(this).children(".sub ").stop().slideUp();
+                });
+
+    //토글페이지 서브메뉴 나오기  - !!! 모바일에서는 click 만 되니까 click으로해야됨!!!!   
+                var ck1 = [true, true, true, true, true];
+                $(".hidemenu li").click(function(){
+                    var i = $(this).index();
+                    if(ck1[i]){
+                        $(".hidemenu li .h_sub").css("display", "none");
+                        $(this).children(".h_sub").stop().slideDown();
+                        $(".hidemenu li a").removeClass("on");
+                        $(this).find(".dp1").addClass("on");
+                    } else{
+                        $(".hidemenu li .h_sub").css("display", "none");
+                        $(this).children(".h_sub").stop().slideUp();
+                        $(".hidemenu li a").removeClass("on");
+                    }
+                    ck1[i] = !ck1[i];
+                });
+                
+                // !!!!!!!!!! 웹에만 해당 -- mouseover !!!!!!!!!!
+                // $(".hidemenu li").mouseover(function(){
+                // $(this).children(".h_sub").stop().slideDown();
+                // });
+                // $(".hidemenu li").mouseleave(function(){
+                // $(this).children(".h_sub").stop().slideUp();
+                // });
+
+
+    // 스크롤넘길시 다음장 바로 나오는 효과
+            var wh = $(window).height();
+            $(".page").each(function(index){
+                $(this).attr("data-val", index*wh); 
+                    });
+
+            $(".page").on("mousewheel DOMMouseScroll", function(e){
+                
+            var secPos = parseInt($(this).attr("data-val"));
+            if(e.originalEvent.wheelDelta >= 0){            
+                $("html,body").stop().animate({scrollTop:secPos - wh});
+                return false;
+            }else if (e.originalEvent.wheelDelta < 0) {    
+                $("html,body").stop().animate({scrollTop:secPos + wh});
+                return false;
+            }
+        });
+
+
+        //두 번째 슬라이더 
+         var tar, tar_wd, tar_cnt;
+        tar_cnt = $(".slid2 img").length;
+        tar_wd = parseInt($(".list li").width());
+
+        $(".list li").click(function(e){
+            tar = $(this).index();        
+            for(var i=1;i<tar;i++){
+                $(".slid2 img").eq(0).appendTo($(".slid2"));
+                $(".list li").eq(0).appendTo($(".list"));
+            }
+            nextAni();
+        });
+        function nextAni(){
+            $(".slid2").not(":animated").animate({"margin-left":wd*-1}, 800, function(){
+                $(".slid2 img").eq(0).appendTo($(".slid2"));
+                $(".slid2").css("margin-left", "0px");
+                $(".slid2 img").eq(0).addClass("on");
+                $(".slid2 img").eq(0).siblings().removeClass("on");
+                $(".list li").eq(0).appendTo($(".list"));
+                $(".list li").removeClass("on");
+                $(".list li").eq(0).addClass("on");
+            });
+        }
+        function prevAni(){
+            $(".slid2 img").eq(tar_cnt-1).prependTo($(".slid2"));
+            $(".slid2").css("margin-left", -wd+"px");
+            $(".slid2").not(":animated").animate({"margin-left":"0px"}, 800, function(){
+                $(".vs_lst2 li").eq(0).addClass("on");
+                $(".vs_lst2 li").eq(0).siblings().removeClass("on");
+                $(".list li").eq(tar_cnt-1).prependTo($(".list"));
+                $(".list li").removeClass("on");
+                $(".list li").eq(0).addClass("on");
+            });
+        }
+        $(".arrow .left").click(function(){
+            prevAni();
+        });
+        $(".arrow .right").click(function(){
+            nextAni();
+        });
+
+
+
+            });
+
+
+
+        </script>
+
+    <title>wellcome to AugustHarmony</title>
+</head>
+
+<body>
+
+    <header>       
+
+            <nav class="gnb">
+                <a href="./index.html" class="logo">
+                    <img src="./img/logo_lighter.png" alt=""> 
+                </a>
+                    <ul class="menu">
+                        <li><a href="./sub1.html">NEW IN</a></li>
+                        <li><a href="./sub1.html">Bracelet</a>
+                         <ul class="sub">
+                            <li><a href="./sub1.html">Slave Bracelet</a></li>
+                            <li><a href="./sub1.html">92.5 Silver</a></li>
+                            <li><a href="./sub1.html">Limited</a></li>                       
+                         </ul>                        
+                        </li>
+                        <li><a href="./sub1.html">Earring&Ring</a>
+                         <ul class="sub">
+                            <li><a href="./sub1.html">rings</a></li>
+                            <li><a href="./sub1.html">earrings</a></li>                                             
+                         </ul>   
+                        
+                        </li>
+                        <li><a href="./sub1.html">Necklace</a></li>
+                        <li><a href="./sub1.html">ETC</a>
+                        <ul class="sub">
+                            <li><a href="./sub1.html">Anklets</a></li>
+                            <li><a href="./sub1.html">Eyewear Chain</a></li>
+                            <li><a href="./sub1.html">개인결제창</a></li>                                                    
+                         </ul>                         
+                        </li>
+                    </ul>
+               
+            </nav>
+
+     <div class="right">
+        <ul class="language">
+          <i class="xi-globus"></i>
+        <select name="selectmenu" id="lang">
+           
+              <option value="option1">한국어</option>
+              <option value="option2">English</option>
+
+        </select>
+        </ul>
+        <input type="checkbox" id="sidemenu">
+        <label for="sidemenu">
+        <ul class="toggle">
+            <li class="con">
+            <div class="bar top on"></div>
+            <div class="bar middle on"></div>
+            <div class="bar bottom on"></div>
+        </li>
+        </ul>
+        </label>
+     
+
+    
+        <div class="togwrap">
+           
+                   
+                <ul class="hidemenu">
+                    
+                    <li><a>NEW IN</a></li>
+                    <li><a class="dp1">Bracelet</a>
+                     <ul class="h_sub">
+                        <li><a href="">Slave Bracelet</a></li>
+                        <li><a href="">92.5 Silver</a></li>
+                        <li><a href="">Limited</a></li>                       
+                     </ul>                        
+                    </li>
+                    <li><a class="dp1">Earring&Ring</a>
+                     <ul class="h_sub">
+                        <li><a href="">rings</a></li>
+                        <li><a href="">earrings</a></li>                                             
+                     </ul>   
+                    
+                    </li>
+                    <li><a>Necklace</a></li>
+                    <li><a class="dp1">ETC</a>
+                    <ul class="h_sub">
+                        <li><a href="">Anklets</a></li>
+                        <li><a href="">Eyewear Chain</a></li>
+                        <li><a href="">개인결제창</a></li>                                                    
+                     </ul>                         
+                    </li>
+
+                    <!-- <label for="sidemenu"><i class="xi-close-thin"></i></label> -->
+                </ul>
+           
+        
+    
+    
+    </div>    
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </header>
+
+
+    <div class="page1 page">
+        <figure class="slid1">
+            <img src="./img/firstslide1.jpg" alt="">
+            <img src="./img/firstslide2.jpg" alt="">
+            <img src="./img/firstslide3.jpg" alt="">      
+        </figure>
+        <ul class="btn1">
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            
+        </ul>
+        
+        <ul class="slid_tit1">
+            <li class="on">
+                <h2 class="sl_tit">On the road: 길위에서 </h2>
+                <h4 class="sl_com">다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
+                
+                <a href="" class="more">
+                    <span>more</span>
+                    <span><i class="xi-long-arrow-right" id="next"></i></span>
+                </a>
+            </li>
+            
+            <li>
+                <h2 class="sl_tit">On the road: 길위에서 </h2>
+                <h4 class="sl_com"> 다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
+                    
+                <a href="" class="more">
+                    <span>more</span>
+                    <span><i class="xi-long-arrow-right"></i></span>
+                </a>
+            </li>
+            <li>
+                <h2 class="sl_tit">On the road: 길위에서 </h2>
+                <h4 class="sl_com">다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
+                <a href="" class="more">
+                    <span>more</span>
+                    <span><i class="xi-long-arrow-right"></i></span>
+                </a>            
+            </li> 
+        </ul>
+
+    </div>
+
+    <div class="page2 page">
+            <figure class="slid2">
+                    <img src="./img/secondp1.jpg" alt="">
+                    <img src="./img/secondp2.jpg" alt="">
+                    <img src="./img/secondp3.jpg" alt=""> 
+                    <img src="./img/secondp4.jpg" alt="">
+                    <img src="./img/secondp5.jpg" alt="">  
+                    <img src="./img/secondp6.jpg" alt="">                  
+           
+            </figure>
+            <div class="btn2">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    
+              
+                   </div>
+            
+                   
+                   <div class="slid_tit2">
+                       <li>
+                            <h2>On the road: 길위에서 </h2>
+                            <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                            <a href="" class="more">
+                                    <span> more</span> 
+                                     <span><i class="xi-long-arrow-right"></i></span>
+                        
+                        
+                        
+                                 </a>
+                       </li>
+                       <li>
+                            <h2>On the road: 길위에서 </h2>
+                            <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                            <a href="" class="more">
+                                    <span> more</span> 
+                                     <span><i class="xi-long-arrow-right"></i></span>
+                        
+                        
+                        
+                                 </a>               
+              
+                       </li>
+                       <li>
+                            <h2>On the road: 길위에서 </h2>
+                            <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                            <a href="" class="more">
+                                    <span> more</span> 
+                                     <span><i class="xi-long-arrow-right"></i></span>
+                        
+                        
+                        
+                                 </a>
+                       </li> 
+                       <li>
+                                <h2>On the road: 길위에서 </h2>
+                                <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                                <a href="" class="more">
+                                        <span> more</span> 
+                                         <span><i class="xi-long-arrow-right"></i></span>
+                            
+                            
+                            
+                                     </a>
+                       </li>
+                       <li>
+                                        <h2>On the road: 길위에서 </h2>
+                            <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                            <a href="" class="more">
+                                    <span> more</span> 
+                                     <span><i class="xi-long-arrow-right"></i></span>
+                        
+                        
+                        
+                                 </a>
+                           
+                       </li>
+                               
+                                       
+                                        <li>
+                                                <h2>On the road: 길위에서 </h2>
+                                                <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
+                                                <a href="" class="more">
+                                                        <span> more</span> 
+                                                         <span><i class="xi-long-arrow-right"></i></span>
+                                            
+                                            
+                                            
+                                                     </a>
+                                               
+                                           </li> 
+                                  
+
+
+    </div>
+   
+        <div class="bottomslide">
+            <ul class="arrow">
+              <li class="left"><i class="xi-angle-left"></i></li>
+              <li class="right"><i class="xi-angle-right"></i></li>
+              
+            </ul>
+            <ul class="list">
+                <li class="on"><a href="">111</a></li>
+                <li><a href="">222</a></li>
+                <li><a href="">333</a></li>
+                <li><a href="">444</a></li>
+                <li><a href="">555</a></li>
+            </ul>
+        </div>
+
+    </div>
+              
+    
+
+    <div class="page3 page">
+      <ul class="part1">
+          <li>
+              <a href=""><i class="xi-night"></i></a>
+              <h2>Brand Story</h2>
+              <h4>어거스트 하모니의 스토리를 확인하실 수 있습니다</h4>
+          </li>
+      </ul>
+      <ul class="part2">
+          <li>
+              <a href=""><i class="xi-box"></i></a>
+              <h2>Guide</h2>
+              <h4>어거스트 하모니의 쇼핑 팁과 가이드를 볼 수 있습니다.</h4>
+          </li>
+      </ul>
+      <ul class="part3">
+          <li>
+              <a href=""><i class="xi-comment-o"></i></a>
+              <h2>QnA</h2>
+              <h4>간단한 글 작성 폼으로 상담이 가능합니다. </h4>
+          </li>
+      </ul>
+     
+
+    </div>
+
+
+    <footer>
+
+    <div class="address">
+        <p>
+        COMPANY : AH컴퍼니  OWNER : 조미혜 TEL : 070-8731-8260 ADDRESS : 03980 서울특별시 마포구 동교로51안길 22 (연남동) SJP빌딩 2층 AH컴퍼니  <br>
+        BUSINESS LICENSE : 130-44-31467 MAIL-ORDER LICENSE : 2011-경기부천-1645 <span>[사업자정보확인]</span>  </p>
+    </div>
+    <div class="copyright">
+<p>COPYRIGHT © 2011 어거스트하모니 ALL RIGHTS RESERVED.</p>
+
+    </div>
+
+    </footer>
+
+
+
+
+</body>
+</html>
