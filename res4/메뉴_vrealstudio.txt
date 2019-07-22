@@ -1,0 +1,49 @@
+http://vrealstudio.com/
+
+
+
+구현기술:네거티브마진방법 사용 (넓이값px!!!!!!사용, %이용하면움직인다.!!!!! *주의*****)
+#container>#aside+#content
+
+-컨테이너 여역의 단 설정
+#container{zoom:1; padding-right:200px;}
+-#container에 절대폭 지정안함
+#container:after{content:""; dispaly:block; clear:both;}
+#content{float:left;width:100%; margin-right:-200px;}
+-*왼쪽박스에  폭을 100%로하고, 오른쪽 마진을 -(음수값)으로 원하는 만큼 설정
+#aside{float:right; position:relative; width:170px; left:190px;}
+-*#aside가 오른쪽 박스일 경우는 float:right이고, position:relative으로 , 오른쪽 밖으로 빼고 싶은 만큼의 양을 left위치값을 준다
+또는 #
+나머진 사진찍음....
+
+
+
+[cf]
+https://play.kia.com/main.do
+
+
+
+[gnb]
+
+-About
+-Client
+-Service
+3D쇼케이스 촬영제작
+VR쇼케이스 촬영제작
+VR+AR콘텐츠 제작
+가상 인테리어 디자인
+ETC
+
+-VR Gallery
+All collection
+성남VR
+전시장
+스토어뷰 
+ETC
+
+
+-News
+
+-Price
+
+-Contact

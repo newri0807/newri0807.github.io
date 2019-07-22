@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="vrealstudio">
+    <meta name="keyword" content="vrealstudio, 브이리얼스튜디오, VR, 가상현실, Vreal company, 브이리얼">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to  vrealstudio">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet">    
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>wellcome to vrealstudio</title>
+    <style>
+  
+    .container{padding-right:300px;width: auto;height: 90%;}
+    .container:after{content: "";display: block;clear: both;}
+    
+    .hd{background-color: lightblue; height: 100%; width: 300px;position: fixed;;left: 0;top: 0;}
+    .hd_con{width: 70%;margin: 0 auto;padding: 5%;}
+    .gnb{width: 100%;height: 20px;text-align: left;margin-top: 2px;}
+    .gnb li{margin: 10px;}
+    .gnb li:before{content:""; height: 80px; padding-top:3px; margin:10px;border-left:2px solid lightcyan;}
+    .gnb li a{font-size: 1.5em;color:darkblue;}   
+    .gnb .submenu{height: auto;font-size: 1em;opacity: 1;margin: 10px;}
+    .gnb .submenu li{height: 30px;font-size: 1em;margin-left: 20px;}
+    .gnb .submenu li a{font-size: 1em; color:#fff;}
+    .submenu li:before{content: none;}
+    .submenu li:hover a{background-color:rgb(73, 145, 168);font-weight: 700;}
+    
+    .search{width: 100%;height: 20px;margin-top: 500px;}
+    #searchText{width: 170px;height: 30px;background-color: #fff;display: inline-block;text-indent: 5px;border: 1px solid gray;float: left;}
+    #searchBtn{width: 30px;height: 32px;background-color:gray;display: block;float: left;}
+    #searchBtn i{font-size: 1.5em;line-height: 32px;text-align: center;display: block;color: #fff;}
+    .tagwrap{width: 100%;height: 90px;margin-top: 18px;}
+    .tag-list li{float: left;width: 60px;height: 20px;background-color: rgba(241, 241, 241, 0.7);border-radius: 5px;
+    margin: 2px 4px;text-align: center; line-height: 20px;}
+    .tagwrap .tag-list li:last-child{width: 70px;}
+    .tag-list li a{color:rgb(61, 60, 60);font-weight: 200;}
+
+    .main{background-color: #fff; float: right; width: 100%;height: 100%; margin-left: -300px;position: relative;}
+    
+    .bgi{width: 100%;height: 100%;margin-left: 300px;position: relative;}
+    .bgi ul{height: 500%;width: 100%;}
+    .bgi li{width: 100%; height: 100%;}
+    .bgi li.item1{background-image: url(./img/slide1.jpg);width: 100%;height: 100%;background-size: cover;
+    background-position: center left;background-repeat: no-repeat;}
+    .bgi li.item2{background-image: url(./img/slide2.jpg);width: 100%;height: 100%;background-size: cover;
+    background-position: center left;background-repeat: no-repeat;}
+    .bgi li.item3{background-image: url(./img/slide3.jpg);width: 100%;height: 100%;background-size: cover;
+    background-position: center left;background-repeat: no-repeat;}
+    .bgi li.item4{background-image: url(./img/slide4.jpg);width: 100%;height: 100%;background-size: cover;
+    background-position: center left;background-repeat: no-repeat;}
+    .bgi li.item5{background-image: url(./img/slide5.jpg);width: 100%;height: 100%;background-size: cover;
+    background-position: center left;background-repeat: no-repeat;}
+    .bgi li.item1 a{width: 120px;height: 50px;background-color: rgb(10, 97, 109);display: block;color: #fff;text-align: center;
+    line-height: 50px;font-size: 1.2rem;}   
+    .bgi li.item1 a:before{content: "";width: 100%;height: 1px;display: block;border-top:3px solid rgb(10, 97, 109);position: absolute;
+    z-index: 333;top: 0;left: 0; }
+    .bgi li.item2 a{width: 120px;height: 50px;background-color: #e4bb52;display: block;color: #fff;text-align: center;line-height: 50px;font-size: 1.2rem;}   
+    .bgi li.item2 a:before{content: "";width: 100%;height: 1px;display: block;border-top:3px solid #e4bb52;
+    position: absolute;z-index: 444;top: 100;left: 0; }
+    .bgi li.item3 a{width: 120px;height: 50px;background-color: #318f97;display: block;color: #fff;text-align: center;line-height: 50px;font-size: 1.2rem;}   
+    .bgi li.item3 a:before{content: "";width: 100%;height: 1px;display: block;border-top:3px solid #318f97;position: absolute;
+    z-index: 444;top: 200;left: 0; }
+    .bgi li.item4 a{width: 120px;height: 50px;background-color: #e66a62;display: block;color: #fff;text-align: center;line-height: 50px;font-size: 1.2rem;}   
+    .bgi li.item4 a:before{content: "";width: 100%;height: 1px;display: block;border-top:3px solid  #e66a62;position: absolute;
+    z-index: 444;top: 300;left: 0; }
+    .bgi li.item5 a{width: 120px;height: 50px;background-color: #294246;display: block;color: #fff;text-align: center;line-height: 50px;font-size: 1.2rem;}   
+    .bgi li.item5 a:before{content: "";width: 100%;height: 1px;display: block;border-top:3px solid  #294246;position: absolute;
+    z-index: 444;top: 400;left: 0; }
+              
+    .slide_btn{position: absolute;top: 40%;left: 20%;width: 20px;height: 100px;z-index: 333;}
+    .slide_btn li{width: 15px;height: 15px;background-color: #fff; position:absolute; border-radius: 15px; left:30px;  transition:0.5s; }
+    .slide_btn li.item1 {top:40px;}
+    .slide_btn li.item2 {top:70px;}
+    .slide_btn li.item3 {top:100px;}
+    .slide_btn li.item4 {top:130px;}
+    .slide_btn li.item5 {top:160px;}
+    .slide_btn li.on{background-color:rgb(73, 145, 168); width:40px; }
+
+    .channel_list{width: 80px;height: 350px;border-radius: 5px; background-color: #fff;position: fixed;
+    top: 18%;right: 1%;z-index: 9999;}
+    .ch_tit{width: 100%;height: 20%; background-color: #318f97;text-align: center;border-top-left-radius: 5px;
+        border-top-right-radius: 5px;padding-top: 15px;border-bottom: 2px solid rgb(10, 59, 65);}
+    .ch_tit span{font-weight: 800;}
+    .mobileBtn{width: 100%;height: 40px;display: block;font-size: 0.8em;background-color:lightgray;margin-top: 21px;padding-top: 5px;}
+    .list{width: 100%;height: 85%;margin-top: 43px;text-align: center;background-color: lightgray;}
+    .list li{height:60px;width: 60px; border-radius: 5px; margin: 40px 10px;}
+    .list li:nth-child(1){background-image: url(img/sidemenu1.png);height:60px;width: 60px; border-radius: 5px; background-size: contain;}
+    .list li:nth-child(2){background-image: url(img/sidemenu2.png);height:60px;width: 60px; border-radius: 5px; background-size: contain;}
+    .list li:nth-child(3){background-image: url(img/sidemenu3.png);height:60px;width: 60px; border-radius: 5px; background-size: contain;}
+    .list li a{width: 100%;height: 40px;display: block;font-size: 0.5rem;padding-top: 2px;}
+    .list li a:nth-child(1){padding-top: 70px;}
+        
+    .channel_list > a{width: 100%;height: 60px;background-color: purple;display: block;text-align: center;
+    border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;color: #fff;padding-top: 10px;border-top: 2px solid #2f022f;padding-top: 20px;}
+    
+    
+
+
+    .ft{width: 100%;height: 10%;border-top: 1px solid gray;position: fixed;bottom: 0;left: 0;background-color: #fff;z-index: 555;}
+    
+    .part1 {margin: 20px 40px;float: left;}
+    .part1 img{width: 7em;}
+    .part2 {width: 850px;height: 100%;float: left;padding-top: 20px;}
+    .part2 li{float: left;padding-left: 15px;}
+    .part2 li a{color: rgb(87, 85, 85); }
+    .part2 li a:after{content: "|";margin-left: 20px; margin-bottom: 10px;}
+    .part2 li:nth-of-type(1) a::before{content: "|";margin-right: 10px; margin-bottom: 20px;}
+    .part2 p{font-size: 0.8rem;padding-left: 15px;color:gray;clear: both;}    
+
+   .part3 {float: right;width: 20%;}
+   .ft_sns li{float: left;padding-top: 20px;}
+   .ft_sns li a i{font-size: 2em;padding-left: 10px;color: lightslategray;}
+   .famsite{width: 150px;height: 25px;float: left;margin: 20px auto;text-align: center;
+   line-height: 30px; border: 1px solid lightgray; margin-left: 20px; color:gray; }     
+
+
+
+
+    /* 모바일 */
+    @media screen and (max-width:767px){ 
+    .container{padding-right:0;width: 100%;height: 100vh;}
+    .hd{background-color: lightblue; height: 10%; width: 100%;position: fixed;left: 0;top: 0;z-index: 3333;}
+    .hd_con{width: 100%;padding: 2%; height: 10%;}    
+    .logo img{width: 50px;height: 50px;margin-left: 40%;}
+    .main{background-color: #fff; float: left; width: 100%;height: 90%; margin-left: 0;position: relative;}
+
+    .gnb{width: 200px;height: 90vh;background-color: lightblue;position: absolute;top:-1px;left: -200px;z-index: 5555;}
+    .gnb ul{margin-top: 80px;}
+    .gnb.on{left: 0;}
+    .logo:before{content: "";width: 50px;height: 50px;display: block;position: absolute;top: 5px;left: 5px;background-image: url(./img/m_menu1.png);background-size: contain;background-repeat: no-repeat;}
+    .logo:after{content: "";width: 50px;height: 50px;display: block;position: absolute;top: 5px;right: 5px;background-image: url(./img/m_search.png);background-size: 30px 30px;background-position: center center;background-repeat: no-repeat;}
+    .slide_btn{display: none;}
+    .channel_list{height: 10%;background-color:transparent;width: 22%;top: 76%;right: 2%; }
+    .ch_tit{width: 100%;height: 100%;border-bottom: 0;border-radius: 100%;box-shadow: 4px 2px 2px #294246;  
+        background: linear-gradient(to right, #fbcac9, #8ca6ce);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #fff;
+        background: linear-gradient(to left, #8ca6ce,  #318f97,#ac64b2);}
+    .mobileBtn{display: none;}
+    .list{display: none;}
+    .channel_list > a{display: none;}
+        
+    .bgi{width: auto;height: 29vh;margin-left: 0px;position: relative;} 
+    .bgi .item1{height: 100%; width: auto;}
+    .bgi .item2{height: 100%; width: auto;}
+    .bgi .item3{height: 100%; width: auto;} 
+    .bgi .item4{height: 100%; width: auto;} 
+    .bgi .item5{height: 100%; width: auto;} 
+    
+    .search{background-color: lightblue;height: 40px;position:absolute;bottom: -38px;left: 0;z-index: 333;display: none;}
+    #searchText{margin-left: 22%;}
+    .tagwrap{background-color: #fff;height: 30px;position: absolute;top: 48px;left: 0;}
+    .tag-list li{margin:6px;}
+        
+    .part1 {margin: 20px 10px;float:right;display: block;}
+    .part1 img{width: 5em;height: auto;}
+    .part2 {width: 70%;height: 20px;float: left;padding-top: 0px;margin-top: 5px;overflow: hidden;}
+    .part2 li{float: left;width: 50px;}
+    .part2 li a{font-size: 0.5rem;}
+    .part2 p{font-size: 0.4rem; width: 70%;position: absolute;top: 40px;left: 0;}
+    .part2 li a:after{content: none;}
+    .part2 li:nth-of-type(1) a::before{content: none;}
+    .part3{float: left;width: 70%;}
+    .ft_sns li{padding-top: 5px;margin-left: 5px;}
+    .ft_sns li a i{font-size: 1.4em;}
+
+        
+        
+        
+    }
+ 
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){ 
+        
+    } 
+
+    /* 데스크탑 */
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+    
+      
+    }
+
+    /* 고해상도 데스크탑 */
+    @media screen and (min-width:1280px){ 
+        
+        
+    }
+
+    
+    </style>
+    <script>
+    $(document).ready(function(){   
+    var wd = $(window).width();    
+    var intv = setInterval(function(){ nextAni(); }, 2950);
+    var ht = parseInt($(".bgi li").height());
+    function nextAni(){
+        if(wd>=768) {
+            $(".bgi").not(":animated").animate({"margin-top":-ht+"px"}, 800, function(){
+                $(".bgi li").eq(0).appendTo($(".bgi"));
+                $(".bgi").css("margin-top", "0px");
+                $(".slide_btn li").eq(0).appendTo($(".slide_btn"));
+                $(".slide_btn li").eq(0).addClass("on");
+                $(".slide_btn li").not(":first-child").removeClass("on");
+            });
+        }
+    }
+    function prevAni(){
+        if(wd>=768) {
+        $(".bgi li").eq(4).prependTo($(".bgi"));
+        $(".bgi").css("margin-top", -ht+"px");
+        $(".bgi").not(":animated").animate({"margin-top":"0px"}, 800);
+        $(".slide_btn li").eq(4).prependTo($(".slide_btn"));
+        $(".slide_btn li").eq(0).addClass("on");
+        $(".slide_btn li").not(":first-child").removeClass("on");
+        }
+    }
+    $(".slide_btn li").click(function(){
+        clearInterval(intv);
+        var idx = $(this).index()-1;
+        for(var i=0;i<idx;i++){
+            $(" .bgi li").eq(0).appendTo($(".bgi"));
+            $(".slide_btn li").eq(0).appendTo($(".slide_btn"));
+        }
+        nextAni();
+        intv = setInterval(function(){ nextAni(); }, 2950);
+    });
+
+
+});
+    
+    
+    </script>
+</head>
+<body>
+    
+   
+<div class="container">
+        
+        <div class="main">
+              
+                    <ul class="bgi">
+                        <li class="item1"><a href="">vrealstudio</a></li>
+                        <li class="item2"><a href="">vreal's</a></li>
+                        <li class="item3"><a href="">VR체험</a></li>
+                        <li class="item4"><a href="">AR체험</a></li>
+                        <li class="item5"><a href="">가상현실</a></li>
+                    </ul>
+
+                    <ul class="slide_btn">
+                        <li class="item1 on"></li>
+                        <li class="item2"></li>
+                        <li class="item3"></li>
+                        <li class="item4"></li>
+                        <li class="item5"></li>
+                    </ul>
+                
+
+
+                    <div class="channel_list">
+                            <div class="ch_tit">
+                                <span>Enjoy 3D Showcase Yourself!</span>
+                                <a href="" class="mobileBtn"><span>가상현실을 <br>직접 즐기자!</span></a>
+                            </div>
+                            <ul class="list off">
+                                <li><a href=""><span>홈페이지</span></a></li>
+                                <li><a href=""><span>브이리얼 <br>스튜디오</span></a></li>
+                                <li><a href=""><span>영상보러가기</span></a></li>
+                              
+                            </ul>
+                          
+                            <a href=""><span>뉴스레터신청하기</span></a>
+                        </div>                    
+                        
+
+            </div>
+    
+        <div class="hd">
+            <div class="hd_con">
+            <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="">About</a> </li>               
+                    <li><a href="">Client</a></li>
+                    <li><a href="">Service</a>
+                        <ul class="submenu">
+                                <li><a href="">3D쇼케이스 촬영제작</a></li>
+                                <li><a href="">VR+AR콘텐츠 제작</a></li>
+                                <li><a href="">가상 인테리어 디자인</a></li>
+                                <li><a href="">ETC</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="">VR Gallery</a>
+                        <ul class="submenu">
+                                <li><a href="">전시장</a></li>
+                                <li><a href="">스토어뷰 </a></li>
+                                <li><a href="">성남VR</a></li>                               
+                                <li><a href="">ETC</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="">News</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="search">
+                    <input type="text" name="searchText" id="searchText" title="검색어 입력" placeholder="검색어를 입력해주세요">
+                    <a href="#" class="btn-search" id="searchBtn">
+                        <span><i class="xi-search"></i></span>
+                    </a>
+                </div>
+
+            
+                <div class="tagwrap">
+                        <ul class="tag-list">
+                            <li><a href="">#VR</a></li>
+                            <li><a href="">#4D</a></li>
+                            <li><a href="">#Vreal</a></li>                            
+                            <li><a href="">#AR</a></li>
+                            <li><a href="">#가상현실</a></li>
+                        </ul>
+                    </div>
+                </div>
+     
+        </div>
+
+      
+
+</div>
+<!-- hd 끝 -->
+
+
+
+
+    <footer class="ft">
+
+    <div class="part1">
+        <img src="./img/logo_ft.png" alt="" class="ft_logo">
+    </div>
+    <div class="part2">
+        <ul>
+            <li><a href="">개인정보 처리방침</a></li>
+            <li><a href="">윤리경영 사이버감사실</a></li>
+            <li><a href="">운영정책</a></li>
+            <li><a href="">고객센터</a></li>
+            <li><a href="">이메일 문의</a></li>
+        </ul>
+        <p class="copy">COPYRIGHT(C) KIA MOTORS CORP.  ALL RIGHTS RESERVED</p>
+    </div>
+    <div class="part3">
+<ul class="ft_sns">
+    <li><a href=""><i class="xi-mail"></i></a></li>
+    <li><a href=""><i class="xi-youtube-play"></i></a></li>
+    <li><a href=""><i class="xi-youtube-play"></i></a></li>
+    <li><a href=""><i class="xi-blogger"></i></a></li>
+    <li><a href=""><i class="xi-facebook"></i></a></li>
+</ul>
+
+<select name="" id="" class="famsite"> 
+<option value="option1">Family Site</option>
+<option value="option2">Family Site1</option>
+
+</select>
+
+    </div>
+    
+    </footer>
+
+</body>
+</html>
