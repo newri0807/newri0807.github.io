@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="국립등대박물관">
+    <meta name="keyword" content="국립등대박물관, 박물관, 등대, 국립,lighthouse-museum">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to lighthouse-museum">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet">    
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./mobile.css" type="text/css" media="screen and (max-width:750px)">
+    <link rel="stylesheet" href="./tablet.css" type="text/css" media="screen and (min-width:751px) and (max-width:1000px)">
+    <link rel="stylesheet" href="./desktop.css" type="text/css" media="screen and (max-width:1001px)">
+
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+  <style>
+    .page{clear: both;width: 100%;height: 100vh;position: relative;overflow: hidden;}
+    #page1{background-image: url(./img/bg1.jpg);background-size: cover;background-repeat: no-repeat;}
+    #page2{background-image: url(./img/bg2.jpg);background-size: cover;background-repeat: no-repeat;}
+    #page3{background-image: url(./img/bg4.jpg);background-size: cover;background-repeat: no-repeat;}
+    .page_wrap , .hd_wrap{width: 92%;margin: 0 auto;}
+  
+  .hd{width: 100%;height: 100px;padding: 2% 0;background-color: #fff;overflow: hidden;}
+  .logo{display: block;}
+  .t_menu{display: none;}
+  .notice{display: none;}
+  .gnb{float: right;}
+  .sub_menu{display: none;}
+
+   
+  </style>
+
+	<title>국립등대박물관에 오신 것을 환영합니다</title>
+</head>
+<body>
+        <header class="hd">
+                <div class="hd_wrap">
+              <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
+             <nav class="tnb">
+                 <ul class="loc desk">
+                     <li><a href="">home</a></li>
+                     <li><a href="">sitemap</a></li>
+                     <li><a href="">정보공개</a></li>
+                 </ul>
+                 <div class="lang">
+                     <p class="cur desk">언어</p>
+                     <ul class="lang_sel">
+                         <li><a href="">korean</a></li>
+                         <li><a href="">english</a></li>
+                         <li><a href="">chinese</a></li>
+                     </ul>
+                 </div>
+
+                 <div class="mo" id="lst_btn"></div>
+                 <div id="search_btn"></div>
+             </nav>
+            
+             <nav id="gnb">
+                 <ul>
+                     <li class="dp1 it1">박물관소개<a href="">
+                            <ul class="sub" >
+                                    <li><a href="">인사말</a></li>
+                                    <li><a href="">조직 및 업무</a></li>
+                                    <li><a href="">전시관 둘러보기</a></li>
+                                    <li><a href="">연혁&건립소개</a></li>
+                            </ul>      
+
+                     </a></li>
+                     <li class="dp1 it2"><a href="">관람정보</a>
+                        <ul class="sub">
+                                <li><a href="">관람안내</a></li>
+                                <li><a href="">교육프로그램안내</a></li>
+                                <li><a href="">전시해설안내</a></li>
+                                <li><a href="">대체험숙소 신청</a></li>
+                                <li><a href="">찾아오시는길</a></li>
+                              </ul>           
+                    </li>                    
+                    
+                    
+                     <li class="dp1 it3"><a href="">전시</a>
+                        <ul class="sub">
+                                <li><a href="">기획전시</a></li>
+                                <li><a href="">현재전시</a></li>
+                                <li><a href="">지난전시</a></li>        
+                               </ul>           
+                    </li>
+                    <li class="dp1 it4"><a href="">유물관</a>
+                        <ul class="sub">
+                                <li><a href="">유물관</a></li>
+                                <li><a href="">체험관</a></li>
+                                <li><a href="">등대역사관</a></li>
+                                <li><a href="">분수정원</a></li>
+                                <li><a href="">야외전시장</a></li>        
+                            </ul>                
+                    
+                    
+                    
+                    </li>
+                     <li class="dp1 it5"><a href="">교육/행사</a>
+                        <ul class="sub">
+                                <li><a href="">사회교육프로그램</a></li>
+                                <li><a href="">교육소식</a></li>
+                                <li><a href="">등대스탬프투어</a></li>
+                                <li><a href="">스탬프투어</a></li>
+                                <li><a href="">이달의 등대주요행사</a></li>        
+                            </ul>      
+                    
+                    
+                    
+                    
+                    </li>
+                     <li class="dp1 it6"><a href=""></a>
+                        <ul class="sub"  >
+                                <li><a href="">관람후기</a></li>
+                                <li><a href="">질문과 답변</a></li>
+                                <li><a href="">박물관이야기</a></li>
+                                <li><a href="">SNS 포스팅 이벤트</a></li>
+                                <li><a href="">이지원의 등대기행 </a></li>        
+                            </ul>      
+                    
+                    
+                    
+                    
+                    </li>
+                 </ul>
+             </nav>
+
+
+           
+          </div>
+            </header>
+
+  <div class="page" id="page1">
+      <div class="page_wrap">
+      <div class="t_menu">
+          <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">sitemap</a></li>
+            <li><a href="">정보공개</a></li>
+            <li>
+            <select name="selectmenu" id="select">
+                <option value="option1">KOREAN</option>
+                <option value="option2">ENGLISH</option>
+            </select>
+            </li>
+            <li><a href="">아이콘</a></li>
+            <li><a href="">아이콘</a></li>
+          </ul>
+      </div>
+      
+       
+  
+
+ 
+
+  <div class="p1_main">
+      
+ 
+    <h2>국립등대박물관 홈페이지를 <br>방문해 주셔서 감사합니다</h2>
+ 
+
+   <div class="p1_main_right">
+
+     <div class="p1_img1">
+       <img src="./img/p1_banner.jpg" alt="">
+     </div>
+
+     
+       <div class="slide"> 
+         <img src="./img/p1_smallslide1.jpg" alt="">
+         <img src="./img/p1_smallslide2.jpg" alt="">
+         <img src="./img/p1_smallslide3.jpg" alt="">        
+       </div>
+    
+      
+    <div class="p1_btn">
+      <button><i class="xi-calendar-list"></i> 관람안내</button>         
+      <button><i class="xi-maker-drop"></i> 오시는 길</button>
+    </div> 
+    </div>
+</div>    
+
+
+
+
+
+<div class="p1_btline">
+    <h4>새소식</h4>
+    <ul class="btlin_left">    
+      <li>
+        <a href="">
+          <span>06.16</span>
+          <span>2019 세계할로표지의 날 기면 올해의 등대</span>
+        </a>
+      </li>
+      <li>   
+        <a href="">
+          <span>05.28</span>
+          <span>독도탐방 행사 참가자 모집 결과</span>
+        </a>
+      </li>
+      <li>
+          <a href="">
+              <span>05.02</span>
+              <span>「세계항로표지의 날」제정 기념 어린이날 특별 행사</span>
+          </a>
+      </li>   
+    </ul>
+    
+    <ul class="btlin_sns">
+        <li>sns</li>
+        <li>
+          <a href=""><img src="./img/sns1.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns2.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns3.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns3.png" alt=""></a>
+        </li>
+      </ul>
+
+
+
+  </div>
+
+
+</div>
+
+    
+</div>
+  <div class="page" id="page2">
+      <div class="page_wrap">
+
+
+
+
+      </div>
+  </div>
+  <div class="page" id="page3">
+        <div class="page_wrap">
+
+
+
+        
+            </div>
+
+
+  </div>
+	
+</body>
+</html>

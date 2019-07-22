@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="국립등대박물관">
+    <meta name="keyword" content="국립등대박물관, 박물관, 등대, 국립,lighthouse-museum">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to lighthouse-museum">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet">    
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="common.css" media="all">
+    <!-- <link rel="stylesheet" href="./mobile.css" media="screen and (max-width:750px)"> -->
+    <!-- <link rel="stylesheet" href="./tablet.css" media="screen and (min-width:751px) and (max-width:1000px)">-->
+    <link rel="stylesheet" href="./desktop.css" media="screen and (min-width:1001px)">
+
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <!-- <script src="./prefixfree.min.js"></script> -->
+
+   
+<script>
+  // 슬라이드1 -페이지1
+  $(document).ready(function() {
+    $(".slide_btn li").click(function() {
+
+      i = $(this).index();
+
+      showSlide();
+
+      $(".slide_btn li").addClass("clicked");
+
+
+    });
+
+    function showSlide() {
+      $(".slide_btn li").removeClass("on");
+      $(".slide_btn li").eq(i).addClass("on");
+      $(".slide img").stop(true, true).fadeOut();
+      $(".slide img").eq(i).stop(true, true).fadeIn();
+    }
+
+});
+
+//슬라이드2 -페이지2
+$(document).ready(function() {
+
+var wid = $(".slid2 li").width();
+var i = $(".slid2 li").index();
+var len = $(".slid2 li").length;
+
+$(".btn_prev").click(function() {
+
+
+  if (i == 0) {
+    i = len - 1;
+
+  } else {
+
+    i = i - 1;
+
+  }
+
+  showSlide();
+});
+
+$(".btn_next").click(function() {
+
+  if (i == 2) {
+
+    i = 0;
+
+
+  } else {
+
+    i = i + 1;
+
+  }
+  showSlide();
+});
+
+function showSlide() {   
+    $(".slid2 li").stop(true, true).fadeOut();
+    $(".slid2 li").eq(i).stop(true, true).fadeIn();
+  }
+
+});
+
+
+
+</script>
+ 
+
+	<title>국립등대박물관에 오신 것을 환영합니다</title>
+</head>
+<body>
+  <div class="page" id="page1">
+    
+      <nav class="t_menu">
+          <ul class="desk">
+            <li><a href="">home</a></li>
+            <li><a href="">sitemap</a></li>
+            <li><a href="">정보공개</a></li>
+          </ul>  
+          
+            <ul class="lang">
+            <a href="" class="desk">언어<i class="xi-caret-down-min"></i></a>
+              <ul class="lang_sel">
+                  <li><a href="">korean</a></li>
+                  <li><a href="">english</a></li>
+                  <li><a href="">chinese</a></li>
+              </ul>
+            </ul>
+            
+         
+          <div class="mo" id="lst_btn"><a href=""><i class="xi-bars"></i></a></div>
+          <div id="search_btn"><a href=""><i class="xi-search"></i></a></div>
+      </nav>
+      
+    
+       
+  <header class="hd">
+      <!-- <div class="lang">
+          <ul class="lang_sel">
+              <li><a href="">korean</a></li>
+              <li><a href="">english</a></li>
+              <li><a href="">chinese</a></li>
+          </ul>
+        </div> -->
+
+    
+    <div class="hd_wrap">
+    <a href="" class="logo"><img src="./img/logo1.png" alt=""></a>
+    <nav class="gnb">
+      <li><a href=""  class="dep1" >박물관소개</a>
+        <ul class="sub_menu" >
+          <li><a href="">인사말</a></li>
+          <li><a href="">조직 및 업무</a></li>
+          <li><a href="">전시관 둘러보기</a></li>
+          <li><a href="">연혁&건립소개</a></li>
+        </ul>      
+      </li>
+
+      <li><a href=""  class="dep1">관람정보</a>
+        <ul class="sub_menu"  >
+            <li><a href="">관람안내</a></li>
+            <li><a href="">교육프로그램안내</a></li>
+            <li><a href="">전시해설안내</a></li>
+            <li><a href="">대체험숙소 신청</a></li>
+            <li><a href="">찾아오시는길</a></li>
+          </ul>           
+      </li>
+
+      <li><a href=""  class="dep1">전시</a>
+        <ul class="sub_menu ">
+            <li><a href="">기획전시</a></li>
+            <li><a href="">현재전시</a></li>
+            <li><a href="">지난전시</a></li>        
+           </ul>           
+      </li>   
+            
+      <li><a href=""  class="dep1">유물관</a>
+        <ul class="sub_menu" >
+            <li><a href="">유물관</a></li>
+            <li><a href="">체험관</a></li>
+            <li><a href="">등대역사관</a></li>
+            <li><a href="">분수정원</a></li>
+            <li><a href="">야외전시장</a></li>        
+        </ul>  
+      
+      </li>
+      <li><a href=""  class="dep1">교육/행사</a>
+        <ul class="sub_menu"  >
+            <li><a href="">사회교육프로그램</a></li>
+            <li><a href="">교육소식</a></li>
+            <li><a href="">등대스탬프투어</a></li>
+            <li><a href="">스탬프투어</a></li>
+            <li><a href="">이달의 등대주요행사</a></li>        
+        </ul>      
+      </li>         
+      <li><a href=""  class="dep1">소식/참여</a>
+        <ul class="sub_menu " >
+            <li><a href="">관람후기</a></li>
+            <li><a href="">질문과 답변</a></li>
+            <li><a href="">박물관이야기</a></li>
+            <li><a href="">SNS 포스팅 이벤트</a></li>
+            <li><a href="">이지원의 등대기행 </a></li>        
+        </ul>      
+      </li>
+    </nav>
+
+    <div class="notice desk">
+      <h5><i class="xi-alarm-o"></i>오늘은 개관일입니다. 관람시간 10:00~18:00</h5>
+    </div>
+  </div>
+  
+  </header>
+
+ 
+
+  <div class="p1_main">
+      
+ 
+    <h2 class="">국립등대박물관 홈페이지를 <br>방문해 주셔서 감사합니다</h2>
+ 
+
+   <div class="p1_main_right">
+
+     <div class="p1_img1">
+       <img src="./img/p1_banner.jpg" alt="">
+     </div>
+
+     
+       <div class="slide"> 
+         <img src="./img/p1_smallslide1.jpg" alt="">
+         <img src="./img/p1_smallslide2.jpg" alt="">
+         <img src="./img/p1_smallslide3.jpg" alt="">   
+         <ul class="slide_btn">
+           <li class="on"></li>
+           <li></li>
+           <li></li>
+         </ul>     
+       </div>
+        
+      
+    <div class="p1_btn">
+      <button><i class="xi-calendar-list"></i> 관람안내</button>         
+      <button><i class="xi-maker-drop"></i> 오시는 길</button>
+    </div> 
+    </div>
+    
+  </div>
+
+
+
+
+<div class="p1_btline">
+    <h3>새소식</h3>
+    
+    <ul class="btlin_left">    
+      <li>
+        <a href="">
+          <span>06.16</span>
+          <span>2019 세계할로표지의 날 기면 올해의 등대</span>
+        </a>
+      </li>
+      <li>   
+        <a href="">
+          <span>05.28</span>
+          <span>독도탐방 행사 참가자 모집 결과</span>
+        </a>
+      </li>
+      <li>
+          <a href="">
+              <span>05.02</span>
+              <span>「세계항로표지의 날」제정 기념 어린이날 특별 행사</span>
+          </a>
+      </li>   
+      <li><a href=""><i class="xi-plus-circle-o"></i></a></li>
+    </ul>
+
+
+    <ul class="btlin_sns">
+        <h3 class="sns_tit">SNS</h3>
+        <li>
+          <a href=""><img src="./img/sns1.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns2.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns3.png" alt=""></a>
+        </li>
+        <li>
+            <a href=""><img src="./img/sns3.png" alt=""></a>
+        </li>
+      </ul>
+
+
+
+  </div>
+
+
+
+
+
+</div>
+<!-- page1끝 -->
+
+  <div class="page" id="page2">
+    <div class="page_wrap">
+    
+    <div class="p2_main">
+       <div class="p2_txt">
+            <h1 class="p2tit">전시 <span>&등대</span></h1>
+          
+            <p>국립등대박물관의 주요 소장품을 소개합니다.</p>
+        </div>
+       
+            <ul class="slid2">
+              <li>
+                <img src="./img/p2_1.jpg" alt="">
+                <img src="./img/p2_2.jpg" alt="">
+                <img src="./img/p2_3.jpg" alt="">
+                <img src="./img/p2_4.jpg" alt="">
+              </li>
+              <li>        
+                <img src="./img/p2_5.jpg" alt="">
+                <img src="./img/p2_6.jpg" alt="">
+                <img src="./img/p2_7.jpg" alt="">
+                <img src="./img/p2_8.jpg" alt="">
+              </li>     
+            </ul>
+
+            <div class="btn_next"><i class="xi-angle-right-thin"></i></div>
+            <div class="btn_prev"><i class="xi-angle-left-thin"></i></div>
+          
+        <ul class="b_line">
+            <li>             
+                <a href="">
+                    <span class="b_tit">유물관</span>
+                    <span class="b_txt desk">항로표지의 역사와 유물의 이야기를 보실 수 있습니다.</span>
+                    <span class="go desk">바로가기</span>
+                </a>
+                
+            </li>
+            <li><a href="">
+                    <span class="b_tit">체험관</span>
+                    <span class="b_txt desk">캄캄한 밤 등대가 되는 체험관을 관람 할 수 있습니다.</span>
+                    <span class="go desk">바로가기</span>
+                </a>
+            </li>
+            <li><a href="">
+                    <span class="b_tit">등대역사관</span>
+                    <span class="b_txt desk">바다를 빛춘 불빛의 역사를 한눈에 보실 수 있습니다.</span>
+                    <span class="go desk">바로가기</span>
+                </a>
+                
+            </li>
+            <li><a href="">
+                    <span class="b_tit">상설전시</span>
+                    <span class="b_txt desk">국립등대박물관에서 추천하는 소장품을 소개합니다.</span>
+                    <span class="go desk">바로가기</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    </div>
+  </div>
+<!-- page2끝 -->
+
+
+
+
+
+
+    
+
+
+      
+  <div class="page" id="page3">
+    <div class="page_wrap">
+    
+    
+      
+            
+        <div class="p3_main">
+               <div class="p3_txt">
+                    <h1 class="p3tit">교육 <span>&행사</span></h1>
+                  
+                    <p>국립등대박물관의 교육과 행사를 소개합니다.</p>
+        </div>
+
+        <div class="p3_Mright">
+             <div class="poster">
+               <h4>교육</h4>
+               <img src="./img/p3_poster2.JPG" alt=""><img src="" alt="">
+             </div>   
+                   
+        <div class="calendar">
+             <h5>국립등대박물관 행사 및 교육프로그램</h5>
+            <div class="cal_left">
+                <ul>
+                <li><p>이달의 <span>교육&행사</span></p></li>
+                <li><strong>CALENDER</strong></li>
+                <li><span>아이콘</span></li>
+                <div class="maindate">2019.08</div> 
+                </ul>
+            </div> 
+            
+            <div class="cal_right">
+                <ul class="week">
+                    <li class="sun">S</li>
+                    <li>M</li>
+                    <li>T</li>
+                    <li>W</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li class="sat">S</li>
+                </ul>
+                <ul class="day"> 
+                    <li><span></span></li>
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li><span>6</span></li>                    
+                </ul>
+                <ul class="day"> 
+                    <li><span>7</span></li>
+                    <li><span>8</span></li>
+                    <li><span>9</span></li>
+                    <li><span>10</span></li>
+                    <li><span>11</span></li>
+                    <li><span>12</span></li>
+                    <li><span>13</span></li>
+                </ul>
+              <ul class="day"> 
+                  <li><span>14</span></li>
+                  <li><span>15</span></li>
+                  <li><span>16</span></li>
+                  <li><span>17</span></li>
+                  <li><span>18</span></li>
+                  <li><span>19</span></li>
+                  <li><span>20</span></li>
+              </ul>
+
+              <ul class="day"> 
+                  <li><span>21</span></li>
+                  <li><span>22</span></li>
+                  <li><span>23</span></li>
+                  <li><span>24</span></li>
+                  <li><span>25</span></li>
+                  <li><span>26</span></li>
+                  <li><span>27</span></li>
+              </ul>
+              
+              <ul class="day"> 
+                  <li><span>28</span></li>
+                  <li><span>29</span></li>
+                  <li><span>30</span></li>
+                  <li><span>31</span></li>
+                  <li><span></span></li>
+                  <li><span></span></li>
+                  <li><span></span></li>
+              </ul>
+          </div>
+             
+            </div>
+            
+      </div>
+    
+        
+            
+ <footer>
+  <div class="ft_menu">
+    <ul>
+      <li><a href="">개인정보처리방침</a></li>
+      <li><a href="">CCTV운영관리방침</a></li>
+      <li><a href="">저작권정책</a></li>
+      <li><a href="">관련기관</a></li>
+    </ul>
+  </div>
+
+
+  <ul class="ft_left">
+  <li>국립등대박물관 (37928) 경북 포항시 남구 호미곶면 해맞이로150번길 20 </li>
+  <li>대표전화 : 054-284-4857 | 팩스 : 054-284-4859 | 이메일 : info@lighthouse-museum.or.kr</li>    
+  <li class="cop">copyright(c) 2014 NATIONAL LIGHTHOUSE MUSEUM ALLRIGHTS RESERVED.</li>
+</ul>
+
+  <div class="ft_logo"><img src="./img/wa_mark.png" alt="" width="100" height="50"></div>
+ </footer>     
+    
+    </div>
+  </div>
+
+
+	
+</body>
+</html>
