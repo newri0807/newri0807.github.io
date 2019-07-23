@@ -7,8 +7,8 @@
     
     <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
     <!-- 파비콘(공통,애플,IE형태) -->
-    <link rel="shortcut icon" href="./favicon_64siz.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./favicon_64siz.png">
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
       
      
     <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
@@ -156,10 +156,10 @@
   input{display: none;}
   /* .togwrap.on{right:0;} */
 
-    .page1{width: 100%;height: 100vh;}
+    .page1{width: 100%;height: 100%;}
     .slid1{position: relative;overflow: hidden;width:400%;height: 100%;top: 0;left: 0;}
     .slid1 img{width: 25%; height: auto;display: block; float: left; }
-    .btn1{position: absolute; width: 200px;height: 20px; z-index: 44;top: 35%;left: 8%;}
+    .btn1{position: absolute; width: 200px;height: 20px; z-index: 44;top: 40%;left: 10%;}
     .btn1 li{width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #e35c25;float: left;}
     .btn1 li.on {width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #fcbd6e;float: left;}
     .btn1 li:nth-child(4){background-color:transparent;}
@@ -167,8 +167,8 @@
     
     .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;  }
     .slid_tit1 li { position: absolute; left: 0; top:0; width:100vw; height:100vh; overflow:hidden; transition:0.7s; }
-    .slid_tit1 .sl_tit{width: 100%;margin-left:60px; margin-top:1000px; opacity:0; transition:0.7s; }
-    .slid_tit1 .sl_com {width: 100%;margin-left:60px;font-weight: 500; margin-top:1000px;  transition:0.7s; opacity: 0;word-break: break-all;}
+    .slid_tit1 .sl_tit{width: 100%;margin-left:60px; margin-top:1000px; opacity:0; transition:0.7s;}
+    .slid_tit1 .sl_com {width: 100%;margin-left:60px;font-weight: 500; margin-top:1000px;  transition:0.7s; opacity: 0;}
     .more{display: block;width: 400px;height: 40px;text-align: center;line-height: 40px;font-size: 2em; border: 2px solid #fcbd6e;color: #e35c25;   transition:0.7s; margin-left:60px;
      border-radius: 40px;background-color: rgba(255, 255, 255, 0.5); opacity: 0;}  
     .slid_tit1 li.on .sl_tit { margin-top: 390px; margin-left: 100px; opacity:1; }
@@ -176,7 +176,7 @@
     .slid_tit1 li.on .more { opacity: 1;margin-left: 140px; }
     
     .xi-long-arrow-right{  
-        animation-duration: 0.8s;
+            animation-duration: 0.8s;
         animation-name: next;
         animation-iteration-count: infinite; }
 
@@ -187,41 +187,36 @@
     
       
     
-    .page2{width: 100%;height: 100vh;clear: both;}
-    .slid2{position: relative;overflow: hidden;width: 100%;height: 100%;top: 0;left: 0; }
-    .slid2 img{position: absolute;width: auto;height: 100%;}
+    .page2{width: 100%;height: 100%;clear: both;}
+    .slid2{position: relative;overflow: hidden;width: 100%;height: 90%;top: 0;left: 0; }
+    .slid2 img{position: absolute;width: 100%;height: 100%;}
     .btn2{position: absolute; width: 200px;height: 20px; z-index: 44;top: 140%;left: 10%;}
     .btn2 li{width: 10px; height: 10px;border-radius: 5px;margin-left: 10px; background-color: #e35c25;float: left;transition: 0.2s;}
     .btn2 li.on{width: 20px; height: 20px;border-radius: 20px;margin-left: 10px; background-color:transparent; border:1px solid #fcbd6e; float: left;line-height: 20px;}
 /*    .btn2.on li{width: 30px; height: 30px;font-size: 1.2em;line-height: -30px;width: 10px; height: 10px;}*/
     .btn2 li:nth-child(7){background-color:transparent;}
     .btn2 i{line-height: 10%;font-size: 1.2em;color: #e35c25;}
-    .slid_tit2{position: absolute;width: 80%;height: 23%;z-index: 33;top: 144%;left: 10%;overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;}
+    .slid_tit2{position: absolute;width: 80%;height: 28%;z-index: 33;top: 145%;left: 10%;overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;}
     .slid_tit2 h2{width: 100%;text-indent: -2px;margin-bottom: -20px;}
-    .slid_tit2 h4{width: 100%;text-indent: -2px;font-weight: 500;word-break: break-all;}
-    .slid_tit2 .more{width: 400px;height: 40px;line-height: 40px;font-size: 2em; border: 2px solid #fcbd6e;color: #e35c25; margin-left:0px;
-     background-color: rgba(255, 255, 255, 0.5); opacity: 1;}
-
-
-
-    .bottomslide{width: auto;height: 7rem;position: relative; bottom: 7rem; left: 0;z-index: 66;background-color: #fff;border-top: 1px solid #fcbd6e;
-    overflow: hidden;}
+    .slid_tit2 h4{width: 100%;text-indent: -2px;font-weight: 500;}
+    
+    .bottomslide{width: 100%;height: 100px;}
     .bottomslide ul{float: left;}
     .arrow{height: 100%;width: 20%;background-color: #e35c25; }
     .arrow li{float: left;font-size: 2em;line-height: 100px;}
+    .arrow li a{color:#fff;}
     .arrow li i{color:#fff;margin-left: 10px;}
-    .arrow li.left i{margin-left:220px;}    
-    .arrow li.right:before{content: "|";color: #fff;}
+    .arrow li:nth-child(1) i{margin-left:220px;}    
+    .arrow li:nth-child(2):before{content: "|";color: #fff;}
  
-    .list {width: 80%;height: 100%;float: right;background: transparent;position: relative;}
+    .list {width: 80%;height: 100%;float: right;background: transparent;}
     .list li{margin-left: 15%;float: left;line-height: 100px;}
     .list li a{font-size: 2em;color:#fcbd6e; }
-    .list li.on{ position: absolute;
-    bottom: 70%;left: 1%; text-align: center;width: 10px;height: 200px;background: #e35c25;z-index: 111;}
+    .list li.on{border-left:1px solid #fcbd6e;position: relative;top: -100px;left: 0; text-align: center;}
 
 
 
-    .page3{width: 100%;height: 100vh;clear: both;}
+    .page3{width: 100%;height: 100%;clear: both;}
     .page3 ul{float: left;width: 33.33333%;height: 100%;}
     .part1{width: 33.33333%;height: 100%;background-image: url(./img/slide2-1.jpg);background-size: cover;background-repeat: no-repeat;
         background-position: center center; opacity: 0.8;}
@@ -258,7 +253,7 @@
 
     /* 모바일 */
     @media screen and (max-width:767px){ 
-       
+        header{width: 100%;height: 100vh;}
         .gnb{display: none;}
         .toggle{clear: both;top: 0;left: -400%;}
         #lang{display: none;}
@@ -274,49 +269,46 @@
         .h_sub li a{font-size: 1.5em;}
         #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
      
-       
-        .page1{width: 100%; height: 100vh;clear: both;}
-        .slid1 {width: 300%; height: 100%;}
-        .slid1 img{width:auto; height: 100vh;}
-        .slid_tit1 {letter-spacing: 2px;}
-        .slid_tit1 li { position: absolute; left: 0; top:0; font-size: 0.7rem;}
-       
-        .slid_tit1 li.on .sl_tit { margin-top: 20rem; margin-left: -1.2rem;}
-        .slid_tit1 li.on .sl_com { margin-top: 0;  margin-left: 0;padding-left: 0.4rem;text-indent: 0.1rem;}
-        .slid_tit1 li.on .more {margin-right: 1rem;width: 10rem; }
-    
+  
         
-        .page2{width: 100%;height: 100vh;clear: both;}
-        .slid2{width: 100%; height: 100%;}
-        .slid2 img{width: 600%; height: auto; transform: translate(-50%, -15%);}
-        .slid_tit2{width: 20rem;height: 15rem;z-index: 33;top: 130%;left: 10%;overflow: hidden;
-        font-size: 0.7rem;letter-spacing: normal;}
-        .slid_tit2 .more{width: 10rem;}
- 
-        .btn2{top: 130%;left: 10%;}      
-        .bottomslide{height: 6.9rem;}
-        .arrow{width: 40%;float: left;}        
-        .list{float:left;width: 60%;}
-        .list li.on{ left: 8%; }        
-        .arrow li{font-size:3em;margin-left: 10px;}
-        .arrow li.left i{margin-left:20px;}
-        .arrow li.right i{margin-right:-10px;}
-        .arrow li i{margin-left: 0px;}
-        .arrow li.right:before{content:none;}
+        .page1{width: auto; height: 100vh;clear: both;}
+        .slid1 {width: auto; height: 100vh;position: relative;overflow: hidden;}
+        .slid1 img{width: auto; height: 100%;display: block; float: left;}
+        /* .slid_tit1{position: absolute;width: 20rem;height: 15rem;z-index: 33;top: 20%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 0.7em;letter-spacing: normal;} */
+        /* .more{width: 30%;}
+        .btn1{top: 20%;left: 10%;} */
+        
+        .page2{width: 100%;height: auto;clear: both;}
+        .slid2 {width: 400%; height: 100vh;}
+        .slid2 img{max-width: 100%; height: auto; transform: translate(-50%, -25%);}
+        .slid_tit2{width: 20rem;height: 15rem;z-index: 33;top: 120%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 0.7em;letter-spacing: normal;}
+        .more{width: 30%;}
+        .btn2{top: 120%;left: 10%;}
+        .bottomslide{max-width: 100%; }
+        .arrow{width: 40%;float: left;}
+        .list{float: right;width: 60%;}
         
         .page3{width: 100%;height: 100vh;clear: both;overflow: hidden;}
         .page3 ul {width: 100%;height: 33.3333%;font-size: 1em;clear: both;overflow: hidden; }      
         .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
-        .page3 ul a{width: 150px;height: 150px;margin-top: 2.5rem;}
-        .page3 ul a i{line-height: 150px;font-size: 4rem;}
+        .page3 ul a{width: 200px;height: 200px;margin-top: 10px;}
+        .page3 ul a i{line-height: 180px;font-size: 4rem;}
       
-        footer{height: 12rem;}
+        
+   
+     
+        
+        footer{height: 10rem;}
         footer p {font-size: 0.7em; letter-spacing: 0;}
         
-         }
+            }
  
     /* 아이패드 = 태블릿 */
-    @media screen and (min-width:768px) and (max-width:959px){           .gnb{display: block;}
+    @media screen and (min-width:768px) and (max-width:959px){         
+        header{width: 100%;height: 100vh;}
+        .gnb{display: block;}
         .menu{display: none;}
         .toggle{clear: both;top: 0;left: 10%;}
         .language{display: block;top: 0;right:90%;position: absolute;}
@@ -331,32 +323,29 @@
         .hidemenu > li:nth-child(1){border-bottom: 1px solid #fff; border-left: none;}
         .h_sub li{width: 100%;height: auto;display: block; transition: 0.7s; }        
         .h_sub li a{font-size: 1.7em;}
-        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}       
+        #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
+        /* .menu li a:active ~ .sub li{opacity: 1; height: 10px; margin-top: -100px;} */
+
+        .page1{width: 100%; height: auto;clear: both;}
+        .slid1 {width: 400%; height: 00vh;}
+        .slid1 img{max-width: 25%; height: auto;transform: translate(-50%, 0);}
+        .slid_tit1{position: absolute;z-index: 33;top: 40%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
+        .more{width: 30%;}
+        .btn1{top: 40%;left: 10%;}
         
-        
-        .page1{width: 100%; height: 100vh;clear: both;}
-        .slid1 {width: auto; height: 100%;}
-        .slid1 img{width: auto; height: 100%;}
-         .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;  }
-        .slid_tit1 li {position: absolute; left: 0; top:0; font-size: 1rem; width: 50rem;height: 60rem;}
-       
-        .slid_tit1 li.on .sl_tit { margin-top: 30rem; margin-left: 1rem; opacity:1; }
-        .slid_tit1 li.on .sl_com { margin-top: 10px;  margin-left: 1rem; opacity:1;padding-left:2rem; text-indent: 0.4rem;}
-        .slid_tit1 li.on .more { opacity: 1;margin-left: 100px; }
-        
-              
-        .page2{width: 100%;height: 100vh;clear: both;}
-        .slid2 {width: auto; height: 100%;}
-        .slid2 img{width: auto; height: auto;transform: translate(-50%, 10%);}
+        .page2{width: 100%;height: auto;clear: both;}
+        .slid2 {width: 400%; height: 100vh;}
+        .slid2 img{max-width: 100%; height: auto;transform: translate(-20%, -20%);}
         .slid_tit2{position: absolute;z-index: 33;top: 140%;left: 10%;overflow: hidden;
         text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
         .more{width: 30%;}
         .btn2{top: 140%;left: 10%;}
-        .bottomslide{height: 6.9rem;}
+        .bottomslide{max-width: 100%; }
         .arrow{width: 40%;float: left;}
         .list{float: right;width: 60%;}
         
-        .page3{width: 100%;height: 90vh;clear: both;overflow: hidden;}
+        .page3{width: 100%;height: 100vh;clear: both;overflow: hidden;}
         .page3 ul {width: 33.3333%;height: 100%;font-size: 1em;  }
         .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
         .page3 ul a{width: 200px;height: 200px;margin-top: 250px;}
@@ -368,14 +357,14 @@
 
     /* 데스크탑 */
     @media screen and (min-width:960px) and (max-width:1279px){ 
-        header{width: 100%;height: 10vh;}
+        header{width: 100%;height: 100vh;}
         .gnb{display: block;}
         .menu{display: none;}
         .toggle{clear: both;top: 0;left: 10%;}
         .language{display: block;top: 0;right:90%;position: absolute;}
         
         /* 토글페이지 */
-        .togwrap{top: -10;right: -180vh;clear: both;}
+        .togwrap{top: -10;right: -160vh;clear: both;}
         .hidemenu {top:10%; left: 40%;transform: none; clear: both;width: 20rem;height: 30rem;}
         .hidemenu .logo{display:block;top: 0;left:-250%;position: absolute;}
         .hidemenu i{top: 0;left: -300%;}
@@ -386,22 +375,22 @@
         .h_sub li a{font-size: 1.7em;}
         #sidemenu:checked ~ .togwrap{right:12px;top:-20px;}
       
-        .page1{width: auto; height: 100vh;clear: both;}
-        .slid1 {width: 300%; height:100vh;}
-        .slid1 img{width: auto; height: 100vh;float: left;}
-        .slid_tit1{top: 0;left: 10%;overflow: hidden;
-        font-size: 0.7em;width: 40rem;height: 22rem;}
+        .page1{max-width: 100%; height: auto;clear: both;}
+        .slid1 {width: 100%; height: 100vh;}
+        .slid1 img{max-width: 100%; height: auto;}
+        .slid_tit1{position: absolute;z-index: 33;top: 40%;left: 10%;overflow: hidden;
+        text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
         .more{width: 30%;}
         .btn1{top: 40%;left: 10%;}
 
 
         
-        .page2{width: 100%;height: 100vh;clear: both;}
-        .slid2 {width: 100%; height: 100%;}
+        .page2{width: 100%;height: auto;clear: both;}
+        .slid2 {width: 100%; height: 100vh;}
         .slid2 img{max-width: 100%; height: auto;}
         .slid_tit2{position: absolute;z-index: 33;top: 140%;left: 10%;overflow: hidden;
         text-align: left;color:#fcbd6e;font-size: 1em;letter-spacing: normal;width: 40rem;height: 22rem;}
-        .slid_tit2 .more{width: 60%;font-size: 1.5em;letter-spacing: 0.2rem;}
+        .more{width: 30%;}
         .btn2{top: 140%;left: 10%;}
         .bottomslide{max-width: 100%; }
         .arrow{width: 40%;float: left;}
@@ -410,9 +399,9 @@
         .page3{width: 100%;height: 100vh;clear: both;overflow: hidden;}
         .page3 ul {width: 33.3333%;height: 100%;font-size: 1em;  }
         .page3 ul li{width: 200px;height: 200px;margin: 0 auto;}
-        .page3 ul a{width: 200px;height: 200px;margin-top: 20rem;}
+        .page3 ul a{width: 200px;height: 200px;margin-top: 250px;}
         .page3 ul i{font-size: 1em;margin-top: -50px;}
-        .page3 ul h4{display: none;}
+        
         footer{height: 10rem;}
         footer p {font-size: 0.8em;letter-spacing: 0;width: 80%;margin: 0 auto;}
 
@@ -492,7 +481,11 @@
                 //$(".slid_tit1").css("left" , idx*-1*wd+"px");
                 $(".slid1").not(":animated").animate({"margin-left" : idx*-1*wd});
             });
-          
+
+
+
+
+           
         
 
 
@@ -515,21 +508,6 @@
             $(".slid2 img").eq(i).stop(true, true).fadeIn();
             }
             
-            var intv=setInterval(function(){ nextAni(); }, 2900);
-
-
-//             $(document).ready(function () {
-//     $('.slide2').bxSlider({
-//         auto: true, // 자동으로 애니메이션 시작
-//         speed: 500,  // 애니메이션 속도
-//         pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
-//         mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
-//         autoControls: true, // 시작 및 중지버튼 보여짐
-//         pager: true, // 페이지 표시 보여짐
-//         captions: true, // 이미지 위에 텍스트를 넣을 수 있음
-//     });
-// });
-        
 
 
     //스크롤 내리면 메뉴배경 나오기
@@ -602,47 +580,7 @@
         });
 
 
-        //두 번째 슬라이더 
-         var tar, tar_wd, tar_cnt;
-        tar_cnt = $(".slid2 img").length;
-        tar_wd = parseInt($(".list li").width());
 
-        $(".list li").click(function(e){
-            tar = $(this).index();        
-            for(var i=1;i<tar;i++){
-                $(".slid2 img").eq(0).appendTo($(".slid2"));
-                $(".list li").eq(0).appendTo($(".list"));
-            }
-            nextAni();
-        });
-        function nextAni(){
-            $(".slid2").not(":animated").animate({"margin-left":wd*-1}, 800, function(){
-                $(".slid2 img").eq(0).appendTo($(".slid2"));
-                $(".slid2").css("margin-left", "0px");
-                $(".slid2 img").eq(0).addClass("on");
-                $(".slid2 img").eq(0).siblings().removeClass("on");
-                $(".list li").eq(0).appendTo($(".list"));
-                $(".list li").removeClass("on");
-                $(".list li").eq(0).addClass("on");
-            });
-        }
-        function prevAni(){
-            $(".slid2 img").eq(tar_cnt-1).prependTo($(".slid2"));
-            $(".slid2").css("margin-left", -wd+"px");
-            $(".slid2").not(":animated").animate({"margin-left":"0px"}, 800, function(){
-                $(".vs_lst2 li").eq(0).addClass("on");
-                $(".vs_lst2 li").eq(0).siblings().removeClass("on");
-                $(".list li").eq(tar_cnt-1).prependTo($(".list"));
-                $(".list li").removeClass("on");
-                $(".list li").eq(0).addClass("on");
-            });
-        }
-        $(".arrow .left").click(function(){
-            prevAni();
-        });
-        $(".arrow .right").click(function(){
-            nextAni();
-        });
 
 
 
@@ -660,31 +598,31 @@
     <header>       
 
             <nav class="gnb">
-                <a href="./index.html" class="logo">
-                    <img src="./img/logo_lighter1.png" alt=""> 
+                <a href="" class="logo">
+                    <img src="./img/logo_lighter.png" alt=""> 
                 </a>
                     <ul class="menu">
-                        <li><a href="./sub1.html">NEW IN</a></li>
-                        <li><a href="./sub1.html">Bracelet</a>
+                        <li><a href="">NEW IN</a></li>
+                        <li><a href="">Bracelet</a>
                          <ul class="sub">
-                            <li><a href="./sub1.html">Slave Bracelet</a></li>
-                            <li><a href="./sub1.html">92.5 Silver</a></li>
-                            <li><a href="./sub1.html">Limited</a></li>                       
+                            <li><a href="">Slave Bracelet</a></li>
+                            <li><a href="">92.5 Silver</a></li>
+                            <li><a href="">Limited</a></li>                       
                          </ul>                        
                         </li>
-                        <li><a href="./sub1.html">Earring&Ring</a>
+                        <li><a href="">Earring&Ring</a>
                          <ul class="sub">
-                            <li><a href="./sub1.html">rings</a></li>
-                            <li><a href="./sub1.html">earrings</a></li>                                             
+                            <li><a href="">rings</a></li>
+                            <li><a href="">earrings</a></li>                                             
                          </ul>   
                         
                         </li>
-                        <li><a href="./sub1.html">Necklace</a></li>
-                        <li><a href="./sub1.html">ETC</a>
+                        <li><a href="">Necklace</a></li>
+                        <li><a href="">ETC</a>
                         <ul class="sub">
-                            <li><a href="./sub1.html">Anklets</a></li>
-                            <li><a href="./sub1.html">Eyewear Chain</a></li>
-                            <li><a href="./sub1.html">개인결제창</a></li>                                                    
+                            <li><a href="">Anklets</a></li>
+                            <li><a href="">Eyewear Chain</a></li>
+                            <li><a href="">개인결제창</a></li>                                                    
                          </ul>                         
                         </li>
                     </ul>
@@ -907,15 +845,16 @@
 
 
     </div>
-   
-        <div class="bottomslide">
+    </div>
+              
+    <div class="bottomslide">
             <ul class="arrow">
-              <li class="left"><i class="xi-angle-left"></i></li>
-              <li class="right"><i class="xi-angle-right"></i></li>
+              <li><a href=""><i class="xi-angle-left"></i></a></li>
+              <li><a href=""><i class="xi-angle-right"></i></a></li>
               
             </ul>
             <ul class="list">
-                <li class="on"><a href="">111</a></li>
+                <li><a href="">111</a></li>
                 <li><a href="">222</a></li>
                 <li><a href="">333</a></li>
                 <li><a href="">444</a></li>
@@ -923,9 +862,6 @@
             </ul>
         </div>
 
-    </div>
-              
-    
 
     <div class="page3 page">
       <ul class="part1">
