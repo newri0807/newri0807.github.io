@@ -1,0 +1,39 @@
+https://smartstore.naver.com/sunnysweetshop/category/ALL?cp=1
+https://sunnysweetshop.modoo.at/
+써니브레드
+
+[cf]
+http://www.4560dh.com/
+
+
+
+주구현기술은 고정박스(li가 320x320)형 반응형 구현기술 방법으로 한다!!!!
+ul(높이,넓이 설정 x) >li(핸드폰 최소 넓이:320px 높이: 320px)
+
+ul높이
+320 
+960 
+1280
+
+285x285px
+
+[gnb]
+-SUNNYBREAD
+-Gluten-Free
+-제품소개 
+-매장정보 
+-네이버스토어 
+-Contact
+-Follow Us
+-오시는길
+
+
+
+
+@font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+
+자바스크립트  플러그인
+https://www.w3schools.com/howto/howto_js_navbar_slide.asp
+
+

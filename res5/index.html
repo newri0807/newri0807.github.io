@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="sunnybread">
+    <meta name="keyword" content="sunnybread, 써니브레드, 베이커리, 빵집, 글루텐프리, 비건">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to sunnybread">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet"> 
+
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <style>
+    .main{width: 100%;height: 100%;}
+    header{width: 100%;height: 260px;position: relative;}
+    .logo{width: 100px;height: 260px;display: block;position: fixed;top: 20px;left: 20px;z-index: 333;}
+    .join{width: 50px;height: 50px;font-size: 1.2rem;position: fixed;top: 30px;right: 50px;z-index: 333;}
+    .join::after{content: ""; width: 30px;height: 30px;display:block;background-image: url(./img/icon1.png);background-size: contain; margin: -25px 40px;}
+
+    .gnb{width: 500px;height: 100px;margin: 60px 43%;position: relative;}
+    .gnb ul{width: 500px;margin: 0 auto;}
+    .gnb li {height: 30px;width: 8px;border-radius: 5px; float: left; background-color: rgb(241, 213, 151);margin-left: 20px; cursor: pointer;}
+    .gnb li.on{height: 60px;background-color: rgb(182, 134, 89);margin-top: -15px;}
+/*    h2{text-align: center;font-weight: 300;padding-top: 100px;margin-right: 320px;position: absolute;top: -30px;right: calc(50% - 400px);width: 100px;height: 20px;}*/
+    h2{text-align: center;position: absolute;top: 30px;left: calc(50% - 488px); width:630px;}
+        
+
+    .circleM{width: 90%;height:auto; margin: 0 auto;margin-left: 220px;transition: 0.3s;}
+    .circleWrap{width: auto;}
+    .circleWrap li{width: 320px;height: 320px;border-radius: 320px; background-color: gray;float: left; margin: 20px;  
+    position: relative; 
+    transform-style: preserve-3d; transition: transform 1s; 
+    }
+    .circleWrap li:hover{transform: rotateY(0.5turn);}
+    .circleWrap li div{position: absolute;  top: 0; left:40%;font-size: 2rem;line-height: 320px;}
+    .circleWrap li div.back{transform: rotateY(0.5turn); position: absolute;background-color: rgba(37, 37, 37, 0.8);
+    width: 320px;height: 320px;border-radius: 320px;top: 0;left: 0;text-align: center;line-height: 320px;color:#fff;}
+    
+    .circleWrap .item1{background-image: url(./img/btn1.jpg);background-size: contain;}
+    .circleWrap .item2{background-image: url(./img/btn2.jpg);background-size: contain;}
+    .circleWrap .item3{background-image: url(./img/btn3.jpg);background-size: contain;}
+    .circleWrap .item4{background-image: url(./img/btn4.jpg);background-size: contain;}
+    .circleWrap .item5{background-image: url(./img/btn5.jpg);background-size: contain;}
+    .circleWrap .item6{background-image: url(./img/btn6.jpg);background-size: contain;}
+    .circleWrap .item7{background-image: url(./img/btn7.jpg);background-size: contain;}
+    .circleWrap .item8{background-image: url(./img/btn8.jpg);background-size: contain;}
+    .circleWrap .item9{background-image: url(./img/btn9.jpg);background-size: contain;}
+    .circleWrap .item10{background-image: url(./img/btn10.jpg);background-size: contain;}
+    .circleWrap .item11{background-image: url(./img/btn11.jpg);background-size: contain;}
+    .circleWrap .item12{background-image: url(./img/btn12.jpg);background-size: contain;}
+    .circleWrap .item13{background-image: url(./img/btn13.jpg);background-size: contain;}
+    .circleWrap .item14{background-image: url(./img/btn14.jpg);background-size: contain;}
+    .circleWrap .item15{background-image: url(./img/btn15.jpg);background-size: contain;}
+    .circleWrap .item16{background-image: url(./img/img1.jpeg);background-size: cover;}
+    .circleWrap .item17{background-image: url(./img/img2.jpeg);background-size: cover;}
+    .circleWrap .item18{background-image: url(./img/img3.jpeg);background-size: cover;}
+    .circleWrap .item19{background-image: url(./img/img4.jpeg);background-size: cover;}
+   
+   .plus{clear: both;font-size: 5rem;color: lightgray;margin: 5% 41.2%;width: 50px;}
+   .plus img{width: 50px;height: 50px;margin-top: 100px; }
+
+    footer{clear: both;width: 100%;height: 100px;text-align: center;margin-top: 150px;}
+    footer div{float: left;width: 100%;margin-top: 10px;}  
+    .sns{margin:10px 40px;}
+    .sns ul{width: 200px;height: 40px;margin: 0 auto;}  
+    .sns li{float: left;margin-left: 10px;}
+    
+    .topbtn{position: fixed;bottom: 15%;right: 5%;width: 60px;height: 60px;border-radius: 60px; border: 1px solid gray;
+        line-height: 65px;text-align: center;font-size: 1.2em;background-color: #fff;}
+        
+        
+        
+    /* 모바일 */
+    @media screen and (max-width:767px){    
+    .main{height: 100vh;}
+    .circleM{width:320px; height:auto; margin-left: 10px;}
+    .circleWrap{width: 320px;}
+    .logo{width: 40px;height: 100px;display: block;position: fixed;top: 20px;left: 20px;}
+    .logo img{width: 40px;height: 100px;}
+    .join{text-indent: -9999px;}        
+        
+    .gnb{width: 400px;height: 50px;margin: 40px 30%;}
+    .gnb li {height: 30px;width: 8px;margin-left: 15px;}    
+    h2{padding-top: 100px;top: -50px; left: calc(50% - 445px);font-size:1.4rem;} 
+        
+    .plus{margin: 5% 47%;}
+   
+        
+        }
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){
+    .main{height: 100%;}
+    .circleM{width:780px;  margin-left: 4%;}
+    .circleWrap{width:780px;}
+    
+    .gnb{margin: 50px 40%;}
+   
+    /* h2{padding-top: 100px;top: -50px;right: calc(50% - 410px);font-size:1.8rem;}  */
+    }
+    
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+    
+    .main{height: 100%;}
+    .circleM{width:960px;  margin-left: 12%;}
+    .circleWrap{width:960px;}
+    .plus{margin: 5% 35%;}
+    
+    .gnb{margin: 50px 40%;}
+    h2{padding-top: 100px;top: -50px;right: calc(50% - 400px);font-size:2rem;} 
+    
+        
+        }
+        
+        
+   
+           
+   
+        
+     
+        
+        
+        
+        
+        
+    </style>
+    
+    <script>
+  $(document).ready(function(){
+//   $(".gnb li").click(function(){   
+//       $(".gnb li").removeClass("on");
+//       $(this).addClass("on");
+        
+//   });
+      
+
+    $(".gnb li").click(function(){
+    $(".circleWrap li").eq(0).appendTo($(".circleWrap"));
+    $(".circleWrap li.group1").css("opacity","0").appendTo($(".circleWrap"));        
+    $(".gnb li").eq(5).prependTo($(".gnb ")); //버튼변화
+    $(".gnb li").eq(5).addClass("on");
+    $(".gnb li").not(":first-child").removeClass("on");   
+    
+    });
+   
+    
+});
+  
+
+    
+    
+    </script>
+    <title>wellcome to sunnybread</title>
+</head>
+<body>
+    <div class="main">
+    <header>
+        <a href="" class="logo"><img src="./img/logo_new1.jpg" alt=""></a>
+       
+        <nav class="gnb">
+                  
+            <ul>               
+               <li class="item1 on"></li> 
+                <li class="item2"></li> 
+                <li class="item3"></li>
+                <li class="item4"></li>
+                <li class="item5"></li>
+                <li class="item6"></li>             
+            </ul>
+        
+             <h2>sunnybread</h2>
+            
+        </nav>
+       
+        <div class="join">Join </div>
+    </header>
+
+    <div class="circleM">
+            <ul class="circleWrap">
+                <li class="item1 group1">
+                  <a href="">
+                    <div></div>
+                    <div class="back">About</div>
+                    </a>
+                </li>
+                <li class="item2 group1">
+                    <a href="">
+                        <div></div>
+                        <div class="back">NEWS</div>
+                    </a>
+                </li>
+                <li class="item3 group1">
+                    <a href="">
+                        <div></div>
+                        <div class="back">STORE</div>
+                    </a>
+                </li>
+                <li class="item4 group1">
+                    <a href="">
+                        <div></div>
+                        <div class="back">NOTICE</div>
+                    </a>                
+                </li>
+                <li class="item5 group2">
+                    <a href="">
+                        <div></div>
+                        <div class="back">CONTACT</div>
+                    </a>
+                </li>
+                <li class="item6 group2">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>
+                </li>
+                <li class="item7 group2">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+                <li class="item8 group2">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a> 
+                </li>
+                <li class="item9 group3">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>
+                </li>
+                <li class="item10 group3">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                    </li>
+                <li class="item11 group3">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>   
+                </li>
+                <li class="item12 group3">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+                <li class="item13 group4">
+                    <a href="">
+                    <div></div>
+                    <div class="back"></div>
+                    </a>
+                </li>
+                <li class="item14 group4">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>
+                </li>
+                <li class="item15 group4">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+                <li class="item16 group4">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+                <li class="item17 group5">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+                <li class="item18 group5">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>
+                </li>
+                <li class="item19 group5">
+                    <a href="">
+                        <div></div>
+                        <div class="back"></div>
+                    </a>    
+                </li>
+               
+            </ul>
+
+            <div class="plus">
+                <img src="./img/more.png" alt="">
+                </div>
+          
+    </div>
+  
+ 
+<div class="topbtn">TOP</div>
+
+<footer>
+<div class="part1">
+    <img src="./img/logo.jpg" alt="" width="50">
+</div>
+<div class="part2">
+        서울특별시 용산구 우사단로14길 33, 2층 (한남동)  <br>
+        사업자등록번호 : 368-23-00356 사업자정보 확인 <br>
+       전화번호 : 010-2262-5282 <br>
+       이메일 : sunny4370@naver.com
+      
+</div>
+<div class="sns">
+        <ul>
+            <li><a href="" target=""><img src="img/btn_sns_facebook.png" alt="dasb instargram" width="26"></a></li>
+            <li><a href="" target=""><img src="img/btn_sns_instargram.png" alt="dasb facebook" width="26"></a></li>
+            <li><a href="" target=""><img src="img/btn_sns_naver.png" alt="dasb naver" width="26"></a></li>
+        </ul>
+</div>
+
+</footer>
+
+    </div>
+</body>
+</html>
