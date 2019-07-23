@@ -1,0 +1,930 @@
+var currentHostname = window.location.hostname;
+locationflag = $('#locationFlag').val();
+function fetchPageValue(pageId) {
+    return $('#' + pageId).val();
+}
+/* DOM loaded events... */
+$(document).ready(function() {
+    var bxNext = $('#bx-next');
+    var bxPrev = $('#bx-prev');
+    var iframeElements = document.getElementsByTagName('iframe');
+    var lastNavItem = $('#iNavTier1Nav > li > a.iNSortedIndex').last();
+    var lastNavMenuItem = $('.iNavT2NavCont .iNSortedIndex').last();
+
+    $('HTML').removeClass('no-js');
+
+    if ($(window).width() > 600) {
+        var rtl = $('#right_to_left').val() === 'true';
+        SimpleCarousel.init({
+            'rtl' : rtl
+        });
+
+    }
+
+    $('#slider1').carousel({
+        'dot-controls' : false,
+        'autoplay' : (fetchPageValue('hero_slider_autoplay') === 'true') ? true : false,
+        'scroll-speed' : fetchPageValue('hero_slider_speed') * 100,
+        'skip-speed' : 0,
+        'update-current-index' : true,
+        'current-index-selector' : '#place-here',
+        'left-slide-selector' : '#bx-prev',
+        'right-slide-selector' : '#bx-next',
+        'right-to-left' : (fetchPageValue('right_to_left') === 'true'),
+        'exclude-margin' : true
+    });
+
+    $('#mydropdown').change(function(e) {
+
+        window.open(this.options[this.selectedIndex].value);
+    });
+
+    if (iframeElements.length > 0) {
+        $('#slider1').carousel('setAutoPlayFalse');
+    }
+    if($('#hero-slider .bxslider li').length === 1) {
+        $('#hero-nav').hide();
+    }
+    if($('.text-panel').length === 0) {
+        $('#hero-slider').addClass('single');
+    }
+
+    $('.carousel-item > div > a').keydown(function (e) {
+        if (e.which === $.ui.keyCode.TAB) {
+            e.preventDefault();
+            if(!e.shiftKey) {
+                bxPrev.focus();
+            } else {
+              $('body').hasClass('res_Small') ? $('#iNOpBtn').focus():lastNavItem.focus();
+            }
+        }
+    });
+   $('#iNOpBtn').keydown(function (e) {
+        if ($('#iNavHdWrap').css('display')=='none' && !e.shiftKey && e.keyCode === $.ui.keyCode.TAB) {
+            e.preventDefault();
+            $('.carousel-item.current a').focus();
+        }
+    });
+
+    lastNavItem.keydown(function (e) {
+        if (!e.shiftKey && e.keyCode === $.ui.keyCode.TAB) {
+            if ($(this).next().css('display') == 'none') {
+            e.preventDefault();
+            $('.carousel-item.current a').focus();
+        }
+        }
+    });
+
+    lastNavMenuItem.on('keydown', function (e) {
+        if (!e.shiftKey && e.keyCode === $.ui.keyCode.TAB) {
+            e.preventDefault();
+            $('.carousel-item.current a').focus();
+            NAV.Watcher.hideSecondaryNavigation(!0);
+        }
+    });
+
+    bxNext.click(function(event) {
+        event.preventDefault();
+        // alert( 'new carousel item' );
+
+        if ($('.current').next('.carousel-item').find('.carousel-item-video').length != 0) {
+            $('#hero-nav,#bx-prev,#bx-next').addClass('video');
+            // $( "" ).addClass( 'video' );
+            // $( "" ).addClass( 'video' );
+            $('#place-here,#total').addClass('hide');
+            $('#slider-container').addClass('background');
+        } else {
+            $('#hero-nav,#bx-prev,#bx-next').removeClass(
+                'video');
+            // $( "" ).removeClass( 'video' );
+            // $( "" ).removeClass( 'video' );
+            $('#place-here,#total').removeClass('hide');
+            $('#slider-container').removeClass('background');
+        }
+    });
+
+    $('#xdd').keydown(function (e) {
+        if (e.which === $.ui.keyCode.SPACE) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+
+    bxPrev.click(function(event) {
+        event.preventDefault();
+        // alert( 'new carousel item' );
+
+        if ($('.current').prev('.carousel-item').find(
+                '.carousel-item-video').length != 0) {
+            $('#hero-nav,#bx-prev,#bx-next').addClass('video');
+            // $( "" ).addClass( 'video' );
+            // $( "" ).addClass( 'video' );
+            $('#place-here,#total').addClass('hide');
+            $('#slider-container').addClass('background');
+
+        } else {
+            $('#hero-nav,#bx-prev,#bx-next').removeClass(
+                'video');
+            // $( "" ).removeClass( 'video' );
+            // $( "" ).removeClass( 'video' );
+            $('#place-here,#total').removeClass('hide');
+            $('#slider-container').removeClass('background');
+        }
+    });
+
+    bxNext.keydown(function (e) {
+        if (e.which === $.ui.keyCode.SPACE) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+
+    bxPrev.keydown(function (e) {
+        if (e.which === $.ui.keyCode.SPACE) {
+            e.preventDefault();
+            $(this).click();
+        }
+
+        if (e.shiftKey && e.which === $.ui.keyCode.TAB) {
+            e.preventDefault();
+            $('.carousel-item.current a').focus();
+        }
+    });
+
+    $('#scroll-left').keydown(function (e) {
+        if (e.which === $.ui.keyCode.SPACE) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+
+    $('#scroll-right').keydown(function (e) {
+        if (e.which === $.ui.keyCode.SPACE) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+});
+
+/* Function to test if element exists e.g. $('#anElement').exists() */
+jQuery.fn.exists = function() {
+    return jQuery(this).length > 0;
+};
+
+var SimpleCarousel = {
+
+    carouselWidth : null,
+    carouselItemWidth : null,
+    carouselItemsWidth : null,
+    lock : false,
+    rtl : false,
+    nextJElement : $('#scroll-right'),
+    previousJElement : $('#scroll-left'),
+    intervalObj : null,
+
+    init : function(options) {
+
+        $('#scroll-right').click(function(e) {
+            e.preventDefault();
+            SimpleCarousel.slideRight();
+        });
+        $('#scroll-left').click(function(e) {
+            e.preventDefault();
+            SimpleCarousel.slideLeft();
+        });
+
+        if ($('#slider2').length) {
+            SimpleCarousel.setItemWidth();
+
+            if (options.rtl) {
+                SimpleCarousel.rtl = true;
+                SimpleCarousel.startRTLAutoPlay();
+            } else {
+                SimpleCarousel.startAutoPlay();
+            }
+            SimpleCarousel.bindPauseEventHandler();
+
+            var numItems = $('.carousel-item-slider').length;
+            var scroll = true;
+
+            if (numItems < 6 && numItems > 3) {
+                $('.carousel-item-slider').each(function() {
+
+                    $('#slider2').append($(this).clone().addClass('clone'));
+
+                });
+                var newLength = $('.carousel-item-slider').length;
+                $('#slider2')
+                    .prepend($('.carousel-item-slider')[newLength - 1]);
+                $('#slider2').css('left',
+                    -SimpleCarousel.carouselItemWidth + 'px');
+
+            } else if (numItems > 5) {
+                var length = $('.carousel-item-slider').length;
+                $('#slider2').prepend($('.carousel-item-slider')[length - 1]);
+                $('#slider2').css('left',
+                    -SimpleCarousel.carouselItemWidth + 'px');
+            } else {
+                scroll = false;
+                $('#scroll-left').hide();
+                $('#scroll-right').hide();
+            }
+
+            if (scroll) {
+                if (options.rtl) {
+
+                    SimpleCarousel.rtl = true;
+                    SimpleCarousel.bindRTLLeftHandler();
+                    SimpleCarousel.bindRTLRightHandler();
+                    SimpleCarousel.startRTLAutoPlay();
+                    SimpleCarousel.bindPauseEventHandler();
+
+                    SimpleCarousel.setCarouselItemsWidth();
+                    SimpleCarousel.carouselWidth = $('#buckets').width();
+                } else {
+
+                    SimpleCarousel.bindLeftHandler();
+                    SimpleCarousel.bindRightHandler();
+                    SimpleCarousel.startAutoPlay();
+                    SimpleCarousel.bindPauseEventHandler();
+
+                    SimpleCarousel.setCarouselItemsWidth();
+                    SimpleCarousel.carouselWidth = $('#buckets').width();
+                }
+
+            }
+        }
+    },
+
+    setItemWidth : function() {
+        var firstItem = $('.carousel-item-slider')[0];
+        var width = SimpleCarousel.getWidthWithMargin(firstItem);
+        SimpleCarousel.carouselItemWidth = width;
+    },
+
+    setCarouselItemsWidth : function() {
+        var totalWidth = $('.carousel-item-slider').length
+            * SimpleCarousel.carouselItemWidth;
+        SimpleCarousel.carouselItemsWidth = totalWidth;
+        $('#slider2').width(totalWidth);
+    },
+
+    getWidthWithMargin : function(item) {
+        var width = 0;
+        width += $(item).outerWidth();
+        width += parseInt($(item).css('margin-left').replace('px', ""));
+        width += parseInt($(item).css('margin-right').replace('px', ""));
+        return width;
+    },
+
+    bindPauseEventHandler : function() {
+        var contentCarousel = $('#contentCarousel');
+        contentCarousel.bind('click', function() {
+            SimpleCarousel.stopAutoPlay();
+        });
+        contentCarousel.bind('mouseenter', function() {
+            SimpleCarousel.stopAutoPlay();
+        });
+        contentCarousel.bind('mouseleave', function() {
+
+            if (fetchPageValue('right_to_left')) {
+                SimpleCarousel.startRTLAutoPlay();
+            }
+
+            else {
+                SimpleCarousel.startAutoPlay();
+            }
+
+        });
+    },
+
+    startAutoPlay : function() {
+        window.clearInterval(SimpleCarousel.intervalObj);
+        SimpleCarousel.intervalObj = window.setInterval(function() {
+            SimpleCarousel.slideRight();
+        }, fetchPageValue('benefit_slider_speed') * 1000);
+
+    },
+
+    startRTLAutoPlay : function() {
+        window.clearInterval(SimpleCarousel.intervalObj);
+        SimpleCarousel.intervalObj = window.setInterval(function() {
+            SimpleCarousel.slideLeft();
+        }, fetchPageValue('benefit_slider_speed') * 1000);
+
+    },
+
+    stopAutoPlay : function() {
+        window.clearInterval(SimpleCarousel.intervalObj);
+    },
+
+    bindLeftHandler : function() {
+        var w = SimpleCarousel.carouselItemWidth;
+
+        SimpleCarousel.previousJElement.click(function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            SimpleCarousel.slideLeft();
+        });
+    },
+
+    bindRTLLeftHandler : function() {
+        var w = SimpleCarousel.carouselItemWidth;
+
+        SimpleCarousel.nextJElement.click(function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            SimpleCarousel.slideLeft();
+        });
+    },
+
+    slideLeft : function() {
+        $('#slider2').animate(
+            {
+                left : '+=' + SimpleCarousel.carouselItemWidth + 'px'
+            },
+            function() {
+                var numItems = $('.carousel-item-slider').length;
+                $('#slider2').prepend(
+                    $('.carousel-item-slider')[numItems - 1]);
+                $('#slider2').css('left',
+                    -SimpleCarousel.carouselItemWidth + 'px');
+            });
+    },
+
+    bindRightHandler : function() {
+        var w = SimpleCarousel.carouselItemWidth;
+
+        SimpleCarousel.nextJElement.click(function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            SimpleCarousel.slideRight();
+        });
+    },
+
+    bindRTLRightHandler : function() {
+        var w = SimpleCarousel.carouselItemWidth;
+
+        SimpleCarousel.previousJElement.click(function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            SimpleCarousel.slideRight();
+        });
+    },
+
+    slideRight : function() {
+        $('#slider2').animate(
+            {
+                left : '-=' + SimpleCarousel.carouselItemWidth + 'px'
+            },
+            function() {
+                var numItems = $('.carousel-item-slider').length;
+                $('#slider2').append($('.carousel-item-slider')[0]);
+                $('#slider2').css('left',
+                    -SimpleCarousel.carouselItemWidth + 'px');
+            });
+    }
+};
+var pageName = $('#pageName').val();
+
+var omnitureFlag = $('#omnitureTracking').val();
+if (omnitureFlag == null) {
+    omnitureFlag == 'Enabled';
+}
+$('.carousel-item .learnmore').click(
+    function() {
+        if (omnitureFlag == 'Enabled') {
+            var s = s_gi(s_account);
+            var linkName = $(this).parent().parent().find('img')
+                    .attr('alt').toLowerCase()
+                + '_upper';
+            s.linkTrackVars = 'prop1,prop20,eVar5,eVar20';
+            s.prop1 = pageName + '>carousel_' + linkName;
+            s.eVar5 = pageName + '>carousel_' + linkName;
+            s.prop20 = 'carousel_' + linkName;
+            s.eVar20 = 'carousel_' + linkName;
+            s.tl(this, 'o', pageName + '>carousel_' + linkName);
+        }
+    });
+$('.carousel-item-slider a').click(
+    function() {
+        if (omnitureFlag == 'Enabled') {
+            var s = s_gi(s_account);
+            var linkName = $(this).parent().children('img').attr('alt')
+                    .toLowerCase()
+                + '_lower';
+            s.linkTrackVars = 'prop1,prop20,eVar5,eVar20';
+            s.prop1 = pageName + '>carousel_' + linkName;
+            s.eVar5 = pageName + '>carousel_' + linkName;
+            s.prop20 = 'carousel_' + linkName;
+            s.eVar20 = 'carousel_' + linkName;
+            s.tl(this, 'o', pageName + '>carousel_' + linkName);
+        }
+    });
+
+/**
+ * The following code is used to personalize homepage images based on day/night
+ * at user's location Incudes third party library suncalc
+ *
+ * @license (c) 2011-2014, Vladimir Agafonkin SunCalc is a JavaScript library
+ *          for calculating sun/mooon position and light phases.
+ *          https://github.com/mourner/suncalc
+ */
+/*
+ * (c) 2011-2014, Vladimir Agafonkin SunCalc is a JavaScript library for
+ * calculating sun/mooon position and light phases.
+ * https://github.com/mourner/suncalc
+ */
+if (locationflag == 'Enable') {
+    (function() {
+        'use strict';
+
+        var PI = Math.PI, sin = Math.sin, cos = Math.cos, tan = Math.tan, asin = Math.asin, atan = Math.atan2, acos = Math.acos, rad = PI / 180;
+
+        var dayMs = 1000 * 60 * 60 * 24, J1970 = 2440588, J2000 = 2451545;
+
+        function toJulian(date) {
+            return date.valueOf() / dayMs - 0.5 + J1970;
+        }
+        function fromJulian(j) {
+            return new Date((j + 0.5 - J1970) * dayMs);
+        }
+        function toDays(date) {
+            return toJulian(date) - J2000;
+        }
+
+        var e = rad * 23.4397;
+
+        function getRightAscension(l, b) {
+            return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l));
+        }
+        function getDeclination(l, b) {
+            return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l));
+        }
+        function getAzimuth(H, phi, dec) {
+            return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi));
+        }
+        function getAltitude(H, phi, dec) {
+            return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(H));
+        }
+        function getSiderealTime(d, lw) {
+            return rad * (280.16 + 360.9856235 * d) - lw;
+        }
+
+        function getSolarMeanAnomaly(d) {
+            return rad * (357.5291 + 0.98560028 * d);
+        }
+        function getEquationOfCenter(M) {
+            return rad
+                * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M));
+        }
+        function getEclipticLongitude(M, C) {
+            var P = rad * 102.9372;
+            return M + C + P + PI;
+        }
+        function getSunCoords(d) {
+
+            var M = getSolarMeanAnomaly(d), C = getEquationOfCenter(M), L = getEclipticLongitude(
+                M, C);
+
+            return {
+                dec : getDeclination(L, 0),
+                ra : getRightAscension(L, 0)
+            };
+        }
+
+        var SunCalc = {};
+
+        SunCalc.getPosition = function(date, lat, lng) {
+
+            var lw = rad * -lng, phi = rad * lat, d = toDays(date),
+
+                c = getSunCoords(d), H = getSiderealTime(d, lw) - c.ra;
+
+            return {
+                azimuth : getAzimuth(H, phi, c.dec),
+                altitude : getAltitude(H, phi, c.dec)
+            };
+        };
+
+        var times = [ [ -0.83, 'sunrise', 'sunset' ],
+            [ -0.3, 'sunriseEnd', 'sunsetStart' ], [ -6, 'dawn', 'dusk' ],
+            [ -12, 'nauticalDawn', 'nauticalDusk' ],
+            [ -18, 'nightEnd', 'night' ],
+            [ 6, 'goldenHourEnd', 'goldenHour' ] ];
+
+        SunCalc.addTime = function(angle, riseName, setName) {
+            times.push([ angle, riseName, setName ]);
+        };
+
+        var J0 = 0.0009;
+
+        function getJulianCycle(d, lw) {
+            return Math.round(d - J0 - lw / (2 * PI));
+        }
+        function getApproxTransit(Ht, lw, n) {
+            return J0 + (Ht + lw) / (2 * PI) + n;
+        }
+        function getSolarTransitJ(ds, M, L) {
+            return J2000 + ds + 0.0053 * sin(M) - 0.0069 * sin(2 * L);
+        }
+        function getHourAngle(h, phi, d) {
+            return acos((sin(h) - sin(phi) * sin(d)) / (cos(phi) * cos(d)));
+        }
+
+        SunCalc.getTimes = function(date, lat, lng) {
+
+            var lw = rad * -lng, phi = rad * lat, d = toDays(date),
+
+                n = getJulianCycle(d, lw), ds = getApproxTransit(0, lw, n),
+
+                M = getSolarMeanAnomaly(ds), C = getEquationOfCenter(M), L = getEclipticLongitude(
+                M, C),
+
+                dec = getDeclination(L, 0),
+
+                Jnoon = getSolarTransitJ(ds, M, L);
+
+            function getSetJ(h) {
+                var w = getHourAngle(h, phi, dec), a = getApproxTransit(w, lw,
+                    n);
+
+                return getSolarTransitJ(a, M, L);
+            }
+
+            var result = {
+                solarNoon : fromJulian(Jnoon),
+                nadir : fromJulian(Jnoon - 0.5)
+            };
+
+            var i, len, time, angle, morningName, eveningName, Jset, Jrise;
+
+            for (i = 0, len = times.length; i < len; i += 1) {
+                time = times[i];
+
+                Jset = getSetJ(time[0] * rad);
+                Jrise = Jnoon - (Jset - Jnoon);
+
+                result[time[1]] = fromJulian(Jrise);
+                result[time[2]] = fromJulian(Jset);
+            }
+
+            return result;
+        };
+
+        function getMoonCoords(d) {
+
+            var L = rad * (218.316 + 13.176396 * d), M = rad
+                    * (134.963 + 13.064993 * d), F = rad
+                    * (93.272 + 13.229350 * d),
+
+                l = L + rad * 6.289 * sin(M), b = rad * 5.128 * sin(F), dt = 385001 - 20905 * cos(M);
+
+            return {
+                ra : getRightAscension(l, b),
+                dec : getDeclination(l, b),
+                dist : dt
+            };
+        }
+
+        SunCalc.getMoonPosition = function(date, lat, lng) {
+
+            var lw = rad * -lng, phi = rad * lat, d = toDays(date),
+
+                c = getMoonCoords(d), H = getSiderealTime(d, lw) - c.ra, h = getAltitude(
+                H, phi, c.dec);
+
+            h = h + rad * 0.017 / tan(h + rad * 10.26 / (h + rad * 5.10));
+
+            return {
+                azimuth : getAzimuth(H, phi, c.dec),
+                altitude : h,
+                distance : c.dist
+            };
+        };
+
+        SunCalc.getMoonIllumination = function(date) {
+
+            var d = toDays(date), s = getSunCoords(d), m = getMoonCoords(d),
+
+                sdist = 149598000,
+
+                phi = acos(sin(s.dec) * sin(m.dec) + cos(s.dec) * cos(m.dec)
+                    * cos(s.ra - m.ra)), inc = atan(sdist * sin(phi), m.dist
+                    - sdist * cos(phi));
+
+            return {
+                fraction : (1 + cos(inc)) / 2,
+                angle : atan(cos(s.dec) * sin(s.ra - m.ra), sin(s.dec)
+                    * cos(m.dec) - cos(s.dec) * sin(m.dec)
+                    * cos(s.ra - m.ra))
+            };
+        };
+
+        if (typeof define === 'function' && define.amd) {
+            define(SunCalc);
+        } else if (typeof module !== 'undefined') {
+            module.exports = SunCalc;
+        } else {
+            window.SunCalc = SunCalc;
+        }
+
+    }());
+}
+
+/**
+ * GNT.tiler.Utils
+ *
+ * @extends GNT
+ * @author pbenne
+ * @classdesc Utility class for Image operations
+ */
+GNT.extend('utils.Image', (function() {
+    /**
+     * @constant
+     * @default {object} - defaults for the Image
+     * @property {boolean} responsive - whether or not to load
+     *           responsive images
+     * @property {string} loadedClass - class to add to image
+     *           after loading
+     * @property {boolean} visibleOnly - only load images in
+     *           viewport if true
+     */
+    var defaults = {
+        responsive : true,
+        loadedClass : 'loaded',
+        visibleOnly : true
+    };
+
+    /**
+     * @constructor
+     * @param {object}
+     *            jElement - the jQuery object representation of
+     *            the Image.
+     * @param {object}
+     *            opts - options passed into the contructor
+     */
+    function Image(jElement, opts) {
+        /**
+         * @property {object} - the jQuery object representation
+         *           of a Image
+         */
+        this.jElement = jElement;
+        /** @property {object} - override any default options */
+        this.options = $.extend({}, defaults, opts);
+
+        this._addListeners();
+
+        this.loaded = false;
+    }
+
+    Image.prototype = {
+        /**
+         * Load an image
+         */
+        load : function(dataAttr) {
+            /**
+             * only load image if they are in view IF
+             * visibleOnly is set to true.
+             */
+            if (((this.options.visibleOnly && this.inViewport()) || !this.options.visibleOnly)
+                && !this.loaded) {
+                if (this.jElement.attr('src') !== this.jElement
+                        .data(dataAttr)) {
+                    this.jElement.prop('src', this.jElement
+                        .data(dataAttr));
+                }
+            }
+        },
+
+        /**
+         * Show the image once the src is changed
+         */
+        showImage : function() {
+            this.jElement.addClass(this.options.loadedClass);
+            this.loaded = true;
+        },
+
+        /**
+         * Get the images offset position on the page
+         *
+         * @returns {array} - the top-left,bottom-left
+         *          coordinates of the image
+         */
+        offset : function() {
+            return [
+                this.jElement.offset().top,
+                this.jElement.offset().top
+                + this.jElement.height() ];
+        },
+
+        /**
+         * Is the image visible in the current viewport
+         *
+         * @returns {boolean} - whether the image is visible in
+         *          the viewport
+         */
+        inViewport : function() {
+            var isVisible = false, windowScroll = $(window)
+                .scrollTop(), pos = this.offset(), viewport = windowScroll
+                + $(window).height();
+
+            if ((pos[0] > windowScroll || pos[1] > windowScroll)
+                && (pos[0] < viewport || pos[1] < viewport)) {
+                isVisible = true;
+            }
+
+            return isVisible;
+        },
+
+        /**
+         * Getter to determine whether the image is loaded
+         *
+         * @returns {boolean} - whether the image has been
+         *          loaded or not
+         */
+        isLoaded : function() {
+            return this.loaded;
+        },
+
+        /**
+         * Add any event listeners here
+         *
+         * @private
+         */
+        _addListeners : function() {
+
+            /* .on() not supported before jQuery 1.7 */
+            this.jElement.bind('onreadystatechange load', $
+                .proxy(this.showImage, this));
+        }
+
+    };
+
+    /** returns the Image class */
+    return Image;
+
+})());
+
+/**
+ * GNT.utils.AmbientPersonalisation
+ *
+ * @extends GNT
+ * @author Luke Gardiner
+ * @classdesc Utility class for Lazy loading/responsive images
+ *
+ * TODO - once we have button for extra results, we can create function here to
+ * do the same for any images coming in and append to array - pass in an object
+ * of data-attr name and the nbrteakpoint, then use this to get the correct
+ * image to load
+ */
+GNT.extend('utils.AmbientImageLoader', (function() {
+    /**
+     * @constant
+     * @default {object} - defaults for the Image
+     * @property {object} dataAttr - the name of the data attribute to use for
+     *           retrieving the image
+     * @property {object} breakpoints - the breakpoint for choosing an image
+     *           size
+     */
+    var defaults = {
+        'responsive' : false,
+        'dataAttr' : 'src',
+        'dayAttr' : 'day',
+        'nightAttr' : 'night',
+        'imageOptions' : {
+            'responsive' : false,
+            'visibleOnly' : false
+        }
+    };
+
+    /**
+     * @constructor
+     * @param {object}
+     *            jElement - the jQuery object representation of the Image.
+     * @param {object}
+     *            opts - options passed into the contructor
+     */
+    function AmbientImageLoader(jElement, opts) {
+        /** @property {object} - the jQuery object representation of a Image */
+        this.jElement = jElement || $('body').eq(0);
+        /** @property {object} - override any default options */
+        this.options = $.extend({}, defaults, opts);
+        /** @property {array} - array for storing references to the images */
+        this.images = [];
+        this.period = '';
+
+        if (!(typeof SunCalc !== 'undefined' && 'geolocation' in navigator)) {
+            // console.error('geolocation or suncalc not available');
+        } else {
+            /* Call getDayNight when geolocation is returned */
+            navigator.geolocation.getCurrentPosition($.proxy(this.getDayNight,
+                this));
+        }
+
+    }
+
+    AmbientImageLoader.prototype = {
+
+        getDayNight : function(position) {
+            var now = new Date();
+
+            var details = SunCalc.getTimes(now, position.coords.latitude,
+                position.coords.longitude);
+            if (now < details.sunset && now > details.sunrise) {
+                this.period = 'day';
+            } else {
+                this.period = 'night';
+            }
+
+            this._loadImages();
+        },
+
+        /**
+         * Attempt to load the image in the image array
+         *
+         * @private
+         */
+        _loadImages : function() {
+
+            /** Loop through the images and push into the image array */
+            this.jElement.find('img').each(
+                $.proxy(function(i, el) {
+                    this.images.push(new GNT.utils.Image($(el),
+                        this.options.imageOptions));
+                }, this));
+
+            for (var i = 0; i < this.images.length; i++) {
+                var image = this.images[i];
+                var imgData = this._imageData();
+                if (!image.isLoaded() && imgData != '') {
+                    image.load(imgData);
+                }
+            }
+        },
+
+        /**
+         * Generate the data attribute for the correct image to load
+         *
+         * @private
+         */
+        _imageData : function() {
+            switch (this.period) {
+                case 'day':
+                    return this.options.dataAttr + '-' + this.options.dayAttr;
+                    break;
+                case 'night':
+                    return this.options.dataAttr + '-' + this.options.nightAttr;
+                    break;
+            }
+            return '';
+        }
+
+    };
+
+    return AmbientImageLoader;
+
+})());
+
+GNT.extend('page', (function() {
+
+    var instance;
+
+    function init() {
+
+        if (GNT.exists(GNT.utils.AmbientImageLoader)) {
+            /* Homepage slider */
+            new GNT.utils.AmbientImageLoader($('#slider-container'));
+        }
+
+    }
+
+    return {
+
+        getInstance : function() {
+
+            if (!instance) {
+                instance = init();
+            }
+
+            return instance;
+        }
+    };
+
+})());
+
+$(function() {
+    GNT.page.getInstance();
+});

@@ -1,0 +1,33 @@
+https://www.americanexpress.com/kr/network/index.html
+
+[cf]
+http://www.gi-innovation.com/kr/index.php
+(구현방식: calc or 동적그리드박스방식)
+
+토글버튼 움직인는효과 플러그인 
+[html]
+
+<div class="toggle_gnb">
+            <input type="checkbox" id="menu" class="check">
+            <label for="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+[css]
+.toggle_gnb {display: block; float: left; width: 50px; height: 50px; margin-top: 30px; margin-left: 15px;}
+    input[type=checkbox] {display: none;}
+    input[type=checkbox] + label{display: block; width: 50px; width: 50px; position: relative;
+    transition: all 0.3s; margin: 10px;}
+    input[type=checkbox] + label > span {display: block; width: 30px; height: 3px; background: #000;
+    position: absolute; transition: all 0.3s;}
+    input[type=checkbox] + label > span:nth-child(1) {top: 10px;}
+    input[type=checkbox] + label > span:nth-child(2) {top: 50%; transform: translateY(-50%);}
+    input[type=checkbox] + label > span:nth-child(3) {bottom: 10px;}
+    input[type=checkbox]:checked + label span:nth-child(1) {top:50%;transform: translateY(-50%)
+    rotate(40deg);}
+    input[type=checkbox]:checked + label span:nth-child(2){opacity: 0;}
+    input[type=checkbox]:checked + label span:nth-child(3){bottom:50%;transform: translateY(50%)
+    rotate(-40deg);}

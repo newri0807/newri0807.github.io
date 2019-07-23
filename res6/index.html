@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="americanexpress">
+    <meta name="keyword" content="americanexpress, 신용카드, 아메리칸익스프레스, 카드, 금융">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to americanexpress">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>wellcome to americanexpress</title>
+    <style>
+    .page{width: 100%;height: 100vh;}
+    .page1{background-image: url(./img/mainp1.gif);background-repeat: no-repeat;background-position: center center;background-size: cover;}
+    .hd{position: fixed;width: 100%;height: 60px;padding: 1%;z-index: 33;background-color: #fff;}
+    .hdwrap{width: 80%;margin: 0 auto;}
+    .logo{width: 200px; height: 40px;display: block;float: left;}
+    .gnb{height: 100%;float: left;margin-left: 450px;}
+    .gnb li{float: left;width: 150px;line-height: 50px;}
+    .gnb li a{font-size: 1.4rem;font-weight: bolder;color: #002d40;}
+    .gnb li a:hover{color: #ff404f;}
+    .hd_lang_box{float: right;margin-right: 40px;}
+    .hd_lang_box a{float: left;width: 50px;height: 50px;border-radius: 50px;background-color: rgb(193, 193, 201);display: block;
+    margin-left: 10px;line-height: 50px;text-align: center; color:#fff;}
+    .hd_lang_box a.on{background-color: #002d40;}
+    .top{width: 50px;height: 50px; transform: skew(-19deg);background-color: #bdbdbd;position: fixed;z-index: 99;
+    bottom: 5%;right: 3%;text-align: center;line-height: 50px;display: block;}
+    .top span{transform:none;font-size: 1.2em;transition: 0.5s;color: #fff;}
+    .top:hover span{color:#002d40;}
+    .gnb li a:before{content:"/";height: 20px;display: block;color:rgb(147, 165, 184);margin-left: 110px;margin-bottom: -20px;}
+    .desk{display: none;}
+    input{display: none;}
+
+    .video_i{position: fixed;top: 20%;right: 0%;width: 200px;height: 100px;text-align: center;z-index: 333;}
+    .video_i .text{color: #ff414d;font-weight: 800;}
+    .video_i .btn_go{width: 80px;height: 20px;background-color: #ff414d;display: block;color: #fff;border-radius: 20px;margin: 0 auto;}
+    
+    .page2{clear: both;position: relative;}
+    .p2_slide{ width: 200%;height: 100vh;}
+    .p2_slide li{width: 50%;height: 100vh;float: left;} 
+    .p2_slide li.on a{opacity: 1;margin: 150px;}
+    .p2_slide li:before{content:"";width: 100%;height: 300px;display: block;position: absolute;bottom: 0;left: 0;
+    background-image: url(./img/background_side.png);background-size: contain;background-repeat: no-repeat;
+    background-position: bottom center;z-index: 22;}
+    .p2_slide .item1{background-image: url(./img/mainp2.jpg);background-repeat: no-repeat;
+    background-size: cover;}
+    .p2_slide .item2{background-image: url(./img/mainp2-2.jpg);background-repeat: no-repeat;
+    background-size: cover;}
+    .p2_slide .it1{width: 80%;height: 300px;display: block;
+    color: #fff; transition: 0.6s;opacity: 0;margin: 0;}
+    .p2_slide .it2{width: 80%;height: 300px;display: block;
+    color: #fff; transition: 0.6s;opacity: 0;margin: 0;}
+  
+    .p2_slide h5{margin-left: 30px;}  
+    .p2_sbtn{position: absolute;width: 20px;height: 100px;bottom: 50%;right: 5%;z-index: 22;}
+    .p2_sbtn li{width: 20px;height: 20px;border: 1px solid rgba(255, 255, 255, 0.267);margin-bottom: 10px; transform: skew(-45deg);}
+    .p2_sbtn li.on{background-color: rgb(255, 255, 255);}
+
+    .page3 ul{width: 675px;height: 350px;background-color: #fff;margin: 3% 3%;float: left;}
+    .page3 ul li{border: 1px solid #fff;width: 93%;height: 88%;text-align: center;margin: 20px 22px;}
+    .page3 h3{color:#fff;font-size: 3rem;padding-top: 50px;}
+    .page3 h6{color:#fff;font-size: 1em;}
+    .p1{background-image: url(./img/mainp3-1.jpg);background-repeat: no-repeat;background-size:110% 110%; background-position: center center; transition: 0.6s;overflow: hidden;}
+    .p3{background-image: url(./img/mainp3-2.jpg);background-repeat: no-repeat;background-size: 110% 110%;background-position: center center;transition: 0.6s;overflow: hidden;}
+    .p4{background-image: url(./img/mainp3-3.jpg);background-repeat: no-repeat;background-size: 110% 110%;background-position: center center;transition: 0.6s;overflow: hidden;}
+    .p1:hover{background-size: 120% 120%;}
+    .p3:hover{background-size: 120% 120%;}
+    .p4:hover{background-size: 120% 120%;}
+    .p3_wrap{width: 80%;margin: 0 auto;}
+   
+    .page3{position: relative;}
+    .page3 ul.p2{text-align-last: left;text-indent: 0;}
+    .page3 ul.p2 li h4{text-indent: 0;line-height: 30px;margin-top: 50px;}
+    .page3 .p2 p{margin-left: -10px;}
+    .page3 .p2 strong{font-size: 2rem;color:rgb(161, 161, 161);line-height: 90px;}
+    .more_r{position: absolute;width: 200px;height: 20px;
+        display: block;top:35%;right: 36%;z-index: 55;font-size: 1.5rem;color: #000;}
+    .more_r::before{content:"";  margin: -16px -240px;width: 150px;height: 0px;display: block;border: 1px solid #000;transition: 0.9s;}
+    .more_r:hover::before{transform: translateX(30px);border:1px solid #ff404f;}
+    .page3 .more_r:hover{width: 100px; height: 40px;color: #ff404f;right: 38%;} 
+    /* .page3 .p2:hover strong{color: #ff404f; } */
+
+    .page4{background-image: url(./img/mainp4.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;width: 100%;height: 100%;text-align: center;}
+    .page4 img{margin-top: 10%;}
+    .p4_txt{margin-top: 5%;}
+    .p4_txt h3{color:#fff;}
+    .p4_txt a{width: 200px;height: 40px;display: block;border: 1px solid #fff;margin: 0 auto;line-height: 40px;color:#fff;font-size: 1.2rem;}
+    .p4_txt a:hover{background-color: rgba(129, 129, 129, 0.589);}
+    
+    footer{width: 100%;height: 150px;background-color: rgb(41, 38, 49);color: rgb(151, 151, 151);padding: 2% 10%;}
+    footer ul{width: 100%;margin-bottom: 10px;margin-left: -5px;}    
+    footer li{float: left;padding-left: 20px;}
+    footer li a{color:lightgray;}
+    .copyright{margin-left: 14px;}
+
+
+
+           
+    /* 모바일 */
+    @media screen and (max-width:767px){   
+    .mo{display: block;} 
+    .toggle_gnb {display: block; float: left; width: 30px; height: 30px; margin-top: 30px; margin-left: 15px;
+    position: absolute;right: -32px;top: -25px; z-index: 999;}
+    input[type=checkbox] {display: none;}
+    input[type=checkbox] + label{display: block; width: 50px; width: 50px; position: relative;
+    transition: all 0.3s; margin: 10px;}
+    input[type=checkbox] + label > span {display: block; width: 30px; height: 3px; background:  #69bbdf;
+    position: absolute; transition: all 0.3s;}
+    input[type=checkbox] + label > span:nth-child(1) {top: 10px;}
+    input[type=checkbox] + label > span:nth-child(2) {top: 50%; transform: translateY(-50%);}
+    input[type=checkbox] + label > span:nth-child(3) {bottom: 10px;}
+    input[type=checkbox]:checked + label span:nth-child(1) {top:50%;transform: translateY(-50%)
+    rotate(40deg);}
+    input[type=checkbox]:checked + label span:nth-child(2){opacity: 0;}
+    input[type=checkbox]:checked + label span:nth-child(3){bottom:50%;transform: translateY(50%)
+    rotate(-40deg);}
+
+    .page{width:auto;height: 100vh;}
+    .page1{background-size:contain;width:auto;height: 100vh;position: relative;}
+    .page2{background-size:contain;width:auto;height: 40%;} 
+    .page3{background-size:contain;width:auto;height: 110vh;} 
+    .page4{background-size:cover;;width:auto;height: 100vh;}  
+    .gnb{position: absolute;top: 0;right: -100%;width: 200px;height: 100vh;background-color: #002d40; z-index: 10;transition: 0.5s;}
+    .gnb.on{right:0 ;}
+    .gnb ul{margin: 100px 20px; }
+    .gnb li a{color: #fff;}
+    .hd{border-bottom: 1px solid lightgray;}
+    .hdwrap{width: 92%;margin:4px auto;}
+    .hd_lang_box{position: absolute;top: 22px;right: 20px;}
+    .hd_lang_box a{width: 30px;height: 30px;border-radius: 30px;
+    margin-left: 5px;line-height: 30px;}
+
+    .video_i{right:-34px;top: 87px;z-index: 22;}
+    .video_i .text{margin-top: -10px;}
+    .video_i .btn_go{margin-top: -10px;}
+    
+    .p2_slide{width: 200%;height: 100%;overflow: hidden;border-bottom: 1px solid lightgray;}
+    .p2_slide li{width:50%;height: 100%;}
+    .p2_slide li.on a{font-size: 0.6rem;margin: 2%;}
+    .p2_slide h5{margin-left: 10px;}   
+    .p2_slide h2 {font-size: 1.2rem;margin-top: 20%;}
+    .p2_sbtn{bottom: 35%;z-index: 1;}
+  
+
+    
+
+
+    .page3 ul{width: 300px;height: 220px;float: none;margin: 20px auto;}    
+    .page3 ul li{width: 88%;height: 87%;margin: 15px 18px;}
+    .page3 h3{font-size: 1.2rem;padding-top: 30px;}
+    .page3 h6{font-size: 0.8em;}
+    #sizP2 {width: 200px;height: 120px;float: left;}    
+    #sizP2 li{width: 80%;height: 75%;}
+    .page3 .p2{background-color: transparent;width: 350px; padding: 5px 5px;}
+    .page3 .p2 strong{font-size: 1.3rem;line-height: 0px;}    
+    .page3 .p2 p{margin-left: 0;font-size: 0.9rem;width: 105px;height: 25px;display: inline-block;padding: 3px 12px;}
+    .page3 .p2 li h4{line-height:0px;font-size: 0.9rem;float: left;position: absolute;top: 13%;left: 35px;}
+    .more_r{width: 100px;height: 20px;
+        top:31%;right: 0%;z-index: 5555;font-size: 1rem;}
+
+    .p4_txt h3{width: 300px;margin: 0 auto;font-size: 1.4rem;}
+    .page4 img{margin-top: 10%;margin-left: 10%;}
+    .top{right:8%;z-index: 1;}
+    footer{width: 100%;height: 152px;padding: 1%;}
+
+    footer li{font-size: 0.9rem;}
+    .copyright{font-size: 0.9rem;}
+
+
+            }
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){
+   
+    }
+    
+    /* 데스크탑 */
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+    
+
+        
+        }
+        
+
+    </style>
+
+
+<script>
+$( document ).ready( function() { 
+    //모바일 토글버튼 열고 닫고
+        $('input').click(function() {
+        $('.gnb').toggleClass('on');
+        });
+
+
+    // 슬라이드1
+        var wd = $(window).width();
+         $(".p2_sbtn li").click(function(i){
+            $(this).addClass("on");
+            $(this).siblings().removeClass("on");
+            var idx = $(this).index();       
+            $(".p2_slide li").eq(idx).addClass("on");
+            $(".p2_slide li").eq(idx).siblings().removeClass("on");
+            $(".p2_slide").not(":animated").animate({"margin-left": idx*-1*wd});
+        
+          
+        });
+        
+    
+    
+
+      });
+
+
+</script>
+</head>
+<body>
+    <header class="hd">
+        <div class="hdwrap">
+        <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
+        <nav class="gnb">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li><a href="">카드소개</a></li>
+                <li><a href="">카드혜택</a></li>
+                <li><a href="">카드수표</a></li>
+            </ul>
+        </nav>
+               
+            <div class="hd_lang_box">
+                <a href="" class="lang_sel on">KR</a>
+                <a href="">EN</a>
+                <a href="">JP</a>
+                <a href="">CH</a>
+                <div class="mo toggle_gnb">
+                 
+                        <input type="checkbox" id="menu" class="check">
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>               
+
+
+                </div> 
+            </div>
+        
+        </div>
+    </header>
+    <a class="top">
+        <span>TOP</span> </a>   
+
+
+        <div class="video_i">
+         <a href="">
+            <span class="img"><img src="./img/main_video_icon_pink1.png" alt=""></span>
+            <p class="text">아메리칸익스프레스<br>소개영상</p>
+            <span class="btn_go">바로가기</span>
+        </a>
+                 
+        </div>
+
+    </a>
+
+    <!-- page1 -->
+    <div class="page1 page"></div> 
+
+    <!-- page2 -->
+    <div class="page2 page">
+    <ul class="p2_slide">
+        <li class="item1 on">
+         
+            <a href="" class="it1">
+            <h2>모든 고객들에게 최상의 가치를 제공</h2>
+            <h5>우리는 최상의 가치를 제공하기 위해 다양한 서비스, 혜택, 보상 개발에 최선을 다합니다.</h5>
+            </a>
+         </li>
+        <li class="item2" >
+          
+            <a href=""class="it2">
+                <h2>아메리칸엑스프레스 브랜드의 가치</h2>
+                <h5>아메리칸엑스프레스는 가장 신뢰받는 기업 중 하나로써, 세계적 수준의 서비스를 통해 고객의 기대에 보답하고자 노력합니다.</h5>
+             </a>
+        </li>
+    </ul>
+            
+    <ul class="p2_sbtn">
+        <li class="on"></li>
+        <li></li>
+    </ul>            
+
+    </div>
+
+    <!-- page3 -->
+    <div class="page3 page">
+        <div class="p3_wrap">
+        <ul class="p1" id="sizP2">
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+              <ul class="p2">
+                <li>
+
+                	<strong>Customer Commitment</strong>
+					<h4>우리는 고객들의 삶에<b>긍정적인 변화를</b><br>만들기 위해 노력합니다</h4>
+					<p>아메리칸익스프레스는 <b>글로벌 혁신</b> 카드의 꿈을 이룰 것 입니다. </p>
+                </li>
+             </ul>
+        <ul class="p3">
+            <li>
+               <a href="">
+                <h3>Quality</h3>
+                <h6>우리는 고객들에게 뛰어난 제품과 최고의 서비스 그리고 프리미엄 가치를 제공합니다.</h6>
+               </a>
+            </li>
+        </ul>
+        <ul class="p4">
+            <li>
+                <a href="">
+                    <h3>A Will to Win</h3>
+                    <h6>우리는 비즈니스의 모든 측면과 시장에서 성공할 것이라는 강한 의지를 드러낼 것입니다.</h6>
+                </a>
+            </li>
+        </ul>
+    </div>  
+    <a href=""class="more_r">READ MORE</a>
+</div> 
+
+
+
+
+    <!-- page3 -->
+    <div class="page4 page">
+       <img src="./img/main_fixed_arrow.png" alt="">
+       <div class="p4_txt">
+            <h3 class="">세상을 놀라게 할 <span>AmericanExpress</span>를 꿈꿔보세요 </h3>
+            <a href="" class="">READ MORE</a>
+        </div>
+    </div> 
+
+    <footer>
+           
+                <ul>
+                    <li><a href="">웹사이트 규정</a></li>
+                    <li><a href="">상표</a></li>
+                    <li><a href="">개인보호 정책</a></li>
+                    <li><a href="">facebook</a></li>
+                </ul>
+                <div>
+				<p>개인 보호 정책에 따라 온라인 서비스 사용자는 서비스 이용 약관에 동의하는 것으로 간주합니다. <br>
+                서울특별시 종로구 세종대로 149 15층 (세종로 광화문빌딩) American Express International, Inc.</p>
+                <div class="copyright">© 2018 American Express Company. All rights reserved.</div>
+            </div>
+    </footer>
+
+</body>
+</html>
