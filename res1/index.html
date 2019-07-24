@@ -468,21 +468,12 @@
 //
 //   });
     
-     // 슬라이드1
-        $(document).ready(function(){
-        // var intv=setInterval(function(){ nextAni();},2900);
-    
-        //     function nextAni(){
-        //         $(".slid1 img").eq(0).appendTo($(".slid1"));
-        //         $(".slid1 img").eq(0).addClass("on");
-        //         $(".slid1 img").not(":first-child").removeClass("on");
-        //     }
-        //     function prevAni(){
-        //         $(".slid1 img").eq(3).prependTo($(".slid1"));
-        //         $(".slid1 img").eq(0).addClass("on");
-        //         $(".slid1 img").not(":first-child").removeClass("on");
-        //     }
+
+        $(document).ready(function(){     
             var wd = $(window).width();
+            var wh = $(window).height();
+
+                 // 슬라이드1
             $(".btn1 li").click(function(i){
                 $(this).addClass("on");
                 $(this).siblings().removeClass("on");
@@ -493,18 +484,13 @@
                 $(".slid1").not(":animated").animate({"margin-left" : idx*-1*wd});
             });
           
-        
-
-
-    // 슬라이드2    
+            // 슬라이드2 - 동글 버튼 연동
             $(".btn2 li").click(function() {
-
             i = $(this).index();
 
             showSlide();
 
-            $(".btn2 li").addClass("clicked");
-         
+            $(".btn2 li").addClass("clicked");        
 
             });
 
@@ -518,22 +504,9 @@
             var intv=setInterval(function(){ nextAni(); }, 2900);
 
 
-//             $(document).ready(function () {
-//     $('.slide2').bxSlider({
-//         auto: true, // 자동으로 애니메이션 시작
-//         speed: 500,  // 애니메이션 속도
-//         pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
-//         mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
-//         autoControls: true, // 시작 및 중지버튼 보여짐
-//         pager: true, // 페이지 표시 보여짐
-//         captions: true, // 이미지 위에 텍스트를 넣을 수 있음
-//     });
-// });
-        
-
-
-    //스크롤 내리면 메뉴배경 나오기
-            $(window).scroll(function(){
+            //스크롤 내리면 헤더 나오기
+               $(window).scroll(function(){
+             
                 var sc_top = $(window).scrollTop();
                 if(sc_top>=500 && sc_top<1200) {
                     $("header").addClass("on");
@@ -546,10 +519,11 @@
                     $("header").removeClass("on");
                     $("header").removeClass("off");
                 }
+                
             });
        
 
-    //메인-서브메뉴 나오기
+                //메인-서브메뉴 나오기
                 $(".menu li ").mouseover(function(){
                 $(this).children(".sub ").stop().slideDown();
                 });
@@ -557,7 +531,8 @@
                 $(this).children(".sub ").stop().slideUp();
                 });
 
-    //토글페이지 서브메뉴 나오기  - !!! 모바일에서는 click 만 되니까 click으로해야됨!!!!   
+
+                 //토글페이지 서브메뉴 나오기  - !!! 모바일에서는 click만 되니까 click으로해야됨!!!!   
                 var ck1 = [true, true, true, true, true];
                 $(".hidemenu li").click(function(){
                     var i = $(this).index();
@@ -583,26 +558,26 @@
                 // });
 
 
-    // 스크롤넘길시 다음장 바로 나오는 효과
-            var wh = $(window).height();
-            $(".page").each(function(index){
+            // 스크롤넘길시 다음장 바로 나오는 효과          
+                $(".page").each(function(index){         
                 $(this).attr("data-val", index*wh); 
                     });
 
             $(".page").on("mousewheel DOMMouseScroll", function(e){
-                
-            var secPos = parseInt($(this).attr("data-val"));
-            if(e.originalEvent.wheelDelta >= 0){            
-                $("html,body").stop().animate({scrollTop:secPos - wh});
-                return false;
-            }else if (e.originalEvent.wheelDelta < 0) {    
-                $("html,body").stop().animate({scrollTop:secPos + wh});
-                return false;
-            }
+                if(wd>768){ // 모바일에서는 효과 안줌
+                var secPos = parseInt($(this).attr("data-val"));
+                if(e.originalEvent.wheelDelta >= 0){            
+                    $("html,body").stop().animate({scrollTop:secPos - wh});
+                    return false;
+                }else if (e.originalEvent.wheelDelta < 0) {    
+                    $("html,body").stop().animate({scrollTop:secPos + wh});
+                    return false;
+                }
+            } 
         });
+     
 
-
-        //두 번째 슬라이더 
+        //두 번째 슬라이더 - 아래글자 슬라이드와 연관
          var tar, tar_wd, tar_cnt;
         tar_cnt = $(".slid2 img").length;
         tar_wd = parseInt($(".list li").width());
@@ -645,8 +620,7 @@
         });
 
 
-
-            });
+           });
 
 
 
