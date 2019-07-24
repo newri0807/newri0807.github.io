@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Caveat|Gaegu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./common.css">
     <!-- 아이콘 폰트 링크(xeicon) -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     
 
     <!-- jquery 연결 -->
@@ -61,6 +61,8 @@
     .sub li a{margin-left:-40px;}
     .sub li:hover a{color:lightslategrey;}
    
+   
+        
         
     .right{width: 20%;float: right;line-height: 50px; position: relative;}
     .language i{color:#e35c25;font-size: 1.2em;position: absolute;top: 15px;margin-left: 10px;}
@@ -68,9 +70,9 @@
     .right ul:nth-child(1){padding-left: 20px; }
     #lang{background-color: transparent; border: 1px solid #e35c25; 
         width: 100px;height: 30px; text-indent: 30px;color:#e35c25;}
-        option{background-color: transparent; }
-    /* .toggle {width: 40px;height: 40px;margin-left: 20px;}
-    .toggle i{color: #e35c25;font-size: 2em;margin-top: 10px;} */
+    option{background-color: transparent; }
+  
+
     .con {
       cursor: pointer;
       display: inline-block;
@@ -150,15 +152,39 @@
   .hidemenu i:hover {color: #fcbd6e;}
   .hidemenu li a:hover {color: #fcbd6e;display: block; }
   #sidemenu:checked ~ .togwrap{right:0;top:-20px;}
-
   input{display: none;}
 
 
-    .page1{width: 100%;height: 100%;}
+   .page1{width: 100%;height: 100vh;clear: both;}
+   .top_tit{width: 100%;height: 2rem;margin-top: 6rem;font-size: 1.5rem;position: relative;}
+   .part2 {margin-left: 3rem;height: 2rem;margin-left: 10rem;}
+   .part2 li p::before{content: "";border: 1px solid #000; padding-left: 100px;width: 1px;display: block;position: absolute;top: 2.8rem;left:2rem ;}
    
+   .part2 li{float: left;}
+   .part3 {float: right;width: 300px;height: 2rem;margin-right: 10rem;}
+   .part3 li {float: left;margin-left: 1rem;}
+   .part3 li:after {content: ">"; padding-left: 10px;}
+   .part3 li:nth-child(3)::after{content: "";}
+
+   .main_txt{width: 100%;height: 100%;margin-top: 3rem;clear: both;}
+   .main_top{width: 100%; height: 600px; background-color: #fff;text-align: center;}
+   .main_top li{float: left;width: 100%;}
+   .main_top li img{padding-left: 2rem;}
+   .main_left{float: left;width: 50%;}
+   .main_left li{text-align: center;margin-left: 300px;}
+   .left_vs{height: 500px;width: 20px;}
+   .main_right{float: right;width: 35%;margin-right: 20rem;height: 500px;font-size: 1.4em;}
+   .main_left li:nth-child(2):after{content: ""; padding-top:200px;border-left: 1px solid #000;display: block;
+   width: 1px;margin-left: 25rem;}
+  
 
 
-   footer{width: 100%;height: 10rem;background-color: rgb(61, 61, 61);font-size: 1.2rem;color: darkgray; text-align: center;}
+
+
+
+
+
+   footer{width: 100%;height: 10rem;background-color: rgb(61, 61, 61);font-size: 1.2rem;color: darkgray; text-align: center; clear: both;}
    footer p{letter-spacing: 0.1rem;}
    footer p span{color:#eee;}
 
@@ -393,7 +419,7 @@
     <header>       
 
             <nav class="gnb">
-                <a href="" class="logo">
+                <a href="./index.html" class="logo">
                     <img src="./img/logo_lighter.png" alt=""> 
                 </a>
                     <ul class="menu">
@@ -488,37 +514,62 @@
 
     <div class="page1">
      <div class="top_tit">
-         <ul>
-             <li></li>
+         <ul class="part2">
+             <li><p>Brand Story</p></li>
          </ul>
-         <ul>
-             <p>Brand Story</p>
-         </ul>
-         <ul>
+         <ul class="part3">
              <li><a href="">Home</a></li>
              <li><a href="">Introduce</a></li>
              <li><a href="">Our Story</a></li>
          </ul>
      </div>
 
-         <h2 >Our Story</h2>
-     <figure>
-         <img src="./img/subp1.JPG" alt="">
-         <img src="./img/subp2.JPG" alt="" height="423">
-    </figure>    
-     
+       
     <div class="main_txt">
-<ul class="left">
-<h4>August Harmony</h4>
-<h2>Summer Festival</h2>
-</ul>
-<ul class="right"></ul>
 
+        <ul class="main_top">
+         <li> <h2 >Our Story</h2> </li> 
+                   <li>
+                        <img src="./img/subp1.JPG" alt="">
+                        <img src="./img/subp2.JPG" alt="" height="423">
+                   </li>                  
+        </ul>
+            
+
+        <ul class="main_left">
+                <li><h4>August Harmony</h4></li>  
+                <li><h2>Summer Festival</h2></li> 
+               
+            </ul>
+        
+        <ul class="main_right">
+                <li>
+                    <p>우리가 살면서 가장 많이 하는것이 걷는 것이라고 생각합니다. 때로는 길이 가파르고 험난해서 힘들때도 이지만 걷다보면 다양한 오브제들을 마주하게 됩니다.
+                    그게 일상 출퇴근길이기도, 여행길이기도 하지요. 그게 일상 출퇴근길이기도, 여행길이기도 하지요.</p>
+                    <p>
+                    아름다운 풍경과 나무, 그리고 예쁜 꽃,
+                    해안에서 흔히 볼 수 있는 조개 
+                    아스팔트가 깔린 도심 속 공사장의 잔해들</p>
+    
+                    <p>이 모든 오브제들이 우리 삶의 일부라고 생각하며 August Harmony 블랜드에 담아보았습니다. </p>
+    
+                    <p>조개와 나뭇잎, 꽃들은 팬던트와 비즈로 울퉁불퉁 길의 형태는 체인의 곡선으로 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.  </p>
+                </li>
+        </ul>
+    
+        </div>
+       
     </div>
+    
+    
+
+            
 
 
 
-     </div>
+
+
+
 
    
 
