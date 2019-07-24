@@ -165,16 +165,15 @@
     .btn1 li:nth-child(4){background-color:transparent;}
     .btn1 i{line-height: 10%;font-size: 1.2em;color: #e35c25;}
     
-    .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px;  }
+    .slid_tit1 { overflow: hidden;text-align: left;color:#fcbd6e; letter-spacing: 5px; cursor: pointer; }
     .slid_tit1 li { position: absolute; left: 0; top:0; width:100vw; height:100vh; overflow:hidden; transition:0.7s; }
     .slid_tit1 .sl_tit{width: 100%;margin-left:60px; margin-top:1000px; opacity:0; transition:0.7s; }
     .slid_tit1 .sl_com {width: 100%;margin-left:60px;font-weight: 500; margin-top:1000px;  transition:0.7s; opacity: 0;word-break: break-all;}
     .more{display: block;width: 400px;height: 40px;text-align: center;line-height: 40px;font-size: 2em; border: 2px solid #fcbd6e;color: #e35c25;   transition:0.7s; margin-left:60px;
-     border-radius: 40px;background-color: rgba(255, 255, 255, 0.5); opacity: 0;}  
+     border-radius: 40px;background-color: rgba(255, 255, 255, 0.5); opacity: 0; cursor: pointer;}  
     .slid_tit1 li.on .sl_tit { margin-top: 390px; margin-left: 100px; opacity:1; }
     .slid_tit1 li.on .sl_com { margin-top: 10px;  margin-left: 120px; opacity:1; }
-    .slid_tit1 li.on .more { opacity: 1;margin-left: 140px; }
-    
+    .slid_tit1 li.on .more { opacity: 1;margin-left: 140px; }   
     .xi-long-arrow-right{  
         animation-duration: 0.8s;
         animation-name: next;
@@ -615,7 +614,11 @@
             nextAni();
         });
 
-
+        //서브페이지로 이동 
+        $(".slid_tit1").click(function(){
+            location.href="./sub1.html";
+            
+        });
            });
 
 
@@ -692,24 +695,24 @@
                     <li><a>NEW IN</a></li>
                     <li><a class="dp1">Bracelet</a>
                      <ul class="h_sub">
-                        <li><a href="">Slave Bracelet</a></li>
-                        <li><a href="">92.5 Silver</a></li>
-                        <li><a href="">Limited</a></li>                       
+                        <li><a href="./sub1.html">Slave Bracelet</a></li>
+                        <li><a href="./sub1.html">92.5 Silver</a></li>
+                        <li><a href="./sub1.html">Limited</a></li>                       
                      </ul>                        
                     </li>
                     <li><a class="dp1">Earring&Ring</a>
                      <ul class="h_sub">
-                        <li><a href="">rings</a></li>
-                        <li><a href="">earrings</a></li>                                             
+                        <li><a href="./sub1.html">rings</a></li>
+                        <li><a href="./sub1.html">earrings</a></li>                                             
                      </ul>   
                     
                     </li>
                     <li><a>Necklace</a></li>
                     <li><a class="dp1">ETC</a>
                     <ul class="h_sub">
-                        <li><a href="">Anklets</a></li>
-                        <li><a href="">Eyewear Chain</a></li>
-                        <li><a href="">개인결제창</a></li>                                                    
+                        <li><a href="./sub1.html">Anklets</a></li>
+                        <li><a href="./sub1.html">Eyewear Chain</a></li>
+                        <li><a href="./sub1.html">개인결제창</a></li>                                                    
                      </ul>                         
                     </li>
 
@@ -752,7 +755,7 @@
                 <h2 class="sl_tit">On the road: 길위에서 </h2>
                 <h4 class="sl_com">다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
                 
-                <a href="" class="more">
+                <a href="./sub1.html" class="more">
                     <span>more</span>
                     <span><i class="xi-long-arrow-right" id="next"></i></span>
                 </a>
@@ -762,7 +765,7 @@
                 <h2 class="sl_tit">On the road: 길위에서 </h2>
                 <h4 class="sl_com"> 다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
                     
-                <a href="" class="more">
+                <a href="./sub1.html" class="more">
                     <span>more</span>
                     <span><i class="xi-long-arrow-right"></i></span>
                 </a>
@@ -770,7 +773,7 @@
             <li>
                 <h2 class="sl_tit">On the road: 길위에서 </h2>
                 <h4 class="sl_com">다양한 오브제들이 우리 삶의 일부라고 생각하며 2019 S/S 컬렉션에 담아았습니다.</h4>
-                <a href="" class="more">
+                <a href="./sub1.html" class="more">
                     <span>more</span>
                     <span><i class="xi-long-arrow-right"></i></span>
                 </a>            
@@ -805,7 +808,7 @@
                        <li>
                             <h2>On the road: 길위에서 </h2>
                             <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                            <a href="" class="more">
+                            <a href="./sub1.html" class="more">
                                     <span> more</span> 
                                      <span><i class="xi-long-arrow-right"></i></span>
                         
@@ -816,7 +819,7 @@
                        <li>
                             <h2>On the road: 길위에서 </h2>
                             <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                            <a href="" class="more">
+                            <a href="./sub1.html" class="more">
                                     <span> more</span> 
                                      <span><i class="xi-long-arrow-right"></i></span>
                         
@@ -828,7 +831,7 @@
                        <li>
                             <h2>On the road: 길위에서 </h2>
                             <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                            <a href="" class="more">
+                            <a href="./sub1.html" class="more">
                                     <span> more</span> 
                                      <span><i class="xi-long-arrow-right"></i></span>
                         
@@ -839,7 +842,7 @@
                        <li>
                                 <h2>On the road: 길위에서 </h2>
                                 <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                                <a href="" class="more">
+                                <a href="./sub1.html" class="more">
                                         <span> more</span> 
                                          <span><i class="xi-long-arrow-right"></i></span>
                             
@@ -850,7 +853,7 @@
                        <li>
                                         <h2>On the road: 길위에서 </h2>
                             <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                            <a href="" class="more">
+                            <a href="./sub1.html" class="more">
                                     <span> more</span> 
                                      <span><i class="xi-long-arrow-right"></i></span>
                         
@@ -864,7 +867,7 @@
                                         <li>
                                                 <h2>On the road: 길위에서 </h2>
                                                 <h4>조개와 나뭇잎, 꽃들을 표현하여 하나의 존재감 있는 쥬얼리로 완성하였습니다.</h4>
-                                                <a href="" class="more">
+                                                <a href="./sub1.html" class="more">
                                                         <span> more</span> 
                                                          <span><i class="xi-long-arrow-right"></i></span>
                                             
