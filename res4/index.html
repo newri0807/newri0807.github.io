@@ -52,7 +52,7 @@
     .container{padding-right:300px;width: auto;height: 90%;}
     .container:after{content: "";display: block;clear: both;}
     
-    .hd{background-color: lightblue; height: 100%; width: 300px;position: fixed;;left: 0;top: 0;}
+    .hd{background-color: lightblue; height: 100%; width: 300px;position: fixed;;left: 0;top: 0;z-index: 555;}
     .hd_con{width: 70%;margin: 0 auto;padding: 5%;}
     .gnb{width: 100%;height: 20px;text-align: left;margin-top: 2px;}
     .gnb li{margin: 10px;}
@@ -135,7 +135,7 @@
     
 
 
-    .ft{width: 100%;height: 10%;border-top: 1px solid gray;position: fixed;bottom: 0;left: 0;background-color: #fff;z-index: 555;}
+    .ft{width: 100%;height: 11%;border-top: 1px solid gray;position: fixed;bottom: 0;left: 0;background-color: #fff;z-index: 555;}
     
     .part1 {margin: 20px 40px;float: left;}
     .part1 img{width: 7em;}
@@ -151,8 +151,7 @@
    .ft_sns li a i{font-size: 2em;padding-left: 10px;color: lightslategray;}
    .famsite{width: 150px;height: 25px;float: left;margin: 20px auto;text-align: center;
    line-height: 30px; border: 1px solid lightgray; margin-left: 20px; color:gray; }     
-
-
+ .mobile{display: none;}
 
 
     /* 모바일 */
@@ -163,10 +162,10 @@
     .logo img{width: 50px;height: 50px;margin-left: 40%;}
     .main{background-color: #fff; float: left; width: 100%;height: 90%; margin-left: 0;position: relative;}
 
-    .gnb{width: 200px;height: 90vh;background-color: lightblue;position: absolute;top:-1px;left: -200px;z-index: 5555;}
+    .gnb{width: 200px;height: 90vh;background-color: lightblue;position: absolute;top:1px;left: -220px;
+    z-index: 5555;}
     .gnb ul{margin-top: 80px;}
     .gnb.on{left: 0;}
-    .logo:before{content: "";width: 50px;height: 50px;display: block;position: absolute;top: 5px;left: 5px;background-image: url(./img/m_menu1.png);background-size: contain;background-repeat: no-repeat;}
     .logo:after{content: "";width: 50px;height: 50px;display: block;position: absolute;top: 5px;right: 5px;background-image: url(./img/m_search.png);background-size: 30px 30px;background-position: center center;background-repeat: no-repeat;}
     .slide_btn{display: none;}
     .channel_list{height: 50px;background-color:transparent;width: 80px;top: 75%;right: 2%; }
@@ -178,9 +177,23 @@
     .mobileBtn{display: none;}
     .list{display: none;}
     .channel_list > a{display: none;}
+
+    input[type=checkbox] {display: none;}
+    input[type=checkbox] + label{display: block; width: 50px; width: 50px; position: absolute;
+    transition: all 0.3s; margin: 10px; top: 20px; left: 10px;z-index: 9999;}
+    input[type=checkbox] + label > span {display: block; width: 30px; height: 3px; background:  #69bbdf;
+    position: absolute; transition: all 0.3s;}
+    input[type=checkbox] + label > span:nth-child(1) {top: 10px;}
+    input[type=checkbox] + label > span:nth-child(2) {top: 50%; transform: translateY(-50%);}
+    input[type=checkbox] + label > span:nth-child(3) {bottom: 10px;}
+    input[type=checkbox]:checked + label span:nth-child(1) {top:50%;transform: translateY(-50%)
+    rotate(40deg);}
+    input[type=checkbox]:checked + label span:nth-child(2){opacity: 0;}
+    input[type=checkbox]:checked + label span:nth-child(3){bottom:50%;transform: translateY(50%)
+    rotate(-40deg);}
         
     .bgi{width: auto;height: 29vh;margin-left: 0px;position: relative;} 
-    .bgi .item1{height: 100%; width: auto;}
+    .bgi .item1{height: 100%; width: auto; margin-top: 100px;}
     .bgi .item2{height: 100%; width: auto;}
     .bgi .item3{height: 100%; width: auto;} 
     .bgi .item4{height: 100%; width: auto;} 
@@ -212,8 +225,19 @@
  
     /* 아이패드 = 태블릿 */
     @media screen and (min-width:768px) and (max-width:959px){ 
-        
-    } 
+        .hd{width: 250px;}     
+        .bgi{width: 100vw;margin-left: 250px;}
+   
+        #searchText{width: 142px;}
+        #searchBtn{float: right;}
+        .tag-list li{float: left;width: 60px;height: 20px;background-color: rgba(241, 241, 241, 0.7);border-radius: 5px;
+    margin: 2px 4px;text-align: center; line-height: 20px;}
+        .slide_btn{left: 50%;}
+        .ft{width: 100vw;}
+      .part1{float: left; width: 100px;}
+      .part2{float: left; width: 400px; margin-left: -20px;}
+      .part3{float: right;width: 200px;}
+    }
 
     /* 데스크탑 */
     @media screen and (min-width:960px) and (max-width:1279px){ 
@@ -267,6 +291,14 @@
     });
 
 
+
+     $(".check").click(function(){
+         $(".gnb").toggleClass("on")   
+       
+         });
+     
+      
+
 });
     
     
@@ -318,8 +350,16 @@
         <div class="hd">
             <div class="hd_con">
             <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
+            <input type="checkbox" id="menu" class="check mobile">
+            <label for="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label> 
             <nav class="gnb">
                 <ul>
+                    
+                         
                     <li><a href="">About</a> </li>               
                     <li><a href="">Client</a></li>
                     <li><a href="">Service</a>
