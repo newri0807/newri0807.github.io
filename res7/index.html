@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="benefit">
+    <meta name="keyword" content="benefit, 베네핏, 베네핏매거진, 매거진">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to americanexpress">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>wellcome to benefit</title>
+    <style>
+    .container{position: relative;padding-right:380px;width: auto;height: 100%;}
+    .container:after{content: "";display: block;clear: both;}
+    .side{width: 380px;height: 100%;float: left;border-right:2px solid rgb(250, 219, 224);
+    position: fixed;top: 0;left: 0;z-index: 222;background: #fff;}   
+
+    .logo{width: 90%;height: 40px;display:block;float: left;margin-top: 30px;margin-left: 100px;}
+    .lang{width: 12%;height: 20px;float: right; background-color: #fff;margin-top: -15px;margin-right: 20px;
+    text-align: center; border: 1px solid gray;}
+    .lang_sel{width: 100%;height: auto;background-color: rgb(253, 229, 233);opacity: 0;transition: 0.3s;}   
+    .lang:hover .lang_sel{opacity: 1;cursor: pointer;}
+    .lang_sel li:hover{color: rgb(184, 85, 85);}
+    .gnb{width: 100%;height: 200px;margin-top: 120px;}
+    .gnb li{height: 50px;font-size: 2rem;margin-left: 100px;}
+    .gnb li a{color:#000;}
+    .gnb:after{content: ""; width: 20px;height: 3px;display: block;background-color: lightpink;margin: 0 100px;}
+    .extra{width: 100%;height: 100px;margin-top: 20px;margin-left: 100px;}
+    .extra li a{color:#000;}
+    .sns{width: 100%;height: 80px;margin: 10px 20px;}
+    .sns ul{width: 70%;margin: 0 auto;}
+    .sns li{float: left;margin-left: 8px;}
+    .sns li img{width: 50px;height: 50px;}
+   #family{width: 200px;height: 40px;margin-left:90px;}
+   .copy{width: 240px;height: 30px;margin-left:80px;}
+
+   /* 오른쪽 */
+   .cont{width: 100%;height: 100%; margin-left: 380px;position: relative;}
+   .cont .list li{float: left;margin:2% ;border-top-right-radius: 10px;border-bottom-left-radius: 10px;}
+    .box{width: 400px;height: auto;display: block;}
+    .list h2{text-indent: 0;margin-left: 10px;line-height: 100px;color: #000;}
+    .btnmore{font-weight: bold;margin-left: 10px;color: #000;} 
+    .list li h2{text-align: center;line-height: 80px;}
+    .list p{color: #000;}
+
+    .item1{position: relative;overflow: hidden;width: 400px;height:895px;}
+    .item1 img{position: absolute;border-top-right-radius: 10px;border-bottom-left-radius: 10px;height:895px;}
+    .col1stxt{width: 100px;height: 20px;position: absolute;top: 40px;left: 23%;z-index: 2; cursor: pointer;}
+    .col1stxt li{ width: 20px;height: 20px;background-color: #fff;text-align: center;}
+    .col1stxt li.on{background-color: #d74947;color:#fff;}
+
+    .item2{float: left;width: 396px;height: 396px;overflow: hidden;border: 4px solid transparent;}
+    .item2:hover{border: 4px solid pink;}   
+    .mb_cont{float: right;margin-right: 10px;}
+    .item3 {position: relative;}
+    .item3 img{border-top-right-radius: 10px;border-bottom-left-radius: 10px;}
+    .item3 h2{position: absolute;top: 0px; z-index: 22; right:28%;}
+    .item4{background-color: lightpink;width: 400px;height: 422px;}    
+    .item4 p{line-height: 10px;color: rgb(41, 41, 41); }
+    .item4 p:nth-child(1){font-size: 1.2rem;font-weight: 800;margin-left: 5px;margin-top: 10px;}
+    .item4 p:nth-child(2){color:rgb(255, 255, 255);text-align: right;}
+    .item4:hover{background-color: lightcoral;}
+    .item5{width: 396px;height: 420px;overflow: hidden;border: 4px solid transparent;position: relative;overflow: hidden;}
+    .item5:hover{border: 4px solid pink;} 
+    .item5 li p{line-height: 1px;color: #000;}
+    .item5 ul{width: 300px;height: 300px;margin: 20px auto;}
+    .item5 ul li{position: absolute;background-color: #fff;width: 300px;height: 300px;}
+    .item5 ul li .mb_tit{font-size: 1.3em;font-weight: bold;letter-spacing: 1px; line-height: 30px;}
+
+
+    .col5stxt{ position: absolute;bottom: 20px;right: 0%;width: 100px;}
+    .col5stxt button{ width: 20px;height: 20px;background-color: #fff;
+    text-align: center; cursor: pointer;border-radius: 20px;line-height: 20px;border: 1px solid pink; text-indent: -99999px;}
+    .col5stxt button.on{background-color: #d74947;color:#fff;}
+    
+    .item6{background-image: url(./img/8col.jpg);background-size: cover;
+    width: 400px;;height: 400px;}
+    .item6 img{border-top-right-radius: 10px;border-bottom-left-radius: 10px;}
+    .item6 a h2 {color: #fff;}
+    .item6 a p {color: #fff;width: 85%;word-wrap:break-word;}
+    .item6 a .btnmore{margin-left: 34px;color: #fff;}
+    .list li:hover .btnmore{color: #d74947;font-weight: bold;}
+    .item7{width: 880px;height: 400px;position: relative;}
+    .item7 img{position: absolute;width: 880px;height: 400px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;opacity: 1;transition: 0.7s;}
+    .item7 iframe{width: 880px;height: 400px;opacity: 0;}
+    .item7:hover img{opacity: 0;}
+    .item7:hover iframe{opacity: 1;}
+    .item8{width: 400px;height: 400px;overflow: hidden;background-image: url(./img/9col.jpg);background-size: cover;background-repeat: no-repeat;background-position: center center;}
+     
+    .item9{width: 396px;height: 396px;overflow: hidden;border: 4px solid transparent;}
+    .item9:hover{border: 4px solid pink;}
+    .item10{background-color: pink;width: 400px;height: 400px;}
+    .item10:hover{background-color: lightcoral;}
+    .mobile{display: none;}
+
+      /* 모바일 */
+    @media screen and (max-width:767px){  
+      
+        
+        .logo.desc{display: none;} 
+        .logo.mobile{display: block;position: fixed;top: 40px;left: -85px; z-index: 222;}
+        .side{width: 80px;}
+        .lang{display: none;}
+        .gnb{width: 70%;height: 100vh; position: fixed;top: -120px;left: -100%;background-color:rgb(255, 235, 235);
+        border-right: 2px solid pink; transition: 0.6s;}
+        .gnb.on{left: 0px}
+        .gnb ul{margin-top: 390px;margin-left: 5px;}
+        .gnb:after{margin: 0 105px;}
+        .gnb li:hover a{color: rgb(212, 113, 113);}
+        .cont{width: 80%;height: 100%; margin-left: 393px;}
+        .box{width: 300px;height: auto;display: block;}
+        .item7 img{width: 300px;height: 400px;}
+    .item7 iframe{width: 300px;height: 400px;}
+
+  
+ 
+        
+    input[type=checkbox] {display: none;}
+    input[type=checkbox] + label{display: block; width: 50px; width: 50px; position: absolute;
+    transition: all 0.3s; margin: 10px; top: 20px; left: 15px;z-index: 9999;}
+    input[type=checkbox] + label > span {display: block; width: 30px; height: 3px; background:  lightpink;
+    position: absolute; transition: all 0.3s;}
+    input[type=checkbox] + label > span:nth-child(1) {top: 10px;}
+    input[type=checkbox] + label > span:nth-child(2) {top: 50%; transform: translateY(-50%);}
+    input[type=checkbox] + label > span:nth-child(3) {bottom: 10px;}
+    input[type=checkbox]:checked + label span:nth-child(1) {top:50%;transform: translateY(-50%)
+    rotate(40deg);}
+    input[type=checkbox]:checked + label span:nth-child(2){opacity: 0;}
+    input[type=checkbox]:checked + label span:nth-child(3){bottom:50%;transform: translateY(50%)
+    rotate(-40deg);}
+  
+    
+    .extra{display: none;}
+    .extra li a{color:#000;}
+    .sns{width: 100%;height: 80px;margin:0 auto;margin-top: 400%;}
+    .sns ul{width: 70%;margin: 0 auto;}
+    .sns li{float: left;margin-left: 2px;}
+    .sns li img{width: 30px;height: 30px;margin-left:8px;}
+     #family{display: none;}
+   .copy{display: none;}
+        
+    }
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){
+        
+    }
+
+    /* 데스크탑 */
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+       
+    
+    }
+
+    </style>
+    <script>
+        //slide1
+     $(document).ready(function() {
+    $(".col1stxt li").click(function() {
+
+      i = $(this).index();
+
+      showSlide();
+
+      $(".col1stxt li").addClass("clicked");
+
+
+    });
+
+    function showSlide() {
+      $(".col1stxt li").removeClass("on");
+      $(".col1stxt li").eq(i).addClass("on");
+      $(".item1 img").stop(true, true).fadeOut();
+      $(".item1 img").eq(i).stop(true, true).fadeIn();
+    }
+
+});
+
+//slide2
+
+$(document).ready(function() {
+
+    $(".col5stxt button").click(function() {
+
+i = $(this).index();
+
+showSlide();
+
+$(".col5stxt button").addClass("clicked");
+
+
+});
+
+function showSlide() {
+$(".col5stxt button").removeClass("on");
+$(".col5stxt button").eq(i).addClass("on");
+$(".item5 ul li").stop(true, true).fadeOut();
+$(".item5 ul li").eq(i).stop(true, true).fadeIn();
+}
+
+//토글
+
+$(".check").click(function(){
+         $(".gnb").toggleClass("on")   
+       
+         });
+
+});
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="side">
+            <a href="" class="logo desc"><img src="./img/benefit_logo.png" alt=""></a>
+            <a href="" class="logo mobile"><img src="./img/benefit_logov.png" alt=""></a>
+            <div class="lang">
+                <SPAN>KR <i class="xi-caret-down-min"></i></SPAN>
+                <ul class="lang_sel">
+                    <li>EN</li>
+                    <li>CN</li>
+                    <li>JP</li>
+                 </ul>
+            </div>
+            <input type="checkbox" id="menu" class="check mobile">
+            <label for="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label> 
+            <nav class="gnb">
+               <ul>
+                   <li><a href="">NEWS</a></li>
+                   <li><a href="">FEATURE</a> </li>
+                   <li><a href="">INTERVIEW</a></li>
+                   <li><a href="">PARTNERS</a></li>                
+               </ul>
+               
+            </nav>
+            <div class="extra">
+                <ul>
+                    <li><a href="">베네핏 스튜디오</a></li>
+                    <li><a href="">개인정보처리방침</a></li>                     
+                    <li><a href="">고객정보취급방침</a></li>
+                    <li><a href="">사이트맵</a></li>
+                </ul>
+                
+            </div>
+        <div class="sns">
+            <ul>
+                <li><a href=""><img src="./img/sns1.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns2.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns3.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns4.png" alt=""></a></li>
+            </ul>
+        </div> 
+<select name="selectmenu" id="family">
+    <option value="option0">Family site</option>
+    <option value="option1">enactus</option>
+    <option value="option2">쏘 잇:</option>
+   
+</select>
+<div class="copy">
+    <p>Copyright ⓒ Benefit Inc. All rights reserved.</p>
+</div>
+
+        </div>
+
+
+
+        <!-- 오른쪽페이지 -->
+        <div class="cont">
+                <ul class="list">
+                    <li class="item1">
+                        <img src="./img/slide1.jpg" alt="">
+                        <img src="./img/slide2.jpg" alt="">
+                        <img src="./img/slide3.jpg" alt="">                     
+                    </li>
+                    <ul class="col1stxt">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                    <li class="item2 box">                      
+                        <h2>BRAND</h2>
+                        <p class="mb_tit">Benefit  <br>magazine</p>
+                        <p class="mb_cont">사회적경제, 소셜벤처가 우리 사회의 문제를 해결하는 데 주요한 대안이 될 수 있다는 믿음을 가지고, 
+                            사회 문제 해결사례를 다양한 형태의 콘텐츠로 만들고 있습니다. </p>
+                        <span class="btnmore" href="">→ 더보기</span>
+                    </li>    
+                    <li class="item3 box">
+                        <a href="">
+                            <img src="./img/3col-1.jpg" alt="">
+                                <h2>FEATURE</h2>
+                                           
+                               
+                        </a>
+                    </li>
+                    <li class="item4 box">
+                        
+                            <h2>RECENT INTERVIEW</h2>
+                            <a href="">
+                                <p>거창한 계획없이 시작한 엄청난 일</p>
+                                <p>2019-07-12</p>
+                            </a>
+                            <a href="">
+                                <p>느린 학습자, 경계선 아동과 함께 걸어요</p>
+                                <p>2019-06-29</p>
+                            </a>
+                            <a href="">
+                                <p>블루베리 차를 만들었더니 벌어진 일</p>
+                                <p>2019-06-12</p>
+                            </a>
+                                 
+                      
+                    </li>
+                    <li class="item5 box">
+                        <h2>NEWS</h2>
+                        <ul>            
+                                <li class="dp1">
+                                    <a href="">
+                                        <p class="mb_tit"><span>스타일이 필요해? <br>
+                                            업사이클링을 얹어봐!</span></p>
+                                        <p class="mb_cont">이은수 | BUSINESS</p>
+                                        <p class="mb_date">2018-01-11</p>
+                                    </a>
+                                </li>
+                                <li class="dp2">
+                                        <a href="">
+                                            <p class="mb_tit"><span>sopoong가 찾는 새해의 소셜벤처</span></p>
+                                            <p class="mb_cont">이상미 | HAPPENING NOW</p>
+                                            <p class="mb_date">2018-01-11 </p>
+                                        </a>
+                                </li> 
+                                <li  class="dp3">
+                                            <a href="">
+                                                <p class="mb_tit"><span>아이언맨도 울고 갈 '만드로'맨</span></p>
+                                                <p class="mb_cont">박주희| BUSINESS</p>
+                                                <p class="mb_date">2018-01-03 </p>
+                                            </a>
+                                </li>    
+                        </ul>  
+                        <div class="col5stxt">
+                            <button class="it1 on">1</button>
+                            <button class="it2">2</button>
+                            <button class="it3">3</button>
+                        </div>                    
+                    </li>
+                   
+                    <li class="item6 box">
+                        <a href="">                            
+                            <h2>Benefit Studio</h2>                        
+                            <p class="mb_cont">베네핏 스튜디오는 가치의 시각화를 모토로,
+                                더 많은 사람들이 스스로 사회혁신의 주체가 될 수 있도록 변화의 감정적 동력을 이끌어내고자 합니다.</p>
+                            <span class="btnmore" href="">→ 제작문의</span>  
+                         </a>
+                    </li>
+                    <li class="item7">
+                        <img src="./img/video_front.jpg" alt="">
+                        <iframe src="./img/video_benefit.mp4" frameborder="0"></iframe>
+                    </li>
+                    <li class="item8 box">
+                 
+                           <img src="./img/9col.jpg" alt="">
+                           <h2>Better world school</h2>                        
+                            <p class="mb_cont">배러월드스쿨은 더 나은 세상을 위한 학교입니다. <br>
+                            더 나은 세상을 상상하고 그 상상을 현실로 만드는 힘을 길러 주는 것을 목표로 다양한 교육 컨텐츠를 제공합니다.</p>
+                            <span class="btnmore" href="">→ 워크숍문의</span>      
+                      
+                    </li>
+                    <li class="item9 box">
+                       
+                           <h2>Video</h2>                        
+                            <p class="mb_cont">베네핏 라이브팀은 더 나은 세상을 위한 많은 노력들을 비주얼 콘텐츠로 제작합니다. <br>
+                                보고, 듣고, 느끼는 과정에서 생기는 감동을 통해 사람들 마음속 깊숙한 곳부터 긍정적인 변화를 이끌어내고자 합니다. </p>
+                            <span class="btnmore" href="">→ 제작문의</span>                    
+                                                  
+                    </li>
+                    <li class="item10 box">
+                      
+                            <h2>Advertise and Partnership</h2>                        
+                             <p class="mb_cont">베네핏의 독자들은 세상의 긍정적인 변화를 위해 앞장서는 젊고 활기찬 혁신가들입니다.<br>
+                                    당신의 비즈니스가 더 많은 사람들, 더 많은 혁신가들과 함께할 수있는 순간을, 베네핏이 돕겠습니다.</p>
+                             <span class="btnmore" href="">→ 문의하기</span>   
+                    </li>
+                   
+                </ul>
+
+
+
+
+
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
