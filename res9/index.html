@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="riuwoodcraft">
+    <meta name="keyword" content="riuwoodcraft, 리우목공방, 공방, 목가구, 가구">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to riuwoodcraft">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>wellcome to riuwoodcraft</title>
+    <style>
+    .hd{background-color: #fff; grid-area: hd;margin-top: 30px;position: relative;top: 0;right: 0;}    
+    .left{ grid-area: left;}
+    .main{ grid-area: main;}
+    .right{grid-area: right;}
+    .search{background-color: #a3a3a3; grid-area:sch;}
+    .ft{height: 100px;width: 100%;clear: both;background-image: url(./img/ft.jpg);background-size: contain;background-repeat: no-repeat;background-position:bottom;
+    background-color:#222222; padding:10px ;}
+
+
+
+        .container{display: grid;
+
+        grid-template-areas:"hd hd hd" 
+                            "left main right"                        
+                            "sch sch sch";
+        grid-template-columns: 65% 10% 35%;
+     
+        grid-template-rows: 100px
+                             1fr                            
+                             100px;     
+        
+        width: 80%;
+        margin: 0 auto;
+        min-height:100vh;
+        }
+
+    /* .wrap{width: 80%;margin: 0 auto;height: 100%;background-color: #fff;} */
+    .logo{width: 200px;height: 100px;display: block;float: left;margin-right: 5%;margin-left: -1.5%;}
+    .login{margin-top: 22px;}
+    .login span {float: left; margin-left: 10px;color: #000;}
+    .gnb{float: right;width: 700px;height: 20px;background-image: url(img/submenu_back.jpg);background-size: cover;position: relative;top: 0;right: 0;z-index: 11;padding-top: 10px;transition: 0.5s;background-repeat: no-repeat; background-position:right top;}
+    .gnb li{float: left;width: 100px;text-align: center;}
+    .sub{height: 160px;width: 100px; background-color:rgba(255, 255, 255, 0.3);opacity: 0; transition: 0.6s;
+    position: absolute;z-index:11;}
+    .sub li{float: left;margin-top: 10px;text-align: center;}
+    .sub li a{color: #000;}
+    .gnb:hover{height: 180px;}
+
+    .gnb:hover .sub{opacity: 1;}
+    .sub li:hover a{color: rosybrown;background-color: #fff;}
+    
+    
+    .pic1{width: 100%;height: 60%;background-color:rgb(180, 143, 108);background-image: url(./img/col1-2.png);background-size: cover;background-repeat: no-repeat;background-position:20% 20%;transition: 0.5s; position: relative;}
+    .pic1:hover{background-position: 50% 50%;}
+    .pic2{width: 100%;height: 32%;background-color:rgb(95, 56, 20);background-image: url(./img/col7-1.png);background-size: contain;background-repeat: no-repeat;background-position:20% 20%;transition: 0.5s;margin-top: 5%; position: relative;}
+    .pic2:hover{background-position: 150% 100%;}
+    .pic3{width: 90%;height: 20%;background-color:rgb(248, 189, 134);background-image: url(./img/col2-1.png);background-size: contain;background-repeat: no-repeat;background-position:20% 20%;transition: 0.5s;margin: 0 auto; position: relative;}
+    .pic3:hover{background-position: 50%;}
+    .pic4{width: 90%;height: 60%;background-color:rgb(255, 245, 219);background-image: url(./img/col3-1.png);background-size: contain;background-repeat: no-repeat;
+        background-position:20% 20%;transition: 0.5s;margin: 0 auto;margin-top: 5%;position: relative;}
+    .pic4:hover{background-position: 80%;}
+    .pic5{width: 90%;height: 10%;background-color:rgb(39, 37, 36);background-image: url(./img/col6_1.jpg);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.5s;margin: 0 auto;margin-top: 5%;position: relative;}    
+    .pic6{width: 100%;height: 45%;background-color:#e1d1c1;background-image: url(./img/col4.png);background-size: contian;background-repeat: no-repeat;
+        background-position:center right;transition: 0.5s;margin: 0 auto;position: relative;}
+    .pic7{width: 100%; height: 25%;background-color:rgb(39, 37, 36);background-image: url(./img/col8.jpg);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.5s;margin: 0 auto;margin-top: 5%;position: relative;} 
+    .pic8{width: 100%; height: 20%;background-color:#9e5036;background-image: url(./img/col5.png);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.6s;margin: 0 auto;margin-top: 5%;position: relative;}            
+    .pic8:hover{background-size: 100% 100%;}    
+        .pic1_t{width: 300px; height: 300px; background: url(./img/col1_txt.png);background-size: contain;background-repeat: no-repeat;
+        background-position:center center; position: absolute;top: 0;left: 0;}     
+        .pic2_t{width: 300px; height: 300px;  position: absolute;top: 0; right: 0;
+        background: url(./img/col2_txt.png);background-size: contain;background-repeat: no-repeat;background-position:center center;}        
+        .pic3_t{width: 300px; height: 300px;  position: absolute;top: 0; right: 0;
+            background: url(./img/col3_txt.png);background-size: contain;background-repeat: no-repeat;background-position:center -5%;}
+        .pic4_t{width: 300px; height: 280px;  position: absolute;top: 0; right: 0;
+        background: url(./img/logo11.png);background-size: contain;background-repeat: no-repeat;background-position:right -5%;} 
+        .pic5_t{width: 80px; height: 10px; background-color: rgba(255, 255, 255, 0.521); border: 1px solid rgb(68, 68, 68); padding: 5px; 
+    position: absolute;top: 30%; right:35%;  line-height: 10px; text-align: center;}
+    .pic5_t:hover{background-color: transparent;}
+    .pic6_t{width: 300px; height: 280px;  position: absolute;top: 0; left: 0;
+        background: url(./img/col5_txt.png);background-size: contain;background-repeat: no-repeat;background-position:center;}
+        .pic7_t{width: 300px; height: 300px;  position: absolute;top: 0; right: 0px;
+            background: url(./img/col6_txt.png);background-size: contain;background-repeat: no-repeat;background-position:center top;}        
+        .pic7_t button{width: 100px;height: 20px;background-color: rgba(255, 255, 255, 0.349);border: 1px solid #000;margin-top: 80px;margin-left: 15px;}
+        .pic7_t button:hover{background-color: transparent;}
+        .pic8_t{width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.4);  padding: 5px; 
+    position: absolute;top: 30%; right:35%;  line-height: 30px; text-align: center;font-size: 1.2rem;}
+
+
+
+        .search{width: 100%;position: relative;bottom: 0;left: 0;text-align: center;height: 80px;}    
+        .search li a{color: #fff;text-align: center;line-height: 80px; margin-right: 2px;}
+        .search li{float: left;width: 9%;height: 80px;line-height: 40px;}        
+        .sear_me{margin-bottom: 4px;position: absolute;width: 9%;height:80px;bottom: 390%;}
+        .sear_me > li{float: left;background:  #5a4d3b;width: 100%;transition: 0.6s;display: none;}
+        .search li:hover .sear_me li{display: block;}
+        .sear_me li:hover a{color: rgb(221, 185, 132);}
+
+        .search li:hover{background-color: #5a4d3b;}
+        
+        .search_bar{float: right;width: 50%;height: 60px;background-color:#fff;
+        line-height: 60px;margin: 10px 10px;}
+        .search_bar span{margin-right: 20px;}
+        .search_bar span:after{content: "|"; margin-left: 20px;}
+        .white{background-color:#e5e5e5;padding: 7px;width: 300px;}
+        .btn{margin-left: 10px;border: 1px solid #000;padding: 5px;}
+        .btn:hover{background-color:#3333;}
+
+
+    .ftwrap{width: 90%;margin: 0 auto;}
+    .address{color: rgb(141, 140, 140);width: 70%;}
+    .ftmenu{width: 800px;margin-left: -20px;}
+    .ftmenu li{float: left;margin-left: 20px;}
+    .ftmenu li a::after{content: "|";margin-left: 20px;}
+    .ftmenu li:nth-of-type(1) a::before{content:"|";margin-right: 20px;}
+    .ftmenu li a{color: rgb(197, 195, 195);}  
+    .sns{float: right;font-size:1.4rem;line-height: 10px;margin-top: -80px;
+    margin-right:10px;}
+    .sns li{float: left;margin-left: 10px;width: 20px;height: 20px;}  
+    .sns li a{color: rgb(197, 195, 195);}
+    #select{float: right;background-color: transparent;color:rgb(197, 195, 195);
+    width: 150px; height: 40px;margin-top: -20px;margin-right:10px;}
+  
+   /* 모바일 */
+   @media all and (max-width:600px){ 
+        .container{display: grid;
+            grid-template-areas:"hd hd hd" 
+                                "left left left"
+                                "main main main"
+                                "right right right"
+                                "sch sch sch";
+      
+            grid-template-columns: 100%;
+         
+            grid-template-rows: 100px
+                                1fr
+                                1fr
+                                1fr                           
+                                100px;                                            
+            min-height:200vh;
+            width:100%;
+        }
+    
+    .pic1{height: 50%;background-size: cover;background-position:center;}
+    .pic2{height: 50%;background-position:10%;margin-top: 0;}
+    .pic3{width: 100%;height: 40%;background-position:20% 20%;}    
+    .pic4{width: 100%;height: 30%;background-position:20% 20%;transition: 0.5s;margin: 0 auto;}   
+    .pic5{width: 100%;height: 30%;background-color:rgb(39, 37, 36);background-image: url(./img/col6_1.jpg);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.5s;margin: 0 auto;}    
+    .pic6{width: 100%;height: 45%;background-color:#e1d1c1;background-image: url(./img/col4.png);background-size: contain;background-repeat: no-repeat;
+        background-position:10% 10%;transition: 0.5s;margin: 0 auto;}
+    .pic7{width: 100%; height: 25%;background-color:rgb(39, 37, 36);background-image: url(./img/col8.jpg);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.5s;margin: 0 auto;} 
+    .pic8{width: 100%; height: 30%;background-color:#9e5036;background-image: url(./img/col5.png);background-size: cover;background-repeat: no-repeat;
+        background-position:center center;transition: 0.5s;margin: 0 auto;}   
+     
+    .pic6_t{ position: absolute;top: -40%; left: 40%; width:320px;}
+    .pic7_t{top: 0; left: 20%;}        
+    .pic7_t button{width: 100px;height: 20px;background-color: rgba(255, 255, 255, 0.349);border: 1px solid #000;margin-top: 55px;margin-left: 70%;}
+    .pic8_t{width: 200px; height: 30px; top: 30%; right:30%; }
+
+       
+
+
+
+    .login{float: left;margin-left: 45px;margin-top: 18px;}
+    .login span {float: left; margin-left: 5px;color: #000;}
+    .gnb{top:-30%; display: none;}
+       .search{height: 100%;} 
+       .search li{display: none;}
+       .search_bar{float: left;width: 95%;height: 80px;}
+       .search_bar span{float: left;width: 100%;height: 40px;line-height: 45px;}
+       .white{width: 242px;height: 20px;display: block;margin-left: 10px;float: left;}
+        .btn{float:right;margin-right: 10px;padding: 7px;}
+        }  
+
+    .ft{width: 100%;}
+    .ftwrap{width: 100%;margin: 0 auto;}
+    
+    .address{width: 90%;font-size: 0.9rem;}
+    .ftmenu{margin-left:0px;width: 500px;}
+    .ftmenu li{float: left;margin-left: 5px;}
+    .ftmenu li a::after{content: "|";margin-left: 5px;}
+    .ftmenu li:nth-of-type(1) a::before{content:"|";margin-right: 5px;}
+   .last{display: none;} 
+    .sns{display: none;}   
+    #select{display: none;}
+  
+
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){ 
+        .container{display: grid;
+
+            grid-template-areas:"hd hd hd" 
+                                "left main right"                        
+                                "sch sch sch";
+            grid-template-columns: 40% 30% 30%;
+
+            grid-template-rows: 100px
+                                1fr                            
+                                100px;     
+
+            width: 90%;
+            margin: 0 auto;
+            min-height:100vh;
+            }
+  
+    }
+   
+    /* 태블릿 사이즈 이상 */
+    @media screen and (min-width:768px){
+        .container{display: grid;
+
+            grid-template-areas:"hd hd hd" 
+                                "left main right"                        
+                                "sch sch sch";
+            grid-template-columns: 40% 30% 30%;
+
+            grid-template-rows: 100px
+                                1fr                            
+                                100px;     
+
+            width: 95%;
+            margin: 0 auto;
+            min-height:100vh;
+            }
+
+
+    }
+
+     /* 데스크탑 */
+     @media screen and (min-width:960px){
+        @media screen and (min-width:768px){
+        .container{display: grid;
+
+            grid-template-areas:"hd hd hd" 
+                                "left main right"                        
+                                "sch sch sch";
+            grid-template-columns: 40% 30% 30%;
+
+            grid-template-rows: 100px
+                                1fr                            
+                                100px;     
+
+            width: 90%;
+            margin: 0 auto;
+            min-height:100vh;
+            }
+
+
+    }
+
+   
+}
+    
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".search li").click(function(){
+                var submenu = $(this).next(".sear_me");
+     
+                // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+                if( submenu.is(":visible") ){
+                    submenu.slideDown();
+                }else{
+                    submenu.slideUp();
+                }
+            }).mouseover(function(){
+                $(this).next(".sear_me").slideUp();
+            });
+
+         
+      
+        });
+
+
+    </script>
+    
+
+</head>
+<body>
+  
+    <div class="container">
+            <header class="hd">
+              
+                <a href="" class="logo"><img src="./img/logo3.png" alt=""></a>
+          
+             <div class="login">
+                 <a href="">
+                     <span class="it1">로그인</span>
+                </a>
+                <a href="">
+                        <span>회원가입</span>
+                </a>
+             </div>
+             <nav class="gnb">
+                 <ul>
+                     <li><a>브랜드</a>
+                     <ul class="sub">
+                         <li><a href="">INTRO</a></li>
+                         <li><a href="">AIM</a></li>
+                         <li><a href="">WOODCRAFT</a></li>                     
+                     </ul>
+                     </li>
+                     <li><a>제품</a>
+                     <ul class="sub">
+                         <li><a href="">#ALL</a></li>
+                         <li><a href="">Best</a></li>
+                         <li><a href="">NEW</a></li>
+                        <li><a href="">SPECIAL</a></li>                        
+                     </ul>
+                     </li>
+                     <li><a>공지사항</a>
+                    <ul class="sub">
+                         <li><a href="">질문,답변</a></li>                         
+                         <li><a href="">NEW</a></li>
+                        <li><a href="">SPECIAL</a></li>                        
+                     </ul>
+                     </li>
+                     <li><a>커뮤니티</a>
+                       <ul class="sub">
+                         <li><a href="">상품후기</a></li>                         
+                         <li><a href="">이벤트</a></li>                                      
+                     </ul>
+                     </li>
+                     <li><a>마이페이지</a>
+                     <ul class="sub">
+                         <li><a href="">찜상품</a></li>                         
+                         <li><a href="">쿠폰</a></li>                                      
+                     </ul>
+                     
+                     </li>
+                     <li><a>A/S센터</a>
+                     <ul class="sub">
+                         <li><a href="">1:1문의</a></li>                         
+                         <li><a href="">전화문의</a></li>
+                         <li><a href="">방문문의</a></li>                                    
+                     </ul>
+                     </li>
+                     <li><a>목공학원</a>
+                     <ul class="sub">
+                         <li><a href="">수강신청</a></li>                         
+                         <li><a href="">신청확인</a></li>                                      
+                     </ul>
+                     </li>
+                 </ul>
+             </nav>
+            </header>
+       
+            <aside class="left">
+             
+                <div class="pic1">
+                  <span class="pic1_t"></span>
+                  
+                </div>
+                <div class="pic2">
+                     <span class="pic2_t"></span>
+                </div>
+            </aside>
+            <main class="main">
+              <div class="pic3">
+                   <span class="pic3_t"></span>
+                    
+              </div>
+              <div class="pic4">
+               <span class="pic4_t"></span>
+              </div>
+              <div class="pic5">
+                     <span class="pic5_t">Our stories</span>
+              </div>
+            </main>
+            <aside class="right">
+                    <div class="pic6">
+                             <span class="pic6_t"></span>
+
+                    </div>
+                    <div class="pic7">
+                          <span class="pic7_t">
+                              <button>more</button>
+                          </span>
+                    </div>
+                    <div class="pic8">
+                        <span class="pic8_t">SALE</span>
+                    </div>
+            </aside>
+        
+            <div class="search">
+              
+                        <ul>
+                            <li><a href="">시리즈 <i class="xi-caret-up-min"></i> </a>
+                            <ul class="sear_me">
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="">타입<i class="xi-caret-up-min"></i> </a>
+                              <ul class="sear_me">
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="">재료<i class="xi-caret-up-min"></i> </a>
+                              <ul class="sear_me">
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="">목적<i class="xi-caret-up-min"></i> </a>
+                              <ul class="sear_me">
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="">출시연도<i class="xi-caret-up-min"></i> </a>
+                              <ul class="sear_me">
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                                <li><a href="">목자재</a></li>
+                            </ul>
+                            
+                            </li>
+                            
+                        </ul>
+                        
+                                                
+                    <div class="search_bar">
+						<span>SEARCH PRODUCT</span>
+						<input class="white" type="text" placeholder="검색어를 입력해주세요." id="searchWord" value="">
+						<button type="submit" class="btn">제품검색</button>
+						<div class="clear"></div>
+					</div>
+                </div>
+            
+            
+    </div>
+<footer class="ft">
+        <div class="ftwrap">
+          
+            <div class="address">
+                   <span class="copy"> @ 2014 RIU WOODCRAFT ALL RIGHT RESERVED <br></span>
+                   <span class="address">
+                    COMPANY: 리우목공방 | TEL: 054-338-5186 | E-MAIL: riu_woodcraft@naver.com 
+                    ADDRESS: 38869 경상북도 영천시 청통면 청통로 631 리우목공방
+                    </span>
+                    <span class="last">
+                    OWNER: 유종호 BUSINESS LICENSE: 745-03-00384
+                    MAIL-ORDER LICENSE: 제2016-대구서구-0045호 
+                    [사업자정보확인]PERSONAL INFO MANAGER: 유종호<br>
+                    HOSTING BY CAFE24DESIGN BY GL-DESIGN.CO.KR</span>
+        
+            </div>
+
+                <ul class="ftmenu">
+                        <li><a href="">ABOUT US</a></li>
+                        <li><a href="">AGREEMENT</a></li>
+                        <li><a href="">PRIVACY POLICY</a></li>
+                        <li><a href="">GUIDE</a></li>
+                    </ul>
+        <ul class="sns">
+            <li><a href=""><i class="xi-blogger"></i> </a></li>
+            <li><a href=""><i class="xi-instagram"></i> </a></li>
+          
+        </ul>
+        <select name="selectmenu" id="select">
+            <option value="option1">리우목공방</option>
+            <option value="option1">리우목공학원</option>
+        </select>
+        
+                </div>
+
+       
+      
+    </div>
+</footer>
+        
+
+</body>
+</html>
