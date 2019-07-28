@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">
+      
+     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="sunnybread">
+    <meta name="keyword" content="sunnybread, 써니브레드, 베이커리, 빵집, 글루텐프리, 비건">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to sunnybread">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">
+    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet"> 
+
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->
+   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css" media="all">
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+    <!-- 구글 애널리틱스 아날리틱스 주소와 소스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142835327-1"></script>
+     
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <!-- js효과 플러그인 -->
+    <script src="./jquery-fadethis-master/src/jquery.js"></script>
+    <script src="./jquery-fadethis-master/src/jquery.fadethis.js"></script>
+    <!-- 구글지도연동 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhcwr2FfDVkenBCawug5FPf_sk2VPXVYQ"></script>
+    <style>        
+    *{margin: 0; padding: 0;}
+    html, body{width: 100%; -ms-scroll-style:none;}
+    ::-webkit-scrollbar{display: none;}
+    ul,li{list-style-type: none;}
+    a{text-decoration: none;}
+    button,input,label{border: none;background:transparent; outline: 0; background-image: none;}
+
+    .main{width: 100%;height: 100%;}
+    header{width: 100%;height: 260px;position: relative;}
+    .logo{width: 100px;height: 260px;display: block;position: fixed;top: 20px;left: 20px;z-index: 333;}
+    .join{width: 50px;height: 50px;font-size: 1.2rem;position: fixed;top: 30px;right: 50px;z-index: 333;}
+    .join::after{content: ""; width: 30px;height: 30px;display:block;background-image: url(./img/icon1.png);background-size: contain; margin: -25px 40px;}
+
+    .gnb{width: 500px;height: 100px;margin: 60px 43%;position: relative;}   
+  
+    .btn_box {width: 128px;height: 40px;text-align: center;margin: 20px auto;position: relative;}
+    .btn_box li{ width: 10px; height: 25px; margin-left: 10px; float: left; position: relative; cursor: pointer;}
+    .btn_box li button {background-color:  rgb(241, 213, 151); width: 100%; height: 100%;border-radius: 10px;  
+    margin-left: 5px;position: absolute; transition: 0.5s; top: 15px;}
+    .btn_box li.on button{height: 50px;top: 4px; background-color:rgb(182, 134, 89);}
+
+    .tit_box {width: 100%;height: 40px; margin: 30px auto; line-height: 40px;}
+    .tit_box li{width: 100%;height: 40px;line-height: 40px;text-align: center; float: left; display: none;}
+    .tit_box li.on{display: block;}
+    .tit_box li span{font-size: 18px;font-weight: bold;}
+    
+    /* 탑싸인 */
+    .topsign{position: fixed;top: -110%;left: 10%; transition: 0.9s;z-index: 333;}
+    .topsign.on{top:-5px;}
+    
+    /* 첫번째 페이지 */
+    .txt_part{width: 100%;height:100vh; background-color: #fff;clear: both;}
+    .bg1{float: right;margin-right: -10px;position: relative;}
+    .bg2{position: absolute;right: 280px;bottom: 90px;}
+    .infor{width: 300px;height: 100px;float: right;position: absolute;top: 300px;right: calc(50% - 300px);text-indent: 0px;
+    }
+    .infor h4{text-indent: 12px;}
+    .infor p{width: 81%;}
+
+    /*두번째 페이지 */
+    .sub_p2{background-image: url(./img/sub23.jpg); width: 100%;height: 150vh;position: relative;
+    background-size: cover;clear: both;background-repeat: no-repeat;background-position: center center;background-color: #111;}
+    .infor2{width: 300px;height: 450px;float: right;position: absolute;top: 210px;right: 100px;text-indent: 0px;border: 3px solid transparent;
+    color: rgb(255, 255, 255);background-color: rgba(255, 255, 255, 0.308);text-align: center;transition: 0.6s; }
+    .txtpart{text-align:justify;}
+    .infor2:hover{border: 3px solid rgb(177, 131, 33); }
+
+    /* 세번째페이지 */
+    .page_3{width: 100%;height: 100vh;}
+    #map_canvas{margin-bottom: 40px;border-radius: 20px;float: right;margin-right: 50px; width:600px; height:400px}
+    .sub_title1{width: 100%;text-align: right;margin-left: -50px;margin-top: 100px;}
+    .p3_infor{clear: both;width: 300px;height: auto;margin-right: 50px;
+    float: right;}
+    .p3_infor strong{font-size: 1.4rem;}
+        
+    .plus{clear: both;font-size: 5rem;color: lightgray;margin: 5% 41.2%;width: 50px;}
+    .plus img{width: 50px;height: 50px;margin-top: 100px; }
+
+    footer{clear: both;width: 100%;height: 80px;text-align: center;margin-top: 150px;}
+    footer div{float: left;width: 100%;margin-top: 10px;}  
+    .sns{margin:10px 40px;}
+    .sns ul{width: 200px;height: 40px;margin: 0 auto;}  
+    .sns li{float: left;margin-left: 10px;}
+    
+    .topbtn{position: fixed;bottom: 15%;right: 5%;width: 60px;height: 60px;border-radius: 60px; border: 1px solid gray;
+        line-height: 65px;text-align: center;font-size: 1.2em;background-color: #fff;}
+    .topbtn a{color: rgb(41, 41, 41);} 
+    .mobile{display: none;}  
+    .desc{display: block;} 
+    
+    /* 모바일 */
+    @media screen and (max-width:767px){    
+    .main{height: 100vh;width: 100%;text-align: center;}
+    .lst{margin-top: 0; width: 100%; margin: 0 auto;margin-left: 0;}
+    .logo{width: 40px;height: 100px;display: block;position: fixed;top: 20px;left: 20px;}
+    .logo img{width: 40px;height: 100px;}
+    .join{text-indent: -9999px;}  
+    footer{margin-top: 2%;}      
+        
+    /* 탑싸인 */
+    .topsign{width: 350px;height: auto;}
+    .topsign img{width: 350px;height: auto;}
+   
+    /* 첫번째 페이지 */
+    .txt_part{width: 100%;height:100vh; background-color: #fff;clear: both;overflow: hidden;}
+    .bg1{margin-top: 100px;}
+    .bg2{position: absolute;right:50%; bottom: -10px;opacity: 0.3;}
+    .infor{width: 300px;height: 100px;position: absolute;top: 170px;right: 10px;text-indent: 0px;
+    text-align:justify;}
+
+    /*두번째 페이지 */
+    .infor2{width: 300px;height: 450px;float: right;position: absolute;top: 210px;right: calc(50% - 150px);text-indent: 0px;border: 3px solid transparent;
+    color: rgb(255, 255, 255);background-color: rgba(255, 255, 255, 0.308);text-align: center;transition: 0.6s; }
+    .txtpart{text-align:justify;}
+    .infor2:hover{border: 3px solid rgb(177, 131, 33); }
+
+    
+    /* 세번째페이지 */
+    .page_3{width: 100%;height: 100vh;clear: both;}
+   .page_3 h2{margin-top: 5%;}
+    .full_col{width:100%; height: 400px;}
+    #map_canvas{ width:370px; height:350px; margin: 0 auto;border-radius: 0;}
+    .sub_title1{width: 100%;text-align: right;margin-left: -80px;margin-top: 100px;}
+    .p3_infor{clear: both;width: 300px;height: auto;margin-right: 39px;background-color: rgba(204, 177, 119, 0.3);
+   border-radius: 20px;margin-top: -10%;margin-bottom: 20px;}
+  
+
+   
+   
+        
+        }
+    /* 아이패드 = 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){
+    .main{height: 100vh;width: 100%;}
+    .lst{clear: both;margin-top: 7rem;width: 100%; margin: 0 auto; margin-left: 150px;}
+    
+ 
+    }
+    
+    @media screen and (min-width:960px) and (max-width:1279px){ 
+    .main{height: 100vh;}
+    .lst{width: 100%;}
+    .plus{margin: 5% 35%;}    
+    .gnb{margin: 50px 40%;}
+ 
+        }
+        
+    </style>
+    <script>    
+    $(document).ready(function(){
+        var n=0, cnt=$(".lst .it").length;
+        var inter1 = setInterval(function(){
+            if(n<cnt){
+                fnc1(n);
+            }
+            n=n+1;
+        }, 100);
+        function fnc1(d){
+            $(".lst .it").eq(d).find(".dp1").removeClass("dp1").addClass("fr");
+            $(".lst .it").eq(d).find(".dp2").removeClass("dp2").addClass("bk");
+        }
+        var tar;
+        $(".btn_box li").click(function(){
+            $(this).addClass("on");
+            $(this).siblings().removeClass("on");
+            tar = $(this).attr("data-group");
+            $(".tit_box li").filter("[data-group="+tar+"]").addClass("on");
+            $(".tit_box li").not("[data-group="+tar+"]").removeClass("on");
+            $(".lst .it").css("display","none");
+            if(parseInt(tar)==0){
+                cnt = $(".lst .it").length;
+                $(".lst .it").css("display","block");
+                $(".lst .it").find(".fr").removeClass("fr").addClass("dp1");
+                $(".lst .it").find(".bk").removeClass("bk").addClass("dp2")
+            } else { 
+                cnt = $(".lst .it").filter("[data-group="+tar+"]").length;
+                $(".lst .it").filter("[data-group="+tar+"]").css("display", "block");
+                $(".lst .it").filter("[data-group="+tar+"]").find(".fr").removeClass("fr").addClass("dp1");
+                $(".lst .it").filter("[data-group="+tar+"]").find(".bk").removeClass("bk").addClass("dp2")
+            }
+            n = 0;
+            var inter2 = setInterval(function(){
+                if(n<cnt){
+                    if(parseInt(tar)==0){
+                        fnc1(n); //전체 선택시 모든 콘텐츠가 나오도록 구현
+                    } else {
+                        fnc2(n); //선택된 data-group가 나오도록 구현
+                    }
+                }
+            }, 100);
+        });
+        function fnc2(f){
+            $(".lst .it").filter("[data-group="+tar+"]").eq(f).find(".dp1")
+            .removeClass("dp1").addClass("fr");
+            $(".lst .it").filter("[data-group="+tar+"]").eq(f).find(".dp2")
+            .removeClass("dp2").addClass("bk")
+        }
+
+
+    });
+//탑 싸인 나오기
+    $(document).ready(function() {
+    $(window).scroll( function(){
+        $('.topsign').each( function(i){
+            
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            if( bottom_of_window > bottom_of_element ){
+                $(this).addClass("on");
+            }
+            
+        }); 
+    });
+
+ 
+
+});
+    
+    </script>
+    <script> 
+     // 지도연동   
+    
+    function initialize() {
+    
+      var myLatlng = new google.maps.LatLng(37.5346796,126.99750790000007);
+    
+      var mapOptions = {
+    
+        zoom: 17,
+    
+        center: myLatlng
+    
+      }
+    
+      var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    
+     
+    
+      var marker = new google.maps.Marker({
+    
+          position: myLatlng,
+    
+          map: map,
+    
+          title: '써니브레드'	      
+      });
+    
+    }  
+     
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
+    
+
+
+     </script>
+</head>
+<body>
+<div class="main" >
+<header>
+
+<a href="" class="logo"><img src="./img/logo_new1.jpg" alt=""></a>
+<ul class="btn_box gnb">
+    <li class="item1 on"  data-group="0"><button class="on"></button></li>  
+    <li class="item2" data-group="1"><button></button></li>
+    <li class="item3" data-group="2"><button></button></li>
+    <li class="item4" data-group="3"><button></button></li>
+    <li class="item5" data-group="4"><button></button></li>
+</ul>
+
+<ul class="tit_box">
+    <li class="itm1 on" data-group="0"><span class="tit">Sunnybread</span></li>
+    <li class="itm2" data-group="1"><span class="tit">Gluten-Free</span></li>
+    <li class="itm3" data-group="2"><span class="tit">Product</span></li>
+    <li class="itm4" data-group="3"><span class="tit">Contact</span></li>
+    <li class="itm5" data-group="4"><span class="tit">Location</span></li>
+</ul>
+
+  <div class="join">Join </div>
+</header>
+
+<main>
+    <div class="topsign">
+        <img src="./img/top_subl.png" alt="" >
+    </div>
+    <div class="txt_part">
+        <img src="./img/logo_new1.jpg" alt="" class="bg2">
+        <img src="./img/bread.png" alt="" class="bg1">
+        <div class="infor">
+        <h4>건강하고 맛있는 베이커리</h4>
+       <h5>동물성 재료가 철저히 제외된 제품군</h5>
+       <p><strong>SUNNY BREAD</strong>는 글루텐 불내증을 갖고있는 대표 써니송의 글루텐프리/비건/저탄수 식품을 만날 수 있는 곳입니다.         
+                </p>
+    </div>
+    </div>
+    <div class="sub_p2">
+        
+            <div class="infor2">
+
+                   
+                <div class="txtpart">
+                    <h4>Vegan 완전 채식</h4>
+                   <h5>동물성 재료가 철저히 제외된 제품군</h5>
+                   <p>대부분의 베이킹 제품에 함유되는 우유,버터와 같은 유제품과 계란이 들어가지 않은 
+                       완전한 채식식단을 위한 <strong>SUNNY BREAD</strong>  입니다.            
+                            </p></div>
+                    <img src="./img/mark.png" alt="">
+                </div>
+        
+    </div>
+
+    <div class="page_3">
+            <div class="content_wrap">
+        <section class="row" id="contact">
+
+			<h2 class="sub_title1"><i class="xi-maker"></i> 오시는 길</h2>
+
+			<article class="full_col h600" style="margin-bottom:30px;">
+
+			<!-- API 지도 삽입 --><div id="map_canvas"></div>
+                     
+			</article>
+
+        </section>
+       
+        </div>
+        <div class="p3_infor">
+                <p>
+                        <strong>한남동 736-49번지</strong>  <br>
+                        이태원역 3번 출구에서 라인스토어/제일기획 방향으로 직진 후 높은 나무 계단 올라와서 이태원랜드 바로 앞 
+                </p> 
+                
+                <p>
+                <strong>월 휴무</strong> <br>
+                화-일 11:00~20:00 영업
+                </p>
+                <p>
+                <strong>온라인 배송</strong> <br>
+                화수목금 출고<br>
+                떠먹는 케이크는 화목 출고 <br>
+                토일월 택배 휴무<br>
+                </p>
+        </div>
+    </div>
+</main>
+
+
+<div class="topbtn"><a href="./index2.html">TOP</a></div>
+
+<footer>
+<div class="part1">
+    <img src="./img/logo.jpg" alt="" width="50">
+</div>
+<div class="part2">
+        서울특별시 용산구 우사단로14길 33, 2층 (한남동)  <br>
+        사업자등록번호 : 368-23-00356 사업자정보 확인 <br>
+       전화번호 : 010-2262-5282 <br>
+       이메일 : sunny4370@naver.com
+      
+</div>
+<div class="sns">
+        <ul>
+            <li><a href="" target=""><img src="img/btn_sns_facebook.png" alt="dasb instargram" width="26"></a></li>
+            <li><a href="" target=""><img src="img/btn_sns_instargram.png" alt="dasb facebook" width="26"></a></li>
+            <li><a href="" target=""><img src="img/btn_sns_naver.png" alt="dasb naver" width="26"></a></li>
+        </ul>
+</div>
+
+</footer>
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

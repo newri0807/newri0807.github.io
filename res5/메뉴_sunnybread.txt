@@ -29,6 +29,11 @@ ul높이
 
 
 
+Vegan 완전 채식
+동물성 재료가 철저히 제외된 제품군
+대부분의 베이킹 제품에 함유되는 우유,버터와 같은 유제품과 계란이 들어가지 않은 완전한 채식식단을 위한 SUNNY BREAD 입니다.
+
+
 
 @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
 
