@@ -73,7 +73,7 @@
     .video_i .text{color: #ff414d;font-weight: 800;}
     .video_i .btn_go{width: 80px;height: 20px;background-color: #ff414d;display: block;color: #fff;border-radius: 20px;margin: 0 auto;}
     
-    .page2{clear: both;position: relative;}
+    .page2{clear: both;position: relative;overflow-x: hidden;}
     .p2_slide{ width: 200%;height: 100vh;}
     .p2_slide li{width: 50%;height: 100vh;float: left;} 
     .p2_slide li.on a{opacity: 1;margin: 150px;}
@@ -90,7 +90,7 @@
     color: #fff; transition: 0.6s;opacity: 0;margin: 0;}
   
     .p2_slide h5{margin-left: 30px;}  
-    .p2_sbtn{position: absolute;width: 20px;height: 100px;bottom: 50%;right: 5%;z-index: 22;}
+    .p2_sbtn{position: absolute;width: 20px;height: 100px;bottom: 60%;right: 5%;z-index: 22;}
     .p2_sbtn li{width: 20px;height: 20px;border: 1px solid rgba(255, 255, 255, 0.267);margin-bottom: 10px; transform: skew(-45deg);}
     .p2_sbtn li.on{background-color: rgb(255, 255, 255);}
 
@@ -154,7 +154,7 @@
     rotate(-40deg);}
 
     .page{width:auto;height: 100vh;}
-    .page1{background-size:contain;width:auto;height: 100vh;position: relative;}
+    .page1{background-size:contain;width:100%;height: 100vh;position: relative;background-size: cover;}
     .page2{background-size:contain;width:auto;height: 40%;} 
     .page3{background-size:contain;width:auto;height: 110vh;} 
     .page4{background-size:cover;;width:auto;height: 100vh;}  
@@ -172,12 +172,13 @@
     .video_i .text{margin-top: -10px;}
     .video_i .btn_go{margin-top: -10px;}
     
-    .p2_slide{width: 200%;height: 100%;overflow: hidden;border-bottom: 1px solid lightgray;}
-    .p2_slide li{width:50%;height: 100%;}
+    .p2_slide{width: 200%;height: 100%;overflow: hidden;
+    border-bottom: 1px solid lightgray; overflow-x:hidden;}
+    .p2_slide li{width:50%;height: 100%;float: left;}
     .p2_slide li.on a{font-size: 0.6rem;margin: 2%;}
     .p2_slide h5{margin-left: 10px;}   
     .p2_slide h2 {font-size: 1.2rem;margin-top: 20%;}
-    .p2_sbtn{bottom: 35%;z-index: 1;}
+    .p2_sbtn{bottom: 35%;z-index: 30;}
   
 
     
