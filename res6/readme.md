@@ -1,5 +1,5 @@
 # 여기는 res6
-## 여기는 AmericanExpress 리디자인한 웹입니다.
+## 여기는 AmericanExpress 재디자인한 웹입니다.
 ### 여기는 h3요소입니다.
 #### 여긴 h4
 ##### 여긴 h5
