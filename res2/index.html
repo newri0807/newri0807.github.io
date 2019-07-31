@@ -51,72 +51,72 @@
 
    
 <script>
-  // 슬라이드1 -페이지1
-  $(document).ready(function() {
-    $(".slide_btn li").click(function() {
-
-      i = $(this).index();
-
-      showSlide();
-
-      $(".slide_btn li").addClass("clicked");
-
-
-    });
-
-    function showSlide() {
-      $(".slide_btn li").removeClass("on");
-      $(".slide_btn li").eq(i).addClass("on");
-      $(".slide img").stop(true, true).fadeOut();
-      $(".slide img").eq(i).stop(true, true).fadeIn();
+// 슬라이드1 -페이지1 
+$(document).ready(function(){
+    var wd = $(".slide").width();
+    var sl = $(".sl_ul");
+    var btn1 = $(".slide_btn");
+    var len = $(".sl_ul li").length;
+    function nextSlideAni(){
+        sl.not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
+            sl.find("li").eq(0).appendTo(sl);
+            sl.css("margin-left", "0px");
+            btn1.find("li").eq(0).appendTo(btn1);
+            btn1.find("li").removeClass("on");
+            btn1.find("li").eq(0).addClass("on");
+        });
     }
-
+    function prevSlideAni(){
+        sl.find("li").eq(len-1).prependTo(sl);
+        sl.css("margin-left", -wd+"px");
+        sl.not(":animated").animate({"margin-left":"0px"}, 600, function(){
+            btn1.find("li").eq(len-1).prependTo(btn1);
+            btn1.find("li").removeClass("on");
+            btn1.find("li").eq(0).addClass("on");
+        });
+    }
+    var intv1 = setInterval(function(){ 
+        nextSlideAni();
+    }, 3000);
+   
+    $(".slide_btn li").click(function(){
+        clearInterval(intv1);
+        var ix = $(this).index();
+        for(var i=0;i<ix-1;i++){
+            sl.find("li").eq(0).appendTo(sl);
+            btn1.find("li").eq(0).appendTo(btn1);
+        }
+        nextSlideAni();
+        intv1 = setInterval(function(){ nextSlideAni(); }, 3000);
+    });
 });
+
 
 //슬라이드2 -페이지2
-$(document).ready(function() {
+ $(document).ready(function(){
+        var wd = $(".sl2_ul li").width();
+        var len = $(".sl2_ul li").length;
+        console.log(wd);
+        $(".btn_next").click(function(){ //다음 이미지
+            nextAni();
+        }); 
+        function nextAni() {
+            $(".sl2_ul").not(":animated").animate({"margin-left":-wd+"px"},1000, function(){
+                $(".sl2_ul li").eq(0).appendTo($(".sl2_ul"));
+                $(".sl2_ul").css("margin-left","0px");
+            });
+        }  
 
-var wid = $(".slid2 li").width();
-var i = $(".slid2 li").index();
-var len = $(".slid2 li").length;
+        $(".btn_prev").click(function(){ //이전 이미지
+            prevAni();
+        }); 
+        function prevAni() {
+            $(".sl2_ul li").eq(len-1).prependTo($(".sl2_ul"));
+            $(".sl2_ul").css("margin-left",-wd+"px");
+            $(".sl2_ul").not(":animated").animate({"margin-left":"0px"},1000);
+        }
 
-$(".btn_prev").click(function() {
-
-
-  if (i == 0) {
-    i = len - 1;
-
-  } else {
-
-    i = i - 1;
-
-  }
-
-  showSlide();
-});
-
-$(".btn_next").click(function() {
-
-  if (i == 2) {
-
-    i = 0;
-
-
-  } else {
-
-    i = i + 1;
-
-  }
-  showSlide();
-});
-
-function showSlide() {   
-    $(".slid2 li").stop(true, true).fadeOut();
-    $(".slid2 li").eq(i).stop(true, true).fadeIn();
-  }
-
-});
-
+    });
 
 
 </script>
@@ -243,13 +243,15 @@ function showSlide() {
 
      
        <div class="slide"> 
-         <img src="./img/p1_smallslide1.jpg" alt="">
-         <img src="./img/p1_smallslide2.jpg" alt="">
-         <img src="./img/p1_smallslide3.jpg" alt="">   
+         <ul class="sl_ul">
+          <li class="item1"><img src="./img/p1_smallslide1.jpg" alt=""></li> 
+          <li class="item2"><img src="./img/p1_smallslide2.jpg" alt=""></li>
+          <li class="item3"><img src="./img/p1_smallslide3.jpg" alt=""></li>
+        </ul>    
          <ul class="slide_btn">
-           <li class="on"></li>
-           <li></li>
-           <li></li>
+           <li class="slbt1 on"></li>
+           <li class="slbt2"></li>
+           <li class="slbt3"></li>
          </ul>     
        </div>
         
@@ -328,20 +330,18 @@ function showSlide() {
             <p>국립등대박물관의 주요 소장품을 소개합니다.</p>
         </div>
        
-            <ul class="slid2">
-              <li>
-                <img src="./img/p2_1.jpg" alt="">
-                <img src="./img/p2_2.jpg" alt="">
-                <img src="./img/p2_3.jpg" alt="">
-                <img src="./img/p2_4.jpg" alt="">
-              </li>
-              <li>        
-                <img src="./img/p2_5.jpg" alt="">
-                <img src="./img/p2_6.jpg" alt="">
-                <img src="./img/p2_7.jpg" alt="">
-                <img src="./img/p2_8.jpg" alt="">
-              </li>     
-            </ul>
+            <div class="slid2">
+              <ul class="sl2_ul">
+                <li class="it1"><img src="./img/p2_1.jpg" alt=""></li>
+                <li class="it2"><img src="./img/p2_2.jpg" alt=""></li>
+                <li class="it3"><img src="./img/p2_3.jpg" alt=""></li>
+                <li class="it4"><img src="./img/p2_4.jpg" alt=""></li>
+                <li class="it5"><img src="./img/p2_5.jpg" alt=""></li>
+                <li class="it6"><img src="./img/p2_6.jpg" alt=""></li>
+                <li class="it7"><img src="./img/p2_7.jpg" alt=""></li>
+                <li class="it8"><img src="./img/p2_8.jpg" alt=""></li>              
+              </ul>
+            </div>
 
             <div class="btn_next"><i class="xi-angle-right-thin"></i></div>
             <div class="btn_prev"><i class="xi-angle-left-thin"></i></div>
