@@ -73,76 +73,62 @@
     .container .main {width: 33.3333%;}
     .container .right {width: 33.3333%;}           
         
-        .hd{background-color: #fff; margin-top: 20px;height: 80px;width: 100%;}
-        .logo{width: 200px;height: 50px;display: block;margin: 0 auto;line-height: 50px;}
-        .toggle{width: 100px;height: 100px;display: block;float: right;position: absolute;top: 0;right: 0;
-        background-image: url(./img/togglebtn2.jpg);background-size: contain;cursor: pointer;z-index: 12;}
+    .hd{background-color: #fff; margin-top: 20px;height: 80px;width: 100%;}
+    .logo{width: 200px;height: 50px;display: block;margin: 0 auto;line-height: 50px;}
+    .toggle{width: 100px;height: 100px;display: block;float: right;position: absolute;top: 0;right: 0;
+    background-image: url(./img/togglebtn2.jpg);background-size: contain;cursor: pointer;z-index: 12;}
 
-        .left{ background-image: url(./img/mainp1.jpg);background-size: cover;cursor: pointer;
-        height: 100vh;transition: 0.6s;position: relative;}
-        .main{ background-image: url(./img/mainp2.jpg);background-size: cover;cursor: pointer;height: 100vh;transition: 0.6s;position: relative;}
-        .right{ background-image: url(./img/mainp3.jpg);background-size: cover;cursor: pointer;height: 100vh;transition: 0.6s;position: relative;}
+    .left{ background-image: url(./img/mainp1.jpg);background-size: cover;cursor: pointer;
+    height: 100vh;transition: 0.6s;position: relative;}
+    .main{ background-image: url(./img/mainp2.jpg);background-size: cover;cursor: pointer;height: 100vh;transition: 0.6s;position: relative;}
+    .right{ background-image: url(./img/mainp3.jpg);background-size: cover;cursor: pointer;height: 100vh;transition: 0.6s;position: relative;}
         
-        /* .left:after{content: "";display: block; background-color: rgba(53, 45, 45, 0.397);width: 33.33333%;height: 100vh;
-        position: absolute;top:100px;left: 0;opacity: 1;}
-        .left:hover:after{opacity: 0;}
-        .main:after{content: "";display: block; background-color: rgba(53, 45, 45, 0.397);width: 33.33333%;height: 100vh;
-        position: absolute;top:100px;left:33.3333%;opacity: 1;}
-        .main:hover:after{opacity: 0;}
-        .right:after{content: "";display: block; background-color: rgba(53, 45, 45, 0.397);width: 33.33333%;height: 100vh;
-        position: absolute;top:100px;right:0;opacity: 1;}
-        .right:hover:after{opacity: 0;}
-        */
+    .bg{width: 100%;transition: 0.3s;background-color: rgba(0,0,0,0.3);height: 100vh;display: block;
+    position: absolute;top: 0;left: 0;}
+    .bg.on{background-color: rgba(0,0,0,0.7);}
 
-    
-        .bg{width: 100%;transition: 0.3s;background-color: rgba(0,0,0,0.3);height: 100vh;display: block;
-        position: absolute;top: 0;left: 0;}
-        .bg.on{background-color: rgba(0,0,0,0.7);}
-        
-        .left.on{width: 80%;height: 200%;}
-        .txtArea.on{margin: 10%;}
-        .main.on{width: 10%;height: 200%;}
-        .right.on{width: 10%;height: 200%;}
-        .main:after.on{display: none;}
-    
-        .main.on1{width: 80%;height: 200%;}       
-        .left.on1{width: 10%;height: 200%;}
-        .right.on1{width: 10%;height: 200%;}
-        
-        .right.on2{width: 80%;height: 200%;}        
-        .left.on2{width: 10%;height: 200%;}
-        .main.on2{width: 10%;height: 200%;}
+    .left.on{width: 80%;height: 200%;}
+    .txtArea.on{margin: 10%;}
+    .main.on{width: 10%;height: 200%;}
+    .right.on{width: 10%;height: 200%;}
+    .main:after.on{display: none;}
 
-        .ft{background-color: #2e021c;}
-        .ft.on{margin-top: 48.8%;}
- 
-        .txtArea{width: 400px;height: 400px; margin: 50% auto;color: #fff;}
-        .tit2{font-size: 3rem;margin-bottom: 10px;margin-top: 200px;}
-        .bar{width: 100px;height: 3px;background-color: #fff;display: block;margin-left: 25px;}
-        .txt1{font-size: 1.8rem;margin-bottom: 20px;}
-        .txt3{margin-left: 15px;}
+    .main.on1{width: 80%;height: 200%;}       
+    .left.on1{width: 10%;height: 200%;}
+    .right.on1{width: 10%;height: 200%;}
 
-        .togglemenu{position: fixed;width: 100%;height: 100%;top: 0;right: -100%;background-image: url(./img/back1.jpg);
-        background-size: contain;transition: 0.5s;z-index: 11;}
-        #tog:checked ~ .togglemenu{right: 0;}
-        .gnb {width: 55%; height: 50%;background-color: rgba(233, 233, 233, 0.781);text-align: center; 
-        position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
-        .gnb li{float: left;width: 200px;margin: 3%}
-        .sub:before{content:""; display: block;width: 100%;height: 1px;border: 2px solid #fff;margin-bottom: 20px;}
-        .sub:hover:before {background-color: #863d68;}
-        .gnb li a{font-size: 1.5rem;color: #000;}
-        .sub{margin-top: 20px;}
-        .sub li{float: left;height: 50px;}
-        .sub li a{font-size: 1.2rem;color: #000;}
-        .sub li:hover a{background-color: #863d68;color:#fff;}
-        .ft{padding: 10px;height: 160px;margin-top: -10px;}
-        .ft_top a{color:rgb(158, 158, 158);padding-left: 22px;font-weight: bold;}
-        .ft_top a:first-child{color:rgb(129, 92, 97);}
-        .ft_top a:first-child:after{content: "|";margin-left: 20px; color: rgb(158, 158, 158);line-height: 10px;}
-        .last{padding-top: 2px;font-size: 0.9rem;padding-left: 10px;}
-        .last p{color: rgb(122, 122, 122);}
+    .right.on2{width: 80%;height: 200%;}        
+    .left.on2{width: 10%;height: 200%;}
+    .main.on2{width: 10%;height: 200%;}
 
-        
+    .ft{background-color: #2e021c;}
+    .ft.on{margin-top: 48.8%;}
+
+    .txtArea{width: 400px;height: 400px; margin: 50% auto;color: #fff;}
+    .tit2{font-size: 3rem;margin-bottom: 10px;margin-top: 200px;}
+    .bar{width: 100px;height: 3px;background-color: #fff;display: block;margin-left: 25px;}
+    .txt1{font-size: 1.8rem;margin-bottom: 20px;}
+    .txt3{margin-left: 15px;}
+
+    .togglemenu{position: fixed;width: 100%;height: 100%;top: 0;right: -100%;background-image: url(./img/back1.jpg);
+    background-size: contain;transition: 0.5s;z-index: 11;}
+    #tog:checked ~ .togglemenu{right: 0;}
+    .gnb {width: 55%; height: 50%;background-color: rgba(233, 233, 233, 0.781);text-align: center; 
+    position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+    .gnb li{float: left;width: 200px;margin: 3%}
+    .sub:before{content:""; display: block;width: 100%;height: 1px;border: 2px solid #fff;margin-bottom: 20px;}
+    .sub:hover:before {background-color: #863d68;}
+    .gnb li a{font-size: 1.5rem;color: #000;}
+    .sub{margin-top: 20px;}
+    .sub li{float: left;height: 50px;}
+    .sub li a{font-size: 1.2rem;color: #000;}
+    .sub li:hover a{background-color: #863d68;color:#fff;}
+    .ft{padding: 10px;height: 160px;margin-top: -10px;}
+    .ft_top a{color:rgb(158, 158, 158);padding-left: 22px;font-weight: bold;}
+    .ft_top a:first-child{color:rgb(129, 92, 97);}
+    .ft_top a:first-child:after{content: "|";margin-left: 20px; color: rgb(158, 158, 158);line-height: 10px;}
+    .last{padding-top: 2px;font-size: 0.9rem;padding-left: 10px;}
+    .last p{color: rgb(122, 122, 122);}       
     
 
     /* 모바일 */
@@ -176,12 +162,12 @@
     .sub li{float: left;height: 15px;}
     .sub li a{font-size: 0.9rem;color: #000;}
     .sub li:hover a{background-color: #863d68;color:#fff;}    
-    
+
     .txtArea{width: 200px;height: 200px; margin: 0 auto;color: #fff;overflow: hidden;}
     .tit2{font-size: 2rem;margin-bottom: 0px;margin-top: 20px;}    
     .txt1{font-size: 1rem;margin-bottom: 0px;display: none;}
     .txt3{display: none;}   
-         
+            
     .last{font-size: 0.5rem;margin-top: 10px;}
     .ft{height: 160px;margin-top: 0px;} 
 
@@ -189,7 +175,6 @@
     .open_tit.on{bottom: 60%;}
     .open_com{position: absolute;bottom: 0%;color: #ffffff;transition: 0.4s 0.5s; left: 28%; font-size: 1.5em; width:220px;text-align: right;}
     .open_com.on{bottom: 40%;}    
-
     }
    
      /* 아이패드 = 태블릿 */
@@ -211,10 +196,11 @@
     .open_tit.on{bottom: 60%;}
     .open_com{position: absolute;bottom: 0%;color: #ffffff;transition: 0.4s 0.5s; left: -10%; font-size: 1.5em; width:100%;text-align: right;}
     .open_com.on{bottom: 50%;}    
-      
 
-
-
+    .togglemenu{background-repeat: no-repeat;background-size: 100vw 100%;}
+    .gnb{width: 100%;}
+    .gnb ul{width: 95%;margin: 0 auto;}
+    .gnb li{width: 150px;margin: 2%;}
     }
 
      /* 데스크탑 */
