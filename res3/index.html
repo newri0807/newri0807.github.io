@@ -71,7 +71,7 @@
   .top_menu{width: 80%;height: 80px;margin:0 auto;padding: 1%;}
   .top_menu_left{float: left;width: 30%;margin-top: 20px;margin-left: 5%;}
   .top_menu_left li{float: left;width: 100px;}
-  .lang_sel{border:1px solid rgb(179, 179, 179);width: 100%;height: 20px;text-align: center;}
+  .lang_sel{border:1px solid rgb(179, 179, 179);width: 100%;height: 20px;text-align: center;color:#fff;line-height: 20px;}
   .lang{opacity: 0;margin-top: 2px;width:100%;height: 20px;line-height: 25px;text-align: center;background-color: #a37fb4;border: 1px solid rgb(179, 179, 179); }
   .lang_sel:hover .lang{opacity: 1;}
   
@@ -99,13 +99,17 @@
    
 
   main{width: 100%;height: auto;overflow: hidden;}
-  .slide{width: 100%;position: relative;height: 400px;overflow: hidden;} 
-  .slide img{width: 100%;height: 400px;position: absolute;}
-  .slide_btn{width: 200px;height: 20px;position: absolute;
-  top: 63%;right: -4%;z-index: 11;}
+  
+  .slide{width: 100%;position: relative;height: 400px;overflow: hidden;}
+  .sl_ul{width: 200%;height: 400px;position: absolute;} 
+  .sl_ul li{width: 50%;height: 400px;position: absolute;}
+  .sl_ul li img{width: 100%;height: 400px;}
+  .slide_btn{width: 200px;height: 20px;position: relative;float: right;}
   .slide_btn li{width: 40px;height: 20px;background-color: #fff;
-  float: left;margin-left:10px;border: 1px solid #271f2c;}
-  .slide_btn li.on{background-color: #271f2c;}
+  border: 1px solid #645070;}
+  .dp1{position:absolute; bottom: 55%; right: 30px; z-index: 11;}
+  .dp2{position:absolute; bottom: 55%; right: 80px; z-index: 11;}
+  .slide_btn li.on{background-color: #645070;}
 
   .mainpmenu{width: 100%;height: 150px;margin: 0 auto;position: relative;}
   .mainpmenu ul{width: 75%;margin: 0 auto;}
@@ -169,11 +173,17 @@
   .service_list li:nth-child(4){background-image: url(./img/ico_service4.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
   .service_list li:nth-child(5){background-image: url(./img/ico_service5.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
 
-  .pop_slid{position: relative;overflow: hidden;width: 80%;height: 200px;margin: 0 auto;margin-left: 15%;}
-  .btn_pop {width: 100px;height: 20px;margin: 10px auto;}
-  .btn_pop span{float: left;width: 20px;height: 20px;border-radius: 20px; border:1px solid #000;margin-left: 10px;}
+  .pop_slid{position: relative;overflow: hidden;width: 70%;height: 200px;margin: 0 auto;margin-left: 15%;}
+  .pops_ul{position: absolute;width: 240%;height: 200px;}
+  .pops_ul li{float: left;width:43%;height:200px;}
+  .pops_ul img{width:100%;height:200px;}
+  .btn_pop {width: 100px;height: 20px;margin: 10px auto;position: relative;}
+  .btn_pop span{width: 20px;height: 20px;border-radius: 20px; border:1px solid #000;}
   .btn_pop span.on{background-color: #000;}
-  
+  .btnP1{position: absolute;bottom: 0;left: 0px;}
+  .btnP2{position: absolute;bottom: 0;left: 40px;}
+  .btnP3{position: absolute;bottom: 0;left: 80px;}
+
   .b_notice{width: 100%;position: relative;}
   .b_notice h4:after{content: "";width: 40px;height: 40px; display: block;position: absolute;top: 60px;right: 60px;background-image: url(./img/more.png);background-position: center center; background-size: contain;background-repeat: no-repeat;}
   .b_notice ul{margin: 0 auto;width: 80%;margin-left: 10%;}
@@ -184,13 +194,17 @@
   .b_notice li:nth-child(3){background-image: url(./img/last_ico3.png);background-position: center 10px;background-size: 70px 60px;background-repeat: no-repeat;}
   .lastpart > div:last-child:after{content: "";width: 50px;height: 50px;display: block; margin: 67% 102%;background-image: url(./img/ico_top.png);background-position: center center; background-size: contain;}
   
-  .bottom_slide{width: 100%; height: 60px;border-top:1px solid lightslategray;position: relative;overflow: hidden;}
-  .bottom_slide ul{width: 80%; position: absolute;height: 100%;text-align: center;margin-left: 10%;margin-top: 5px;}
-  .bottom_slide li{float: left;width: 25%;height: 100%;}
-  .bottom_slide li img{width: 180px;height: 50px;}
+ .btsl_vl{width: 100%;border-top:1px solid rgb(168, 168, 168);height: 1px;position: absolute;}
+  .bottom_slide{width:1440px; height: 60px; position: relative;overflow: hidden;margin: 0 auto;}
+  .bottom_slide .bts_ul{width: 1440px; position: absolute;height: 100%;left: 10%;top: 5px; text-align: center;margin-left: -160px; }
+  .bts_ul li{float: left;width: 25%;height:60px;}
+  .bts_ul li img{width: 200px;height: 60px;}
 
-  .bs_prev{float: left;font-size: 2.8rem;margin-left: 10%;margin-top: 5px;color: gray;}
-  .bs_next{float: right;font-size: 2.8rem;margin-right: 10%;margin-top: 5px;color: gray;}
+  .bs_btn{position: relative;}
+  .bs_prev{font-size: 2.8rem;color: gray;
+  cursor: pointer;display: block;position: absolute;bottom: 2px;left: 10%;z-index: 3333;}
+  .bs_next{font-size: 2.8rem;color: gray;
+  cursor: pointer;display: block; position: absolute;bottom: 2px;right: 10%;z-index: 3333;}
   
   footer{width: 100%;height: auto;clear: both;}
   .ft1{width: 100%; height: 80px;background-color: #574764;}
@@ -198,6 +212,7 @@
   .ft1 ul li{float: left;width: 18%;line-height: 80px;}
   .ft1 ul li a{color: #fff;font-size: 1.2rem;}
   .ft1 ul li:after{content: "|";color: rgba(203, 203, 203, 0.5);font-size: 1.5rem;margin-left:40px;}
+  .ft1 ul li a:hover{color:lightslategray;}
   .ft1 ul li:last-child:after{content: none;}
   .ft1 ul li:last-child{margin-left: -20px;}
   
@@ -207,50 +222,118 @@
   /* .mark{float:right;margin-top: -20px;margin-right: 10%;} */
    </style>
    <script>
-     $(document).ready(function(){
-
-        
-      $(".slide_btn li").click(function() {
-
-        i = $(this).index();
-
-        showSlide();
-
-        $(".slide_btn li").addClass("clicked");
-
-
+  //첫번째 자동슬라이드
+  $(document).ready(function(){      
+    var wd = $(".slide").width();
+    var sl = $(".sl_ul");
+    var btn1 = $(".slide_btn");    
+    var len = $(".sl_ul li").length;
+    function nextSlideAni(){
+        sl.not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
+            sl.find("li").eq(0).appendTo(sl);
+            sl.css("margin-left", "0px");
+            btn1.find("li").eq(0).appendTo(btn1);
+            btn1.find("li").removeClass("on");
+            btn1.find("li").eq(0).addClass("on");
         });
-
-        function showSlide() {
-        $(".slide_btn li ").removeClass("on");
-        $(".slide_btn li").eq(i).addClass("on");
-        $(".slide img").stop(true, true).fadeOut();
-        $(".slide img").eq(i).stop(true, true).fadeIn();
-        }     
-
-
-     });
-   
-     $(document).ready(function(){
-     $(".btn_pop span").click(function() {
-
-i = $(this).index();
-
-  showSlide();
-
-  $(".btn_pop span").addClass("clicked");
-
-
-  });
-
-    function showSlide() {
-    $(".btn_pop span ").removeClass("on");
-    $(".btn_pop span").eq(i).addClass("on");
-    $(".pop_slid img").stop(true, true).fadeOut();
-    $(".pop_slid img").eq(i).stop(true, true).fadeIn();
     }
-  });
+    function prevSlideAni(){
+        sl.find("li").eq(len-1).prependTo(sl);
+        sl.css("margin-left", -wd+"px");
+        sl.not(":animated").animate({"margin-left":"0px"}, 600, function(){
+            btn1.find("li").eq(len-1).prependTo(btn1);
+            btn1.find("li").removeClass("on");
+            btn1.find("li").eq(0).addClass("on");
+        });
+    }
+    var intv1 = setInterval(function(){ 
+        nextSlideAni();
+    }, 3000);
    
+   //버튼설정
+    $(".slide_btn li").click(function(){
+        clearInterval(intv1);
+        var ix = $(this).index();
+        for(var i=0;i<ix-1;i++){
+            sl.find("li").eq(0).appendTo(sl);
+            btn1.find("li").eq(0).appendTo(btn1);
+        }
+        nextSlideAni();
+        intv1 = setInterval(function(){ nextSlideAni();}, 3000);
+    });
+});
+   
+//두번째 슬라이드
+$(document).ready(function(){      
+    var wd = $(".pop_slid").width();
+    var sl = $(".pops_ul");
+    var btn1 = $(".btn_pop");    
+    var len = $(".pops_ul li").length;
+    function nextSlideAni(){
+        sl.not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
+            sl.find("li").eq(0).appendTo(sl);
+            sl.css("margin-left", "0px");
+            btn1.find("span").eq(0).appendTo(btn1);
+            btn1.find("span").removeClass("on");
+            btn1.find("span").eq(0).addClass("on");
+        });
+    }
+    function prevSlideAni(){
+        sl.find("li").eq(len-1).prependTo(sl);
+        sl.css("margin-left", -wd+"px");
+        sl.not(":animated").animate({"margin-left":"0px"}, 600, function(){
+            btn1.find("span").eq(len-1).prependTo(btn1);
+            btn1.find("span").removeClass("on");
+            btn1.find("span").eq(0).addClass("on");
+        });
+    }
+    var intv1 = setInterval(function(){ 
+        nextSlideAni();
+    }, 3000);
+   
+   //버튼설정
+    $(".btn_pop span").click(function(){
+        clearInterval(intv1);
+        var ix = $(this).index();
+        for(var i=0;i<ix-1;i++){
+            sl.find("span").eq(0).appendTo(sl);
+            btn1.find("span").eq(0).appendTo(btn1);
+        }
+        nextSlideAni();
+        intv1 = setInterval(function(){ nextSlideAni();}, 3000);
+    });
+});
+
+  //마지막슬라이드
+  $(document).ready(function(){
+        var wd = $(".bts_ul li").width();
+        var len = $(".bts_ul li").length;
+        console.log(wd);
+        $(".bs_next").click(function(){ //다음 이미지
+            nextAni();
+        }); 
+        function nextAni() {
+            $(".bts_ul").not(":animated").animate({"margin-left":-wd+"px"},1000, function(){
+                $(".bts_ul li").eq(0).appendTo($(".bts_ul"));
+                $(".bts_ul").css("margin-left","0px");
+            });
+        }
+        $(".bs_prev").click(function(){ //이전 이미지
+            prevAni();
+        }); 
+        function prevAni() {
+            $(".bts_ul li").eq(len-1).prependTo($(".bts_ul"));
+            $(".bts_ul").css("margin-left",-wd+"px");
+            $(".bts_ul").not(":animated").animate({"margin-left":"0px"},1000);
+        }
+
+    });
+  
+  
+
+    
+   
+
    </script>
 </head>
 <body>
@@ -346,12 +429,14 @@ i = $(this).index();
 
 <main>
 <div class="slide">
-  <img src="./img/slide1.jpg" alt="">
-  <img src="./img/slide2.jpg" alt="">
+  <ul class="sl_ul">
+  <li class="item1"><img src="./img/slide1.jpg" alt=""></li>  
+  <li class="item2"><img src="./img/slide2.jpg" alt=""></li>   
+  </ul>
 </div>
 <div class="slide_btn">
-    <li class="on"></li>
-    <li></li>
+    <li class="dp1 on"></li>
+    <li class="dp2"></li>
 </div>
 <div class="mainpmenu">
   <ul>
@@ -490,14 +575,16 @@ i = $(this).index();
 <div class="popup">
     <h4>팝업존</h4> 
   <figure class="pop_slid">
-    <img src="./img/slide_bottom1.jpg" alt="">
-    <img src="./img/slide_bottom2.jpg" alt="">
-    <img src="./img/slide_bottom3.jpg" alt="">
+    <ul class="pops_ul">
+    <li class="pop1"><img src="./img/slide_bottom1.jpg" alt=""></li> 
+    <li class="pop2"><img src="./img/slide_bottom2.jpg" alt=""></li>
+    <li class="pop3"><img src="./img/slide_bottom3.jpg" alt=""></li>
+  </ul>
   </figure>
   <div class="btn_pop">
-    <span class="on"></span>
-    <span></span>
-    <span></span>
+    <span class="btnP1 on"></span>
+    <span class="btnP2"></span>
+    <span class="btnP3"></span>
   </div>
  
 </div>
@@ -514,24 +601,25 @@ i = $(this).index();
 
 
 </div>
-
+<span class="btsl_vl"></span>
  <div class="bottom_slide">
-  <ul>
-    <li><a href=""><img src="./img/fb1.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb2.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb3.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb4.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb5.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb6.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb7.jpg" alt=""></a></li>
-    <li><a href=""><img src="./img/fb8.jpg"alt=""></a></li>
+  <ul class="bts_ul">
+    <li class="item1"><a href=""><img src="./img/fb1.jpg" alt=""></a></li>
+    <li class="item2"><a href=""><img src="./img/fb2.jpg" alt=""></a></li>
+    <li class="item3"><a href=""><img src="./img/fb3.jpg" alt=""></a></li>
+    <li class="item4"><a href=""><img src="./img/fb4.jpg" alt=""></a></li>
+    <li class="item5"><a href=""><img src="./img/fb5.jpg" alt=""></a></li>
+    <li class="item6"><a href=""><img src="./img/fb6.jpg" alt=""></a></li>
+    <li class="item7"><a href=""><img src="./img/fb7.jpg" alt=""></a></li>
+    <li class="item8"><a href=""><img src="./img/fb8.jpg"alt=""></a></li>
   </ul>
+</div> 
 
   <div class="bs_btn">
     <span class="bs_prev"><i class="xi-angle-left-thin"></i></span>
     <span class="bs_next"><i class="xi-angle-right-thin"></i></span>
   </div>
-</div> 
+
 
 
 
@@ -548,7 +636,7 @@ i = $(this).index();
   
    <div class="ft2">
    <a href="" class="ft_logo"> 
-   <img src="./img/logo.jpg" alt="">
+   <img src="./img/logo1.png" alt="">
    </a>
     <div class="middle">
      <span class="address">대전광역시 서구 둔산2동 1136번지 대전대학교 둔산한방병원  전화번호:042-470-9000 팩스:042-477-9007</span>
