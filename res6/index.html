@@ -61,7 +61,7 @@
     .hd_lang_box a{float: left;width: 50px;height: 50px;border-radius: 50px;background-color: rgb(193, 193, 201);display: block;
     margin-left: 10px;line-height: 50px;text-align: center; color:#fff;}
     .hd_lang_box a.on{background-color: #002d40;}
-    .top{width: 50px;height: 50px; transform: skew(-19deg);background-color: #bdbdbd;position: fixed;z-index: 99;
+    .top{width: 50px;height: 50px; transform: skew(-19deg);background-color: #bdbdbd;position: fixed;z-index: 99999;
     bottom: 5%;right: 3%;text-align: center;line-height: 50px;display: block;}
     .top span{transform:none;font-size: 1.2em;transition: 0.5s;color: #fff;}
     .top:hover span{color:#002d40;}
@@ -73,12 +73,12 @@
     .video_i .text{color: #ff414d;font-weight: 800;}
     .video_i .btn_go{width: 80px;height: 20px;background-color: #ff414d;display: block;color: #fff;border-radius: 20px;margin: 0 auto;}
     
-    .page2{clear: both;position: relative;overflow-x: hidden;}
-    .p2_slide{ width: 200%;height: 100vh;}
-    .p2_slide li{width: 50%;height: 100vh;float: left;} 
+    .page2{clear: both;position: relative;width: 100%;height: 100%;overflow: hidden;}    
+    .p2_slide{ width: 200%;height: 100%;position: absolute;}
+    .p2_slide li{width: 50%;height: 100%;float: left;} 
     .p2_slide li.on a{opacity: 1;margin: 150px;}
-    .p2_slide li:before{content:"";width: 100%;height: 300px;display: block;position: absolute;bottom: 0;left: 0;
-    background-image: url(./img/background_side.png);background-size: contain;background-repeat: no-repeat;
+    .p2_slidBox:before{content:"";width: 100%;height: 300px;display: block;position: absolute;bottom: 0;left: 0;
+    background-image: url(./img/background_side.png);background-size: cover;background-repeat: no-repeat;
     background-position: bottom center;z-index: 22;}
     .p2_slide .item1{background-image: url(./img/mainp2.jpg);background-repeat: no-repeat;
     background-size: cover;}
@@ -106,13 +106,13 @@
     .p4:hover{background-size: 120% 120%;}
     .p3_wrap{width: 80%;margin: 0 auto;}
    
-    .page3{position: relative;}
+    .page3{position: relative;overflow-x: hidden;}
     .page3 ul.p2{text-align-last: left;text-indent: 0;}
     .page3 ul.p2 li h4{text-indent: 0;line-height: 30px;margin-top: 50px;}
     .page3 .p2 p{margin-left: -10px;}
     .page3 .p2 strong{font-size: 2rem;color:rgb(161, 161, 161);line-height: 90px;}
     .more_r{position: absolute;width: 200px;height: 20px;
-        display: block;top:35%;right: 36%;z-index: 55;font-size: 1.5rem;color: #000;}
+        display: block;top:35%;right: 36%;z-index: 55;font-size: 1.5rem;color: #000;transition: 0.8s;}
     .more_r::before{content:"";  margin: -16px -240px;width: 150px;height: 0px;display: block;border: 1px solid #000;transition: 0.9s;}
     .more_r:hover::before{transform: translateX(30px);border:1px solid #ff404f;}
     .page3 .more_r:hover{width: 100px; height: 40px;color: #ff404f;right: 38%;} 
@@ -156,7 +156,7 @@
     .page{width:auto;height: 100vh;}
     .page1{background-size:contain;width:100%;height: 100vh;position: relative;background-size: cover;}
     .page2{background-size:contain;width:auto;height: 40%;} 
-    .page3{background-size:contain;width:auto;height: 110vh;} 
+    .page3{background-size:contain;width:auto;height: 115vh;overflow: hidden;} 
     .page4{background-size:cover;;width:auto;height: 100vh;}  
     .gnb{position: absolute;top: 0;right: -100%;width: 200px;height: 100vh;background-color: #002d40; z-index: 10;transition: 0.5s;}
     .gnb.on{right:0 ;}
@@ -171,54 +171,64 @@
     .video_i{right:-34px;top: 87px;z-index: 22;}
     .video_i .text{margin-top: -10px;}
     .video_i .btn_go{margin-top: -10px;}
-    
-    .p2_slide{width: 200%;height: 100%;overflow: hidden;
-    border-bottom: 1px solid lightgray; overflow-x:hidden;}
-    .p2_slide li{width:50%;height: 100%;float: left;}
-    .p2_slide li.on a{font-size: 0.6rem;margin: 2%;}
-    .p2_slide h5{margin-left: 10px;}   
+        
+    .p2_slidBox:before{height: 100px;}
+    .p2_slide li.on a{font-size: 0.6rem;margin: 2%;}  
     .p2_slide h2 {font-size: 1.2rem;margin-top: 20%;}
-    .p2_sbtn{bottom: 35%;z-index: 30;}
-  
-
-    
-
+    .p2_slide h5{margin-left: 10px;text-indent: 0;}   
+    .p2_sbtn{bottom: 35%;z-index: 30;}  
 
     .page3 ul{width: 300px;height: 220px;float: none;margin: 20px auto;}    
     .page3 ul li{width: 88%;height: 87%;margin: 15px 18px;}
-    .page3 h3{font-size: 1.2rem;padding-top: 30px;}
+    .page3 h3{font-size: 1.2rem;padding-top: 20px;}
     .page3 h6{font-size: 0.8em;}
     #sizP2 {width: 200px;height: 120px;float: left;}    
     #sizP2 li{width: 80%;height: 75%;}
     .page3 .p2{background-color: transparent;width: 350px; padding: 5px 5px;}
     .page3 .p2 strong{font-size: 1.3rem;line-height: 0px;}    
     .page3 .p2 p{margin-left: 0;font-size: 0.9rem;width: 105px;height: 25px;display: inline-block;padding: 3px 12px;}
-    .page3 .p2 li h4{line-height:0px;font-size: 0.9rem;float: left;position: absolute;top: 13%;left: 35px;}
+    .page3 .p2 li h4{line-height:0px;font-size: 0.9rem;float: left;position: absolute;top: 16%;left: 35px;}
     .more_r{width: 100px;height: 20px;
-        top:31%;right: 0%;z-index: 5555;font-size: 1rem;}
+        top:34%;right: 0%;z-index: 5555;font-size: 1rem;}
 
     .p4_txt h3{width: 300px;margin: 0 auto;font-size: 1.4rem;}
     .page4 img{margin-top: 10%;margin-left: 10%;}
     .top{right:8%;z-index: 1;}
     footer{width: 100%;height: 152px;padding: 1%;}
 
-    footer li{font-size: 0.9rem;}
+    footer li{font-size: 0.9rem;margin-top: 5px;}
     .copyright{font-size: 0.9rem;}
 
 
             }
     /* 아이패드 = 태블릿 */
     @media screen and (min-width:768px) and (max-width:959px){
-   
+    .logo{margin-left: -70px;clear: both;}
+    .gnb{margin-left: -110px;margin-top: 30px; float: left;}
+    .gnb li{width: 100px;line-height: 0px;}
+    .gnb li a:before{margin-left: 85px;margin-bottom: -20px;}
+    .hd_lang_box{float: right;margin-right: -50px;}
+
+    .p2_slide h2{text-indent: 0;}
+    .p2_slide h5{text-indent: 0;float: left;width: 400px;margin-left: 0;}
+    .p2_slide .it1{width: 500px;height: auto;text-indent: 0;text-align:left;}
+    .p2_slide .it2{width: 500px;height: auto;display: block;
+    text-indent: 0;text-align:left;} 
+    
+    .page3{width: 100vw; height: 160vh;}
+    .page3 ul{width: 610px;height: 350px;margin: 3% auto;margin-top: 10px;}
+    .page3 ul li{border: 1px solid #fff;width: 93%;height: 88%;text-align: center;margin: 20px 22px;}
+    .more_r{top:45%;}
+    .p4 h6{margin-left: -12px;}
     }
     
     /* 데스크탑 */
-    @media screen and (min-width:960px) and (max-width:1279px){ 
+    /* @media screen and (min-width:960px) and (max-width:1279px){ 
     
 
         
         }
-        
+         */
 
     </style>
 
@@ -285,7 +295,7 @@ $( document ).ready( function() {
         
         </div>
     </header>
-    <a class="top">
+    <a class="top" href="#top">
         <span>TOP</span> </a>   
 
 
@@ -301,27 +311,28 @@ $( document ).ready( function() {
     </a>
 
     <!-- page1 -->
-    <div class="page1 page"></div> 
+    <div class="page1 page" class="top"></div> 
 
     <!-- page2 -->
     <div class="page2 page">
-    <ul class="p2_slide">
-        <li class="item1 on">
-         
-            <a href="" class="it1">
-            <h2>모든 고객들에게 최상의 가치를 제공</h2>
-            <h5>우리는 최상의 가치를 제공하기 위해 다양한 서비스, 혜택, 보상 개발에 최선을 다합니다.</h5>
-            </a>
-         </li>
-        <li class="item2" >
-          
-            <a href=""class="it2">
-                <h2>아메리칸엑스프레스 브랜드의 가치</h2>
-                <h5>아메리칸엑스프레스는 가장 신뢰받는 기업 중 하나로써, 세계적 수준의 서비스를 통해 고객의 기대에 보답하고자 노력합니다.</h5>
-             </a>
-        </li>
-    </ul>
-            
+
+        <div class="p2_slidBox">
+            <ul class="p2_slide">
+                <li class="item1 on">                
+                    <a href="" class="it1">
+                    <h2>모든 고객들에게 최상의 가치를 제공</h2>
+                    <h5>우리는 최상의 가치를 제공하기 위해 다양한 서비스, 혜택, 보상 개발에 최선을 다합니다.</h5>
+                    </a>
+                </li>
+                <li class="item2" >                
+                    <a href=""class="it2">
+                        <h2>아메리칸엑스프레스 브랜드의 가치</h2>
+                        <h5>아메리칸엑스프레스는 가장 신뢰받는 기업 중 하나로써, 세계적 수준의 서비스를 통해 고객의 기대에 보답하고자 노력합니다.</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     <ul class="p2_sbtn">
         <li class="on"></li>
         <li></li>
