@@ -59,11 +59,13 @@ input{display: none;}
 .icon_lst li{float: left;}
 
 
-
 /* 메인 */
-.banner1{width: 375px;height: auto;}
-.banner2{width: 187.5px;float:left;}
-.banner3{width: 187.5px;float: right;}
+.icon_lst{width: 100%;height: 680px;}
+.banner1{width: 100%;height: 374px;background-image: url(./img/mainbanner0.jpg);background-size: contain;background-repeat: no-repeat;background-size: center center;}
+.banner2 {float: left; width: 50%;height: 280px;
+background-image: url(./img/banner2_Y.jpg);background-size: cover;background-repeat: no-repeat;background-size: center center;}
+.banner3 {float: right; width: 50%;height: 280px;
+background-image: url(./img/banner3-1.jpg);background-size: cover;background-repeat: no-repeat;background-size: center center;}
 
 /* sns창 */
 .snsWrap{ position: relative; top: 0;left:0; width: 100%;height: 100vh;background-color: rgba(95, 95, 95,0.9); display: none;   }
@@ -91,16 +93,21 @@ input{display: none;}
 .mv_frame{margin-top:-10px;width: 100%;height: 300px;padding: 5px;clear: both;position: relative;}
 .mv_frame img{margin-top: 20px;width: 98%;height: 250px;z-index: 1;  position: absolute; bottom: 35px;left: 0px;}
 .mv_frame iframe{margin-top: 20px;width: 97%;height: 250px;}
-.mv_frame i{font-size: 4em;color:#fff; position: absolute; bottom: 125px;left: 160px; text-shadow: 3px 2px 2px gray;z-index: 3; }
+.mv_frame i{font-size: 4em;color:#fff; position: absolute; bottom: 135px;left:calc(100% - 230px); text-shadow: 3px 2px 2px gray; z-index: 3; }
 
 
-.ft{width: 100%;height: 80px;background-color: rgb(161, 161, 161);padding: 20px 5px;font-size: 0.8em;text-align: center; margin-top: 10px;}
-.fnb{width: 220px;height: 30px; margin: 0 auto; margin-left: 80px ; }
+.ft{width: 100%;height: 80px;background-color: rgb(43, 43, 43);padding: 20px 5px;font-size: 0.8em;text-align: center; margin-top: 10px;
+color:gray;}
+.fnb{width: 220px;height: 30px; margin: 0 auto; margin-left: 80px;}
+.fnb a{color:gray;}
 .fnb ul:nth-child(1){width: 110px;float: left;}
 .fnb ul:nth-child(2){width: 110px;float:left;}
 .menu_li2:before{content:"|";margin-left: -50px;}
 .copyright{width: 100%;float: left;padding: 5px;}
-.pc{clear: both; width: 100px; height: 20px;border: 1px solid #3f3f3f;background-color: #3f3f3f; border-radius:10px; text-align: center;line-height: 20px; margin-left: 27%;display: block; }
+.pc{clear: both; width: 100px; height: 20px;border: 1px solid #646262;background-color: #524d4d; border-radius:10px; 
+text-align: center;line-height: 20px; margin-left: 27%;display: block;}
+.pc a{color: rgb(231, 230, 230);}
+
 </style>
 
 <script>
@@ -248,30 +255,15 @@ btn.addEventListener("click",function(){
     </header>
 
     <div class="icon_lst">
-     <li class="banner1">
-            <a href="sub1.html"><img src="./img/mainbanner0.jpg" alt="" class="ban1" width="374"> </a>
-        
-
-
-     </li>
-
-     <li class="banner2">
-            <a href="sub2.html"><img src="./img/banner2_Y.jpg" alt="" width="187"  class="ban2"> </a>
-        
-
-
-     </li>
-
-     <li class="banner3">
-           <a href="sub3.html"><img src="./img/banner3-1.jpg" alt="" width="187"   class="ban2"></a> 
-     
-
-
-
-     </li>
-
-
-
+        <a href="sub1.html">
+            <li class="banner1"></li>
+        </a>      
+        <a href="sub2.html">
+                <li class="banner2"> </li>
+            </a>
+        <a href="sub3.html">
+            <li class="banner3"></li>
+        </a>
     </div>
 
     <!-- 영상부분 -->
