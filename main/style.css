@@ -5,7 +5,7 @@
 h1 { 
 	font-family: 'Source Code Pro', sans-serif;
 	position: absolute; bottom: 8%; left:29%; z-index: 3333;
-	transform: rotate(-2deg);
+	transform: rotate(-3deg);
 	font: bold 300% Consolas, Monaco, monospace;
 	border-right: 0.1em solid rgb(0, 0, 0);
 	width: 16.5em; 
