@@ -1,0 +1,19 @@
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 10% { border-color: transparent; } }
+
+h1 { 
+	font-family: 'Source Code Pro', sans-serif;
+	position: absolute; bottom: 8%; left:29%; z-index: 3333;
+	transform: rotate(-2deg);
+	font: bold 300% Consolas, Monaco, monospace;
+	border-right: 0.1em solid rgb(0, 0, 0);
+	width: 16.5em; 
+	width: 51ch;
+	/* margin: 2em 1em; */
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: typing 2s steps(21, end),
+			   blink-caret .5s step-end infinite alternate;
+	
+}
