@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wellcome to bozollo</title>
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/css/default.css">
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/css/bootstrap.min.css?ver=171222">
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/skin/shop/basic/style.css?ver=171222">
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/css/sb-admin.css">
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://newri0807.dothome.co.kr/yc/theme/modernshop/css/jquery.bxslider.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "http://newri0807.dothome.co.kr/yc";
+var g5_bbs_url   = "http://newri0807.dothome.co.kr/yc/bbs";
+var g5_is_member = "1";
+var g5_is_admin  = "super";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+var g5_theme_shop_url = "http://newri0807.dothome.co.kr/yc/theme/modernshop/shop";
+var g5_admin_url = "http://newri0807.dothome.co.kr/yc/adm";
+</script>
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/jquery.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/js/common.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/js/wrest.js"></script>
+<!-- <script src="http://newri0807.dothome.co.kr/yc/js/jquery.menu.js"></script> -->
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/bootstrap.min.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/usualSlider.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/jquery.bxslider.min.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/jquery.slides.min.js"></script>
+<script src="http://newri0807.dothome.co.kr/yc/theme/modernshop/js/jquery.shop.list.js"></script>
+</head>
+<body>
+<div id="hd_login_msg">최고관리자 최고관리자님 로그인 중 <a href="http://newri0807.dothome.co.kr/yc/bbs/logout.php">로그아웃</a></div>
+<!-- 상단 시작 { -->
+<div id="hd">
+    <h1 id="hd_h1">wellcome to bozollo</h1>
+
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+
+    
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+
+    <div id="hd_pops_1" class="hd_pops" style="top:500px;left:120px">
+        <div class="hd_pops_con" style="width:450px;height:100px">
+            <p style="text-align:left;" align="left"><img src="http://newri0807.dothome.co.kr/yc/data/editor/1908/fac5bc94fd627fc4df449098893808bf_1564889117_2395.jpg" title="fac5bc94fd627fc4df449098893808bf_1564889117_2395.jpg" alt="fac5bc94fd627fc4df449098893808bf_1564889117_2395.jpg" /></p>        </div>
+        <div class="hd_pops_footer">
+            <button class="hd_pops_reject hd_pops_1 24"><strong>24</strong>시간 동안 다시 열람하지 않습니다.</button>
+            <button class="hd_pops_close hd_pops_1">닫기 <i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    <div id="hd_pops_2" class="hd_pops" style="top:300px;left:1000px">
+        <div class="hd_pops_con" style="width:350px;height:200px">
+            <p><img src="http://newri0807.dothome.co.kr/yc/data/editor/1908/fac5bc94fd627fc4df449098893808bf_1564888891_7177.jpg" title="fac5bc94fd627fc4df449098893808bf_1564888891_7177.jpg" alt="fac5bc94fd627fc4df449098893808bf_1564888891_7177.jpg" /></p>        </div>
+        <div class="hd_pops_footer">
+            <button class="hd_pops_reject hd_pops_2 24"><strong>24</strong>시간 동안 다시 열람하지 않습니다.</button>
+            <button class="hd_pops_close hd_pops_2">닫기 <i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 -->    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="top-nav">
+            <ul class="top-nav navbar-right">
+                                <li class="login_out to_admin">
+                    <a href="http://newri0807.dothome.co.kr/yc/adm"><i class="fa fa-lock"></i> <b>관리자</b></a>
+                </li>
+                                <li class="login_out">
+                                        <a href="http://newri0807.dothome.co.kr/yc/bbs/logout.php?url=shop"><i class="fa  fa-sign-out fa-fw"></i> 로그아웃</a>
+                                    </li>
+                <li class="dropdown search_top">
+                    <button class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search fa-fw"></i>검색</button>
+                    <div class="dropdown-menu search_div">
+                        <h3>쇼핑몰 검색</h3>
+                        <form name="frmsearch1" action="http://newri0807.dothome.co.kr/yc/shop/search.php" onsubmit="return search_submit(this);" class="input-group">
+                            <label for="sch_str" id="sch_stc_label"><strong class="sound_only">SEARCH</strong></label>
+                            <input type="text" name="q" value="" id="sch_str" required class="form-control search_box">
+                            <span class="input-group-btn"><input type="submit" value="검색" id="sch_submit" class="btn btn-default"></span>
+                        </form>                        
+                        <script>
+                        function search_submit(f) {
+                            if (f.q.value.length < 2) {
+                                alert("검색어는 두글자 이상 입력하십시오.");
+                                f.q.select();
+                                f.q.focus();
+                                return false;
+                            }
+                            return true;
+                        }
+                        $(function() {
+                            var $sch = $('#sch_str');   //검색 input
+                            var $sch_label = $('#sch_stc_label');    //검색 label
+                            if ($sch.attr('value') == "") $sch_label.css('visibility','visible');
+                            else  $sch_label.css('visibility','hidden');
+        
+                            $sch.focus(function() {
+                                $sch_label.css('visibility','hidden');
+                            });
+                            $sch.blur(function() {
+                                $this = $(this);
+                                if ($this.attr('id') == "sch_stc" && $this.attr('value') == "") $sch_label.css('visibility','visible');
+                            });
+                        });
+                        </script>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <h3 class="sound_only">회원메뉴</h3>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell fa-fw"></i> 쇼핑정보 <i class="fa fa-caret-down"></i></a>
+                    <ul class="dropdown-menu open">
+                                                <li><a href="http://newri0807.dothome.co.kr/yc/shop/itemuselist.php"><i class="fa fa-pencil-square-o fa-fw"></i> 상품후기</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/shop/itemqalist.php"><i class="fa fa-comment fa-fw"></i> 상품문의</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/bbs/qalist.php"><i class="fa fa-smile-o fa-fw"></i> 1:1 문의</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/shop/mypage.php"><i class="fa fa-user fa-fw"></i> 마이페이지</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/bbs/member_confirm.php?url=register_form.php"><i class="fa fa-cog  fa-fw"></i> 개인정보수정</a></li>
+                                                <li class="divider"></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/shop/wishlist.php"><i class="fa fa-heart fa-fw"></i> 위시리스트</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/shop/cart.php"><i class="fa fa-shopping-cart fa-fw"></i> 장바구니</a></li>
+                        <li><a href="http://newri0807.dothome.co.kr/yc/shop/orderinquiry.php"><i class="fa fa-truck fa-fw"></i> 배송조회</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-eye fa-fw"></i> 오늘 본 상품  <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-menu message-dropdown today_list">
+                        
+<!-- 오늘 본 상품 시작 { -->
+<aside id="stv">
+    <div id="stv_list">
+        <h2 calss="text-center">오늘 본 상품</h2>
+
+        
+        <!-- <div id="stv_btn"></div> -->
+
+        <ul id="stv_ul">
+<li class="stv_item c1">
+<a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886375"><img src="http://newri0807.dothome.co.kr/yc/data/item/1564886375/thumb-rt12177new_6_1_70x70.jpg" width="70" height="70" alt="WELL DONE BRA TOP"></a><br>WELL DONE 
+</li>
+<li class="stv_item c1">
+<a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886788"><img src="http://newri0807.dothome.co.kr/yc/data/item/1564886788/thumb-rt50710new_6__70x70.jpg" width="70" height="70" alt="pink lovely tops"></a><br>pink lovel
+</li>
+<li class="stv_item c1">
+<a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564887157"><img src="http://newri0807.dothome.co.kr/yc/data/item/1564887157/thumb-rt20961new_1__70x70.jpg" width="70" height="70" alt="slim sleeves"></a><br>slim sleev
+</li>
+</ul>
+
+        <script>
+        $(function() {
+            var itemQty = 3; // 총 아이템 수량
+            var itemShow = 5; // 한번에 보여줄 아이템 수량
+            if (itemQty > itemShow)
+            {
+                $('#stv_btn').append('<button type="button" id="up">이전</button><button type="button" id="down">다음</button>');
+            }
+            var Flag = 1; // 페이지
+            var EOFlag = parseInt(3/itemShow); // 전체 리스트를 3(한 번에 보여줄 값)으로 나눠 페이지 최댓값을 구하고
+            var itemRest = parseInt(3%itemShow); // 나머지 값을 구한 후
+            if (itemRest > 0) // 나머지 값이 있다면
+            {
+                EOFlag++; // 페이지 최댓값을 1 증가시킨다.
+            }
+            $('.c'+Flag).css('display','block');
+            $('#stv_pg').text(Flag+'/'+EOFlag); // 페이지 초기 출력값
+            $('#up').click(function() {
+                if (Flag == 1)
+                {
+                    alert('목록의 처음입니다.');
+                } else {
+                    Flag--;
+                    $('.c'+Flag).css('display','block');
+                    $('.c'+(Flag+1)).css('display','none');
+                }
+                $('#stv_pg').text(Flag+'/'+EOFlag); // 페이지 값 재설정
+            })
+            $('#down').click(function() {
+                if (Flag == EOFlag)
+                {
+                    alert('더 이상 목록이 없습니다.');
+                } else {
+                    Flag++;
+                    $('.c'+Flag).css('display','block');
+                    $('.c'+(Flag-1)).css('display','none');
+                }
+                $('#stv_pg').text(Flag+'/'+EOFlag); // 페이지 값 재설정
+            });
+        });
+        </script>
+
+            </div>
+</aside>
+
+<!-- <script src="http://newri0807.dothome.co.kr/yc/js/scroll_oldie.js"></script> -->
+<!-- } 오늘 본 상품 끝 -->                    <div>
+                </li>
+            </ul>
+        </div> 
+        <!-- 모바일 일 때 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://newri0807.dothome.co.kr/yc/shop/"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/logo.png" alt="logo" /></a>
+        </div>
+        <!-- 메뉴 -->
+        
+<!-- 쇼핑몰 카테고리 시작 { -->
+<nav id="gnb" class="collapse navbar-collapse navbar-ex1-collapse">
+    <h2>쇼핑몰 카테고리</h2>
+    <ul id="gnb_1dul" class="nav navbar-nav">
+                <li class="gnb_1dli active dropdown" style="z-index:998">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=10" class="gnb_1da">Top</a>
+                                </li>
+                <li class="gnb_1dli active dropdown" style="z-index:997">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=20" class="gnb_1da">bottom</a>
+                                </li>
+                <li class="gnb_1dli active dropdown" style="z-index:996">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=30" class="gnb_1da">Outfit</a>
+                                </li>
+                <li class="gnb_1dli active dropdown" style="z-index:995">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=40" class="gnb_1da">Active Wear</a>
+                                </li>
+                <li class="gnb_1dli active dropdown" style="z-index:994">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=60" class="gnb_1da">Plus size</a>
+                                </li>
+            </ul>
+
+    <!-- 디바이스 변동시 바뀌는 메뉴 -->
+    <ul id="device_auto" class="nav navbar-nav">
+                <li class="active dropdown" style="z-index:998">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=10" class="gnb_1da">Top</a>
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-down fa-fw"></i> <span class="sound_only">분류보기</span></button>
+                    </li>
+                <li class="active dropdown" style="z-index:997">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=20" class="gnb_1da">bottom</a>
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-down fa-fw"></i> <span class="sound_only">분류보기</span></button>
+                    </li>
+                <li class="active dropdown" style="z-index:996">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=30" class="gnb_1da">Outfit</a>
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-down fa-fw"></i> <span class="sound_only">분류보기</span></button>
+                    </li>
+                <li class="active dropdown" style="z-index:995">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=40" class="gnb_1da">Active Wear</a>
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-down fa-fw"></i> <span class="sound_only">분류보기</span></button>
+                    </li>
+                <li class="active dropdown" style="z-index:994">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/list.php?ca_id=60" class="gnb_1da">Plus size</a>
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-down fa-fw"></i> <span class="sound_only">분류보기</span></button>
+                    </li>
+            </ul>
+
+    <!-- 사이드 메뉴 -->
+    <aside class="nav navbar-nav side-nav">
+        <div class="shop_nav">
+            <a href="http://newri0807.dothome.co.kr/yc/shop/wishlist.php"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/si_wish.png" alt="위시리스트"><br />위시리스트</a>
+            <a href="http://newri0807.dothome.co.kr/yc/shop/cart.php"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/si_cart.png" alt="장바구니"><br />장바구니</a>
+            <a href="http://newri0807.dothome.co.kr/yc/shop/orderinquiry.php"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/si_deli.png" alt="주문/배송조회"><br />배송조회</a>
+        </div>
+        <a href="#hd" id="top_btn">상단으로</a>
+        <script>
+        $(function() {
+            $("#top_btn").on("click", function() {
+                $("html, body").animate({scrollTop:0}, '500');
+                return false;
+            });
+        });
+        </script>
+    </aside>
+</nav>
+<!-- } 쇼핑몰 카테고리 끝 -->    </header>        
+</div>
+
+<div id="wrapper">    
+<!-- } 상단 끝 -->
+    <!-- 콘텐츠 시작 { -->
+    <div id="container">
+        
+<!-- 메인이미지 시작 { -->
+
+<section id="sbn_idx" class="sbn">
+<h2>쇼핑몰 배너</h2>
+<ul class="bxslider_main">
+<li class="sbn_first">
+<img src="http://newri0807.dothome.co.kr/yc/data/banner/4" width="1922" alt=""></li>
+<li>
+<img src="http://newri0807.dothome.co.kr/yc/data/banner/3" width="1922" alt=""></li>
+<li>
+<img src="http://newri0807.dothome.co.kr/yc/data/banner/2" width="1922" alt=""></li>
+<li>
+<img src="http://newri0807.dothome.co.kr/yc/data/banner/1" width="1619" alt="" class="sbn_border"></li>
+</ul>
+</section>
+
+<script>
+$('.bxslider_main').bxSlider({
+    auto: true,
+    autoControls: true
+});
+</script><!-- } 메인이미지 끝 -->
+
+<!-- 메인 이벤트 시작 { --> 
+<section class="sct_event container">
+    <h2 class="col-lg-12 col-xs-12 text-center">EVENT</h2>
+    
+<aside id="sev">
+    <ul>
+    <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><div class="img-border"><a href="http://newri0807.dothome.co.kr/yc/shop/event.php?ev_id=1564881097" class="sev_img"><img src="http://newri0807.dothome.co.kr/yc/data/event/1564881097_m" alt="event4"></a>
+</div>
+</li>
+<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><div class="img-border"><a href="http://newri0807.dothome.co.kr/yc/shop/event.php?ev_id=1564881018" class="sev_img"><img src="http://newri0807.dothome.co.kr/yc/data/event/1564881018_m" alt="event3"></a>
+</div>
+</li>
+<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><div class="img-border"><a href="http://newri0807.dothome.co.kr/yc/shop/event.php?ev_id=1564880473" class="sev_img"><img src="http://newri0807.dothome.co.kr/yc/data/event/1564880473_m" alt="event2"></a>
+</div>
+</li>
+<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><div class="img-border"><a href="http://newri0807.dothome.co.kr/yc/shop/event.php?ev_id=1564879117" class="sev_img"><img src="http://newri0807.dothome.co.kr/yc/data/event/1564879117_m" alt="event1"></a>
+</div>
+</li>
+    </ul>
+</aside>
+<!-- } 쇼핑몰 이벤트 끝 --></section>
+<!-- } 메인 이벤트 끝 -->
+
+<!-- 히트상품 시작 { -->
+<section class="sct_wrap container">
+    <header>
+        <h2 class="col-lg-12 col-xs-12 text-center"><a href="http://newri0807.dothome.co.kr/yc/shop/listtype.php?type=3">HIT PRODUCT</a></h2>
+    </header>
+    
+<!-- 상품진열 10 시작 { -->
+<ul class="sct sct_10">
+<li class="sct_li col-md-3 col-sm-6 col-xs-6 sct_clear">
+<div class="sct_li_pannel">
+<div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886439" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886439/thumb-rt10429new_2_1_230x230.jpg" width="230" height="230" alt="gray tee">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886439" class="sct_a">
+gray tee
+</a></div>
+<div class="sct_cost">
+23,000원
+</div>
+<div class="sct_basic"></div>
+<div class="sct_wish"><button type="button" class="btn_wish" data-it_id="1564886439">위시</button><span>0</span></div>
+</div>
+</li>
+<li class="sct_li col-md-3 col-sm-6 col-xs-6 ">
+<div class="sct_li_pannel">
+<div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886375" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886375/thumb-rt12177new_6_1_230x230.jpg" width="230" height="230" alt="WELL DONE BRA TOP">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886375" class="sct_a">
+WELL DONE BRA TOP
+</a></div>
+<div class="sct_cost">
+22,000원
+</div>
+<div class="sct_basic"></div>
+<div class="sct_wish"><button type="button" class="btn_wish" data-it_id="1564886375">위시</button><span>0</span></div>
+</div>
+</li>
+<li class="sct_li col-md-3 col-sm-6 col-xs-6 ">
+<div class="sct_li_pannel">
+<div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564885395" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564885395/thumb-rt40503new_21__230x230.jpg" width="230" height="230" alt="half top">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564885395" class="sct_a">
+half top
+</a></div>
+<div class="sct_cost">
+38,000원
+</div>
+<div class="sct_basic"></div>
+<div class="sct_wish"><button type="button" class="btn_wish" data-it_id="1564885395">위시</button><span>0</span></div>
+</div>
+</li>
+<li class="sct_li col-md-3 col-sm-6 col-xs-6 sct_last">
+<div class="sct_li_pannel">
+<div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564879828" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564879828/thumb-rt32542new_6_1_230x230.jpg" width="230" height="230" alt="red top">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564879828" class="sct_a">
+red top
+</a></div>
+<div class="sct_cost">
+32,000원
+</div>
+<div class="sct_basic"></div>
+<div class="sct_wish"><button type="button" class="btn_wish" data-it_id="1564879828">위시</button><span>0</span></div>
+</div>
+</li>
+</ul>
+<!-- } 상품진열 10 끝 --></section>
+<!-- } 히트상품 끝 -->
+
+<!-- 중간 배너 -->
+<section class="sub_bn">
+    <!-- 쇼핑몰 배너 시작 { -->
+    
+<script>
+$(document).ready(function(){
+    $('.bxslider').bxSlider();
+});
+</script>    <!-- } 쇼핑몰 배너 끝 -->  
+</section>
+<!-- 중간 끝 -->
+
+<!-- 인기상품 시작 { -->
+<section class="sct_wrap container">
+    <header>
+        <h2 class="col-lg-12 col-xs-12 text-center"><a href="http://newri0807.dothome.co.kr/yc/shop/listtype.php?type=4">POPULAR PRODUCT</a></h2>
+    </header>
+    
+<!-- 이전 재생 정지 다음 버튼 시작 { -->
+<ul id="btn_smt_4" class="sctrl">
+    <li><button type="button" class="sctrl_play">효과재생<span></span></button></li>
+    <li><button type="button" class="sctrl_stop">효과정지<span></span></button></li>
+</ul>
+<!-- } 이전 재생 정지 다음 버튼 끝 -->
+
+<!-- 상품진열 50 시작 { -->
+<div id="smt_4" class="sct smt_50">
+<ul class="sct_ul sct_ul_first">
+<li class="sct_li" style="width:230px"><div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564887157" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564887157/thumb-rt20961new_1__230x230.jpg" width="230" height="230" alt="slim sleeves">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564887157" class="sct_a">
+slim sleeves
+</a></div>
+<div class="sct_cost">
+18,000원
+</div>
+</li>
+<li class="sct_li sct_last" style="width:230px"><div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886988" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886988/thumb-xt32061new_1_1_230x230.jpg" width="230" height="230" alt="TIE TIE PLUS  BLACK TOP">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886988" class="sct_a">
+TIE TIE PLUS  BLACK TOP
+</a></div>
+<div class="sct_cost">
+28,000원
+</div>
+</li>
+<li class="sct_li sct_last" style="width:230px"><div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886788" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886788/thumb-rt50710new_6__230x230.jpg" width="230" height="230" alt="pink lovely tops">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886788" class="sct_a">
+pink lovely tops
+</a></div>
+<div class="sct_cost">
+32,000원
+</div>
+</li>
+<li class="sct_li sct_last" style="width:230px"><div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886703" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886703/thumb-rt10429new_12_1_230x230.jpg" width="230" height="230" alt="TASTE BACK YARD TOP">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886703" class="sct_a">
+TASTE BACK YARD TOP
+</a></div>
+<div class="sct_cost">
+28,000원
+</div>
+</li>
+<li class="sct_li sct_last" style="width:230px"><div class="sct_img"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886375" class="sct_a">
+<img src="http://newri0807.dothome.co.kr/yc/data/item/1564886375/thumb-rt12177new_6_1_230x230.jpg" width="230" height="230" alt="WELL DONE BRA TOP">
+</a></div>
+<div class="sct_txt"><a href="http://newri0807.dothome.co.kr/yc/shop/item.php?it_id=1564886375" class="sct_a">
+WELL DONE BRA TOP
+</a></div>
+<div class="sct_cost">
+22,000원
+</div>
+</li>
+</ul>
+</div>
+
+<script>
+(function() {
+    var intervals = {};
+
+    var methods = {
+        init: function(option)
+        {
+            if(this.length < 1)
+                return false;
+
+            var $smt = this.find("ul.sct_ul");
+            var $smt_a = $smt.find("a");
+            var count = $smt.size();
+            var height = 0;
+            var c_idx = o_idx = 0;
+            var fx = null;
+            var delay = 0;
+            var el_id = this[0].id;
+
+            $smt.find("li.sct_li").each(function() {
+                var h = $(this).outerHeight(true);
+                if(h > height)
+                    height = h;
+            });
+
+            this.height(height);
+            $smt.height(height);
+
+            // 기본 설정값
+            var settings = $.extend({
+                interval: 6000,
+                duration: 800,
+                delay: 300
+            }, option);
+
+            // 초기실행
+            if(count > 0 && intervals[el_id] == undefined) {
+                $smt.find("li.sct_li").css("top", "-"+height+"px");
+                $smt.eq(0).find("li.sct_li").each(function() {
+                    $(this).delay(delay).animate(
+                        { top: "+="+height+"px" }, settings.duration
+                    );
+
+                    delay += settings.delay;
+                });
+            }
+
+            set_interval();
+
+            $smt.hover(
+                function() {
+                    clear_interval();
+                },
+                function() {
+                    set_interval();
+                }
+            );
+
+            $smt_a.on("focusin", function() {
+                clear_interval();
+            });
+
+            $smt_a.on("focusout", function() {
+                set_interval();
+            });
+
+            function item_drop() {
+                $smt.each(function(index) {
+                    if($(this).is(":visible")) {
+                        o_idx = index;
+                        return false;
+                    }
+                });
+
+                delay = 0;
+
+                $smt.eq(o_idx).css("display", "none");
+                $smt.eq(o_idx).find("li.sct_li").css("top", "-"+height+"px");
+
+                c_idx = (o_idx + 1) % count;
+
+                $smt.eq(c_idx).css("display", "block");
+                $smt.eq(c_idx).find("li.sct_li").each(function() {
+                    $(this).delay(delay).animate(
+                        { top: "+="+height+"px" }, settings.duration
+                    );
+
+                    delay += settings.delay;
+                });
+
+                o_idx = c_idx;
+            }
+
+            function set_interval() {
+                if(count > 1) {
+                    clear_interval();
+
+                    if($("#btn_"+el_id).find("button.sctrl_stop").data("stop") == true)
+                        return;
+
+                    intervals[el_id] = setInterval(item_drop, settings.interval);
+
+                    // control 버튼 class
+                    $("#btn_"+el_id).find("button span").removeClass("sctrl_on").html("")
+                        .end().find("button.sctrl_play span").addClass("sctrl_on").html("<b class=\"sound_only\">선택됨</b>");
+                }
+            }
+
+            function clear_interval() {
+                if(intervals[el_id]) {
+                    clearInterval(intervals[el_id]);
+
+                    // control 버튼 class
+                    $("#btn_"+el_id).find("button span").removeClass("sctrl_on").html("")
+                        .end().find("button.sctrl_stop span").addClass("sctrl_on").html("<b class=\"sound_only\">선택됨</b>");
+                }
+            }
+        },
+        stop: function()
+        {
+            var el_id = this[0].id;
+            if(intervals[el_id])
+                clearInterval(intervals[el_id]);
+        }
+    };
+
+    $.fn.itemDrop = function(option) {
+        if (methods[option])
+            return methods[option].apply(this, Array.prototype.slice.call(arguments, 1));
+        else
+            return methods.init.apply(this, arguments);
+    }
+}(jQuery));
+
+$(function() {
+    $("#smt_4").itemDrop();
+    // 기본 설정값을 변경하려면 아래처럼 사용
+    //$("#smt_4").itemDrop({ interval: 6000, duration: 800, delay: 300 });
+
+    // 애니메이션 play
+    $("#btn_smt_4 button.sctrl_play").on("click", function() {
+        $("#btn_smt_4 button.sctrl_stop").data("stop", false);
+
+        var id = $(this).closest(".sctrl").attr("id").replace("btn_", "");
+        $("#"+id).itemDrop();
+        //$("#"+id).itemDrop({ interval: 3000, duration: 800, delay: 300 });
+    });
+
+    // 애니메이션 stop
+    $("#btn_smt_4 button.sctrl_stop").on("click", function() {
+        if($(this).parent().siblings().find(".sctrl_on").size() > 0) {
+            $(this).parent().siblings().find("span").removeClass("sctrl_on").html("");
+            $(this).children().addClass("sctrl_on").html("<b class=\"sound_only\">선택됨</b>");
+            var id = $(this).closest(".sctrl").attr("id").replace("btn_", "");
+            $("#"+id).itemDrop("stop");
+
+            $(this).data("stop", true);
+        }
+    });
+});
+</script>
+<!-- } 상품진열 50 끝 --></section>
+<!-- } 인기상품 끝 -->
+
+
+<script>
+$(function() {
+    $("#container #top_btn").on("click", function() {
+        $("html, body").animate({scrollTop:0}, '500');
+        return false;
+    });
+});
+</script>
+        <a href="#hd" id="top_btn2">상단으로</a>
+        <script>
+        $(function() {
+            $("#container #top_btn2").on("click", function() {
+                $("html, body").animate({scrollTop:0}, '500');
+                return false;
+            });
+        });
+        </script>
+    </div><!-- } container 끝 -->
+</div><!-- } Wrapper 끝 -->
+
+<!-- 하단 시작 { -->
+<div id="ft">
+    <div id="ft_wr">
+        <h1><a href="http://newri0807.dothome.co.kr/yc/shop/" id="ft_logo">Bozzolo</a></h1>
+        <div id="ft_about" class="col-xs-6 col-sm-3">
+            <h2>ABOUT US</h2>
+            <ul>
+                <li><span>회사명</span> 회사명</li> 
+                <li><span>대표</span> 대표자명</li>
+                <li><span>주소</span> OO도 OO시 OO구 OO동 123-45</li>
+                <li><span>사업자 등록번호</span> 123-45-67890</li>
+            </ul>
+            <ul>
+                <li><span>전화</span> 02-123-4567</li>
+                <li><span>팩스</span> 02-123-4568</li>
+                <li><span>통신판매업신고번호</span> 제 OO구 - 123호</li>
+                <li><span>개인정보관리책임자</span> 정보책임자명</li>
+            </ul>     
+        </div>
+        <div id="ft_link" class="col-xs-6 col-sm-3">
+            <h2>LINK</h2>
+            <ul>
+                <li><a href="http://newri0807.dothome.co.kr/yc/bbs/content.php?co_id=company">회사소개</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/bbs/content.php?co_id=provision">서비스이용약관</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/bbs/content.php?co_id=privacy">개인정보 취급방침</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/bbs/board.php?bo_table=notice">공지사항</a></li>
+            </ul>      
+        </div>
+        <div id="ft_shop" class="col-xs-6 col-sm-3">
+            <h2>SHOP</h2>
+            <ul>
+                <li><a href="http://newri0807.dothome.co.kr/yc/shop/itemuselist.php">상품후기</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/shop/itemqalist.php">상품문의</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/bbs/faq.php">FAQ</a></li>
+                <li><a href="http://newri0807.dothome.co.kr/yc/shop/personalpay.php">개인결제</a></li>
+            </ul>        
+        </div>
+        <div id="ft_customer" class="col-xs-12 col-sm-3">
+            <h2>CUSTOMER</h2>
+            <span class="customer_num">1234-1234</span>
+            <span class="customer_open">월~금 10:00 ~ 18:00 (토/일/공휴일휴무)</span>
+            <span class="customer_ff"><a href="http://newri0807.dothome.co.kr/yc/bbs/qalist.php">1:1문의하기</a></span>
+            <ul class="ft_sns">
+                <li><a href="https://www.facebook.com/"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/sns_fb_s.png" alt="페이스" target="_blank"></a></li>
+                <li><a href="https://twitter.com/"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/sns_twt_s.png" alt="트위터" target="_blank"></a></li>
+                <li><a href="https://www.google.co.kr/?gws_rd=ssl"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/sns_goo_s.png" alt="구글" target="_blank"></a></li>
+                <li><a href="http://www.kakaotalk.com/"><img src="http://newri0807.dothome.co.kr/yc/theme/modernshop/img/sns_kakao_s.png" alt="카카오톡" target="_blank"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="ft_copy" class="col-lg-12 text-center">
+        Copyright &copy; 2001-2015 회사명. All Rights Reserved.
+    </div>
+</div>
+
+
+<script src="http://newri0807.dothome.co.kr/yc/js/sns.js"></script>
+<!-- } 하단 끝 -->
+
+
+<!-- <div style='float:left; text-align:center;'>RUN TIME : 0.056238174438477<br></div> -->
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+</body>
+</html>
