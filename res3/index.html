@@ -30,7 +30,7 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="./common.css" media="all">
     <link rel="stylesheet" href="./mobile.css" media="screen and (max-width:750px)">
-    <!--    <link rel="stylesheet" href="./tablet.css" media="screen and (min-width:751px) and (max-width:1000px)">-->
+    <link rel="stylesheet" href="./tablet.css" media="screen and (min-width:751px) and (max-width:1000px)">
     <link rel="stylesheet" href="./desktop.css" media="screen and (min-width:1001px)">
 
     <!-- jquery 연결 -->
@@ -50,177 +50,7 @@
     <!-- 모든 브라우저 animaition, transition, transform 가능-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
-   <title>대전대학교 둔산한방병원에 오신 것을 환영합니다</title>
-   <style>
-   .top_ban{width: 100%;height: 100px;background-color: #7b658b;}
-   .top_b1{width: 80%;height: 50px;margin: 0 auto;color: #fff;}
-   .logo{float: left;width: 180px;height: 45px;display: block;margin-top: 2px;}
-   .logo img {width:150px;height: 45px;}
-   .top_notice{float: left; width: 500px;height: 100%;line-height: 50px;text-align: center;}
-   .top_notice i {margin-right: 5px;}
-   .top_b1_right{float: right;}
-   .top_b1_right li{float: left;width: 100px;line-height: 50px;}
-   .top_b2{background-image: url(./img/topbanner.jpg);width: 100%;height: 50px;background-position: center center;
-    background-repeat: no-repeat;background-size: cover;}
-  .top_b2 h4{text-align: center;line-height: 50px;color: #722681;background-color:rgba(255, 255, 255, 0.6);
-  height: 100%;width: 800px;margin: 0 auto; padding-right: 100px;}
-  .top_b2 h4::before{content: ""; width: 50px;height: 50px;display: block;float: left;
-  margin-left: 150px;background-image: url(./img/logo_mi.png);background-size: contain;margin-right: -80px;}
-  .top_b2 strong{color: #a37fb4;}
-
-  .top_menu{width: 80%;height: 80px;margin:0 auto;padding: 1%;}
-  .top_menu_left{float: left;width: 30%;margin-top: 20px;margin-left: 5%;}
-  .top_menu_left li{float: left;width: 100px;}
-  .lang_sel{border:1px solid rgb(179, 179, 179);width: 100%;height: 20px;text-align: center;color:#fff;line-height: 20px;}
-  .lang{opacity: 0;margin-top: 2px;width:100%;height: 20px;line-height: 25px;text-align: center;background-color: #a37fb4;border: 1px solid rgb(179, 179, 179); }
-  .lang_sel:hover .lang{opacity: 1;}
-  
-  .top_menu_left > li::after{content:"|";padding-left: 20px;}
-  .top_menu_left > li:last-child::after{content: none;} 
-  .main_logo{width: 200px;height: 70px;display: block; margin: 0 auto;}
-  .main_logo img{width: 200px;height: 70px;}
-
-  .gnb{width: 100%;height: 50px;border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;position: absolute;top: 200px;left: 0;  z-index: 333;background-color: #fff;}
-  .gnb > ul{width: 80%;height: 100%;margin: 0 auto;line-height: 50px;padding-left: 120px;}
-  .gnb li{float: left;height: 100%;width: 15%;text-align: center;border-left: 1px solid lightgray;}
-  .gnb li:last-child{border-right: 1px solid lightgray;}  
-  .gnb li{font-weight:bold;font-size: 1.3rem;}
-  .gnb li a{color: #000;}
-  .sub_menu{width: 100%;height: 280px;text-align: center;background-color: hsla(192, 33%, 84%, 0.8);
-  opacity: 0;transition: 0.5s;border-right:1px solid rgb(160, 159, 159);border-left:1px solid rgb(160, 159, 159);
-  }
-  .sub_menu:before{content:"";position: absolute;top:50px;left:0;width: 253px;height: 280px;background-color: hsla(192, 33%, 84%, 0.5);z-index: 333;}
-  .sub_menu:after{content:"";position: absolute;top:50px;right:0;width: 278px;height: 280px;background-color: hsla(192, 33%, 84%, 0.5);z-index: 333;}
-    
-  .sub_menu li{float: left;width: 100%;height: 40px;margin: 0 auto;}
-  .sub_menu li a{font-size: 1rem;font-weight: normal;}
-  .gnb:hover .sub_menu{opacity: 1;}
-  .sub_menu li:hover a{color:#722681;font-weight: bold; }
-   
-
-  main{width: 100%;height: auto;overflow: hidden;}
-  
-  .slide{width: 100%;position: relative;height: 400px;overflow: hidden;}
-  .sl_ul{width: 200%;height: 400px;position: absolute;} 
-  .sl_ul li{width: 50%;height: 400px;position: absolute;}
-  .sl_ul li img{width: 100%;height: 400px;}
-  .slide_btn{width: 200px;height: 20px;position: relative;float: right;}
-  .slide_btn li{width: 40px;height: 20px;background-color: #fff;
-  border: 1px solid #645070;}
-  .dp1{position:absolute; bottom: 55%; right: 30px; z-index: 11;}
-  .dp2{position:absolute; bottom: 55%; right: 80px; z-index: 11;}
-  .slide_btn li.on{background-color: #645070;}
-
-  .mainpmenu{width: 100%;height: 150px;margin: 0 auto;position: relative;}
-  .mainpmenu ul{width: 75%;margin: 0 auto;}
-  .mainpmenu li{width: 350px;height: 100%;float: left;text-align: left;line-height: 150px;text-indent: 10%;}
-  .mainpmenu li:nth-child(1){background-color: #fc366c;}
-  .mainpmenu li:nth-child(2){background-color: #2a8a8e;}
-  .mainpmenu li:nth-child(3){background-color: #f89501;}
-  .mainpmenu li:nth-child(4){background-color: #7b658b;}
-  .mainpmenu li:nth-child(1) a:after{content: ""; width: 60px;height: 60px;display: block;margin-left: 20px;position: absolute;top: 80px;left:500px;
-  background-image: url(./img/ico_qmenu1.png);background-size: contain;}
-  .mainpmenu li:nth-child(2) a:after{content: ""; width: 60px;height: 60px;display: block;margin-left: 20px;position: absolute;top: 80px;left:850px;
-  background-image: url(./img/ico_qmenu2.png);background-size: contain;}
-  .mainpmenu li:nth-child(3) a:after{content: ""; width: 60px;height: 60px;display: block;margin-left: 20px;position: absolute;top: 80px;right:290px;
-  background-image: url(./img/ico_qmenu4.png);background-size: contain;}
-  .mainpmenu li:nth-child(4) a:after{content: ""; width: 60px;height: 60px;display: block;margin-left: 20px;position: absolute;top: 80px;right:640px;
-  background-image: url(./img/ico_qmenu5.png);background-size: contain;}
-  .mainpmenu li a{color:#fff;font-weight: bold;font-size: 1.5rem;}
-
-  .left{width: 50%;float: left;height: 800px;background-color: rgb(218, 236, 235);}
-  .left ul{width: 70%;height: 80%; float: right;margin: 5% 5%;}
-  .left ul h3 > i{float: right;margin-top:20px;font-size: 3rem;}
-  .left ul li{width: 100%;height: 100px;background-color: #fff;margin-bottom: 5px;}
-  .left ul h3{text-align: center;}
-  .left ul .uti{padding: 10px 20px;}
-  .left ul .date{float: right;}
-  .left .tit{padding: 4px 20px;}
-  .tit div{float: left;}
-  .tit .mBtn{float: right;width: 100px;height: 50px;background-color:rgb(101, 101, 184);text-align: center;line-height: 50px;color: #fff;}
-  .ti{font-size: 1.3rem;font-weight: bold;color: #000;}
-  .div{width: 100px;height: 20px;border:1px solid rgb(168, 168, 168); background-color: #fff;padding: 2px;color:rgb(221, 176, 29);}
-  .date{color: gray;}
-  
- 
-
-  .right{width: 50%;float: right;height: 800px;background-color: rgb(232, 222, 240);}
-  .right ul h3 i{float: right;margin-top:20px;font-size: 3rem;}
-  .right ul{width: 70%;height: 80%; float: left; margin: 5% 5%;}
-  .right ul li{width: 100%;height: 100px;background-color: #fff;margin-bottom: 5px;}
-  .right ul h3{text-align: center;}
-  .right ul .uti_r{padding: 10px 20px;}
-  .right ul .date_r{float: right;}
-  .right .tit_r{padding: 4px 20px;}
-  .tit_r div{float: left;}
-  .tit_r .mBtn_r{float: right;width: 100px;height: 50px;background-color:rgb(101, 101, 184);text-align: center;line-height: 50px;color: #fff;}
-  .ti_r{font-size: 1.3rem;font-weight: bold;color: #000;}
-  .div_r{width: 100px;height: 20px;border:1px solid rgb(168, 168, 168); background-color: #fff;padding: 2px;color:rgb(221, 176, 29);}
-  .date_r{color: gray;}
-
-  .lastpart{width: 85%;height: 500px;margin: 0 auto;clear: both;margin-left: 12%;}
-  .lastpart > div{float: left;border-right: 1px solid lightgray;width: 30%;height:100%;margin: 0 auto;}
-  .lastpart > div h4{text-align: center;margin-top: 50px;margin-right: 5%;}
-  .service{border-left: 1px solid lightgray;height: 500px;}
-  .service_list{width: 80%;background-color: #fff;margin: 0 auto;}
-  .service_list li{width: 43%; height: 100px;float: left;text-align: center;background-color: lightgray;line-height: 150px;margin: 2%;}
-  .service_list li a{font-size: 1.1rem; font-weight: 700;color: #000;}
-  #long_list{width: 90%;height: 100px;}
-  
-  .service_list li:nth-child(1){background-image: url(./img/ico_service1.png);background-position: center 10px;background-size: 60px 60px;background-repeat: no-repeat;}
-  .service_list li:nth-child(2){background-image: url(./img/ico_service2.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
-  .service_list li:nth-child(3){background-image: url(./img/ico_service3.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
-  .service_list li:nth-child(4){background-image: url(./img/ico_service4.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
-  .service_list li:nth-child(5){background-image: url(./img/ico_service5.png);background-position: center 10px;background-size: 60px 50px;background-repeat: no-repeat;}
-
-  .pop_slid{position: relative;overflow: hidden;width: 70%;height: 200px;margin: 0 auto;margin-left: 15%;}
-  .pops_ul{position: absolute;width: 240%;height: 200px;}
-  .pops_ul li{float: left;width:43%;height:200px;}
-  .pops_ul img{width:100%;height:200px;}
-  .btn_pop {width: 100px;height: 20px;margin: 10px auto;position: relative;}
-  .btn_pop span{width: 20px;height: 20px;border-radius: 20px; border:1px solid #000;}
-  .btn_pop span.on{background-color: #000;}
-  .btnP1{position: absolute;bottom: 0;left: 0px;}
-  .btnP2{position: absolute;bottom: 0;left: 40px;}
-  .btnP3{position: absolute;bottom: 0;left: 80px;}
-
-  .b_notice{width: 100%;position: relative;}
-  .b_notice h4:after{content: "";width: 40px;height: 40px; display: block;position: absolute;top: 60px;right: 60px;background-image: url(./img/more.png);background-position: center center; background-size: contain;background-repeat: no-repeat;}
-  .b_notice ul{margin: 0 auto;width: 80%;margin-left: 10%;}
-  .b_notice li{float: left;width: 30%;margin: 0 auto;height: 100px; background-color: lightgray; text-align: center;line-height: 170px;margin-left: 10px;}
-  .b_notice li a{font-size: 1.1rem; font-weight: 700;color: #000;}
-  .b_notice li:nth-child(1){background-image: url(./img/last_ico1.png);background-position: center 10px;background-size: 60px 60px;background-repeat: no-repeat;}
-  .b_notice li:nth-child(2){background-image: url(./img/last_ico2.png);background-position: center 10px;background-size: 60px 60px;background-repeat: no-repeat;}
-  .b_notice li:nth-child(3){background-image: url(./img/last_ico3.png);background-position: center 10px;background-size: 70px 60px;background-repeat: no-repeat;}
-  .lastpart > div:last-child:after{content: "";width: 50px;height: 50px;display: block; margin: 67% 102%;background-image: url(./img/ico_top.png);background-position: center center; background-size: contain;}
-  
- .btsl_vl{width: 100%;border-top:1px solid rgb(168, 168, 168);height: 1px;position: absolute;}
-  .bottom_slide{width:1440px; height: 60px; position: relative;overflow: hidden;margin: 0 auto;}
-  .bottom_slide .bts_ul{width: 1440px; position: absolute;height: 100%;left: 10%;top: 5px; text-align: center;margin-left: -160px; }
-  .bts_ul li{float: left;width: 25%;height:60px;}
-  .bts_ul li img{width: 200px;height: 60px;}
-
-  .bs_btn{position: relative;}
-  .bs_prev{font-size: 2.8rem;color: gray;
-  cursor: pointer;display: block;position: absolute;bottom: 2px;left: 10%;z-index: 3333;}
-  .bs_next{font-size: 2.8rem;color: gray;
-  cursor: pointer;display: block; position: absolute;bottom: 2px;right: 10%;z-index: 3333;}
-  
-  footer{width: 100%;height: auto;clear: both;}
-  .ft1{width: 100%; height: 80px;background-color: #574764;}
-  .ft1 ul{width: 60%;margin: 0 auto;margin-left: 30%;}
-  .ft1 ul li{float: left;width: 18%;line-height: 80px;}
-  .ft1 ul li a{color: #fff;font-size: 1.2rem;}
-  .ft1 ul li:after{content: "|";color: rgba(203, 203, 203, 0.5);font-size: 1.5rem;margin-left:40px;}
-  .ft1 ul li a:hover{color:lightslategray;}
-  .ft1 ul li:last-child:after{content: none;}
-  .ft1 ul li:last-child{margin-left: -20px;}
-  
-  .ft2{width: 100%;height: 100px;background-color: #7a6a86;padding: 1%;}  
-  .ft_logo{float: left;width: 200px;display: block;height: 40px;margin-left: 10%;}
-  .middle span{float: left;width: 62%;text-align: center;height: 20px;line-height: 60px;color: #b1aaaa;font-size: 1.2rem;} 
-  /* .mark{float:right;margin-top: -20px;margin-right: 10%;} */
-   </style>
+   <title>대전대학교 둔산한방병원에 오신 것을 환영합니다</title>  
    <script>
   //첫번째 자동슬라이드
   $(document).ready(function(){      
@@ -327,6 +157,23 @@ $(document).ready(function(){
             $(".bts_ul").not(":animated").animate({"margin-left":"0px"},1000);
         }
 
+       $("#toggle").click(function(){
+         $(".top_menu_left").toggleClass("on"); 
+        $(".gnb").toggleClass("on");  
+       }); 
+
+        //네브메뉴 펼침효과
+        $(".gnb li").click(function(){
+            $(".sub_menu").toggleClass("on");
+      
+        });
+
+        $("#close").click(function(){
+          $(".top_menu_left").toggleClass("on"); 
+          $(".gnb").toggleClass("on");  
+      
+        });
+
     });
   
   
@@ -337,8 +184,7 @@ $(document).ready(function(){
    </script>
 </head>
 <body>
-  <div class="top_ban">
-    
+  <div class="top_ban">    
         <div class="top_b1">
          <a href="" class="logo"><img src="./img/logo_w_07.png" alt=""></a>
          <div class="top_notice"> <i class="xi-bell"></i>'대전대 둔산한방병원' 2,3인실 입원비 건강보험 적용!</div>
@@ -357,21 +203,22 @@ $(document).ready(function(){
   <header>
     <div class="top_menu">
       <ul class="top_menu_left">
-        <li><a href="">로그인</a></li>
+        <li><a href=""><i class="xi-user-o mo"></i> 로그인</a></li>
         <li><a href="">회원가입</a></li>
-        <li><a href="">고객센터</a></li>
+        <li><a href="">고객센터</a><i class="xi-close-thin" id="close"></i></li>
         <li class="lang_sel"><a href=""> 언어선택<i class="xi-caret-down-min"></i></a>
         <ul class="lang">
           <li>ENGLISH</li>
         </ul>
       </li>
       </ul> 
+      <i class="xi-bars mo" id="toggle"></i>
       <a href="" class="main_logo"><img src="./img/logo_0_03.png" alt=""></a>
     </div>
 
     <nav class="gnb">
            <ul>
-             <li><a href="">둔산한방병원소개</a>
+             <li><a>둔산한방병원소개</a>
               <ul class="sub_menu">
                 <li><a href="">의료진소개</a></li>
                 <li><a href="">진료안내</a></li>
@@ -380,14 +227,14 @@ $(document).ready(function(){
                 <li><a href="">병원소식</a></li>
               </ul>
             </li>
-             <li><a href="">예약/조회 </a>
+             <li><a>예약/조회 </a>
               <ul class="sub_menu">
                   <li><a href="">진료예약조회</a></li>
                   <li><a href="">온라인예약 </a></li>
                   <li><a href="">건강상담</a></li>                 
                 </ul>
             </li>
-             <li><a href="">의학정보</a>
+             <li><a>의학정보</a>
               <ul class="sub_menu">
                   <li><a href="">건강삼담</a></li>
                   <li><a href="">질환상식 </a></li>
@@ -397,7 +244,7 @@ $(document).ready(function(){
                   <li><a href="">한의학계 소식</a></li>                  
                 </ul>
             </li>
-             <li><a href="">종합안내</a>
+             <li><a>종합안내</a>
               <ul class="sub_menu">
                   <li><a href="">동서암센터</a></li>
                   <li><a href="">호흡기면역센터</a></li>
@@ -407,14 +254,14 @@ $(document).ready(function(){
                   <li><a href="">심신의학센터</a></li>                                    
                 </ul>        
             </li>
-             <li><a href="">고객서비스</a>
+             <li><a>고객서비스</a>
               <ul class="sub_menu">
                   <li><a href="">칭찬합시다</a></li>
                   <li><a href="">고객의 소리 </a></li>
                   <li><a href="">지역사회유대</a></li>                                                
                 </ul>           
             </li>
-             <li><a href="">병원둘러보기</a>
+             <li><a>병원둘러보기</a>
               <ul class="sub_menu">
                   <li><a href="">찾아오는길</a></li>
                   <li><a href="">편의시설 </a></li>
@@ -572,9 +419,9 @@ $(document).ready(function(){
   </ul> 
   </div>
 
-<div class="popup">
+<div class="popup"> 
     <h4>팝업존</h4> 
-  <figure class="pop_slid">
+  <figure class="pop_slid">      
     <ul class="pops_ul">
     <li class="pop1"><img src="./img/slide_bottom1.jpg" alt=""></li> 
     <li class="pop2"><img src="./img/slide_bottom2.jpg" alt=""></li>
