@@ -18,7 +18,7 @@
     <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
     <link rel="manifest" href="./manifest.json">
     <!-- 폰트링크 -->
-    <link href="https://fonts.googleapis.com/css?family=Kanit|Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Sunflower:300&display=swap" rel="stylesheet">
     <!-- 아이콘 폰트 링크(xeicon) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->   
@@ -42,6 +42,9 @@
     <script src="./bootstrap.min.js"></script>
     <title>portfolio</title>   
     <style>
+    body,html{
+      font-family: 'Kanit','Sunflower', sans-serif;
+    }
     a{color: #000;}    
     .container{width: 100%;height:100vh;background-image: url(./img/bg.jpg);background-size: cover;background-repeat: no-repeat;position: relative;}
     main{width: 80%;height: 80vh;background-image: url(./img/bg2.jpg);background-size: cover;background-repeat: no-repeat;
@@ -69,8 +72,8 @@
     .intro .myself{float: left; width: 40%;}
     .right_in{float: left;width: 40%;height: 100%;margin-top: -44px;}
     .right_in h4{font-size: 2em;text-indent: 0;}
-    .bot_in{float: left;width: 50%;word-break: break-all;margin-top: 10px;margin-bottom: 30px;}
-    .me{float: right; margin-right: -20px; margin-top: -29px;}
+    .bot_in{float: left;width: 50%;word-break: break-all;margin-top: 10px;margin-bottom: 30px;letter-spacing:-1px;}
+    .me{float: right; margin-right: -10px; margin-top: -29px;}
     .bot_in2{margin-top: 0px;}
     
 
@@ -297,8 +300,8 @@
                  <div class="barWrapper">
                   <span class="progressText"><B>JQUERY</B></span>
                  <div class="progress">
-                   <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="25%"> </span>  
+                   <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="55%"> </span>  
                    </div>
                  </div>
                  </div>
@@ -390,7 +393,7 @@
     </div>
 
 <div class="cursor">
-  <img src="./img/hand.gif" alt="" width="150" height="150">
+  <img src="./img/cursor1.gif" alt="" width="150" height="150">
 </div>
 
  </div>
