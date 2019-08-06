@@ -57,9 +57,9 @@ input{display: none;}
 .slide_btn li{width: 15px;height: 15px;background-color: #fff;
   float: left;border-radius: 15px;margin-left: 5px; border: 1px solid rgb(18, 73, 105);}
 .slide_btn li.on{background-color: rgb(8, 29, 41);}
-.slbt1{right: 25px;position: absolute; top:80%;}
+.slbt1{right: 65px;position: absolute; top:80%;}
 .slbt2{right: 45px;position: absolute; top:80%;}
-.slbt3{right: 65px;position: absolute; top:80%;}
+.slbt3{right: 25px;position: absolute; top:80%;}
 
 .p1_btn{position: absolute;bottom: -350px;right: 20px;}
 .p1_btn button{float: left;background-color: rgb(85, 65, 43); 
