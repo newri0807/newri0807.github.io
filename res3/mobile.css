@@ -1,5 +1,5 @@
 @charset "utf-8";
-body{overflow-x: hidden;}
+body,html{overflow-x: hidden;}
 .page{overflow-x: hidden;}
 .mo{display: block;}
 .desk{display: none;}
@@ -51,7 +51,7 @@ opacity: 0;transition: 0.5s;border-right:1px solid rgb(160, 159, 159);border-lef
 .sub_menu li:hover a{color:#722681;font-weight: bold; }
 
 
-main{width: 100%;overflow: hidden;}
+main{width: 100%;overflow: hidden;overflow-x: hidden;}
 .slide{width: 100vw;position: relative;height: 300px;overflow: hidden;}
 .sl_ul{width: 200%;height: 300px;position: absolute;} 
 .sl_ul li{width: 50%;height: 300px;position: absolute;}
