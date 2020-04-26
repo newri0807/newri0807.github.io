@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="riuwoodcraft">
+    <meta name="keyword" content="riuwoodcraft, 리우목공방, 공방, 목가구, 가구">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to riuwoodcraft">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Kanit|Noto+Sans+KR&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Sunflower:300&display=swap" rel="stylesheet">
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->   
+    <!-- css 연결 -->
+    <!-- <link rel="stylesheet" href="./common.css" media="all"> -->
+    <link rel="stylesheet" href="./circle.css">  
+    <!-- 서브페이지 타이포 효과 -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./ef3.css">   
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>   
+        <title>Here is subpage in newl's portfolio</title>
+        <style>
+        * { margin: 0; padding: 0; }
+        body, html { width: 100%; -ms-overflow-style: none;
+            font-family: 'Source Code Pro','Sunflower', monospace, sans-serif;}
+        ::-webkit-scrollbar { display:none; }
+        ul { list-style: none; }
+        a { text-decoration: none; color: #000;}
+        button, input { outline: 0; border:0; background-image:none;
+        background-color:transparent; }
+        
+
+        .typo{animation-name: typo; animation-duration: 90s; animation-iteration-count: infinite; stroke-dasharray: 2500;}
+            @keyframes typo{
+                    0% {stroke-dashoffset:2500;}
+                    100% {stroke-dashoffset:0;}
+            }
+        
+        .page { width: 100%; clear:both; position:relative; overflow:scroll;height: auto;} 
+        #wrap{position: absolute;top: 0;left: -100%;width: 100%;height: 1200px;transition: 2s; border-top: 2px solid #000;z-index: 33;}    
+        #wrap.on{top: 0;left: 0;}
+        .circles{position: fixed; bottom: -100%;left: 2%;width: 100%;height: 100px;transition: 2s;z-index: 33;} 
+        .circles.on{bottom: 25%;}  
+        #page3 {background-color:#fff;background-image: url(./img/bg4.png);background-repeat: no-repeat;background-position: left bottom;
+            transition: 2s;opacity: 0; width: 100%; height: 100vh; background-size: contain;
+        }
+        #page3.on{opacity: 1;}      
+        .bg1{background-image: url(./img/stripes1.png);width: 400px;height: 400px;background-size: contain;background-repeat: no-repeat;
+        position: absolute;bottom: -110vw;right: 0%;
+        transition: 1.4s;}
+        .bg1.on{bottom: 58%;right: 1%;}
+        .page_con { clear:both; width:100vw; height:100vh;margin-top: 500px; }    
+        .pg_tit { line-height:5; text-align:center; color:#000;margin-left: -3%;margin-bottom: 11%;height: 300px;}
+        .data { width:1100px; margin: 400px auto; overflow-x:hidden;}
+        .data li { float:left; margin:0.8rem 1.5rem; overflow-x:hidden; }
+        .data li a { display:block; opacity:0; transition:0.6s; 
+        overflow-x:hidden; }
+        .data.on li a { opacity:1; } 
+        .data li.it1 a { transition-delay:0.1s; }
+        .data li.it2 a { transition-delay:0.3s; }
+        .data li.it3 a { transition-delay:0.5s; }
+        .data li.it4 a { transition-delay:0.7s; }
+        .data li.it5 a { transition-delay:0.9s; }
+        .data li.it6 a { transition-delay:1.1s; }
+        .data li.it7 a { transition-delay:1.3s; }
+        .data li.it8 a { transition-delay:1.5s; }
+        .data li.it9 a { transition-delay:1.7s; }
+        .data li.it10 a { transition-delay:1.9s; }
+        .data li.it11 a { transition-delay:2.1s; }
+        .data li.it12 a { transition-delay:2.3s; }
+        .it_tit { color:#333; line-height:3;text-align: center; }
+        .it_com { color:#333; padding:0.5rem; padding-left:0; }
+    
+        .data.item2 li a { opacity:1; width:0; }
+        .data.item2.on li a { opacity:1; width:auto;  }
+    
+        .data.item3 li a { opacity:1; margin-left:-1200px; }
+        .data.item3.on li a { margin-left:0; }
+    
+        .data.item4 { width:1200px; }
+        .data.item4 li { margin:0; }
+        .data.item4 li a { opacity:0; transform:scale(3); box-sizing:border-box; }
+        .data.item4.on li a { opacity:1; transform:scale(1); }
+    
+        .data.item5 li a { opacity:0;  transform:rotateY(180deg)}
+        .data.item5.on li a { opacity:1;  transform:rotateY(0deg); }
+    
+        .data.item6 li a { opacity:0; transform:skewX(180deg); }
+        .data.item6.on li a { opacity:1; transform:skewX(0deg); }
+    
+        .data.item7 li { perspective:200px; transform-style: preserve-3d; }
+        .data.item7 li a { opacity:0; transform:rotateY(90deg); 
+        transform-origin:0% 50%; }
+        .data.item7.on li a { opacity:1; transform:rotateY(0deg); }
+    
+        .data.item8 { width:100%; transform:rotateY(180deg); transition:1s; 
+        transition-delay:2s; }
+        .data.item8 li { width:20%; margin:0; padding:0; min-height:150px;
+        transform-style: preserve-3d; position:relative; overflow:visible; 
+        perspective:100px; }
+        .data.item8 li a { width:100%; transform:scale(2) translateZ(300px) skewY(45deg);
+        transform-origin:0% 50%; position:absolute; top:0; left:0; opacity:0; }
+        .data.item8 li a img { display:block; width:100%; }
+        .data.item8 li.it1 a, .data.item8 li.it6 a, .data.item8 li.it11 a { transition-delay:0.2s; }
+        .data.item8 li.it2 a, .data.item8 li.it7 a, .data.item8 li.it12 a { transition-delay:0.5s; }
+        .data.item8 li.it3 a, .data.item8 li.it8 a, .data.item8 li.it13 a { transition-delay:0.8s; }
+        .data.item8 li.it4 a, .data.item8 li.it9 a, .data.item8 li.it14 a { transition-delay:1.1s; }
+        .data.item8 li.it5 a, .data.item8 li.it10 a, .data.item8 li.it15 a { transition-delay:1.4s; }
+        #page8 { overflow:visible; perspective:500px; }
+        .data.item8.on { transform:rotateY(0deg); }
+        .data.item8.on li { perspective: 0px; }
+        .data.item8.on li a { transform:scale(1) translateZ(0px) skewY(0deg);  opacity:1; }
+        
+        .it{position: relative;transition: 0.8s;width: 500px;height: 500px;border:1px solid rgb(128, 128, 128);background-color: #fff;}
+        .it a:hover:before{opacity: 0;}
+        .it a::before{content:""; width: 500px;height: 400px;background-color: rgba(54, 54, 54, 0.7);display: block;
+         position: absolute;top: 0;left: 0;z-index: 2222;opacity: 1;}
+        .it::before{content: "scrolling ▼"; width: 500px;display: block; text-indent: 20px;font-size: 30px;position: absolute;top: 20%;z-index: 11111;
+        color:#fff; text-align: center;opacity: 1;transition: 0.8s;}    
+        .it:hover::before{opacity: 0;}
+       
+      
+        .mtag{width: 100px; height: 20px;display: block;text-align: center;margin-left: 44px;}
+        .mtag::before{content: ""; width: 0;height: 10px;background-color: rgba(128, 0, 128, 0.164);transition: 1s;
+        display: block;position: absolute;transform:rotate(-10deg); left:13px;}
+        a:hover .mtag:before{width: 80px;height: 20px;}
+
+        .rtag{width: 150px; height: 30px;display: block;text-align: center;margin-left: -14px;}
+        .rtag::before{content: ""; width: 0;height: 10px;background-color: rgba(185, 103, 27, 0.4);transition: 1s;
+        display: block;position: absolute;transform:rotate(-10deg); left:13px;}
+        a:hover .rtag:before{width: 100px;height: 20px;}
+
+        .pctag{width: 150px; height: 30px;display: block;text-align: left;}
+        .pctag::before{content: ""; width: 0;height: 10px;background-color: rgba(35, 180, 156, 0.4);transition: 1s;
+        display: block;position: absolute;transform:rotate(-10deg); left:3px;}
+        a:hover .pctag:before{width: 80px;height: 20px;}     
+        #longtxt{line-height: 40px;}
+
+        /* 써클버튼효과 */
+        .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
+        .cir1{position: absolute;top: -62%;right: 230px;transition: 0.7s;z-index: 9;}
+        .cir2{position: absolute;top: -44%;right: 230px;transition: 0.7s;z-index: 9;}
+        .cir3{position: absolute;top: -26%;right: 230px;transition: 0.7s;z-index: 9;}
+        .cirwrap svg{padding: 3% 13.5%;}
+                
+        .ci1 {stroke-width:2px; fill:transparent; stroke-dashoffset: 500; stroke-dasharray:500; 
+        transition:0.5s; stroke:#333;}
+        .cir.on .ci1 { stroke-dashoffset: 0; } 
+        /* @keyframes ani2 {
+            0%{fill:transparent; stroke-dashoffset: 500; }
+            20%{fill:transparent;}
+            60%{fill:transparent;}
+            80%{fill:transparent; stroke-dashoffset: 0;}
+        }    */        
+       .subSmenu{position: fixed; bottom: 4%; width: 400px;height: 250px;
+       z-index: 99999; right: 0%;}
+       .snslist li{height: 48px; cursor: pointer;width: 100%;}
+       .snslist li a{height: 28px;width: 50%;display: block;}
+       .snslist li strong{transition: 0.4s; margin-left: 50px;}
+
+       .dscrip{width: 80%;margin:0 auto;}
+       .dscrip strong{margin-right: 10px;}
+
+
+
+        /*1260이하 시작 */
+        @media screen and (max-width:1260px){ 
+        #page3 { background-size: cover;}
+        .circles{z-index:0;} 
+        .page_con {margin-top: 300px;}    
+
+        /* 타이포 효과 */
+        .pg_tit{margin-left: 0%;margin-bottom: 60%;}
+        .pg_tit h1{font-size: 2pt}
+
+        .data { width:100%; margin: 200px auto; overflow-x:hidden;}
+        .data li { float:left; margin:0.8rem 1rem; overflow-x:hidden; width: 400px;}
+        .it::before{ width: 400px;} 
+
+        .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
+        .circles{position: fixed; left: 70%;bottom: 680px;z-index: 4444;} 
+        .circles img{width:405px;height: auto;}
+        .circles.on{bottom: 35%;} 
+
+        .cir1{right: 220px;}
+        .cir2{top: -34%;right: 220px;}
+        .cir3{top: -16%;right: 220px;}
+
+        }
+
+        /* 반응형웹 설정 */
+        /*2560이하 시작 */
+        @media screen and (max-width:2560px){
+        .cir1{top: -55%;right: 260px;}
+        .cir2{top: -33%;right: 260px;}
+        .cir3{top: -11%;right: 260px;} 
+        }
+
+        /*1024이하 시작 */
+        @media screen and (max-width:1024px){
+        .data { margin-left: 40px;}
+        .data li { float:left; margin:3rem 1rem; overflow-x:hidden; width: 450px;}
+        .it::before{ width: 400px;} 
+
+        .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
+        .circles{position: fixed; left: 64%;bottom: 680px;z-index: 4444;} 
+        .circles img{width:405px;height: auto;}
+        .circles.on{bottom: 35%;} 
+
+        .cir1{right: 210px;}
+        .cir2{right: 210px;}
+        .cir3{right: 210px;}    
+        }
+
+        /*768이하 시작 */
+        @media screen and (max-width:768px){
+        .data {width:100%;margin-left: 130px; }
+        .data li {float:left; margin:1rem 1rem; overflow-x:hidden; width: 500px;}
+        .it::before{ width: 500px;} 
+
+        .dwrap{position: fixed;right: 5%;bottom: 250px;width: 200px;}
+        .circles{position: fixed; left: 53%;bottom: 678px;z-index: 4444;} 
+        .circles img{width:405px;height: auto;}
+        .circles.on{bottom: 35%;} 
+
+        .cir1{top:-66%;right: 200px;}
+        .cir2{top:-33%;right: 200px;}
+        .cir3{top:-11%;right:200px;}              
+        }
+
+
+        /*425이하 시작 */
+        @media all and (max-width:425px){
+        .bg1{width: 200px;height: 200px;}
+        .bg1.on{bottom: 70%;}
+
+        #wrap{position: absolute;top: 0;left: -100%;width: 100%;height: 200px;transition: 2s; border-top: 2px solid #000;z-index: 33;}    
+        #wrap.on{top: 300px;left: 0;}
+
+        .pg_tit{margin-bottom: -50%;}
+        .data {width:100%;margin-left: 13px; }
+        .data li {float:left; margin:0.5rem 0rem; overflow-x:hidden; width: 400px;}
+        .it::before{ width: 400px;} 
+
+        .dwrap{position: fixed;right: -8%;bottom: 300px;width: 200px;}
+        .circles{position: fixed; left: 35%;bottom: 320px;z-index: 4444;} 
+        .circles img{width:370px;height: auto;}
+        .circles.on{bottom:57%;} 
+
+        .cir1{top: -65%; right: 130px;}
+        .cir2{top: -55%;right: 130px;}
+        .cir3{top: -30%;right: 130px;}  
+
+        }
+
+        /*375이하 시작 */
+        @media all and (max-width:375px){
+
+        .dwrap{position: fixed;right: -8%;bottom: 250px;width: 200px;}
+        .circles{position: fixed; left: 30%;bottom: 320px;z-index: 4444;} 
+        .circles img{width:380px;height: auto;}
+        .circles.on{bottom:55%;} 
+
+        .cir1{top: -60%; right: 130px;}
+        .cir2{top: -35%;right: 130px;}
+        .cir3{top: -10%;right: 130px;}  
+
+        .page_con {clear:both; width:100vw; height:auto;margin-top: 500px; }  
+        .data {width:100%;margin-left: 40px; }
+        .data li {float:left; margin:0.5rem 0rem; overflow-x:hidden; width: 300px; height: 300px;}
+        .it::before{ width: 300px;} 
+
+
+        }
+
+        </style>
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script>
+               
+        $(document).ready(function(){
+            $(window).scroll(function(event){
+                $(".page").each(function(index){
+                    var sc = $(window).scrollTop();
+                    var obj = $(this).offset();
+                    var t = obj.top;                 
+                    if(sc>=t){
+                        $(this).find(".data").addClass("on");
+                        $(".bg1").addClass("on");
+                        $("#wrap").addClass("on");
+                        $("#page3").addClass("on");
+                        $("#cir1").addClass("on");
+                        $(".circles").addClass("on");
+                        
+                    }
+                });
+            }).scroll();
+        
+          $(".snslist li").mouseover(function(){
+                var th2 = $(this).index();
+                $(".cirwrap span").removeClass("on");
+                $(".cirwrap span").eq(th2).addClass("on");
+          });
+
+   
+        });
+
+
+        </script>
+</head>
+<body>
+<section class="page" id="page3">
+  <div class="circles">
+      <img src="./img/bg_c.png" alt="">
+  </div>
+        <div class="night" id="wrap">
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+          </div>
+       
+
+        </div>
+           <div class="bg1"></div>
+                <div class="page_con">
+                    <h2 class="pg_tit">
+                        <h1>Hello, <br>
+                            Here is my portfolio part. <br>
+                            I tried to make more useful and fancy web <br>
+                            In order to user use this web more comfortable. <br>
+                            Thx a lot for coming to see my web.                             
+                        </h1>   
+                    </h2>
+                  <ul class="data item3">                       
+                        <li class="it3 it">
+                            <a href="https://newri0807.github.io/res1/">
+                                <img src="./img/mock3.jpg" alt="" class="pic"  width="500" height="400">
+                                <div class="txt_fr">
+                                    <h2 class="it_tit">August Harmorny</h2>
+                                    <p class="it_com">
+                                        <p class="dscrip">
+                                        <span class="rtag">responsive web</span> 
+                                        <strong>컨셉</strong>유연한, 편안한, 활기찬 <br>
+                                        <strong>컬러</strong><img src="./img/color3.png" alt="" class="dscrip_img"><br>
+                                        <strong>컨셉설명</strong><br>
+                                            미디어 쿼리를 사용하여 PC/Tablet/Mobile 에서 보이는 화면을 다르게 표현하고
+                                            모바일 화면에서는 사용자의 편의성을 높이기위해 네비게이션버튼을 만들어 전체 메뉴가 나오도록 
+                                            구현하였습니다.
+                                        </p>           
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="it4 it">
+                            <a href="https://newri0807.github.io/res4/">
+                                <img src="./img/mock4.jpg" alt="" class="pic"  width="500" height="400">
+                                <div class="txt_fr">
+                                    <h2 class="it_tit">Vreal Studio</h2>
+                                    <p class="it_com">
+                                        <p class="dscrip">
+                                            <span class="rtag">responsive web</span> 
+                                            <strong>컨셉</strong>역동적, 시원한, 신뢰가는<br>
+                                            <strong>컬러</strong><img src="./img/color4.png" alt="" class="dscrip_img"><br>
+                                            <strong>컨셉설명</strong><br>
+                                               네거티브마진을 이용한 반응형웹을 구현하였고 회사의 이미지에 맞게 
+                                               역동적이면서 현대적인 느낌을 살려 컨셉을 구현하였습니다.
+                                            </p>
+                                        </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="it5 it">
+                            <a href="https://newri0807.github.io/res5/">
+                                <img src="./img/mock5.jpg" alt="" class="pic" width="500" height="400">
+                                <div class="txt_fr">
+                                    <h2 class="it_tit">Sunny Bread</h2>
+                                    <p class="it_com">
+                                        <p class="dscrip">
+                                            <span class="rtag">responsive web</span> 
+                                            <strong>컨셉</strong>생기있는, 친해지기쉬운, 귀여운<br>
+                                            <strong>컬러</strong><img src="./img/color5.png" alt="" class="dscrip_img"><br>
+                                            <strong>컨셉설명</strong><br>
+                                                고정박스형 반응형 기술을 구현했고 브랜드의 이미지와 로고에 이용하여 컨텐츠를 
+                                                표현하였습니다. 네비게이션 메뉴를 클릭하면 해당하는 메뉴가 나타나고 회전하도록
+                                                구현하였습니다.
+                                        </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="it6 it">
+                            <a href="https://newri0807.github.io/res6/">
+                                <img src="./img/mock6.jpg" alt="" class="pic"  width="500" height="400">
+                                <div class="txt_fr">
+                                    <h2 class="it_tit">American Express</h2>
+                                    <p class="it_com">
+                                        <p class="dscrip">
+                                            <span class="rtag">responsive web</span> 
+                                            <strong>컨셉</strong>깔끔한, 신뢰가는, 고급스런<br>
+                                            <strong>컬러</strong><img src="./img/color6.png" alt="" class="dscrip_img"><br>
+                                            <strong>컨셉설명</strong><br>
+                                               메인상단에 브랜드를 상징적으로 나타낼 GIF를 만들어 홍보성을 더하고 
+                                               미디어쿼리를 사용하여 각 기기마다 화면을 다르게 표현해 기기별 접근의
+                                               편리성을 높였습니다.
+                                        </p>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="it7 it">
+                                <a href="https://newri0807.github.io/res7/">
+                                    <img src="./img/mock7.jpg" alt="" class="pic"  width="500" height="400">
+                                    <div class="txt_fr">
+                                        <h2 class="it_tit">Benefit</h2>
+                                        <p class="it_com">
+                                            <p class="dscrip">
+                                                <span class="rtag">responsive web</span> 
+                                                <strong>컨셉</strong>귀여운, 활동적인, 유연한<br>
+                                                <strong>컬러</strong><img src="./img/color7.png" alt="" class="dscrip_img"><br>
+                                                <strong>컨셉설명</strong><br>
+                                                   회사의 로고와 회사취지의 연결성을 생각하여 색상과 컨셉을 설정하고 
+                                                   메인페이지에서 컨텐츠 배열이 기기별로 배열이 달라짐을 통해 유연성을 
+                                                   느낄 수 있도록 개선했습니다.
+                                            </p>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="it8 it">
+                                    <a href="https://newri0807.github.io/res9/">
+                                        <img src="./img/mock8.jpg" alt="" class="pic" width="500" height="400">
+                                        <div class="txt_fr">
+                                            <h2 class="it_tit">RIU WOODCRAFT</h2>
+                                            <p class="it_com">
+                                                <p class="dscrip">
+                                                    <span class="rtag">responsive web</span> 
+                                                    <strong>컨셉</strong>깔끔한, 정돈된, 자연적<br>
+                                                    <strong>컬러</strong><img src="./img/color8.png" alt="" class="dscrip_img"><br>
+                                                    <strong>컨셉설명</strong><br>
+                                                       회사의 이미지에 맞게 색상과 레이아웃을 기획하였으며 CSS 그리드 레이아웃(Grid Layout)을 이용해
+                                                       기기별로의 화면배치의 다양성을 주어 유연성을 더했습니다.
+                                                </p>
+                                            </p>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="it9 it" id="bottom">
+                                        <a href="https://newri0807.github.io/res2/">
+                                            <img src="./img/mock99.jpg" alt="" class="pic" width="500" height="400">
+                                            <div class="txt_fr">
+                                                <h2 class="it_tit">lighthousemuseum</h2>
+                                                <p class="it_com">
+                                                    <p class="dscrip">
+                                                        <span class="rtag">responsive web</span> 
+                                                        <strong>컨셉</strong>정돈된, 신뢰성있는, 친절한<br>
+                                                        <strong>컬러</strong><img src="./img/color9.png" alt="" class="dscrip_img"><br>
+                                                        <strong>컨셉설명</strong><br>
+                                                           박물관의 추구성과 홍보성을 나타내기 위한 컨셉으로 구현하였고 
+                                                           페이지마다의 슬라이드를 통해 사용자가 원하는 정보를 한번에 탐색이 가능하도록 
+                                                           표현하였습니다.
+                                                    </p>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="it10 it">
+                                            <a href="https://newri0807.github.io/res3/">
+                                                <img src="./img/mock10.jpg" alt="" class="pic" width="500" height="400">
+                                                <div class="txt_fr">
+                                                    <h3 class="it_tit" id="longtxt">MEDICINE HOSPITAL <br> OF DEAJEON UNIVERSITY</h3>
+                                                    <p class="it_com">
+                                                        <p class="dscrip">
+                                                            <span class="rtag">responsive web</span> 
+                                                            <strong>컨셉</strong>신뢰가는, 정돈된, 깔끔함<br>
+                                                            <strong>컬러</strong><img src="./img/color10.png" alt="" class="dscrip_img"><br>
+                                                            <strong>컨셉설명</strong><br>
+                                                               사용자가 원하는 정보를 한눈에 탐색가능 하도록 화면상에 배치 하였고 
+                                                               병원의 로고와 홍보배너를 컨셉에 맞고 가독성을 높일 수 있도록 디자인 하였습니다.
+                                                              
+                                                                    
+                                                        </p>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li> 
+                                        <li class="it1 it">
+                                                <a href="https://newri0807.github.io/po2/">
+                                                    <img src="./img/mock11.png" alt="" class="pic" width="500" height="400">
+                                                    <div class="txt_fr">
+                                                        <h2 class="it_tit">3CARE CONCEPT</h2>
+                                                        <p class="it_com" >
+                                                        <span class="mtag">mobile web</span>                             
+                                                            <p class="dscrip">
+                                                                <strong>컨셉</strong>블랙,심플,깔끔 <br>
+                                                                <strong>컬러</strong><img src="./img/color1.png" alt="" class="dscrip_img"><br>
+                                                                <strong>컨셉설명</strong><br>
+                                                                기본 로고의 색상인 블랙에 맞춰 깔끔하고 심플하게 디자인하였고 
+                                                                회사의 이벤트컨텐츠를 팝업창으로 띄울 수 있어 홍보성을 높였습니다.                                        
+                                                            </p>
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="it2 it">
+                                                <a href="https://newri0807.github.io/po3/">
+                                                    <img src="./img/mock22.png" alt="" class="pic"width="500" height="400">
+                                                    <div class="txt_fr">
+                                                        <h2 class="it_tit">ChoungUn Unversity</h2>
+                                                        <p class="it_com">
+                                                        <span class="mtag">mobile web</span>                                        
+                                                            <p class="dscrip">
+                                                                <strong>컨셉</strong>청량한, 심플한 <br>
+                                                                <strong>컬러</strong><img src="./img/color2.png" alt="" class="dscrip_img"><br>
+                                                                <strong>컨셉설명</strong><br> 
+                                                                메뉴와 정보량이 많은 점을 보완하기위해 스크롤시 상단메뉴가 변형되도록
+                                                                하여 가독성을 높였습니다.                                    
+                                                            </p>
+                                                    </div>
+                                                </a>
+                                            </li>                                       
+                       
+                        </ul>
+                    </div>      
+ 
+           
+<div class="subSmenu">      
+       
+    <div class="dwrap">
+        <h2>Direction</h2><br>
+        <ul class="snslist">
+          <li class="sli1"><a href="index.html">01 -<strong>HOME</strong></a></li>
+          <li class="sli2"><a href="#wrap">02 -<strong>TOP</strong> </a></li>
+          <li class="sli2"><a href="#bottom">03 -<strong>BOTTOM</strong> </a></li>              
+        </ul>        
+    </div>    
+
+        <figure class="cirwrap">
+            <span class="cir cir1">
+                <svg width="55" height="55">
+                    <circle cx="20" cy="20" r="20" id="cirbtn1" class="ci1" /> 
+                    현재 브라우저는 SVG가 지원되지 않습니다.1
+                </svg> 
+            </span>
+            <span class="cir cir2">
+                <svg width="55" height="55">
+                    <circle cx="20" cy="20" r="20" id="cirbtn2" class="ci1"/> 
+                    현재 브라우저는 SVG가 지원되지 않습니다.2
+                </svg> 
+
+            </span>
+            <span class="cir cir3">
+                <svg width="55" height="55">
+                    <circle cx="20" cy="20" r="20" id="cirbtn3" class="ci1"/> 
+                    현재 브라우저는 SVG가 지원되지 않습니다.2
+                </svg> 
+
+            </span>
+        </figure>
+        
+         
+       
+        </div>
+
+</section>
+</body>
+</html>

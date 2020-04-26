@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
+    <!-- 파비콘(공통,애플,IE형태) -->
+    <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon_64siz.png">     
+    <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
+    <meta name="title" content="riuwoodcraft">
+    <meta name="keyword" content="riuwoodcraft, 리우목공방, 공방, 목가구, 가구">
+    <meta name="auther" content="newli">
+    <meta name="description" content="wellcome to riuwoodcraft">
+    <!-- 자동새로고침 -->
+    <meta http-equiv="refresh" content="180">    
+    <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- 폰트링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Sunflower:300&display=swap" rel="stylesheet">
+    <!-- 아이콘 폰트 링크(xeicon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->   
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./circle.css">      
+    <!-- jquery 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- IE8 이하 HTML5태그 인식 플러그인(html5shiv.js) 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--인터넷 익스플로어가 9 이하일때 안되는 css 대비-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+    <!-- 모든 브라우저 animaition, transition, transform 가능-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> -->
+    <script src="./prefixfree.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    -->
+    <script src="./bootstrap.min.js"></script>
+    <title>portfolio</title>   
+    <style>
+    body,html{
+      font-family: 'Kanit','Sunflower', sans-serif;
+    }
+    a{color: #000;}    
+    .container{width: 100%;height:100vh;background-image: url(./img/bg.jpg);background-size: cover;background-repeat: no-repeat;position: relative;}
+    main{width: 80%;height: 80vh;background-image: url(./img/bg2.jpg);background-size: cover;background-repeat: no-repeat;
+    position: absolute;top: 8%;right: 8%;box-shadow: -17px 21px 15px 24px rgba(61, 61, 61, 0.16);z-index: 10;overflow:scroll; }
+    header{width: 80%;height: 60px;border-bottom:1px solid rgba(82, 82, 82, 0.4);background-color: #fff;
+      position: fixed;z-index: 6666;top: 8%;right: 8%;}
+    .gnb{float: right;margin-right: 10px;width: 500px;}
+    .gnb span{width: 100px;display: inline-block;margin: 20px 0;}
+    .gnb span a{color:#000;position: relative;}
+    .gnb span a::after{content: ""; width: 0px;height: 0px;background-color: #f8df216c;display: block; 
+    border-radius: 20px;position: absolute;bottom: 0;left: 0px; transition: 0.5s;}
+    .gnb span a:hover:after{width: 30px;height: 30px;border-radius: 30px;left: 5px;}
+    .gnb span:after{content:"";color: #000; border-left:1px solid #000;margin-left: 29px;}
+    .gnb::before{content: "";border-left:1px solid #000;margin-right: 25px; }
+    .top_left{float: left;width: 500px;height: 80px;padding: 8px;}
+    .logo{width: 150px;height: 40px;border:1px solid #000;background-color: #fff;
+      display: block;font-size: 1.6em;text-align: center;color: #000; line-height: 40px;border-radius: 3px;float: left;}
+    .top_left p{ font-size: 1.3rem;width: 240px;float: left;margin-left: 5px;}
+    .logo:hover{background-color: rgba(211, 211, 211, 0.22);}
+
+    .page{width: 50%;height: 100%;clear: both;float: right;}
+    #page1{margin-top: 8%;}
+  
+    #page1 .intro{width: 80%;float: right;margin-right: 10%;margin-top: 10%;}
+    .intro .myself{float: left; width: 40%;}
+    .right_in{float: left;width: 40%;height: 100%;margin-top: -44px;}
+    .right_in h4{font-size: 2em;text-indent: 0;}
+    .bot_in{float: left;width: 50%;word-break: break-all;margin-top: 10px;margin-bottom: 30px;letter-spacing:-1px;}
+    .me{float: right; margin-right: -10px; margin-top: -29px;}
+    .bot_in2{margin-top: 0px;}
+    
+
+
+
+   /* 어빌리티효과 */
+    .tooltip{ 
+      position:relative;
+      float:right;
+    }
+    .tooltip > .tooltip-inner {background-color: #eebf3f; padding:5px 15px; color:rgb(23,44,66); font-weight:bold; font-size:13px;}
+    .popOver + .tooltip > .tooltip-arrow {	border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #eebf3f;}
+
+    section{
+      margin:100px auto; 
+      height:1000px;
+    }
+    .progress{
+      border-radius:0;
+      overflow:visible;
+    }
+    .progress-bar{
+       background:rgb(23,44,60); 
+      -webkit-transition: width 1.5s ease-in-out;
+      transition: width 1.5s ease-in-out;
+    }
+
+/* 페이지2 */
+    #page2{position: relative;width: 80%;float: right;margin-right: 20%; }
+    #abil_tit{position: absolute;bottom: -110%;right: -110%;font-weight: bold;transition: 0.8s;}
+    #abil_tit.on{bottom: 60%;right:35%;}
+    .container2{margin-top: 250px;}
+/* 페이지3 */
+    #page3{position: relative;clear: both;width: 80%; float: right;
+    margin-right: 5%;padding-top:20%;}
+    .email_cont input{width: 200px;height: 30px;background-color: rgba(255, 255, 255);
+    border: 1px solid tan;}
+    .email_cont input{text-indent: 5px;}
+    .field .email{text-indent: 22px;}
+    .title{font-weight: bold;font-size: 5em;}
+    .subtitle{margin-left: 20%;}
+    .field{margin: 10px}
+    .field .label{font-size:1em;}
+
+    .icon1 i{margin-left: -200px;}
+    .textfield{background-color: rgba(255, 255, 255, 0.438); border: none;outline: none;}
+    .button{width: 100px;height: 40px;background: rgb(255, 255, 255);margin-left: 34%;border-radius: 5px;margin-top: 5px;
+      border: 1px solid tan;}
+    .button:hover{background-color:#000; color: #fff;}
+    .cursor{position: absolute; bottom: 53%;right: 36%; z-index: 3333;opacity: 0;}
+    #page3:hover .cursor{opacity: 1;animation-duration: 1s;
+    animation-name: ani; animation-duration: 2s;}
+    
+    .snspart{position: fixed;bottom: 20%;left: 15%;}
+    .snalist {position: relative;}
+    .snslist .sli1::before{content:"";border-top:1px solid #000;padding: 27px;position: absolute;top: 65px;left: -558px;transition: 0.5s;}
+    .snslist .sli2::before{content:"";border-top:1px solid #000;padding: 27px;position: absolute;top: 85px;left: -558px;transition: 0.5s;}
+    .snslist .sli3::before{content:"";border-top:1px solid #000;padding: 27px;position: absolute;top: 105px;left: -558px;transition: 0.5s;}
+    .snslist .sli1:hover::before{top: 65px;left: -58px;}
+    .snslist .sli2:hover::before{top: 85px;left: -58px;}
+    .snslist .sli3:hover::before{top: 105px;left: -58px;}
+    .snslist li:hover a{color:#eebf3f;}
+    .fl_btn span { color:#333; }
+    .fl_btn span.on { color:#eebf3f; }
+
+    .ic3{margin-left: 2px;}
+    .fl_btn span:hover i{color:#eebf3f;}
+    
+    
+    
+      
+  @keyframes ani {
+    0%{
+      transform:scale(1);
+      animation-timing-function: ease-out;
+      top:-120%;
+      right:-90%;
+    }
+    23%{
+      transform: scale(0.5);
+      animation-timing-function: ease-in;
+    
+    }
+    50%{
+      transform:scale(3);
+       animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    76%{
+      transform: scale(2.5);
+      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+
+  /*반응형 웹*/
+/*1260이하 시작 */
+@media screen and (max-width:1260px){
+  #circle{left: 25%;}
+  #circle ul.groups {font-size: 3vw;}
+
+  .gnb{float:right; margin-right: -20px;width: 500px;}
+   
+  /* about me*/
+    .intro .myself{margin-left: -25px;}
+    .right_in{float: right;width: 45%;} 
+    .right_in h4{margin-top: 20px;}
+    .bot_in{margin-top: 25px;margin-bottom: 35px;margin-left:13%;}
+    .me{float: right; margin-right: 18px; margin-top: 10px;}
+    .bot_in2{margin-top: -12px;}
+
+  /* 페이지2 */
+    #abil_tit{right: 0%;left: 3%;width: 100%;}  
+    #abil_tit.on{bottom: 60%;right:35%;}
+    .container2{margin-top: 170px;}
+
+  /* 페이지3 */
+  #page3{padding-top:50%;} 
+  .cursor{bottom: 33%;right: 10%; z-index: 3333;opacity: 0;}   
+
+}
+
+/*1024이하 시작 */
+@media screen and (max-width:1024px){
+  #circle{left: 25%;}
+  #circle ul.groups {
+    animation: three-dimensions-circle 6s linear infinite;
+
+}
+  #circle ul.groups li:nth-child(1) {
+  transform: translate(-15%, -15%) rotate(0deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(2) {
+  transform: translate(-15%, -15%) rotate(30deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(3) {
+  transform: translate(-15%, -15%) rotate(60deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(4) {
+  transform: translate(-15%, -15%) rotate(90deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(5) {
+  transform: translate(-15%, -15%) rotate(120deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(6) {
+  transform: translate(-15%, -15%) rotate(150deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(7) {
+  transform: translate(-15%, -15%) rotate(180deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(8) {
+  transform: translate(-15%, -15%) rotate(210deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(9) {
+  transform: translate(-15%, -15%) rotate(240deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(10) {
+  transform: translate(-15%, -15%) rotate(270deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(11) {
+  transform: translate(-15%, -15%) rotate(300deg) translateY(-150px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(12) {
+    transform: translate(-15%, -15%) rotate(330deg) translateY(-150px) rotateX(90deg);
+  }
+
+
+
+  .gnb{float:right; margin-right: -9%;margin-top: -9%;}
+  .top_left p{display: none;}
+  
+  /* about me*/
+  .intro{padding-top: 80px;}
+  .intro .myself img{width: 135%;}
+  .right_in{margin-top: -140px;margin-right: 20px;} 
+  .right_in h4{margin-top: 2px;font-size: 13pt;}
+  .bot_in{margin-top: 5px; margin-left: 17%;width: 100%x;display: block;}
+  .me{float: right; margin-right: -10px; margin-top: -18px;}
+  .bot_in2{margin-top: 120px; margin-right: 0px; margin-left: -25px;display: block;}
+
+  /* 페이지2 */
+  #abil_tit{right: 0%;left:0;width: 300px;}
+  #abil_tit.on{bottom: 60%;right:35%;} 
+
+  /* 페이지3 */
+  #page3{padding-top:55%;} 
+  .cursor{bottom: 40%;right: -5%; z-index: 3333;opacity: 0;}   
+
+}
+
+/*768이하 시작 */
+@media screen and (max-width:768px){
+  .gnb{float:right; margin-right: -12%;margin-top: -13%;}
+   
+  /* about me*/
+  .intro{padding-right: 20px;}
+  .right_in{width:250px;display: block;float: none; padding-left:105px;padding-top:6px;}
+  .right_in h4{margin-top: 20px;}
+  .me{float: right; margin-right: 10px; margin-top: 30px;}
+  .bot_in{margin-top:20px; width: 115%;margin-left: -22px;letter-spacing: 0px;margin-bottom: 8px;display: block;}
+  .bot_in2 {letter-spacing: 0px; width: 270px;}
+  .bot_in2 h2{font-size: 19pt;text-align: center;width: 289px;}
+
+  /* 페이지2 */
+  #abil_tit{width: 288px;bottom: -90%;left:4%;}
+  #abil_tit.on{left:0%;}
+
+  /* 페이지3 */
+  #page3{padding-top:59%;margin-right: 24%;} 
+  .cursor{bottom: 35%;right:-35%; z-index: 3333;opacity: 0;}   
+  .subtitle{margin-left: 4%;}
+  #page3 button{margin-left: 64%;}
+
+}
+
+/*425이하 시작 */
+@media all and (max-width:425px){
+  .container{width: 100%;height:100%;background-size:contain;background-position:50% 25%;background-repeat:repeat-y;}
+  main{width: 90%;height: 90vh;right: 5%;top: 5%;background-size:cover;background-position:bottom;}
+    
+  /* 모바일 클릭시 나오기 -jsc걸기!! */
+  .gnb{float:right;margin-right:-205%;width:500px;height:90vh;margin-top: -30%;background-color:white;border-left: 2px dashed gray ;}
+  .gnb.on {transition-delay: 0.8s;margin-right:-105%;}
+  .gnb span{width: 100px;display:block;margin: 20px 0;text-align:center;margin-left: 20px;}
+  .gnb span:nth-child(1){margin-top: 22%;}
+   
+  .gnb::before{display: none; }
+  .page{width: 90%;}
+  
+  /* about me*/
+  .right_in{width:300px;padding-left:135px;display: block;}
+  .right_in h4{margin-top: 20px;}
+  .me{float: right; margin-right: 30px; margin-top: 30px;font-size: 20pt;}
+  .bot_in{margin-top:30px; width: 115%;margin-left: -22px;letter-spacing: 0px;margin-bottom: 8px;display: block;}
+  .bot_in2 {letter-spacing: -1px; width: 290px;margin-top: 5px;}
+  .bot_in2 h2{font-size: 19pt;text-align: center; width: 290px; margin-top: 210px;}
+
+  /* circle effect */
+  #circle{width: 100px;height: 100px; position: absolute; top: 5%;left:65%; right:-50%;
+  }
+  #circle ul.groups li:nth-child(1) {
+  transform: translate(-5%, -5%) rotate(0deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(2) {
+  transform: translate(-5%, -5%) rotate(30deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(3) {
+  transform: translate(-5%, -5%) rotate(60deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(4) {
+  transform: translate(-5%, -5%) rotate(90deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(5) {
+  transform: translate(-5%, -5%) rotate(120deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(6) {
+  transform: translate(-5%, -5%) rotate(150deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(7) {
+  transform: translate(-5%, -5%) rotate(180deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(8) {
+  transform: translate(-5%, -5%) rotate(210deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(9) {
+  transform: translate(-5%, -5%) rotate(240deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(10) {
+  transform: translate(-5%, -5%) rotate(270deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(11) {
+  transform: translate(-5%, -5%) rotate(300deg) translateY(-60px) rotateX(90deg);}
+  #circle ul.groups li:nth-child(12) {
+    transform: translate(-5%, -5%) rotate(330deg) translateY(-60px) rotateX(90deg);
+  }
+  
+  
+  /* 페이지2 */
+  #page2{position: relative;width: 90%;float: right;margin-right: 10%;right: 3px; }
+  #abil_tit.on{left:0%;bottom: 64%;}
+
+  /* 페이지3 */
+  #page3 button{margin-left: 78%;}
+
+  /* 페이지4로 빼버림 */
+  .snspart{position: absolute;bottom: -270%;left: 15%;}
+  .snalist {position: relative;}
+
+    .clicked{color:orange;}
+
+}
+
+/*375이하 시작 */
+@media all and (max-width:375px){
+/* about me*/
+.right_in{padding-left:105px;margin-top: -30px;}
+.me{margin-right: 65px;}
+.bot_in2 h2{margin-left: -12px;}
+
+
+}
+
+
+    </style>
+    
+    <script>
+      // ability효과
+    $(function () {      
+      $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
+      
+    });  
+    $(document).ready(function(){
+      $(".container2").mouseover(function(){  
+      $("#abil_tit").addClass("on");    
+      $(".progress-bar").each(function(){
+        each_bar_width = $(this).attr('aria-valuenow');
+        $(this).width(each_bar_width + '%');  
+         }); 
+      });  
+      $("#page3").hover(function(){  
+        $(".cursor").addClass("on"); 
+      });
+      $(".snslist li a").mouseover(function(){
+          var th = $(this).parent().index();
+          console.log(th);
+          $(".fl_btn span").eq(th).addClass("on");
+          $(".fl_btn span").eq(th).siblings().removeClass("on");
+      });
+
+      $("#portfolio").animate({opacity:1}, 1000);        
+
+    //모바일버전//
+    // $('#circle').click(function() {
+    // $(this).css("color", "orange");
+    // $(".gnb").toggle("on");
+
+      $('#circle').on('click', function () {
+        $(this).css("color", "orange");
+        $('.gnb').addClass('on');      
+      });
+
+      $('main').on('click', function () {
+        $('#circle').css("color", "black");
+        $('.gnb').removeClass('on'); 
+      });
+
+}
+
+
+
+
+
+);//스크립트 끝 지우지마 <-
+
+ 
+
+  
+
+
+  
+
+
+    </script>    
+</head>
+<body>
+    <div id="circle">
+        <ul class="groups">
+          <li class="cir1">N</li>
+          <li class="cir1">E</li>
+          <li class="cir1">W</li>
+          <li class="cir1">L</li>
+          <li class="cir1">'</li>
+          <li class="cir1">S</li>
+          <li class="cir1">D</li>
+          <li class="cir1">E</li>
+          <li class="cir1">S</li>
+          <li class="cir1">I</li>
+          <li class="cir1">G</li>
+          <li class="cir1">N</li>
+        </ul>
+    </div>
+  
+  
+<div class="container">
+<main>
+  <header>
+  <div class="top_left">
+  <a href="" class="logo" style="cursor:pointer;" onclick="window.scrollTo(0,0);">NEWLIKIM>></a>
+  <p>Hello_guys <br>
+    wellcome to_my WEB portfolio home</p>
+  
+  </div>
+
+ <nav class="gnb">
+  <span><a href="#page1">About</a></span>
+  <span><a href="#page2">Ability</a></span>
+  <span><a href="./sub1.html" id="portfolio">portfolio</a></span>  
+  <span><a href="#page3">contact</a></span>
+ </nav>
+ </header>
+
+ <div class="page" id="page1">
+  <div class="intro">
+    <figure class="myself">
+      <img src="./img/myself1.png" alt="" width="200" >
+    </figure>  
+      <div class="intro_text">
+        <div class="right_in">
+      <h2><strong>About me</strong></h2>
+      <h4>상상력을 통해 <br>
+          기획력을 세워 <br>
+          실행력을 갖춘 <br>
+        <strong class="me">김뉴리</strong> </h4>
+        </div> 
+      <div class="bot_in">   
+      <p>웹에 필요한 사용자의 NEEDS와 현재의 경향(TREND)들을 예측하여 아이디어를 수집하고 기획하고 디자인업무를 하는 UX,UI직무에 꼭 필요한 역량입니다. 
+         누구보다 유연하고 자발적인 실행력을 통해 구체적인 업무를 해낼 것을 자신합니다.</p>
+      </div>
+      <div class="bot_in2">
+      <h2><strong>Experiences & Education</strong></h2>
+      <p>
+      2019.12 ~ 2020.03 : 하나투어 하와이사무소 웹디자이너 <br>
+      2019.09 ~ 2019.11 : 호반 웹디자이너 <br>
+      2019.04 ~ 2019.08 : 스마트웹_콘텐츠서비스개발_하이브리드웹,웹앱 수료 <br>
+      2017.11 ~ 2018.06 : Ireland & UK CES school 수료 <br>
+      2016.11 ~ 2017.09 : 롯데갤러리 큐레이터 <br>
+      2016.03 ~ 2016.06 : 국립공주박물관 학예연구원 <br>
+      2012.03 ~ 2016.02 : 한남대학교 예술문화학부 졸업 <br>
+    </p> 
+      </div>
+      
+  </div>
+
+
+ </div>
+ <div class="page" id="page2">
+    <section>
+    <h2 class="text-center" id="abil_tit">Show it! My Abilities</h2><br>
+      <div class="container2">
+        <div class="row">
+          <div class="col-md-2 col-lg-2"></div>
+           <div class="col-md-8 col-lg-8">
+             
+              <div class="barWrapper">
+                  <span class="progressText"><B>HTML5</B></span>
+                 <div class="progress">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" >   
+                         <span  class="popOver" data-toggle="tooltip" data-placement="top" title="85%"> </span>     
+                 </div>
+                 </div>
+                 
+                 <div class="barWrapper">
+                  <span class="progressText"><B>CSS3</B></span>
+                 <div class="progress ">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="10" aria-valuemax="100" style="">
+                      <span  class="popOver" data-toggle="tooltip" data-placement="top" title="75%"> </span>  
+                   </div>
+                   
+                 </div>
+                 </div>
+                 
+                 <div class="barWrapper">
+                  <span class="progressText"><B>JQUERY</B></span>
+                 <div class="progress">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="55%"> </span>  
+                   </div>
+                 </div>
+                 </div>
+                 
+                 <div class="barWrapper">
+                  <span class="progressText"><B>PHOTOSHOP</B></span>
+                 <div class="progress">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                      <span  class="popOver" data-toggle="tooltip" data-placement="top" title="65%"> </span>  
+                   </div>
+                 </div>
+                 </div>
+                 
+                 <div class="barWrapper">
+                  <span class="progressText"><B>ILLUSTRATOR</B></span>
+                 <div class="progress">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                       <span  class="popOver" data-toggle="tooltip" data-placement="top" title="70%"> </span>  
+                   </div>
+                 </div>
+                 </div>
+                   <div class="barWrapper">
+                  <span class="progressText"><B>OFFICE</B></span>
+                 <div class="progress">
+                   <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                       <span  class="popOver" data-toggle="tooltip" data-placement="top" title="75%"> </span> 
+                   </div>
+                 </div>
+                 </div>
+      
+      </div>
+           <div class="col-md-2 col-lg-2"></div>
+          </div>
+      </div>
+        </div>
+          </section>
+        
+
+
+ </div>
+
+
+ <div class="page" id="page3">
+   <div class="email_cont">
+
+        <div class="mailTit">
+            <h2 class="title">Contact</h3>
+            <h3 class="subtitle">Get in touch</h4>
+          </div>
+
+        <div class="emailbox">
+            <div class="field">
+              <label class="label">Name</label>
+            <div>
+                <input class="input" type="text" placeholder="Text input">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div>
+                <input class="input email" type="email" placeholder="Email input" value="" >
+                <span class="icon1">
+                  <i class="xi-mail"></i>
+                </span>
+                
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Message</label>
+              <div>
+                <!-- <textarea class="textarea" placeholder="Textarea"></textarea> -->
+                <input class="textfield" type="text" placeholder="message here" value="" style=" width:300px; height:200px; " >
+              </div>
+            </div>
+
+            <div class="field is-grouped has-text-centered">
+              <div>
+                <button class="button">
+                  <span class="icon2">
+                    <i class="xi-mail"></i>
+                  </span>
+                  <span>Submit</span></button>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+<div class="cursor">
+  <img src="./img/c5.gif" alt="" width="150" height="150">
+</div>
+
+ </div>
+<!-- 페이지3끝 -->
+
+<div class="snspart">
+    <h3>Follow</h3>
+
+    <ul class="snslist">
+      <li class="sli1"><a href="">kakaotalk</a></li>
+      <li class="sli2"><a href="https://blog.naver.com/newri0807">blog</a></li>
+      <li class="sli3"><a href="https://github.com/newri0807">github</a></li>
+    </ul>
+    
+    <figure class="fl_btn">
+      <span><i class="xi-kakaostory ic1"></i></span>
+      <span onclick="location.href='https://blog.naver.com/newri0807'" style="cursor: pointer"><i class="xi-blogger  ic2"></i></span>
+      <span onclick="location.href='https://github.com/newri0807'" style="cursor: pointer"><i class="xi-github-alt ic3"></i></span>
+    </figure>
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 10% { border-color: transparent; } }
+
+h1 { 
+	font-family: 'Source Code Pro', sans-serif;
+	position: absolute; bottom: 8%; left:23%; z-index: 3333;
+	transform: rotate(-3deg);
+	font: bold 300% Consolas, Monaco, monospace;
+	border-right: 0.1em solid rgb(0, 0, 0);
+	width: 16.5em; 
+	width: 51ch;
+	/* margin: 2em 1em; */
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: typing 2s steps(21, end),
+			   blink-caret .5s step-end infinite alternate;
+	
+}
+
+
+/* 반응형 설정 */
+@media screen and (max-width:2560px){ 
+
+	h1 {	
+		transform: rotate(-7deg);
+		position: absolute; bottom: 43%; left:10%; z-index: 3333;}
+	
+	}
+
+@media screen and (max-width:1260px){ 
+
+h1 {	
+	transform: rotate(-7deg);
+	position: absolute; bottom: 43%; left:10%; z-index: 3333;}
+
+}
+
+@media screen and (max-width:1024px){
+h1 {
+	font-size: 20pt!important;
+	transform: rotate(-7deg);
+	position: absolute; bottom: 43%; left:15%; z-index: 3333;}
+}	
+	
+
+@media screen and (max-width:768px){
+	h1 {
+		font-size: 17pt!important;
+		transform: rotate(-5deg);
+		position: absolute; bottom: 43%; left:8%; z-index: 3333;}
+}
+
+
+/*425이하 시작 */
+@media all and (max-width:425px){
+	h1 {
+		font-size: 10pt!important;
+		transform: rotate(-5deg);
+		position: absolute; bottom: 63%; left:8%; z-index: 3333;}
+}
+
+
