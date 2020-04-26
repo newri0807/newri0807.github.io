@@ -226,7 +226,7 @@
         @media screen and (max-width:1024px){
         .data { margin-left: 40px;}
         .data li { float:left; margin:3rem 1rem; overflow-x:hidden; width: 450px;}
-        .it::before{ width: 400px;} 
+        .it::before{ width: 400px; z-index: 3333;} 
 
         .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
         .circles{position: fixed; left: 64%;bottom: 680px;z-index: 4444;} 
@@ -242,16 +242,16 @@
         @media screen and (max-width:768px){
         .data {width:100%;margin-left: 130px; }
         .data li {float:left; margin:1rem 1rem; overflow-x:hidden; width: 500px;}
-        .it::before{ width: 500px;} 
+        .it::before{ width: 500px;z-index: 3333;} 
 
-        .dwrap{position: fixed;right: 5%;bottom: 250px;width: 200px;}
-        .circles{position: fixed; left: 53%;bottom: 678px;z-index: 4444;} 
+        .dwrap{position: fixed;right: 5%;bottom: 180px;width: 200px;z-index:999999;}
+        .circles{position: fixed; left: 53%;bottom: 678px;z-index: 4444;z-index:99999;}
         .circles img{width:405px;height: auto;}
         .circles.on{bottom: 35%;} 
 
-        .cir1{top:-66%;right: 200px;}
-        .cir2{top:-33%;right: 200px;}
-        .cir3{top:-11%;right:200px;}              
+        .cir1{top:-20%;right: 200px;}
+        .cir2{top:0%;right: 200px;}
+        .cir3{top:20%;right:200px;}              
         }
 
 
@@ -266,10 +266,10 @@
         .pg_tit{margin-bottom: -50%;}
         .data {width:100%;margin-left: 13px; }
         .data li {float:left; margin:0.5rem 0rem; overflow-x:hidden; width: 400px;}
-        .it::before{ width: 400px;} 
+        .it::before{ width: 400px;z-index: 3333;} 
 
-        .dwrap{position: fixed;right: -8%;bottom: 300px;width: 200px;}
-        .circles{position: fixed; left: 35%;bottom: 320px;z-index: 4444;} 
+        .dwrap{position: fixed;right: -8%;bottom: 300px;width: 200px;z-index:999999;}
+        .circles{position: fixed; left: 35%;bottom: 320px;z-index: 4444;z-index:99999;} 
         .circles img{width:370px;height: auto;}
         .circles.on{bottom:57%;} 
 
@@ -282,8 +282,8 @@
         /*375이하 시작 */
         @media all and (max-width:375px){
 
-        .dwrap{position: fixed;right: -8%;bottom: 250px;width: 200px;}
-        .circles{position: fixed; left: 30%;bottom: 320px;z-index: 4444;} 
+        .dwrap{position: fixed;right: -8%;bottom: 250px;width: 200px;z-index:999999;}
+        .circles{position: fixed; left: 30%;bottom: 320px;z-index: 4444;z-index:99999;} 
         .circles img{width:380px;height: auto;}
         .circles.on{bottom:55%;} 
 
