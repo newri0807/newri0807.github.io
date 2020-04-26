@@ -76,9 +76,6 @@
     .me{float: right; margin-right: -10px; margin-top: -29px;}
     .bot_in2{margin-top: 0px;}
     
-
-
-
    /* 어빌리티효과 */
     .tooltip{ 
       position:relative;
@@ -141,9 +138,7 @@
 
     .ic3{margin-left: 2px;}
     .fl_btn span:hover i{color:#eebf3f;}
-    
-    
-    
+           
       
   @keyframes ani {
     0%{
@@ -170,9 +165,10 @@
     }
   }
 
-  /*반응형 웹*/
+/*반응형 웹*/
 /*1260이하 시작 */
 @media screen and (max-width:1260px){
+  body{overflow-x:hidden;}
   #circle{left: 25%;}
   #circle ul.groups {font-size: 3vw;}
 
@@ -188,17 +184,18 @@
 
   /* 페이지2 */
     #abil_tit{right: 0%;left: 3%;width: 100%;}  
-    #abil_tit.on{bottom: 60%;right:35%;}
+    #abil_tit.on{bottom: 80%;right:35%;}
     .container2{margin-top: 170px;}
 
   /* 페이지3 */
   #page3{padding-top:50%;} 
-  .cursor{bottom: 33%;right: 10%; z-index: 3333;opacity: 0;}   
-
+  .cursor{bottom: 53%;right: 10%; z-index: 3333;opacity: 0;}   
+  #page3 button{margin-left: 52%;}
 }
 
 /*1024이하 시작 */
 @media screen and (max-width:1024px){
+  body{overflow-x:hidden;}
   #circle{left: 25%;}
   #circle ul.groups {
     animation: three-dimensions-circle 6s linear infinite;
@@ -230,8 +227,6 @@
     transform: translate(-15%, -15%) rotate(330deg) translateY(-150px) rotateX(90deg);
   }
 
-
-
   .gnb{float:right; margin-right: -9%;margin-top: -9%;}
   .top_left p{display: none;}
   
@@ -245,17 +240,19 @@
   .bot_in2{margin-top: 120px; margin-right: 0px; margin-left: -25px;display: block;}
 
   /* 페이지2 */
-  #abil_tit{right: 0%;left:0;width: 300px;}
-  #abil_tit.on{bottom: 60%;right:35%;} 
+  #abil_tit{right: 0%;left:20%;width: 300px;}
+  #abil_tit.on{bottom: 77%;left: 10%;} 
 
   /* 페이지3 */
   #page3{padding-top:55%;} 
-  .cursor{bottom: 40%;right: -5%; z-index: 3333;opacity: 0;}   
+  .cursor{bottom: 65%;right: -8%; z-index: 3333;opacity: 0;}   
+  #page3 button{margin-left: 64%;}
 
 }
 
 /*768이하 시작 */
 @media screen and (max-width:768px){
+  .container{overflow-x:hidden;width: 100%;}
   .gnb{float:right; margin-right: -12%;margin-top: -13%;}
    
   /* about me*/
@@ -268,21 +265,22 @@
   .bot_in2 h2{font-size: 19pt;text-align: center;width: 289px;}
 
   /* 페이지2 */
-  #abil_tit{width: 288px;bottom: -90%;left:4%;}
+  #abil_tit{width: 288px;bottom: -48%;left:4%;}
   #abil_tit.on{left:0%;}
 
   /* 페이지3 */
   #page3{padding-top:59%;margin-right: 24%;} 
-  .cursor{bottom: 35%;right:-35%; z-index: 3333;opacity: 0;}   
+  .cursor{bottom: 60%;right:-35%; z-index: 3333;opacity: 0;}   
   .subtitle{margin-left: 4%;}
-  #page3 button{margin-left: 64%;}
+  #page3 button{margin-left: 89%;}
 
 }
 
 /*425이하 시작 */
 @media all and (max-width:425px){
-  .container{width: 100%;height:100%;background-size:contain;background-position:50% 25%;background-repeat:repeat-y;}
-  main{width: 90%;height: 90vh;right: 5%;top: 5%;background-size:cover;background-position:bottom;}
+  .container{width: 100%;height:100%;background-size:contain;background-position:50% 25%;
+  background-repeat:repeat-y;overflow-x:hidden;}
+  main{width: 90%;height: 90vh;right: 5%;top: 5%;background-size:cover;background-position:bottom; overflow-x:hidden;}
     
   /* 모바일 클릭시 나오기 -jsc걸기!! */
   .gnb{float:right;margin-right:-205%;width:500px;height:90vh;margin-top: -30%;background-color:white;border-left: 2px dashed gray ;}
@@ -295,9 +293,10 @@
   
   /* about me*/
   .right_in{width:300px;padding-left:135px;display: block;}
-  .right_in h4{margin-top: 20px;}
+  .right_in h4{margin-top: 90px;}
   .me{float: right; margin-right: 30px; margin-top: 30px;font-size: 20pt;}
-  .bot_in{margin-top:30px; width: 115%;margin-left: -22px;letter-spacing: 0px;margin-bottom: 8px;display: block;}
+  .bot_in{margin-top:30px; width: 115%;margin-left: -22px;letter-spacing: 0px;
+  margin-bottom: 8px;display: block;}
   .bot_in2 {letter-spacing: -1px; width: 290px;margin-top: 5px;}
   .bot_in2 h2{font-size: 19pt;text-align: center; width: 290px; margin-top: 210px;}
 
@@ -333,25 +332,42 @@
   
   /* 페이지2 */
   #page2{position: relative;width: 90%;float: right;margin-right: 10%;right: 3px; }
-  #abil_tit.on{left:0%;bottom: 64%;}
+  #abil_tit{bottom: -58%;left:4%;}
+  #abil_tit.on{left:0%;bottom: 73%;}
 
   /* 페이지3 */
+  .cursor{bottom: 65%;right:-35%;} 
   #page3 button{margin-left: 78%;}
 
   /* 페이지4로 빼버림 */
-  .snspart{position: absolute;bottom: -270%;left: 15%;}
+  .snspart{position: absolute;bottom: -200%;left: 15%;}
   .snalist {position: relative;}
-
-    .clicked{color:orange;}
+  .clicked{color:orange;}
 
 }
 
 /*375이하 시작 */
 @media all and (max-width:375px){
+.container{overflow-x: hidden;}
+
 /* about me*/
 .right_in{padding-left:105px;margin-top: -30px;}
+.right_in h4{margin-top: 0px;}
 .me{margin-right: 65px;}
 .bot_in2 h2{margin-left: -12px;}
+
+/* 페이지2 */
+#abil_tit{bottom: -88%;left:4%;}
+#abil_tit.on{left:0%;bottom: 63%;}
+
+/* 페이지3 */
+.cursor{bottom: 35%;} 
+#page3 button{margin-left: 89%;}
+
+
+/* 페이지4로 빼버림 */
+.snspart{position: absolute;bottom: -240%;left: 10%;}
+
 
 
 }

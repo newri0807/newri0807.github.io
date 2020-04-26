@@ -188,9 +188,19 @@
        .dscrip strong{margin-right: 10px;}
 
 
+     
+        /* 반응형웹 설정 */
+        /*2560이하 시작 */
+        @media screen and (max-width:2560px){
+        .page{overflow-x:hidden;}
+        .cir1{top: -55%;right: 260px;}
+        .cir2{top: -33%;right: 260px;}
+        .cir3{top: -11%;right: 260px;} 
+        }
 
         /*1260이하 시작 */
-        @media screen and (max-width:1260px){ 
+        @media screen and (max-width:1260px){
+        .page{overflow-x:hidden;}
         #page3 { background-size: cover;}
         .circles{z-index:0;} 
         .page_con {margin-top: 300px;}    
@@ -214,16 +224,9 @@
 
         }
 
-        /* 반응형웹 설정 */
-        /*2560이하 시작 */
-        @media screen and (max-width:2560px){
-        .cir1{top: -55%;right: 260px;}
-        .cir2{top: -33%;right: 260px;}
-        .cir3{top: -11%;right: 260px;} 
-        }
-
         /*1024이하 시작 */
         @media screen and (max-width:1024px){
+        .page{overflow-x:hidden;}
         .data { margin-left: 40px;}
         .data li { float:left; margin:3rem 1rem; overflow-x:hidden; width: 450px;}
         .it::before{ width: 400px; z-index: 3333;} 
@@ -240,6 +243,7 @@
 
         /*768이하 시작 */
         @media screen and (max-width:768px){
+        .page{overflow-x:hidden;}
         .data {width:100%;margin-left: 130px; }
         .data li {float:left; margin:1rem 1rem; overflow-x:hidden; width: 500px;}
         .it::before{ width: 500px;z-index: 3333;} 
@@ -257,6 +261,7 @@
 
         /*425이하 시작 */
         @media all and (max-width:425px){
+        .page{overflow-x:hidden;}
         .bg1{width: 200px;height: 200px;}
         .bg1.on{bottom: 70%;}
 
@@ -281,12 +286,16 @@
 
         /*375이하 시작 */
         @media all and (max-width:375px){
-
+        .page{overflow-x:hidden;}
         .dwrap{position: fixed;right: -8%;bottom: 250px;width: 200px;z-index:999999;}
         .circles{position: fixed; left: 30%;bottom: 320px;z-index: 4444;z-index:99999;} 
         .circles img{width:380px;height: auto;}
         .circles.on{bottom:55%;} 
 
+        .dscrip_img{width: auto;height: 20px; clear: both;}
+        .item3 .it .pic{width: 300px;height: 200px;}
+        .it a::before{width: 300px;height: 200px;}
+        
         .cir1{top: -60%; right: 130px;}
         .cir2{top: -35%;right: 130px;}
         .cir3{top: -10%;right: 130px;}  
@@ -295,8 +304,6 @@
         .data {width:100%;margin-left: 40px; }
         .data li {float:left; margin:0.5rem 0rem; overflow-x:hidden; width: 300px; height: 300px;}
         .it::before{ width: 300px;} 
-
-
         }
 
         </style>
