@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no, width=device-width, height=device-height">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">   
     <!-- 파비콘이미지 넣을때 같은 폴더안에서 직접적으로 언급해야지 나온다.... -->
     <!-- 파비콘(공통,애플,IE형태) -->
     <link rel="shortcut icon" href="./img/favicon_64siz.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./img/favicon_64siz.png">     
     <!-- 웹사이트 정보, 검색어, 저자, 웹이름, 10초 주기로 자동새로고침 -->
-    <meta name="title" content="riuwoodcraft">
-    <meta name="keyword" content="riuwoodcraft, 리우목공방, 공방, 목가구, 가구">
+    <meta name="title" content="newli's portfolio">
+    <meta name="keyword" content="newli, newls, 뉴리, 포트폴리오,newli's portfolio">
     <meta name="auther" content="newli">
-    <meta name="description" content="wellcome to riuwoodcraft">
+    <meta name="description" content="wellcome to newli's portfolio">
     <!-- 자동새로고침 -->
     <meta http-equiv="refresh" content="180">    
     <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
@@ -23,7 +23,18 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Sunflower:300&display=swap" rel="stylesheet">
     <!-- 아이콘 폰트 링크(xeicon) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->   
+    <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->  
+    
+     <!-- 모바일 화면 조정 -->
+     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+     <meta name="mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-capable" content="yes">
+ 
+     <!--     아이폰용 툴바 감추기 + 전체화면 set-->
+     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
     <!-- css 연결 -->
     <!-- <link rel="stylesheet" href="./common.css" media="all"> -->
     <link rel="stylesheet" href="./circle.css">  
@@ -164,6 +175,7 @@
 
         /* 써클버튼효과 */
         .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
+        .cirwrap span{margin-top: 250px;}
         .cir1{position: absolute;top: -62%;right: 230px;transition: 0.7s;z-index: 9;}
         .cir2{position: absolute;top: -44%;right: 230px;transition: 0.7s;z-index: 9;}
         .cir3{position: absolute;top: -26%;right: 230px;transition: 0.7s;z-index: 9;}
@@ -178,7 +190,7 @@
             60%{fill:transparent;}
             80%{fill:transparent; stroke-dashoffset: 0;}
         }    */        
-       .subSmenu{position: fixed; bottom: 4%; width: 400px;height: 250px;
+       .subSmenu{position: fixed; bottom: 4%; width: 200px; height: 250px; margin-bottom: 250px; 
        z-index: 99999; right: 0%;}
        .snslist li{height: 48px; cursor: pointer;width: 100%;}
        .snslist li a{height: 28px;width: 50%;display: block;}
@@ -232,13 +244,14 @@
         .it::before{ width: 400px; z-index: 3333;} 
 
         .dwrap{position: fixed;right: 4%;bottom: 280px;width: 200px;}
-        .circles{position: fixed; left: 64%;bottom: 680px;z-index: 4444;} 
+        .circles{position: fixed; left: 64%;bottom: 980px;z-index: 4444;}
         .circles img{width:405px;height: auto;}
-        .circles.on{bottom: 35%;} 
+        .circles.on{bottom: 57%;} 
 
-        .cir1{right: 210px;}
-        .cir2{right: 210px;}
-        .cir3{right: 210px;}    
+        .cir1{right: 210px;top:-70%;}
+        .cir2{right: 210px;top:-50%;}
+        .cir3{right: 210px;top:-30%;}    
+
         }
 
         /*768이하 시작 */
@@ -251,7 +264,7 @@
         .dwrap{position: fixed;right: 5%;bottom: 180px;width: 200px;z-index:999999;}
         .circles{position: fixed; left: 53%;bottom: 678px;z-index: 4444;z-index:99999;}
         .circles img{width:405px;height: auto;}
-        .circles.on{bottom: 35%;} 
+        .circles.on{bottom: 47%;} 
 
         .cir1{top:-20%;right: 200px;}
         .cir2{top:0%;right: 200px;}
@@ -288,9 +301,9 @@
         @media all and (max-width:375px){
         .page{overflow-x:hidden;}
         .dwrap{position: fixed;right: -8%;bottom: 250px;width: 200px;z-index:999999;}
-        .circles{position: fixed; left: 30%;bottom: 320px;z-index: 4444;z-index:99999;} 
+        .circles{position: fixed; left: 28%;bottom: 320px;z-index: 4444;z-index:99999;} 
         .circles img{width:380px;height: auto;}
-        .circles.on{bottom:55%;} 
+        .circles.on{bottom:52%;} 
 
         .dscrip_img{width: auto;height: 20px; clear: both;}
         .item3 .it .pic{width: 300px;height: 200px;}
