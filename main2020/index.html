@@ -13,6 +13,18 @@
     <meta name="keyword" content="newli, newls, 뉴리, 포트폴리오,newli's portfolio">
     <meta name="auther" content="newli">
     <meta name="description" content="wellcome to newli's portfolio">
+    <!-- 아이폰 설정 -->
+          <!-- 모바일 화면 조정 -->
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+          <meta name="mobile-web-app-capable" content="yes">
+          <meta name="apple-mobile-web-app-capable" content="yes">
+    
+          <!--     아이폰용 툴바 감추기 + 전체화면 set-->
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+          
+          <!-- <link rel="apple-touch-startup-image" href="/images/스타트페이지이미지.png"/> -->
     <!-- 자동새로고침 -->
     <meta http-equiv="refresh" content="180">    
     <!-- 앱에서 필요한 내용 환경설정 json(manifest.json) 연결 -->
@@ -22,17 +34,6 @@
     <!-- 아이콘 폰트 링크(xeicon) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="./xeicon.min.css"> -->   
-    
-      <!-- 모바일 화면 조정 -->
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-      <meta name="mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-
-      <!--     아이폰용 툴바 감추기 + 전체화면 set-->
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
     <!-- css 연결 -->
     <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./circle.css">      
@@ -429,21 +430,64 @@
 
 }
 
-
-
-
-
 );//스크립트 끝 지우지마 <-
-
- 
-
   
+  // 카카오톡 링크 줄때 보이는 거 꾸미기 
 
+  Kakao.init('d74c871c6b51758c6f495a4551e44a20');
 
+  //기본 버튼 공유하기
+  Kakao.Link.createDefaultButton({
+
+    /* 버튼을 먹일 곳*/
+    container : '#kakao-link-btn',
+
+    /* 여기서 타입은 feed로 고정 */
+    objectType: 'feed',
+
+    /* 카드형 안에 들어갈 내용들 */
+    content: {
+
+      /* 당연히 제목 */
+      title: 'newli portfolio',
+
+      /* 당연히 설명 */
+      description: '#웹디자인 #포트폴리오 #뉴리',
+
+      /* 사진 주소 */
+      imageUrl: 'https://images2.alphacoders.com/507/thumb-1920-507980.png',
+
+      /* 사진을 눌렀을 때 이동 페이지(다르게 줄 수 있음) */
+      link: {
+        mobileWebUrl: 'https://newri0807.github.io/main2020/',
+        webUrl: 'https://newri0807.github.io/main2020/'
+      }
+    },
+    /* 각종(좋아요, 댓글수, 공유수, 열어본수, 구독수) */
+    social: {
+      likeCount: 1,
+      commentCount: 2,
+      sharedCount: 3,
+      viewCount : 10000,
+      subscriberCount : 1231241,
+    },
+
+    /* 버튼 생성 */
+    buttons: [
+      {
+        /* 버튼 이름 */
+        title: '웹으로 보기',
+
+        /* 버튼 링크 */
+        link: {
+          mobileWebUrl: 'https://newri0807.github.io/main2020/',
+          webUrl: 'https://newri0807.github.io/main2020/'
+        }
+      },
+    ]
+  });
   
-
-
-    </script>    
+</script>    
 </head>
 <body>
     <div id="circle">
@@ -462,8 +506,7 @@
           <li class="cir1">N</li>
         </ul>
     </div>
-  
-  
+ 
 <div class="container">
 <main>
   <header>
