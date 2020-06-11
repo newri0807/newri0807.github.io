@@ -557,7 +557,6 @@ button {
   transition: all var(--animation-duration) ease-in;
   box-shadow: 1px 1px 1px var(--color-white) inset;
   font-size: var(--font-large);
-  display: block;
 }
 .arrow-up.visible {
   opacity: 1;
@@ -606,5 +605,37 @@ button {
   .testimonial__avatar {
     width: 80px;
     height: 80px;
+  }
+}
+
+/*375이하 시작 */
+@media all and (max-width: 375px) {
+  .arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 32px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--animation-duration) ease-in;
+    box-shadow: 1px 1px 1px var(--color-white) inset;
+    font-size: var(--font-large);
+  }
+  .arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar__toggle-btn {
+    position: absolute;
+    top: 38px;
+    right: 32px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
   }
 }
