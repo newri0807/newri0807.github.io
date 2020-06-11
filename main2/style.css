@@ -547,10 +547,8 @@ button {
   position: fixed;
   bottom: 50px;
   right: 32px;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
+  width: 70px;
+  height: 70px;
   background-color: var(--color-black);
   color: var(--color-white);
   border-radius: 50%;
