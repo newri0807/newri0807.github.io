@@ -271,7 +271,7 @@ button {
 }
 .job__discription {
   margin: 0 16px;
-  text-align-last: left;
+  text-align: left;
 }
 .job__name,
 .job__period {
