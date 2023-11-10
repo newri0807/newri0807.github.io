@@ -1,0 +1,131 @@
+repo_name: newri0807/newri0807.github.io
+report_id: 997fc8b9d45cc99647155313fd14f0b9
+repo_type: Public
+timestamp: '2023-11-10T03:15:01+00:00'
+requested_by: newri0807
+provider: github
+branch: master
+detected_tools_count: 10
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: Grunt
+  description: The JavaScript Task Runner
+  website_url: http://gruntjs.com/
+  version: 0.4.1
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/service/845/falgg2jybmhgk16y62lr.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: grunt-cli
+  description: The grunt command line interface
+  package_url: https://www.npmjs.com/grunt-cli
+  version: 0.1.13
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16021/default_924b66c04aa848a4028c1a5753a23dae0f835f86.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: grunt-contrib-coffee
+  description: Compile CoffeeScript files to JavaScript
+  package_url: https://www.npmjs.com/grunt-contrib-coffee
+  version: 0.9.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16284/default_9924e5da1d50ea01e52b48e4fae4b1347af5e4ff.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: grunt-contrib-concat
+  description: Concatenate files
+  package_url: https://www.npmjs.com/grunt-contrib-concat
+  version: 0.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16075/default_d4e765f8a43dcfd232c8b9ee9732058bc27c727a.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: grunt-contrib-jshint
+  description: Validate files with JSHint
+  package_url: https://www.npmjs.com/grunt-contrib-jshint
+  version: 0.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15898/default_59a1b5716eefa3750c20936c3d53ff13a6390ee1.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
+- name: grunt-contrib-uglify
+  description: Minify JavaScript files with UglifyJS
+  package_url: https://www.npmjs.com/grunt-contrib-uglify
+  version: 0.3.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15954/default_ac622bc364a601d766b9a6f6039f191492f54d65.png
+  detection_source_url: res5/jquery-fadethis-master/package.json
+  detection_source: res5/jquery-fadethis-master/package.json
+  last_updated_by: newli
+  last_updated_on: 2019-07-28 09:32:38.000000000 Z
